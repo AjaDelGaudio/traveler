@@ -1,3 +1,10 @@
+![Build Status]
+(https://codeship.com/projects/e18fe9b0-4455-0133-56fb-42f127a1e42f/status?branch=master)
+![Code Climate]
+(https://codeclimate.com/github/AjaDelGaudio/traveler.png)
+![Coverage Status]
+(https://coveralls.io/repos/AjaDelGaudio/traveler/badge.png)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
