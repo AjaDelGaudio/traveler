@@ -16,7 +16,7 @@ feature 'authenticated user creates a bucket list', %(
 #[] I remain on the index page after I create the list
 #[] I must be signed in to create the list
 
-scenario 'authenticated user creates a bucket list' do
+scenario "authenticated user creates a bucket list" do
   visit new_user_session_path
   sign_in
   visit root_path
@@ -24,17 +24,17 @@ scenario 'authenticated user creates a bucket list' do
   fill_in 'Title', with: 'Europe'
   click_button 'Create Your Bucket List!'
 
-  expect(page).to have_content('Congrats! You started a new Bucket List!')
+  expect(page).to have_content("Congrats! You started a new Bucket List!")
 end
 
-  scenario 'unauthenticated user creates a bucket list' do
+  scenario "unauthenticated user creates a bucket list" do
     visit root_path
     click_link 'New Bucket List'
     fill_in 'Title', with: 'Europe'
     click_button 'Create Your Bucket List!'
 
-    expect(page).to have_content('You need to sign in or sign up before continuing.')
-    expect(page).to have_content('Email')
-    expect(page).to have_content('Password')
+    expect(page).to have_content("You need to sign in or sign up before continuing.")
+    expect(page).to have_content("Email")
+    expect(page).to have_content("Password")
   end
 end
