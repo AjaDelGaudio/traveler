@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe User do
   subject { FactoryGirl.build(:user) }
-  # it { should have_many(:destinations)}
 
   it { should have_valid(:languages).when('Spanish', 'Cantonese') }
   it { should_not have_valid(:languages).when(nil, '') }
