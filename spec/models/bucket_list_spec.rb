@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe BucketList, type: :model do
   subject { FactoryGirl.build(:bucket_list) }
-  it { should have_many(:users)}
+  # it { should have_many(:users)}
   # it { should have_many(:destinations)}
 
   it { should have_valid(:title).when('New Mexico', 'South East Asia with Kam') }
