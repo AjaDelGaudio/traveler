@@ -9,4 +9,9 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :bucket_list do
+    sequence(:title) {|n| "My List ##{n}" }
+    description 'I go places'
+    is_public 'false'
+  end
 end
