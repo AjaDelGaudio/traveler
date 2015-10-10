@@ -7,13 +7,13 @@ feature "authenticated user views their bucket lists", %(
 ) do
 # Acceptance Criteria
 #[x] I can navigate to a list of my bucket lists from the page for creating new
-#   lists
+#    lists
 #[x] I can navigate to a list of my bucket lists from the front page
 #[x] I can see the title, description, and public/saved setting of the bucket
-#   list
+#    list
 #[x] The full list is displayed on its own show page
 #[x] The page displaying my bucket lists also displays my total number of bucket
-# lists
+#    lists
 
   scenario "authenticated user views all their bucket lists" do
     bucket_list = FactoryGirl.create(:bucket_list)
@@ -31,7 +31,8 @@ feature "authenticated user views their bucket lists", %(
   scenario "unauthenticated user views all their bucket lists" do
     visit bucket_lists_path
 
-    expect(page).to have_content("You need to sign in or sign up before continuing.")
+    expect(page).to have_content("You need to sign in or sign up before
+      continuing.")
     expect(page).to have_content("Email")
     expect(page).to have_content("Password")
   end
