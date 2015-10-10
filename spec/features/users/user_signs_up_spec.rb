@@ -15,7 +15,6 @@ feature 'user registers', %Q{
   scenario 'provide valid registration information' do
     visit new_user_registration_path
 
-    fill_in 'Languages', with: 'Navajo'
     fill_in 'Username', with: 'mrappleseed'
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
@@ -37,7 +36,6 @@ feature 'user registers', %Q{
 
   scenario 'username must be unique' do
     existing_user = User.create(
-      languages: 'Nigerian',
       username: 'username',
       email: 'emailme@email.com',
       password: '12345678',
@@ -45,7 +43,6 @@ feature 'user registers', %Q{
 
     visit new_user_registration_path
 
-    fill_in 'Languages', with: 'Navajo'
     fill_in 'Username', with: 'username'
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
@@ -60,7 +57,6 @@ feature 'user registers', %Q{
   scenario 'password too short' do
     visit new_user_registration_path
 
-    fill_in 'Languages', with: 'Navajo'
     fill_in 'Username', with: 'username'
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: '1'
