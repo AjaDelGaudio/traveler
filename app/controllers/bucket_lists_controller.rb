@@ -1,8 +1,9 @@
 class BucketListsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :index]
 
   def index
-    @bucket_lists = BucketLists.all
+    @bucket_lists = BucketList.where(user_id: current_user.id)
+    @bucker_lists_count = @bucket_lists.count
   end
 
   def new
@@ -11,14 +12,15 @@ class BucketListsController < ApplicationController
 
   def create
     @bucket_list = BucketList.new(bucket_list_params)
+    @bucket_list.user = current_user
 
     if @bucket_list.is_public == nil
       @bucket_list.is_public = false
     end
 
     if @bucket_list.save
+      redirect_to bucket_lists_path
       flash[:notice] = "Congrats! You started a new Bucket List!"
-      redirect_to new_bucket_list_path
     else
       flash[:errors] = @bucket_list.errors.full_messages.join(" | ")
       render :new
@@ -31,7 +33,8 @@ class BucketListsController < ApplicationController
       params.require(:bucket_list).permit(
         :title,
         :description,
-        :is_public
+        :is_public,
+        :user_id
       )
   end
 end
