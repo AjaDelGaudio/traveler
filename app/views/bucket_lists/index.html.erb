@@ -1,0 +1,17 @@
+<h1><%= current_user.username %>'s Bucket Lists:</h1>
+
+<p><%= @bucket_lists.count %> Bucket List(s) </p>
+
+<ul>
+  <% @bucket_lists.each do |bucket_list| %>
+    <li>
+      <%= bucket_list.title %>
+      <% if bucket_list.is_public %>
+        <li>OPEN EYE PHOTO HERE</li>
+      <% else %>
+        <li>CROSSED OUT EYE HERE</li>
+      <% end %>
+    </li>
+    <li><%= bucket_list.description %></li>
+  <% end %>
+</ul>

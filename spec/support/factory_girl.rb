@@ -12,5 +12,8 @@ FactoryGirl.define do
     sequence(:title) { |n| "My List ##{n}" }
     description 'I go places'
     is_public 'false'
+    user
   end
+
+
 end
