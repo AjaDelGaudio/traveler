@@ -1,4 +1,6 @@
 <div class="create-bucket-list-area">
+  <%= link_to "Delete", bucket_list_path(@bucket_list), method: :delete %>
+
   <%= form_for @bucket_list, url: edit_bucket_list_path(@bucket_list) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>

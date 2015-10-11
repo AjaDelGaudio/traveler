@@ -28,7 +28,7 @@ feature 'authenticated user edits a bucket list', %(
     expect(page).to have_content("My Bucket Lists")
   end
 
-  scenario "user fails to successfully change the title of a bucket list" do
+  scenario "user fails to successfully edit a bucket list" do
     bucket_list = FactoryGirl.create(:bucket_list)
 
     visit new_user_session_path

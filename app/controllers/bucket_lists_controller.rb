@@ -44,6 +44,15 @@ class BucketListsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @bucket_list = BucketList.find(params[:id])
+    if @bucket_list.destroy
+      flash[:success] = "Bucket List deleted"
+      redirect_to bucket_lists_path
+    end
+  end
+
   private
 
   def bucket_list_params
