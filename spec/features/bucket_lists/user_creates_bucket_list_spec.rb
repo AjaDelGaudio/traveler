@@ -24,7 +24,7 @@ feature 'authenticated user creates a bucket list', %(
     click_button 'Create Your Bucket List!'
 
     expect(page).to have_content("Congrats! You started a new Bucket List!")
-    expect(page).to have_content('Europe')
+    expect(page).to have_content("Europe")
   end
 
   scenario "unauthenticated user creates a bucket list" do
@@ -33,7 +33,8 @@ feature 'authenticated user creates a bucket list', %(
     fill_in 'Title', with: 'Europe'
     click_button 'Create Your Bucket List!'
 
-    expect(page).to have_content("You need to sign in or sign up before continuing.")
+    expect(page).to have_content("You can do that after you sign in or"
+    + "sign up!")
     expect(page).to have_content("Email")
     expect(page).to have_content("Password")
   end
@@ -48,6 +49,7 @@ feature 'authenticated user creates a bucket list', %(
       click_button 'Create Your Bucket List!'
 
       expect(page).to have_content("Title can't be blank")
-      expect(page).not_to have_content("Congrats! You started a new Bucket List!")
+      expect(page).not_to have_content("Congrats! You started a new Bucket" +
+      "List!")
     end
 end
