@@ -6,9 +6,9 @@ feature 'authenticated user edits a bucket list', %(
   So I can later recall the destinations without weighing down my bag or mind.
 ) do
 # Acceptance Criteria
-#[x] I can change the title and description
-#[x] I must click submit to save my changes
-#[x] I can toggle between private and public
+# [x] I can change the title and description
+# [x] I must click submit to save my changes
+# [x] I can toggle between private and public
 
 
   scenario "user successfully changes the title of a bucket list" do
@@ -28,7 +28,7 @@ feature 'authenticated user edits a bucket list', %(
     expect(page).to have_content("My Bucket Lists")
   end
 
-  scenario "user fails to successfully change the title of a bucket list" do
+  scenario "user fails to successfully edit a bucket list" do
     bucket_list = FactoryGirl.create(:bucket_list)
 
     visit new_user_session_path

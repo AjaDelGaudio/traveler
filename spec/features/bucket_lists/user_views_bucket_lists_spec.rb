@@ -6,14 +6,14 @@ feature "authenticated user views their bucket lists", %(
   So I can quickly recall the bucket list on the go without weighing down my bag or mind.
 ) do
 # Acceptance Criteria
-#[x] I can navigate to a list of my bucket lists from the page for creating new
-#    lists
-#[x] I can navigate to a list of my bucket lists from the front page
-#[x] I can see the title, description, and public/saved setting of the bucket
-#    list
-#[x] The full list is displayed on its own show page
-#[x] The page displaying my bucket lists also displays my total number of bucket
-#    lists
+# [x] I can navigate to a list of my bucket lists from the page for creating new
+#     lists
+# [x] I can navigate to a list of my bucket lists from the front page
+# [x] I can see the title, description, and public/saved setting of the bucket
+#     list
+# [x] The full list is displayed on its own show page
+# [x] The page displaying my bucket lists also displays my total number of bucket
+#     lists
 
   scenario "authenticated user views all their bucket lists" do
     bucket_list = FactoryGirl.create(:bucket_list)
