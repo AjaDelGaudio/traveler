@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature 'authenticated user creates a bucket list', %(
+feature 'authenticated user edits a bucket list', %(
   As a last minute traveler or traveler who's stay is unexpectedly extended,
   I want to edit a bucket list
   So I can later recall the destinations without weighing down my bag or mind.
@@ -12,14 +12,35 @@ feature 'authenticated user creates a bucket list', %(
 
 
   scenario "user successfully changes the title of a bucket list" do
-    visit new_user_session_path
-    sign_in
-    visit root_path
-    click_link 'New Bucket List!'
-    fill_in 'Title', with: 'Europe'
-    click_button 'Create Your Bucket List!'
+    bucket_list = FactoryGirl.create(:bucket_list)
 
-    expect(page).to have_content("Congrats! You started a new Bucket List!")
-    expect(page).to have_content('Europe')
+    visit new_user_session_path
+    fill_in 'Email', with: bucket_list.user.email
+    fill_in 'Password', with: bucket_list.user.password
+    click_button 'Log in'
+    visit bucket_lists_path
+    click_link 'Edit'
+    fill_in 'Title', with: 'Africa'
+    fill_in 'Description', with: 'Much warmer!'
+    click_button 'Save changes'
+
+    expect(page).to have_content("Changes saved!")
+    expect(page).to have_content("My Bucket Lists")
+  end
+
+  scenario "user fails to successfully change the title of a bucket list" do
+    bucket_list = FactoryGirl.create(:bucket_list)
+
+    visit new_user_session_path
+    fill_in 'Email', with: bucket_list.user.email
+    fill_in 'Password', with: bucket_list.user.password
+    click_button 'Log in'
+    visit bucket_lists_path
+    click_link 'Edit'
+    fill_in 'Title', with: ''
+    click_button 'Save changes'
+
+    expect(page).not_to have_content("Changes saved!")
+    expect(page).to have_content("Every list needs a title.")
   end
 end

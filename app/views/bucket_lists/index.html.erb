@@ -7,10 +7,11 @@
     <li>
       <%= bucket_list.title %>
       <% if bucket_list.is_public %>
-        <li>OPEN EYE PHOTO HERE</li>
+        <li>Public OPEN EYE PHOTO HERE</li>
       <% else %>
-        <li>CROSSED OUT EYE HERE</li>
+        <li>Private CROSSED OUT EYE HERE</li>
       <% end %>
+      <%= link_to "Edit", edit_bucket_list_path(bucket_list) %>
     </li>
     <li><%= bucket_list.description %></li>
   <% end %>

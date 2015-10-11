@@ -1,6 +1,5 @@
 <div class="create-bucket-list-area">
-  <%= form_for @bucket_list do |f| %>
-
+  <%= form_for @bucket_list, url: edit_bucket_list_path(@bucket_list) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
 
@@ -9,9 +8,7 @@
 
     <%= f.label "Make my list public" %>
     <%= f.check_box :is_public %>
-    
-    <%= f.submit "Create Your Bucket List!", class: "button" %>
+
+    <%= f.submit "Save changes", class: "button" %>
   <% end %>
 </div>
-
-<%= link_to "My Bucket Lists", bucket_lists_path %>
