@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   resources :bucket_lists, only: [:index, :new, :create, :edit]
 
   patch '/bucket_lists/:id/edit', to: 'bucket_lists#update', as: 'bucket_list'
-
 end

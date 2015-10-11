@@ -34,6 +34,7 @@ class BucketListsController < ApplicationController
   def update
     @bucket_list = BucketList.find(params[:id])
     @bucket_list.update(bucket_list_params)
+    
     if @bucket_list.save
       redirect_to root_path
       flash[:info] = "Changes saved!"
