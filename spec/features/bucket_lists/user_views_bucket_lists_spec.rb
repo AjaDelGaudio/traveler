@@ -52,8 +52,8 @@ feature "authenticated user views their bucket lists", %(
   end
 
 
-  scenario "authenticated user navigates from the create new bucket list page to
-    see a list of all their bucket lists" do
+  scenario "authenticated user navigates from the create new bucket list page
+    to see a list of all their bucket lists" do
     bucket_list = FactoryGirl.create(:bucket_list)
 
     visit new_user_session_path
