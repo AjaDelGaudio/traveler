@@ -31,8 +31,7 @@ feature "authenticated user views their bucket lists", %(
   scenario "unauthenticated user views all their bucket lists" do
     visit bucket_lists_path
 
-    expect(page).to have_content("You can do that after you sign in or" +
-    "sign up!")
+    expect(page).to have_content("You can do that after you sign in or sign up!")
     expect(page).to have_content("Email")
     expect(page).to have_content("Password")
   end
