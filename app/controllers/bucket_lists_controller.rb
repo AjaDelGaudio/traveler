@@ -28,13 +28,14 @@ class BucketListsController < ApplicationController
   end
 
   def edit
-    @bucket_list = BucketList.where(user: current_user)[0]
+    @bucket_list = BucketList.where(user: current_user)
+    @bucket_list = @bucket_list[0]
   end
 
   def update
     @bucket_list = BucketList.find(params[:id])
     @bucket_list.update(bucket_list_params)
-    
+
     if @bucket_list.save
       redirect_to root_path
       flash[:info] = "Changes saved!"
