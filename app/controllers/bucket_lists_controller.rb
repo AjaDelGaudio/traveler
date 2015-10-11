@@ -1,5 +1,5 @@
 class BucketListsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :index]
+  before_action :authenticate_user!, only: [:create, :index, :edit]
 
   def index
     @bucket_lists = BucketList.where(user_id: current_user.id)
@@ -27,6 +27,22 @@ class BucketListsController < ApplicationController
     end
   end
 
+  def edit
+    @bucket_list = BucketList.where(user: current_user)[0]
+  end
+
+  def update
+    @bucket_list = BucketList.find(params[:id])
+    @bucket_list.update(bucket_list_params)
+    if @bucket_list.save
+      redirect_to root_path
+      flash[:info] = "Changes saved!"
+    else
+      @bucket_list = BucketList.where(user: current_user)[0]
+      flash[:warning] = "Every list needs a title."
+      render :edit
+    end
+  end
   private
 
   def bucket_list_params
