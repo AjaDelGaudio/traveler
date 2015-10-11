@@ -6,9 +6,9 @@ feature 'authenticated user edits a bucket list', %(
   So I can later recall the destinations without weighing down my bag or mind.
 ) do
 # Acceptance Criteria
-#[x] I can change the title and description
-#[x] I must click submit to save my changes
-#[x] I can toggle between private and public
+# [x] I can change the title and description
+# [x] I must click submit to save my changes
+# [x] I can toggle between private and public
 
 
   scenario "user successfully changes the title of a bucket list" do

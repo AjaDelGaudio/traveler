@@ -6,8 +6,9 @@ feature 'authenticated user deletes a bucket list', %(
   So I can throw away my dreams.
 ) do
 # Acceptance Criteria
-#[] I can click a link to delete a bucket list
-#[] I receive an success message after deleting a bucket list
+# [x] I can click a link to delete a bucket list
+# [x] I receive an success message after deleting a bucket list
+# [x] After I delete a bucket list it is no longer visible
 
   scenario "authenticated user sucessfully deletes a bucket list" do
     bucket_list = FactoryGirl.create(:bucket_list)
