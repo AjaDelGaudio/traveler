@@ -1,5 +1,6 @@
 class BucketList < ActiveRecord::Base
   belongs_to :user
+  has_many :adventures
 
   validates :title, presence: true
   validates_uniqueness_of :title

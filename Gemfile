@@ -58,3 +58,5 @@ gem 'shoulda-matchers', '~> 2.8.0', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails'
 gem 'dotenv-rails'
+gem 'geocoder'
+gem 'font-awesome-sass'
