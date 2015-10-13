@@ -7,7 +7,6 @@ class AdventuresController < ApplicationController
       flash[:notice] = "You don't have any bucket lists yet."
       flash[:notice] = "You'll need to create a bucket list first."
     else
-  
       @adventure = Adventure.new
     end
   end

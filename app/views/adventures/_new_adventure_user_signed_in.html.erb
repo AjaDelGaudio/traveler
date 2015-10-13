@@ -1,10 +1,32 @@
-<%= form_for @adventure do |f| %>
-  <%= f.label :bucket_list_id %>
-  <%= f.collection_select(
-    :bucket_list_id,
-    BucketList.where(user_id: current_user.id),
-    :id,
-    :title,
-    class: "transparent-form"
-  ) %>
-<% end %>
+<div class="small-12 medium-10 large-8 columns small-centered new-adventure-area">
+  <%= form_for @adventure do |f| %>
+
+    <div class="form-inputs">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "transparent-form" %>
+
+      <%= f.label :address %>
+      <%= f.text_area :address, class: "transparent-form" %>
+
+      <%= f.label :bucket_list_id %>
+      <%= f.collection_select(
+        :bucket_list_id,
+        BucketList.where(user_id: current_user.id),
+        :id,
+        :title,
+        class: "transparent-form"
+      ) %>
+
+      <%= f.label :notes %>
+      <%= f.text_area :notes, class: "transparent-form" %>
+
+      <%= f.check_box :is_achieved %>
+      <%= f.label "I've already been here/done this" %>
+
+      <div class="form-actions">
+        <%= f.submit "Add to Bucket List!", class: "button" %>
+      </div>
+
+  <% end %>
+
+</div>
