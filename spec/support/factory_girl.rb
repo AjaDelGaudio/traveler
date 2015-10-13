@@ -21,7 +21,8 @@ FactoryGirl.define do
     longitude 116.40739499999995
     latitude 39.904211
     is_achieved false
-    notes 'An disturbingly tiny bar on the edge of the Forbidden City'
+    notes 'Do NOT order baijiu'
     bucket_list
+    user
   end
 end

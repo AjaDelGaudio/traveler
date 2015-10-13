@@ -1,42 +1,11 @@
-<div class="small-12 medium-10 large-8 columns small-centered new-adventure-area">
-  <%= form_for @adventure do |f| %>
+<% if current_user == nil %>
+  <%= render "select_bucket_list_user_NOT_signed_in" %>
+<% else %>
+  <%= render "select_bucket_list_user_signed_in" %>
+<% end %>
 
-    <div class="form-inputs">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "transparent-form" %>
-
-      <%= f.label :address %>
-      <%= f.text_area :address, class: "transparent-form" %>
-
-      <div id="map-container">
-        <div id="map-canvas"></div>
-      </div>
-
-      <%= f.label :bucket_list_id %>
-      <%= f.collection_select(
-        :bucket_list_id,
-        BucketList.where(user_id: current_user.id),
-        :id,
-        :title,
-        class: "transparent-form"
-      ) %>
-
-      <%= f.label :notes %>
-      <%= f.text_area :notes, class: "transparent-form" %>
-
-      <%= f.check_box :is_achieved %>
-      <%= f.label "I've already been here/done this" %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.submit "Add to Bucket List!", class: "button" %>
-    </div>
-  <% end %>
-  
 <%= link_to "No adventures, just a new Bucket List please!", new_bucket_list_path %>
 </div>
-
-
 
 <%= javascript_include_tag "map/gmap" %>
 <script async defer

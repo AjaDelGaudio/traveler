@@ -13,7 +13,7 @@ class AdventuresController < ApplicationController
     end
 
     if @adventure.save
-      redirect_to adventures_path
+      redirect_to new_adventure_path
       flash[:notice] = "Excellent! Another adventure to happen!"
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")

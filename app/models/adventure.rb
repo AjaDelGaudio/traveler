@@ -6,8 +6,8 @@ class Adventure < ActiveRecord::Base
 
   validates_inclusion_of :is_achieved, in: [true, false]
 
-  validates :latitude, numericality: { only_float: true }
-  validates :longitude, numericality: { only_float: true }
+  # validates :latitude, numericality: { only_float: true, allow: nil }
+  # validates :longitude, numericality: { only_float: true, allow: nil }
 
   geocoded_by :address
   after_validation :geocode  # auto-fetch coordinates

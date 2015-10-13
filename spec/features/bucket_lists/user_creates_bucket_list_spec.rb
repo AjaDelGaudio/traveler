@@ -16,7 +16,6 @@ feature 'authenticated user creates a bucket list', %(
 # [x] I must be signed in to create the list
 
   scenario "authenticated user successfully creates a bucket list" do
-    visit new_user_session_path
     sign_in
     visit root_path
     click_link 'New Bucket List!'
@@ -39,7 +38,6 @@ feature 'authenticated user creates a bucket list', %(
   end
 
   scenario "authenticated user fails to sucessfully create a bucket list" do
-    visit new_user_session_path
     sign_in
     visit root_path
     click_link 'New Bucket List'
