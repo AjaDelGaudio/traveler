@@ -1,6 +1,9 @@
 class Adventure < ActiveRecord::Base
   belongs_to :bucket_list
 
+  reverse_geocoded_by :latitude, :longitude, address: :address
+  after_validation :reverse_geocode
+
   validates_presence_of :name, unless: :address?
   validates_presence_of :address, unless: :name?
 

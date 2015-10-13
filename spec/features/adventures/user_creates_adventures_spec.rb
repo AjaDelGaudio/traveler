@@ -44,24 +44,23 @@ feature 'authenticated user creates a an adventure using google maps', %(
   scenario "unauthenticated user fails to add an adventure to a bucket list" do
     visit root_path
     fill_in 'Name', with: "eat dragon fruit"
-    click_link 'Add to Bucket List!'
-    expect(page).to have_content("You can do that after you sign in or" +
+    click_button 'Add to Bucket List!'
+
+    expect(page).to have_content("You can do that after you sign in or " +
     "sign up!")
-    expect(page).to have_content("Email")
-    expect(page).to have_content("Password")
   end
 
-  scenario "authenticated user fails to add an adventure to a" +
+  scenario "authenticated user fails to add an adventure to a " +
     "bucket list" do
     sign_in
     visit root_path
-    click_link 'Add to Bucket List!'
+    click_button 'Add to Bucket List!'
 
-    expect(page).to have_content("Location can't be blank")
-    expect(page).to have_content("Add to your Bucket List!")
+    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Address can't be blank")
   end
 
-  scenario "authenticated user successfully adds an adventure to an" +
+  scenario "authenticated user successfully adds an adventure to an " +
     "existing bucket list using gooogle maps" do
     bucket_list = FactoryGirl.create(:bucket_list)
 
@@ -70,7 +69,7 @@ feature 'authenticated user creates a an adventure using google maps', %(
     fill_in 'Latitude', with: "13.44574199"
     fill_in 'Longitude', with: "222.83143576"
     select bucket_list.title, from: 'Bucket List'
-    click_link 'Add to Bucket List!'
+    click_button 'Add to Bucket List!'
 
     expect(page).to have_content("Excellent!  Another adventure to happen!")
     expect(page).to have_content("Add to Bucket List!")
@@ -89,7 +88,7 @@ feature 'authenticated user creates a an adventure using google maps', %(
     fill_in 'Longitude', with: "222.83143576"
     select 'Create new Bucket List', from: 'Bucket List'
     fill_in 'Title', with: 'My Bucket List'
-    click_link 'Add to Bucket List!'
+    click_button 'Add to Bucket List!'
 
     expect(page).to have_content("Congrats! You started a new Bucket List!")
     expect(page).to have_content("Excellent!  Another adventure to happen!")
