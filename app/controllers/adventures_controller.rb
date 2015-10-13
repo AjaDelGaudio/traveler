@@ -2,7 +2,14 @@ class AdventuresController < ApplicationController
   before_action :authenticate_user!, only: [:create, :index, :edit]
 
   def new
-    @adventure = Adventure.new
+    if current_user.bucket_lists.count == 0
+      redirect_to new_bucket_list_path
+      flash[:notice] = "You don't have any bucket lists yet."
+      flash[:notice] = "You'll need to create a bucket list first."
+    else
+      render :new
+      @adventure = Adventure.new
+    end
   end
 
   def create

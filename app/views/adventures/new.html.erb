@@ -1,7 +1,7 @@
 <% if current_user == nil %>
-  <%= render "select_bucket_list_user_NOT_signed_in" %>
+  <%= render "new_adventure_user_NOT_signed_in" %>
 <% else %>
-  <%= render "select_bucket_list_user_signed_in" %>
+  <%= render "new_adventure_user_signed_in" %>
 <% end %>
 
 <%= link_to "No adventures, just a new Bucket List please!", new_bucket_list_path %>
