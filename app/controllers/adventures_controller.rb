@@ -1,5 +1,5 @@
 class AdventuresController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :index, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :index, :edit]
 
   def new
     if current_user.bucket_lists.count == 0
@@ -7,7 +7,7 @@ class AdventuresController < ApplicationController
       flash[:notice] = "You don't have any bucket lists yet."
       flash[:notice] = "You'll need to create a bucket list first."
     else
-      render :new
+  
       @adventure = Adventure.new
     end
   end
