@@ -59,11 +59,4 @@ ActiveRecord::Schema.define(version: 20151011232420) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
-  create_table "users_bucket_lists", force: :cascade do |t|
-    t.integer  "user_id",        null: false
-    t.integer  "bucket_list_id", null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
 end
