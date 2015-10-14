@@ -20,7 +20,6 @@ FactoryGirl.define do
     address 'Beijing, China'
     longitude 116.40739499999995
     latitude 39.904211
-    is_achieved false
     notes 'Do NOT order baijiu'
     bucket_list
   end
