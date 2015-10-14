@@ -1,8 +1,14 @@
 class AdventuresController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :index, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :index, :edit]
 
   def new
-    @adventure = Adventure.new
+    if current_user.bucket_lists.count == 0
+      redirect_to new_bucket_list_path
+      flash[:notice] = "You don't have any bucket lists yet."
+      flash[:notice] = "You'll need to create a bucket list first."
+    else
+      @adventure = Adventure.new
+    end
   end
 
   def create
@@ -13,7 +19,7 @@ class AdventuresController < ApplicationController
     end
 
     if @adventure.save
-      redirect_to adventures_path
+      redirect_to new_adventure_path
       flash[:notice] = "Excellent! Another adventure to happen!"
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")

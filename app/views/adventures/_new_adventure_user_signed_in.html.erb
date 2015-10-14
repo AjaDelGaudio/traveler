@@ -30,15 +30,3 @@
   <% end %>
 
 </div>
-
-<div id="map-container">
-  <div id="map-canvas"></div>
-</div>
-
-<%= link_to "No adventures, just a new Bucket List please!", new_bucket_list_path %>
-</div>
-
-<%= javascript_include_tag "map/gmap" %>
-<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_maps_api_server_key"] %>&callback=initMap">
-</script>

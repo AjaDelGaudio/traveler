@@ -24,60 +24,56 @@ feature 'authenticated user creates a an adventure using google maps', %(
 # [] I must click a link to add the location to any bucket list
 # [] I recieve a success message when I successfully add an adventure
 
-  scenario "authenticated user successfully adds an adventure to an" +
-    "existing bucket list using gooogle maps" do
-      bucket_list = FactoryGirl.create(:bucket_list)
+  scenario "authenticated user successfully adds an adventure with title only" do
+    bucket_list = FactoryGirl.create(:bucket_list)
 
-      visit new_user_session_path
-      sign_in
-      visit root_path
-      fill_in 'Latitude', with: "13.44574199"
-      fill_in 'Longitude', with: "222.83143576"
-      select bucket_list.title, from: 'Bucket List'
-      click_link 'Add to Bucket List!'
+    visit new_user_session_path
+    fill_in 'Email', with: bucket_list.user.email
+    fill_in 'Password', with: bucket_list.user.password
+    click_button 'Log in'
+    visit root_path
+    fill_in 'Name', with: "eat dragon fruit"
+    select bucket_list.title, from: 'Bucket list'
+    click_button 'Add to Bucket List!'
 
-      expect(page).to have_content("Excellent!  Another adventure to happen!")
-      expect(page).to have_content("Add to your Bucket List!")
-    end
-
-  scenario "unauthenticated user fails to add an adventure to a bucket list" do
-      visit root_path
-      fill_in 'Latitude', with: "13.44574199"
-      fill_in 'Longitude', with: "222.83143576"
-      select 'Create new Bucket List', from: 'Bucket List'
-      click_link 'Add to Bucket List!'
-
-      expect(page).to have_content("You can do that after you sign in or" +
-      "sign up!")
-      expect(page).to have_content("Email")
-      expect(page).to have_content("Password")
+    expect(page).to have_content("Excellent!  Another adventure to happen!")
+    expect(page).to have_content("Name")
+    expect(page).to have_content("Address")
   end
 
-  scenario "authenticated user fails to add an adventure to a" +
+  scenario "unauthenticated user fails to add an adventure to a bucket list" do
+    visit root_path
+
+    expect(page).to have_content("You can do that after you sign in or " +
+    "sign up!")
+    expect(page).to have_content("Email")
+    expect(page).to have_content("Password")
+  end
+
+  scenario "authenticated user fails to add an adventure to a " +
     "bucket list" do
+    bucket_list_sign_in
+    visit root_path
+    click_button 'Add to Bucket List!'
 
-      visit new_user_session_path
-      sign_in
-      visit root_path
-      click_link 'Add to Bucket List!'
+    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Address can't be blank")
+  end
 
-      expect(page).to have_content("Location can't be blank")
-      expect(page).to have_content("Add to your Bucket List!")
-    end
+  scenario "authenticated user successfully adds an adventure to an " +
+    "existing bucket list with address only" do
+    bucket_list = FactoryGirl.create(:bucket_list)
 
-  scenario "authenticated user successfully adds an adventure to a " +
-    "new bucket list using gooogle maps" do
-      visit new_user_session_path
-      sign_in
-      visit root_path
-      fill_in 'Latitude', with: "13.44574199"
-      fill_in 'Longitude', with: "222.83143576"
-      select 'Create new Bucket List', from: 'Bucket List'
-      fill_in 'Title', with: 'My Bucket List'
-      click_link 'Add to Bucket List!'
+    visit new_user_session_path
+    fill_in 'Email', with: bucket_list.user.email
+    fill_in 'Password', with: bucket_list.user.password
+    click_button 'Log in'
+    visit root_path
+    fill_in 'Address', with: "Paris, France"
+    select bucket_list.title, from: 'Bucket list'
+    click_button 'Add to Bucket List!'
 
-      expect(page).to have_content("Congrats! You started a new Bucket List!")
-      expect(page).to have_content("Excellent!  Another adventure to happen!")
-      expect(page).to have_content("Add to your Bucket List!")
-    end
+    expect(page).to have_content("Excellent!  Another adventure to happen!")
+    expect(page).to have_content("I've already been here/done this")
+  end
 end

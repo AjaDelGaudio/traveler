@@ -53,6 +53,10 @@ class BucketListsController < ApplicationController
     end
   end
 
+  def all_public
+    @bucket_lists = BucketList.where(is_public: true)
+  end
+
   private
 
   def bucket_list_params

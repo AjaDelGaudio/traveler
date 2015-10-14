@@ -22,6 +22,9 @@ Coveralls.wear!('rails')
 require_relative 'support/user_sign_in_helper.rb'
 include UserSignIn
 
+require_relative 'support/bucket_list_sign_in_helper.rb'
+include BucketListSignIn
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

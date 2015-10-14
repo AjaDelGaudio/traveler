@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first
+
+BucketList.create(
+  title: 'Title 1',
+  description: 'Blah blah blah blah '
+  )
