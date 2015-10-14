@@ -7,7 +7,7 @@ class Adventure < ActiveRecord::Base
   validates_presence_of :name, unless: :address?
   validates_presence_of :address, unless: :name?
 
-  validates_inclusion_of :is_achieved, in: [true, false]
+  # validates_inclusion_of :is_achieved, in: [true, false]
 
   # validates :latitude, numericality: { only_float: true, allow: nil }
   # validates :longitude, numericality: { only_float: true, allow: nil }

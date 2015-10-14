@@ -14,9 +14,9 @@ class AdventuresController < ApplicationController
   def create
     @adventure = Adventure.new(adventure_params)
 
-    if @adventure.is_achieved == nil
-      @adventure.is_achieved = false
-    end
+    # if @adventure.is_achieved == nil
+    #   @adventure.is_achieved = false
+    # end
 
     if @adventure.save
       redirect_to new_adventure_path
@@ -35,7 +35,6 @@ class AdventuresController < ApplicationController
         :address,
         :latitude,
         :longitude,
-        :is_achieved,
         :notes,
         :bucket_list_id
       )
