@@ -23,6 +23,5 @@ FactoryGirl.define do
     is_achieved false
     notes 'Do NOT order baijiu'
     bucket_list
-    user
   end
 end
