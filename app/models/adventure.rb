@@ -1,13 +1,12 @@
 class Adventure < ActiveRecord::Base
-  belongs_to :bucket_list
+  has_many :bucket_list_adventures
+  has_many :adventures, through: :bucket_list_adventures
 
   reverse_geocoded_by :latitude, :longitude, address: :address
   after_validation :reverse_geocode
 
   validates_presence_of :name, unless: :address?
   validates_presence_of :address, unless: :name?
-
-  # validates_inclusion_of :is_achieved, in: [true, false]
 
   # validates :latitude, numericality: { only_float: true, allow: nil }
   # validates :longitude, numericality: { only_float: true, allow: nil }

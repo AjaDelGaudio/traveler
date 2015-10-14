@@ -13,7 +13,7 @@ class AdventuresController < ApplicationController
 
   def create
     @adventure = Adventure.new(adventure_params)
-
+binding.pry
     # if @adventure.is_achieved == nil
     #   @adventure.is_achieved = false
     # end
