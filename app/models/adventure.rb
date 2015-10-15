@@ -1,12 +1,15 @@
 class Adventure < ActiveRecord::Base
-  has_many :bucket_list_adventures
-  has_many :adventures, through: :bucket_list_adventures
+  has_many :bucket_list_adventures#, dependent: :destroy, inverse_of: :bucket_lists
+  has_many :bucket_lists, through: :bucket_list_adventures
+
+  accepts_nested_attributes_for :bucket_lists
+  accepts_nested_attributes_for :bucket_list_adventures
+
 
   reverse_geocoded_by :latitude, :longitude, address: :address
   after_validation :reverse_geocode
 
   validates_presence_of :name, unless: :address?
-  validates_presence_of :address, unless: :name?
 
   # validates :latitude, numericality: { only_float: true, allow: nil }
   # validates :longitude, numericality: { only_float: true, allow: nil }
@@ -16,4 +19,5 @@ class Adventure < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude, address: :location
   after_validation :reverse_geocode  # auto-fetch address
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
+
 end

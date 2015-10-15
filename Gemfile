@@ -21,9 +21,11 @@ gem 'dotenv-rails'
 gem 'geocoder'
 gem 'font-awesome-sass'
 gem 'rails_12factor', group: :production
+gem 'pry'
+gem 'pry-rails'
+
 
 group :development, :test do
-  gem 'pry'
   gem 'codeship'
 end
 
