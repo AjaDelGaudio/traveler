@@ -6,7 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first
 
-BucketList.create(
-  title: 'Title 1',
-  description: 'Blah blah blah blah '
-  )
+user = User.create(
+  username: username
+  email: "user@email.com",
+  password: "password",
+  password_confirmation: "password"
+)

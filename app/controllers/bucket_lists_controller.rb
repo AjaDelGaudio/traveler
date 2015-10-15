@@ -55,8 +55,7 @@ class BucketListsController < ApplicationController
 
   def all_public
     @bucket_lists = BucketList.where(is_public: true)
-    binding.pry
-    # @adventures = Adventures.where(bucket_list_id: @bucket_lists)
+    @adventures = Adventure.all
   end
 
   private
