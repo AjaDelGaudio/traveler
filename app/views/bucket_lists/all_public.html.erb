@@ -1,0 +1,18 @@
+<div class="small-12 medium-10 large-8 columns small-centered new-adventure-area">
+  <ul>
+    <% @bucket_lists.each do |bucket_list| %>
+      <li><%= bucket_list.title %></li>
+      <li><%= bucket_list.description %></li>
+      <li><% bucket_list.adventures.each do|adventure| %></li>
+        <ul>
+          <li><%= adventure.name %></li>
+          <li><%= adventure.address %></li>
+          <% if adventure.bucket_list_adventures.first.is_achieved %>
+            <li>ACHIEVED!HERE</li>
+          <% end %>
+          <li><%= adventure.bucket_list_adventures.first.notes %></li>
+        </ul>
+        <% end %>
+    <% end %>
+  </ul>
+</div>

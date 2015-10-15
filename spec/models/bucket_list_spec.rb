@@ -3,6 +3,8 @@ require 'rails_helper'
 describe BucketList do
   subject { FactoryGirl.build(:bucket_list) }
   it { should belong_to(:user) }
+  it { should have_many(:bucket_list_adventures) }
+
 
   it { should have_valid(:title).when('New Mexico', 'South East Asia with Kam') }
   it { should_not have_valid(:title).when(nil, '') }

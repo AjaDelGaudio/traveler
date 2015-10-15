@@ -1,0 +1,2 @@
+class BucketListAdventuresController < ApplicationController
+end

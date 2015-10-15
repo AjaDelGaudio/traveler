@@ -8,25 +8,26 @@
       <%= f.label :address %>
       <%= f.text_area :address, class: "transparent-form" %>
 
-      <%= f.label :bucket_list_id %>
-      <%= f.collection_select(
-        :bucket_list_id,
-        BucketList.where(user_id: current_user.id),
-        :id,
-        :title,
-        class: "transparent-form"
-      ) %>
+        <%= f.fields_for :bucket_list_adventures do |ff| %>
+          <%= ff.label :bucket_list_id %>
+          <%= ff.collection_select(
+            :bucket_list_id,
+            BucketList.where(user_id: current_user.id),
+            :id,
+            :title,
+            class: "transparent-form"
+          ) %>
 
-      <%= f.label :notes %>
-      <%= f.text_area :notes, class: "transparent-form" %>
+          <%= ff.label :notes %>
+          <%= ff.text_area :notes, class: "transparent-form" %>
 
-      <%= f.check_box :is_achieved %>
-      <%= f.label "I've already been here/done this" %>
+          <%= ff.check_box :is_achieved %>
+          <%= ff.label :is_achieved, "I've already been here/done this"  %>
+        <% end %>
 
       <div class="form-actions">
         <%= f.submit "Add to Bucket List!", class: "button" %>
       </div>
-
   <% end %>
 
 </div>
@@ -36,9 +37,10 @@
 </div>
 
 <%= link_to "No adventures, just a new Bucket List please!", new_bucket_list_path %>
+
 </div>
 
 <%= javascript_include_tag "map/gmap" %>
-<script async defer
+<script async defer >
       src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_maps_api_server_key"] %>&callback=initMap">
 </script>

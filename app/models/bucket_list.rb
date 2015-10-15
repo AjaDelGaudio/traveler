@@ -1,6 +1,7 @@
 class BucketList < ActiveRecord::Base
   belongs_to :user
-  has_many :adventures
+  has_many :bucket_list_adventures, dependent: :destroy, inverse_of: :adventures
+  has_many :adventures, through: :bucket_list_adventures
 
   validates :title, presence: true
   validates_uniqueness_of :title

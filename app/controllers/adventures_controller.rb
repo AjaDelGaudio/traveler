@@ -8,24 +8,28 @@ class AdventuresController < ApplicationController
       flash[:notice] = "You'll need to create a bucket list first."
     else
       @adventure = Adventure.new
+      @adventure.bucket_list_adventures.build
     end
   end
 
   def create
     @adventure = Adventure.new(adventure_params)
+    @bucket_list_adventures = @adventure.bucket_list_adventures
 
-    # if @adventure.is_achieved == nil
-    #   @adventure.is_achieved = false
-    # end
+    @is_achieved = @adventure.bucket_list_adventures.last.is_achieved
+    if @is_achieved == nil
+      @is_achieved = false
+    end
 
     if @adventure.save
-      redirect_to new_adventure_path
       flash[:notice] = "Excellent! Another adventure to happen!"
+      redirect_to new_adventure_path
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :new
     end
   end
+
 
   private
 
@@ -35,8 +39,7 @@ class AdventuresController < ApplicationController
         :address,
         :latitude,
         :longitude,
-        :notes,
-        :bucket_list_id
+        bucket_list_adventures_attributes: [:bucket_list_id, :notes, :is_achieved]
       )
   end
 end
