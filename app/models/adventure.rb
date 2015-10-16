@@ -8,6 +8,12 @@ class Adventure < ActiveRecord::Base
   accepts_nested_attributes_for :bucket_lists
   accepts_nested_attributes_for :bucket_list_adventures
 
+  include PgSearch
+  pg_search_scope :search,
+    against: [:name, :address],
+    using: {
+      tsearch: { prefix: true }
+    }
 
   reverse_geocoded_by :latitude, :longitude, address: :address
   after_validation :reverse_geocode
