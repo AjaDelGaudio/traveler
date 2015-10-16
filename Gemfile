@@ -23,6 +23,7 @@ gem 'font-awesome-sass'
 gem 'rails_12factor', group: :production
 gem 'pry'
 gem 'pry-rails'
+gem 'pg_search'
 
 
 group :development, :test do
