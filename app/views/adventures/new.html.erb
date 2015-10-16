@@ -1,46 +1,52 @@
-<div class="small-12 medium-10 large-8 columns small-centered new-adventure-area">
-  <%= form_for @adventure do |f| %>
 
-    <div class="form-inputs">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "transparent-form" %>
+          <%= form_for @adventure do |f| %>
 
-      <%= f.label :address %>
-      <%= f.text_area :address, class: "transparent-form" %>
+              <%= f.label :name %>
+              <%= f.text_field :name %>
 
-        <%= f.fields_for :bucket_list_adventures do |ff| %>
-          <%= ff.label :bucket_list_id %>
-          <%= ff.collection_select(
-            :bucket_list_id,
-            BucketList.where(user_id: current_user.id),
-            :id,
-            :title,
-            class: "transparent-form"
-          ) %>
+              <%= f.label :address %>
+              <%= f.text_area :address %>
 
-          <%= ff.label :notes %>
-          <%= ff.text_area :notes, class: "transparent-form" %>
+                <%= f.fields_for :bucket_list_adventures do |ff| %>
 
-          <%= ff.check_box :is_achieved %>
-          <%= ff.label :is_achieved, "I've already been here/done this"  %>
-        <% end %>
+                  <%= ff.label :bucket_list_id %>
+                  <%= ff.collection_select(
+                    :bucket_list_id,
+                    BucketList.where(user_id: current_user.id),
+                    :id,
+                    :title,
+                    ) %>
 
-      <div class="form-actions">
-        <%= f.submit "Add to Bucket List!", class: "button" %>
+                  <%= ff.label :notes %>
+                  <%= ff.text_area :notes %>
+
+
+                    <%= ff.check_box :is_achieved %>
+                    <%= ff.label :is_achieved, "Seen it!  Done it!"  %>
+
+                <% end %>
+
+              <%= f.submit "Toss it in!", class: "button" %>
+
+          <% end %>
+
+        <div class="button-area">
+          </div class="search-adventures-area">
+            <%= form_tag(all_public_bucket_lists_path, method: "get") do %>
+              <%= text_field_tag :search, params[:search], id: "search-bar", placeholder: "Find an Adventure" %>
+              <button type="submit" class="button">Find an Adventure</button>
+            <% end %>
+          </div>
+          </div class="button">
+          </div>
+          </div class="button">
+
+          </div>
+        </div>
       </div>
-  <% end %>
-
+    </div>
 </div>
 
-<div id="map-container">
-  <div id="map-canvas"></div>
+<div class="hero" >
+  <h1>TravelGo</h1>
 </div>
-
-<%= link_to "No adventures, just a new Bucket List please!", new_bucket_list_path %>
-
-</div>
-
-<%= javascript_include_tag "map/gmap" %>
-<script async defer >
-      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_maps_api_server_key"] %>&callback=initMap">
-</script>

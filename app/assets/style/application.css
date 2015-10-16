@@ -1,0 +1,116 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation_and_overrides
+
+*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+.nav.top-bar {
+  padding-left: 5em;
+}
+
+.check-box {
+  position: relative;
+}
+
+.button {
+  @include button($padding, $bg, $radius, $full-width, $disabled, $is-input);
+}
+
+
+
+
+.hero#japan-path {
+  background: image-url('japan-path.jpeg') no-repeat center center;
+	background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  border-color: #5d5a5a;
+  h1 {
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.row .form-inputs {
+  padding-top: 5em;
+  padding-bottom: 0em;
+}
+.button {
+  border-radius: 3px;
+  background-color: #ffffff;
+  color: #3a3d3e;
+  border-color: #ffbb8a;
+  border: 0;
+  padding: 1rem 3.5rem;
+  font-weight: bold;
+  float: right;
+  margin: 0 1rem 2rem 0;
+}
+
+
+
+
+body {
+  background-image: image-url('');
+  background-size: cover;
+}
+
+.hero .button-area {
+
+
+}
+
+// #map-container {
+//   height: 20em;
+//   width: 100%;
+//   border-radius: 16px 16px;
+//   border-color: #fff;
+//   border-style: solid;
+//   box-shadow: 2px 2px 10px #B1B1B1;
+//   margin-top: 25px;
+//   border-width: 7px;
+// }
+//
+// #map-canvas {
+//   height: 384px;
+//   width: 50%;
+// }
+
+.transparent-form {
+  background: rgba(255, 255, 255, 0.70);
+  border: none;
+  outline: none;
+}
+
+input.transparent-form {
+  background: rgba(255, 255, 255, 0.70);
+  border: none;
+  outline: none;
+}
+
+// .footer {
+//   background: image-url('') no-repeat center center;
+// 	background-size: cover;
+//   height: 15vh;
+//   overflow: hidden;
+//   // h1 {
+//   //   color: #fff;
+//   //   text-align: center;
+//   //   @include vertical-align;
+//   // }
+// }
