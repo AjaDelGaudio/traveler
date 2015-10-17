@@ -1,1 +1,33 @@
+<div class="row hero"></div>
 
+<div class="row">
+  <div class="small-11 medium-6 large-6 columns small-centered text-center">
+
+    <div class="row">
+      <%= form_tag(all_public_bucket_lists_path, method: "get") do %>
+        <%= text_field_tag :search, params[:search], id: "search-bar",
+          placeholder: "Search my adventures" %>
+        <%= link_to "Find Adventure", search_adventures_path,
+          class: "small button" %>
+      <% end %>
+    <div class="small-9 columns small-centered divinding-line"></div>
+    </div>
+
+
+    <div class="row">
+      <%= link_to "Add An Adventure", new_adventure_path,
+        class: "small button" %>
+      <div class="small-9 columns small-centered divinding-line"></div>
+    </div>
+
+    <div class="row">
+      <% if current_user %>
+          <%= link_to "My bucket lists", new_user_session_path %>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path %>
+      <% end %>
+    </div>
+
+
+  </div>
+</div>

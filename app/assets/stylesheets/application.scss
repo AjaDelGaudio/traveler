@@ -1,0 +1,47 @@
+@import "components";
+
+@import "foundation_and_overrides";
+@import "font-awesome";
+
+
+.hero {
+  background: image-url('japan-path.png') no-repeat center center;
+  background-size: cover;
+  height: 13rem;
+  overflow: hidden;
+  margin-bottom: 3em;
+}
+
+.nav.top-bar {
+  padding-left: 5em;
+}
+
+.check-box {
+  position: relative;
+}
+
+.button {
+  width: 15em;
+}
+
+.divinding-line {
+  border-bottom: 1px $beach solid;
+  margin-bottom: 1.25rem;
+}
+
+.row .form-inputs {
+  padding-top: 5em;
+  padding-bottom: 0em;
+}
+
+#search-area {
+  margin-top: 2em;
+  button {
+    background: rgba(255, 255, 255, 0.70);
+  }
+}
+input.transparent-form {
+  background: rgba(255, 255, 255, 0.70);
+  border: none;
+  outline: none;
+}

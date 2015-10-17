@@ -6,7 +6,7 @@ class AdventuresController < ApplicationController
   end
 
   def search
-    binding.pry
+
     if params[:q].nil? || params[:q] == ""
       flash[:notice] = "Please enter a search term."
     elsif params[:q].present?
