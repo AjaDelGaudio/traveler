@@ -1,0 +1,16 @@
+<h1>Search Results:</h1>
+
+<div class="row">
+  <div class="columns large-12">
+    <% if !@adventures.empty? %>
+      <table>
+        <tr>
+          <th>Results</th>
+        <tr>
+        <% @adventures.each  do |adventure| %>
+          <td><%= adventure %></td>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+</div>

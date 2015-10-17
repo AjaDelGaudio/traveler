@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'adventures#new'
   devise_for :users
 
-  resources :bucket_lists, :adventures do
+  resources :bucket_lists do
     collection do
       get 'all_public'
     end
@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   patch '/bucket_lists/:id/edit', to: 'bucket_lists#update'
 
   resources :adventures, only: [:new, :create, :index]
+
+  resources :adventures do
+    collection do
+      get "search"
+    end
+  end
 end

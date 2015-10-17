@@ -53,7 +53,7 @@
         <ul>
           <li>
             <a href="#">
-              <%= form_tag adventures_path, method: :get do %>
+              <%= form_tag search_adventures_path, method: :get do %>
               <%= text_field :q, params[:q], placeholder: "Find Adventure" %>
               <button type="submit" class="button">Find Adventure</button>
               <% end %>

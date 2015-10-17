@@ -1,13 +1,16 @@
 class AdventuresController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :index, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :index, :edit, :search]
 
   def index
-    if params[:q] == nil
-      flash[:notice] = "Please enter something to search for."
+    @adventures = Adventure.all
+  end
+
+  def search
+    binding.pry
+    if params[:q].nil? || params[:q] == ""
+      flash[:notice] = "Please enter a search term."
     elsif params[:q].present?
       @adventures = Adventure.search(params[:q])
-    else
-      @adventures = Adventure.all
     end
   end
 
