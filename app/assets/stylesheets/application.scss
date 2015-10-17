@@ -12,12 +12,8 @@
   margin-bottom: 3em;
 }
 
-.nav.top-bar {
-  padding-left: 5em;
-}
-
-.check-box {
-  position: relative;
+.form-actions {
+  margin-top: 2rem;
 }
 
 .button {
@@ -25,23 +21,20 @@
 }
 
 .divinding-line {
-  border-bottom: 1px $beach solid;
+  border-bottom: 1px $iron solid;
   margin-bottom: 1.25rem;
 }
 
-.row .form-inputs {
-  padding-top: 5em;
-  padding-bottom: 0em;
-}
+.bucket-list {
+  color: $dark-grey;
 
-#search-area {
-  margin-top: 2em;
-  button {
-    background: rgba(255, 255, 255, 0.70);
+  h6 {
+    font-size: 90%;
+    color: $jumbo;
+    margin-bottom: .75rem;
   }
-}
-input.transparent-form {
-  background: rgba(255, 255, 255, 0.70);
-  border: none;
-  outline: none;
+
+  h4 {
+    margin-bottom: 0;
+  }
 }

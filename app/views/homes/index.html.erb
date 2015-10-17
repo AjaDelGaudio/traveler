@@ -8,15 +8,14 @@
         <%= text_field_tag :search, params[:search], id: "search-bar",
           placeholder: "Search my adventures" %>
         <%= link_to "Find Adventure", search_adventures_path,
-          class: "small button" %>
+          class: "button round" %>
       <% end %>
     <div class="small-9 columns small-centered divinding-line"></div>
     </div>
 
 
     <div class="row">
-      <%= link_to "Add An Adventure", new_adventure_path,
-        class: "small button" %>
+      <%= link_to "Add An Adventure", new_adventure_path, class: "button round" %>
       <div class="small-9 columns small-centered divinding-line"></div>
     </div>
 
@@ -27,7 +26,6 @@
         <%= link_to "Sign In", new_user_session_path %>
       <% end %>
     </div>
-
 
   </div>
 </div>

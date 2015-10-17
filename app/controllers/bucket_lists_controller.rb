@@ -28,7 +28,7 @@ class BucketListsController < ApplicationController
   end
 
   def edit
-    @bucket_list = BucketList.where(user_id: current_user.id)[0]
+    @bucket_list = BucketList.find(params[:id])
   end
 
   def update

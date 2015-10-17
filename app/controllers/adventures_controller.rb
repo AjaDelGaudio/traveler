@@ -6,7 +6,6 @@ class AdventuresController < ApplicationController
   end
 
   def search
-
     if params[:q].nil? || params[:q] == ""
       flash[:notice] = "Please enter a search term."
     elsif params[:q].present?
@@ -36,7 +35,7 @@ class AdventuresController < ApplicationController
 
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure to happen!"
-      redirect_to new_adventure_path
+      redirect_to bucket_lists_path
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :new

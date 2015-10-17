@@ -1,30 +1,25 @@
-<div class="row-lists">
-  <div class="small-4 medium-8 large-12 columns">
-    <ul>
+<div class="row">
+  <div class="small-11 medium-6 large-6 columns small-centered">
+  <h2>My Bucket Lists:</h2>
+
+  <p><%= @bucket_lists.count %> Bucket List(s) </p>
+
+    <ul class="no-bullet">
       <% @bucket_lists.each do |bucket_list| %>
-        <li>
-          <%= bucket_list.title %>
+        <li class="bucket-list">
+          <div class="small-9 columns small-centered divinding-line"></div>
+          <h4><%= link_to bucket_list.title, bucket_list_path(bucket_list.id) %></h4>
           <% if bucket_list.is_public %>
-            <li>Public OPEN EYE PHOTO HERE</li>
+            <h6>
+              <%= fa_icon "eye" %>
+              Public
+            </h6>
           <% else %>
-            <li>Private CROSSED OUT EYE HERE</li>
+            <h6><%= fa_icon "eye-slash" %> Private</h6>
           <% end %>
-          <%= link_to "Edit", edit_bucket_list_path(bucket_list) %>
+          <p><%= bucket_list.description %></p>
         </li>
-        <li><%= bucket_list.description %></li>
       <% end %>
     </ul>
   </div>
 </div>
-
-
-
-
-
-<h1><%= current_user.username %>'s Bucket Lists:</h1>
-
-<p><%= @bucket_lists.count %> Bucket List(s) </p>
-
-
-
-<%= link_to "New Bucket List!", new_bucket_list_path %>

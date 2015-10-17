@@ -1,30 +1,40 @@
+<div class="row">
+  <div class="small-11 medium-6 large-6 columns small-centered">
+    <%= form_for @adventure do |f| %>
+      <div>
 
-<%= form_for @adventure do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+        <%= f.label :address, "Location" %>
+        <%= f.text_area :address %>
 
-    <%= f.label :address %>
-    <%= f.text_area :address %>
+        <%= f.fields_for :bucket_list_adventures do |ff| %>
 
-      <%= f.fields_for :bucket_list_adventures do |ff| %>
+          <%= ff.label :bucket_list_id %>
+          <%= ff.collection_select(
+            :bucket_list_id,
+            BucketList.where(user_id: current_user.id),
+            :id,
+            :title,
+            ) %>
 
-        <%= ff.label :bucket_list_id %>
-        <%= ff.collection_select(
-          :bucket_list_id,
-          BucketList.where(user_id: current_user.id),
-          :id,
-          :title,
-          ) %>
+          <%= ff.label :notes %>
+          <%= ff.text_area :notes %>
 
-        <%= ff.label :notes %>
-        <%= ff.text_area :notes %>
+          <div class="text-center">
+              <%= ff.check_box :is_achieved %>
+              <%= ff.label :is_achieved, "Seen it!  Done it!"  %>
+          </div>
 
-          <%= ff.check_box :is_achieved %>
-          <%= ff.label :is_achieved, "Seen it!  Done it!"  %>
+        <% end %>
+        <div class="small-9 columns small-centered divinding-line"></div>
+      </div>
 
-      <% end %>
+      <div class="form-actions text-center">
+          <%= f.submit "Toss it in!", class: "button round" %>
+      </div>
 
-    <%= f.submit "Toss it in!", class: "button" %>
-
-<% end %>
+    <% end %>
+  </div>
+</div>
