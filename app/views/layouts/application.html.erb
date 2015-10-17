@@ -53,8 +53,8 @@
         <ul>
           <li>
             <a href="#">
-              <%= form_tag(all_public_bucket_lists_path, method: "get") do %>
-              <%= text_field_tag :search, params[:search], id: "search-bar", placeholder: "Find an Adventure" %>
+              <%= form_tag search_adventures_path, method: :get do %>
+              <%= text_field :q, params[:q], placeholder: "Find Adventure" %>
               <button type="submit" class="button">Find Adventure</button>
               <% end %>
             </a>

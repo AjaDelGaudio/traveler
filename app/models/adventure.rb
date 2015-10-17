@@ -2,9 +2,18 @@ class Adventure < ActiveRecord::Base
   has_many :bucket_list_adventures#, dependent: :destroy, inverse_of: :bucket_lists
   has_many :bucket_lists, through: :bucket_list_adventures
 
+  has_many :adventure_users
+  has_many :users, through: :adventure_users
+
   accepts_nested_attributes_for :bucket_lists
   accepts_nested_attributes_for :bucket_list_adventures
 
+  include PgSearch
+  pg_search_scope :search,
+    against: [:name, :address],
+    using: {
+      tsearch: { prefix: true }
+    }
 
   reverse_geocoded_by :latitude, :longitude, address: :address
   after_validation :reverse_geocode

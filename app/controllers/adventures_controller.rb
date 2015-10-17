@@ -1,5 +1,18 @@
 class AdventuresController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :index, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :index, :edit, :search]
+
+  def index
+    @adventures = Adventure.all
+  end
+
+  def search
+    binding.pry
+    if params[:q].nil? || params[:q] == ""
+      flash[:notice] = "Please enter a search term."
+    elsif params[:q].present?
+      @adventures = Adventure.search(params[:q])
+    end
+  end
 
   def new
     if current_user.bucket_lists.count == 0
@@ -28,6 +41,10 @@ class AdventuresController < ApplicationController
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :new
     end
+  end
+
+  def all_public
+    @bucket_lists = BucketList.where(is_public: true)
   end
 
 

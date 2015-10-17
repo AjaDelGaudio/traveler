@@ -1,6 +1,6 @@
-<div class="small-12 medium-10 large-8 columns small-centered new-adventure-area">
-  <ul>
+
     <% @bucket_lists.each do |bucket_list| %>
+  <ul class="panel">
       <li><%= bucket_list.title %></li>
       <li><%= bucket_list.description %></li>
       <li><% bucket_list.adventures.each do|adventure| %></li>
@@ -13,6 +13,5 @@
           <li><%= adventure.bucket_list_adventures.first.notes %></li>
         </ul>
         <% end %>
-    <% end %>
   </ul>
-</div>
+    <% end %>

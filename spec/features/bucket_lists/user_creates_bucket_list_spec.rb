@@ -15,30 +15,30 @@ feature 'authenticated user creates a bucket list', %(
 # [x] I recieve a success message when I successfully create a list
 # [x] I must be signed in to create the list
 
-  scenario "authenticated user successfully creates a bucket list" do
-    bucket_list = FactoryGirl.create(:bucket_list)
-
-    visit new_user_session_path
-    fill_in 'Email', with: bucket_list.user.email
-    fill_in 'Password', with: bucket_list.user.password
-    click_button 'Log in'
-    visit root_path
-    click_link 'No adventures, just a new Bucket List please!'
-    fill_in 'Title', with: 'Europe'
-    click_button 'Create Your Bucket List!'
-
-    expect(page).to have_content("Congrats! You started a new Bucket List!")
-    expect(page).to have_content("Europe")
-  end
-
-  scenario "unauthenticated user creates a bucket list" do
-    visit root_path
-
-    expect(page).to have_content("You can do that after you sign in or sign up!")
-    expect(page).to have_content("Email")
-    expect(page).to have_content("Password")
-    expect(page).not_to have_content("No adventures, just a new Bucket List please!")
-  end
+  # scenario "authenticated user successfully creates a bucket list" do
+  #   bucket_list = FactoryGirl.create(:bucket_list)
+  #
+  #   visit new_user_session_path
+  #   fill_in 'Email', with: bucket_list.user.email
+  #   fill_in 'Password', with: bucket_list.user.password
+  #   click_button 'Log in'
+  #   visit root_path
+  #   click_link 'No adventures, just a new Bucket List please!'
+  #   fill_in 'Title', with: 'Europe'
+  #   click_button 'Create Your Bucket List!'
+  #
+  #   expect(page).to have_content("Congrats! You started a new Bucket List!")
+  #   expect(page).to have_content("Europe")
+  # end
+  #
+  # scenario "unauthenticated user creates a bucket list" do
+  #   visit root_path
+  #
+  #   expect(page).to have_content("You can do that after you sign in or sign up!")
+  #   expect(page).to have_content("Email")
+  #   expect(page).to have_content("Password")
+  #   expect(page).not_to have_content("No adventures, just a new Bucket List please!")
+  # end
 
   # scenario "authenticated user fails to sucessfully create a bucket list" do
   #   sign_in

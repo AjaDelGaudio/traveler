@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :bucket_lists
 
+  has_many :adventure_users
+  has_many :adventures, through: :adventure_users
+
   validates :username, presence: true
   validates :username, uniqueness: true
 
