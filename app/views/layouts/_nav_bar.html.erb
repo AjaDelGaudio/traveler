@@ -1,0 +1,27 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "TavelGo", root_path %></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><%= link_to "New Bucket List", new_bucket_list_path%></li>
+      <li><%= link_to "My Bucket Lists", bucket_lists_path %></li>
+      <li><%= link_to "Explore", all_public_bucket_lists_path%></li>
+    </ul>
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <%- if current_user -%>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <%- else -%>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <%- end -%>
+    </ul>
+  </section>
+</nav>

@@ -19,7 +19,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'dotenv-rails'
 gem 'geocoder'
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 gem 'rails_12factor', group: :production
 gem 'pry'
 gem 'pry-rails'
