@@ -29,7 +29,7 @@ class BucketListsController < ApplicationController
 
     if @bucket_list.save
       redirect_to bucket_lists_path
-      flash[:notice] = "Congrats! You started a new Bucket List!"
+      flash[:notice] = "You started a new Bucket List!"
     else
       flash[:errors] = @bucket_list.errors.full_messages.join(" | ")
       render :new

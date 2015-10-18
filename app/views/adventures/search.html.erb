@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="small-11 medium-6 columns small-centered">
+    <h3 class="form-title">Search Results:</h3>
+    <ul class="no-bullet">
+      <%= binding.pry %>
+      <% if @bucket_list_adventures %>
+        <% @bucket_list_adventures[0].each do |bla| %>
+          <li>
+            <h6>
+              <% if bla.is_achieved %>
+                <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
+                  "#" %>
+              <% else %>
+                <%= link_to (fa_icon "square-o") + " Seen it! Done it!", "#" %>
+              <% end %>
+              <%= link_to bla.title,
+                bucket_list_path(bla.bucket_list.id) %>
+            </h6>
+
+            <%= bla.adventure.name unless bla.adventure.name.nil? %>
+            <%= bla.adventure.address unless bla.adventure.address.nil? %>
+            <%= bla.notes unless bla.notes.nil? %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
