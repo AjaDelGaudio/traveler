@@ -44,6 +44,23 @@
   }
 }
 
+.adventure-list {
+  color: $dark-grey;
+
+  h6 {
+    font-size: 90%;
+    margin-bottom: 1.25rem;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .divinding-line {
+    margin-top: 1.25rem;
+  }
+}
+
 .adventure {
   color: $dark-grey;
 
@@ -52,6 +69,10 @@
   }
 
   .divinding-line {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  p {
+    margin: 0;
   }
 }

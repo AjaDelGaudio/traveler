@@ -20,13 +20,19 @@
           <li class="adventure">
             <div class="small-9 columns small-centered divinding-line"></div>
             <% if bla.is_achieved %>
-              <h6><%= link_to (fa_icon "check-square-o") + " Seen it! Done it!", "#" %></h6>
+              <h6>
+                <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
+                  "#", class: "achieved-toggle", id: bla.id %>
+              </h6>
             <% else %>
-              <h6><%= link_to (fa_icon "square-o") + " Seen it! Done it!", "#" %></h6>
+              <h6>
+                <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
+                  "#", class: "achieved-toggle", id: bla.id %>
+              </h6>
             <% end %>
-            <%= bla.adventure.name unless bla.adventure.name.nil? %>
-            <%= bla.adventure.address unless bla.adventure.name.nil? %>
-            <%= bla.notes unless bla.notes.nil? %>
+            <p><%= bla.adventure.name unless bla.adventure.name.nil? %></p>
+            <p><%= bla.adventure.address unless bla.adventure.name.nil? %></p>
+            <p><%= bla.notes unless bla.notes.nil? %></p>
           </li>
         <% end %>
       </ul>
