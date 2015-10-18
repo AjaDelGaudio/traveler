@@ -9,7 +9,7 @@ class AdventuresController < ApplicationController
     if params[:q].nil? || params[:q] == ""
       flash[:notice] = "Please enter a search term."
     elsif params[:q].present?
-      @adventures = Adventure.search(params[:q])
+      @adventures = Adventure.where(user: current_user).search(params[:q])
     end
   end
 
@@ -27,6 +27,9 @@ class AdventuresController < ApplicationController
   def create
     @adventure = Adventure.new(adventure_params)
     @bucket_list_adventures = @adventure.bucket_list_adventures
+    bla = adventure_params[:bucket_list_adventures_attributes]
+    bla = bla["0"]
+    @bucket_list = BucketList.find(bla[:bucket_list_id])
 
     @is_achieved = @adventure.bucket_list_adventures.last.is_achieved
     if @is_achieved == nil
@@ -35,7 +38,7 @@ class AdventuresController < ApplicationController
 
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure to happen!"
-      redirect_to bucket_lists_path
+      redirect_to bucket_list_path(@bucket_list)
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :new

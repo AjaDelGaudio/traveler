@@ -6,6 +6,15 @@ class BucketListsController < ApplicationController
     @bucker_lists_count = @bucket_lists.count
   end
 
+  def show
+    @bucket_list = BucketList.find(params[:id])
+  end
+
+  def all_public
+    @bucket_lists = BucketList.where(is_public: true)
+    @adventures = Adventure.all
+  end
+
   def new
     @bucket_list = BucketList.new
   end
@@ -53,10 +62,6 @@ class BucketListsController < ApplicationController
     end
   end
 
-  def all_public
-    @bucket_lists = BucketList.where(is_public: true)
-    @adventures = Adventure.all
-  end
 
   private
 

@@ -7,21 +7,20 @@
       <%= form_tag(all_public_bucket_lists_path, method: "get") do %>
         <%= text_field_tag :search, params[:search], id: "search-bar",
           placeholder: "Search my adventures" %>
-        <%= link_to "Find Adventure", search_adventures_path,
-          class: "button round" %>
+        <%= submit_tag "Find Adventure", class: "button round" %>
       <% end %>
     <div class="small-9 columns small-centered divinding-line"></div>
     </div>
 
 
     <div class="row">
-      <%= link_to "Add An Adventure", new_adventure_path, class: "button round" %>
+      <%= link_to "Add an Adventure", new_adventure_path, class: "button round" %>
       <div class="small-9 columns small-centered divinding-line"></div>
     </div>
 
     <div class="row">
       <% if current_user %>
-          <%= link_to "My bucket lists", new_user_session_path %>
+          <%= link_to "My Bucket Lists", bucket_lists_path %>
       <% else %>
         <%= link_to "Sign In", new_user_session_path %>
       <% end %>

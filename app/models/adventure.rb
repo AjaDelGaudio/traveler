@@ -1,5 +1,5 @@
 class Adventure < ActiveRecord::Base
-  has_many :bucket_list_adventures#, dependent: :destroy, inverse_of: :bucket_lists
+  has_many :bucket_list_adventures, dependent: :destroy
   has_many :bucket_lists, through: :bucket_list_adventures
 
   has_many :adventure_users

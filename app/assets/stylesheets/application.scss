@@ -34,7 +34,20 @@
     margin-bottom: .75rem;
   }
 
+  h2,
   h4 {
     margin-bottom: 0;
+  }
+}
+
+.adventure {
+  color: $dark-grey;
+
+  h6 {
+    font-size: 85%;
+  }
+
+  .divinding-line {
+    margin-top: 1rem;
   }
 }
