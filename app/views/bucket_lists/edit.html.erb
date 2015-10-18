@@ -1,16 +1,31 @@
-<div class="create-bucket-list-area">
-  <%= link_to "Delete", bucket_list_path(@bucket_list), method: :delete %>
+<div class="row">
+  <div class="small-11 medium-6 columns small-centered">
 
-  <%= form_for @bucket_list, url: edit_bucket_list_path(@bucket_list) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <h3 class="form-title">Edit Bucket List</h3>
 
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <div class="text-right">
+      <%= link_to (fa_icon "trash-o") + " Delete",
+      bucket_list_path(@bucket_list), method: :delete %>
+    </div>
 
-    <%= f.label "Make my list public" %>
-    <%= f.check_box :is_public %>
+    <%= form_for @bucket_list, url: edit_bucket_list_path(@bucket_list) do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
 
-    <%= f.submit "Save changes", class: "button" %>
-  <% end %>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+
+      <div class="text-center">
+        <%= f.check_box :is_public %>
+        <%= f.label "Make public" %>
+      </div>
+
+      <div class="small-9 columns small-centered divinding-line"></div>
+
+      <div class="form-actions text-center">
+        <%= f.submit "Save It!", class: "button round" %>
+      </div>
+    <% end %>
+
+  </div>
 </div>

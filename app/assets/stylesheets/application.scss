@@ -1,0 +1,78 @@
+@import "components";
+
+@import "foundation_and_overrides";
+@import "font-awesome";
+
+
+.hero {
+  background: image-url('japan-path.png') no-repeat center center;
+  background-size: cover;
+  height: 13rem;
+  overflow: hidden;
+  margin-bottom: 3em;
+}
+
+.form-actions {
+  margin-top: 2rem;
+}
+
+.form-title {
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  width: 15em;
+}
+
+.divinding-line {
+  border-bottom: 1px $iron solid;
+  margin-bottom: 1.25rem;
+}
+
+.bucket-list {
+  color: $dark-grey;
+
+  h6 {
+    font-size: 90%;
+    color: $jumbo;
+    margin-bottom: .75rem;
+  }
+
+  h2,
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.adventure-list {
+  color: $dark-grey;
+
+  h6 {
+    font-size: 90%;
+    margin-bottom: 1.25rem;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .divinding-line {
+    margin-top: 1.25rem;
+  }
+}
+
+.adventure {
+  color: $dark-grey;
+
+  h6 {
+    font-size: 85%;
+  }
+
+  .divinding-line {
+    margin-top: 1.25rem;
+  }
+
+  p {
+    margin: 0;
+  }
+}

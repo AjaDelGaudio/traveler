@@ -6,6 +6,15 @@ class BucketListsController < ApplicationController
     @bucker_lists_count = @bucket_lists.count
   end
 
+  def show
+    @bucket_list = BucketList.find(params[:id])
+  end
+
+  def all_public
+    @bucket_lists = BucketList.where(is_public: true)
+    @adventures = Adventure.all
+  end
+
   def new
     @bucket_list = BucketList.new
   end
@@ -20,7 +29,7 @@ class BucketListsController < ApplicationController
 
     if @bucket_list.save
       redirect_to bucket_lists_path
-      flash[:notice] = "Congrats! You started a new Bucket List!"
+      flash[:notice] = "You started a new Bucket List!"
     else
       flash[:errors] = @bucket_list.errors.full_messages.join(" | ")
       render :new
@@ -28,7 +37,7 @@ class BucketListsController < ApplicationController
   end
 
   def edit
-    @bucket_list = BucketList.where(user_id: current_user.id)[0]
+    @bucket_list = BucketList.find(params[:id])
   end
 
   def update
@@ -53,10 +62,6 @@ class BucketListsController < ApplicationController
     end
   end
 
-  def all_public
-    @bucket_lists = BucketList.where(is_public: true)
-    @adventures = Adventure.all
-  end
 
   private
 

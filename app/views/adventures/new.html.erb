@@ -1,52 +1,42 @@
+<div class="row">
+  <div class="small-11 medium-6 columns small-centered">
+    <h3>New Adventure</h3>
 
-          <%= form_for @adventure do |f| %>
+    <%= form_for @adventure do |f| %>
+      <div>
 
-              <%= f.label :name %>
-              <%= f.text_field :name %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
-              <%= f.label :address %>
-              <%= f.text_area :address %>
+        <%= f.label :address, "Location" %>
+        <%= f.text_area :address %>
 
-                <%= f.fields_for :bucket_list_adventures do |ff| %>
+        <%= f.fields_for :bucket_list_adventures do |ff| %>
 
-                  <%= ff.label :bucket_list_id %>
-                  <%= ff.collection_select(
-                    :bucket_list_id,
-                    BucketList.where(user_id: current_user.id),
-                    :id,
-                    :title,
-                    ) %>
+          <%= ff.label :bucket_list_id %>
+          <%= ff.collection_select(
+            :bucket_list_id,
+            BucketList.where(user_id: current_user.id),
+            :id,
+            :title,
+            ) %>
 
-                  <%= ff.label :notes %>
-                  <%= ff.text_area :notes %>
+          <%= ff.label :notes %>
+          <%= ff.text_area :notes %>
 
-
-                    <%= ff.check_box :is_achieved %>
-                    <%= ff.label :is_achieved, "Seen it!  Done it!"  %>
-
-                <% end %>
-
-              <%= f.submit "Toss it in!", class: "button" %>
-
-          <% end %>
-
-        <div class="button-area">
-          </div class="search-adventures-area">
-            <%= form_tag(all_public_bucket_lists_path, method: "get") do %>
-              <%= text_field_tag :search, params[:search], id: "search-bar", placeholder: "Find an Adventure" %>
-              <button type="submit" class="button">Find an Adventure</button>
-            <% end %>
+          <div class="text-center">
+            <%= ff.check_box :is_achieved %>
+            <%= ff.label :is_achieved, "Seen it!  Done it!"  %>
           </div>
-          </div class="button">
-          </div>
-          </div class="button">
 
-          </div>
-        </div>
+        <% end %>
+        <div class="small-9 columns small-centered divinding-line"></div>
       </div>
-    </div>
-</div>
 
-<div class="hero" >
-  <h1>TravelGo</h1>
+      <div class="form-actions text-center">
+        <%= f.submit "Toss it in!", class: "button round" %>
+      </div>
+
+    <% end %>
+  </div>
 </div>

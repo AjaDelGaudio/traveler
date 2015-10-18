@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :bucket_lists
+  has_many :bucket_list_adventures, through: :bucket_lists
 
-  has_many :adventure_users
-  has_many :adventures, through: :adventure_users
+  # has_many :adventure_users
+  # has_many :adventures, through: :adventure_users
 
   validates :username, presence: true
   validates :username, uniqueness: true
