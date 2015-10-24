@@ -3,12 +3,11 @@ require 'rails_helper'
 describe Adventure do
   subject { FactoryGirl.build(:adventure) }
 
-  it { should have_many(:bucket_list_adventures) }
+  it { should have_many(:bucket_list_adventures).dependent(:destroy) }
+  it { should have_many(:users) }
 
   # it { should have_valid(:name).when('Visit Sue', 'Eat alligator') }
   # it { should have_valid(:address).when('Paris, France', '33 Harrison Ave, Boston') }
-  # it { should_not have_valid(:name).when(nil, '') }
-  # it { should_not have_valid(:address).when(nil, '') }
 
   it {should allow_value(nil).for(:latitude)}
   # it { should have_valid(:latitude).when(40.7127837, 39.904211) }

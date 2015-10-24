@@ -1,4 +1,4 @@
-class AdventureUsers < ActiveRecord::Base
+class AdventureUser < ActiveRecord::Base
   belongs_to :adventure
   belongs_to :user
 end
