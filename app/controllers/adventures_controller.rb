@@ -24,7 +24,6 @@ class AdventuresController < ApplicationController
     if current_user.bucket_lists.count == 0
       redirect_to new_bucket_list_path
       flash[:notice] = "You don't have any bucket lists yet."
-      flash[:notice] = "You need a bucket list first."
     else
       @adventure = Adventure.new
       @adventure.bucket_list_adventures.build
@@ -34,7 +33,7 @@ class AdventuresController < ApplicationController
   def create
     @adventure = Adventure.new(adventure_params)
     @bucket_list_adventures = @adventure.bucket_list_adventures
-    bla = adventure_params[:bucket_list_adventures_attributes]
+    bla = adventure_params[:bucket_list_adventures_attributes]["0"]
     bla = bla["0"]
     @bucket_list = BucketList.find(bla[:bucket_list_id])
 

@@ -12,15 +12,23 @@ FactoryGirl.define do
     sequence(:title) { |n| "My List ##{n}" }
     description "I go places"
     is_public true
-    user
+    user_id 1
+  end
+
+  factory :bucket_list_adventure do
+    bucket_list_id 1
+    adventure_id 1
+    is_achieved false
+    notes "bring beer"
   end
 
   factory :adventure do
-    name 'What Bar'
-    address 'Beijing, China'
-    longitude 116.40739499999995
-    latitude 39.904211
-    notes 'Do NOT order baijiu'
-    bucket_list
+    name "go spelunking"
+    address "Vietnam"
+  end
+
+  factory :adventure_user do
+    adventure_id 1
+    user_id 1
   end
 end
