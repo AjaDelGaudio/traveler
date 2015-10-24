@@ -3,6 +3,8 @@ require 'rails_helper'
 describe User do
   # subject { FactoryGirl.build(:user) }
   it { should have_many(:bucket_lists) }
+  it { should have_many(:adventures) }
+
 
   # it { should have_valid(:username).when('useruser', 'iamauser12345') }
   # it { should_not have_valid(:username).when(nil, '') }
