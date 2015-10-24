@@ -8,16 +8,15 @@ class Adventure < ActiveRecord::Base
   accepts_nested_attributes_for :bucket_lists
   accepts_nested_attributes_for :bucket_list_adventures
 
-  validates_presence_of :name, unless: :address?
+  validates :name, presence: true, unless: :address?
 
   validates :latitude, numericality: { only_float: true, allow_blank: true }
-  validates_numericality_of :latitude, less_than_or_equal_to: 180
-  validates_numericality_of :latitude, greater_than_or_equal_to: -180
+  validates :latitude, numericality: { less_than_or_equal_to: 180 }
+  validates :latitude, numericality: { greater_than_or_equal_to: -180 }
 
   validates :longitude, numericality: { only_float: true, allow_blank: true }
-  validates_numericality_of :longitude, less_than_or_equal_to: 180
-  validates_numericality_of :longitude, greater_than_or_equal_to: -180
-
+  validates :longitude, numericality: { less_than_or_equal_to: 180 }
+  validates :longitude, numericality: { greater_than_or_equal_to: -180 }
 
   include PgSearch
   pg_search_scope :search,
