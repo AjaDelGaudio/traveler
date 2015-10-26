@@ -12,7 +12,8 @@ describe BucketList do
 
   it { should validate_inclusion_of(:is_public).in_array([true, false]) }
 
+  it { should validate_presence_of(:user_id) }
+  it { should validate_numericality_of(:user_id) }
   it { should have_valid(:user_id).when(1, 300) }
   it { should_not have_valid(:user_id).when(nil, " ") }
-  it { should validate_numericality_of(:user_id) }
 end
