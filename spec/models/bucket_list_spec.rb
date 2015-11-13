@@ -10,6 +10,9 @@ describe BucketList do
   it { should_not have_valid(:title).when(nil, " ") }
   it { should validate_uniqueness_of(:title) }
 
+  it { should have_valid(:description).when("Join me!", "Testing new car!") }
+  it { should_not have_valid(:description).when(12, 1.8) }
+
   it { should validate_inclusion_of(:is_public).in_array([true, false]) }
 
   it { should validate_presence_of(:user_id) }

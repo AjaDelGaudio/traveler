@@ -6,8 +6,7 @@ class BucketList < ActiveRecord::Base
   validates :title, presence: true
   validates_uniqueness_of :title
 
-  validates :is_public, presence: true
-  validates_inclusion_of :is_public, in: [true, false]
+  validates :is_public, inclusion: { in: [true, false] }
 
   validates :user_id, presence: true
   validates :user_id, numericality: { only_integer: true }
