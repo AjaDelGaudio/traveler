@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe BucketListAdventure do
   subject { FactoryGirl.build(:bucket_list_adventure) }
