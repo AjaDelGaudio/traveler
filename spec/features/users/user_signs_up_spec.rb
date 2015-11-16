@@ -34,16 +34,14 @@ feature "user registers", %{
     expect(page).to have_content("can't be blank")
     expect(page).to_not have_content("Sign Out")
   end
-  
-  scenario 'password too short' do
+
+  scenario "password too short" do
     visit new_user_registration_path
 
-    fill_in 'Username', with: 'username'
-    fill_in 'Email', with: 'john@example.com'
-    fill_in 'Password', with: '1'
-    fill_in 'Password confirmation', with: '1'
-
-    click_button 'Sign up'
+    fill_in "Username", with: "mrappleseed"
+    fill_in "Email", with: "john@example.com"
+    fill_in "Password", with: "1"
+    fill_in "Password confirmation", with: "1"
 
     click_button "Sign up"
 
