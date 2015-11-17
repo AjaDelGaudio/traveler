@@ -24,18 +24,6 @@ feature "authenticated user edits a bucket list", %(
     expect(page).to have_content("Add an Adventure")
   end
 
-  # scenario "user fails to successfully edit a bucket list" do
-  #   bucket_list = FactoryGirl.create(:bucket_list)
-  #
-  #   sign_in
-  #   visit edit_bucket_list_path(bucket_list)
-  #   fill_in "Title", with: " "
-  #   click_button "Save It!"
-  #
-  #   expect(page).to have_content("Every list needs a title.")
-  #   expect(page).not_to have_content("Changes saved!")
-  # end
-
   scenario "user successfully changes the private setting of a bucket list" do
     bucket_list = FactoryGirl.create(:bucket_list)
 
@@ -43,7 +31,6 @@ feature "authenticated user edits a bucket list", %(
     visit edit_bucket_list_path(bucket_list)
     find("label", text: "Make public").click
     click_button "Save It!"
-
 
     expect(page).to have_content("Changes saved!")
     expect(page).to have_content("My Bucket Lists")
