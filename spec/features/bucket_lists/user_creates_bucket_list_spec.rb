@@ -5,15 +5,15 @@ feature 'authenticated user creates a bucket list', %(
   I want to create a bucket list
   So I can later recall the destinations without weighing down my bag or mind.
 ) do
-#Acceptance Criteria
-#[x] I can create a new list from the index page
-#[x] I must provide a title
-#[x] If I do not provide a title, I cannot save it and recieve an error message
-#[x] By default, a list is private
-#[x] I may choose to make a list public
-#[x] I must click a button to create the list
-#[x] I recieve a success message when I successfully create a list
-#[x] I must be signed in to create the list
+# Acceptance Criteria
+# [x] I can create a new list from the index page
+# [x] I must provide a title
+# [x] If I do not provide a title, I cannot save it and recieve an error message
+# [x] By default, a list is private
+# [x] I may choose to make a list public
+# [x] I must click a button to create the list
+# [x] I recieve a success message when I successfully create a list
+# [x] I must be signed in to create the list
 
   scenario "authenticated user successfully creates a bucket list" do
     sign_in
