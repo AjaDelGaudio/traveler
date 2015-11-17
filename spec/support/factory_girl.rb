@@ -9,7 +9,7 @@ FactoryGirl.define do
   end
 
   factory :bucket_list do
-    sequence(:title) { |n| "My List ##{n}" }
+    sequence(:title) { |n| "My Bucket List ##{n}" }
     description "I go places"
     is_public true
     user_id 1
