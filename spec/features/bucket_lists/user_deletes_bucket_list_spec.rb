@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature 'authenticated user deletes a bucket list', %(
+feature "authenticated user deletes a bucket list", %(
   As a last minute traveler or traveler who's stay is unexpectedly extended,
   I want to delete a bucket list
   So I can throw away my dreams.
