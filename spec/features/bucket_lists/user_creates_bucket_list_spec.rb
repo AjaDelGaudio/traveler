@@ -26,8 +26,6 @@ feature 'authenticated user creates a bucket list', %(
   end
 
   scenario "unauthenticated user creates a bucket list" do
-    save_and_open_page
-    
     visit new_bucket_list_path
     fill_in "Title", with: "Europe"
     click_button "Save It!"
@@ -40,14 +38,10 @@ feature 'authenticated user creates a bucket list', %(
 
   scenario "authenticated user fails to sucessfully create a bucket list" do
     sign_in
-    visit root_path
-    save_and_open_page
-    click_link 'No adventures, just a new Bucket List please!'
-    fill_in 'Description', with: 'Europe'
-    click_button 'Create Your Bucket List!'
+    visit new_bucket_list_path
+    click_button "Save It!"
 
     expect(page).to have_content("Title can't be blank")
-    expect(page).not_to have_content("Congrats! You started a new Bucket" +
-    "List!")
+    expect(page).not_to have_content("You started a new Bucket List!")
   end
 end
