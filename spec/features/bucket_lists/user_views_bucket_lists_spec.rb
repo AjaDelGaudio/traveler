@@ -6,60 +6,64 @@ feature "authenticated user views their bucket lists", %(
   So I can quickly recall the bucket list on the go without weighing down my bag or mind.
 ) do
 # Acceptance Criteria
-# [x] I can navigate to a list of my bucket lists from the page for creating new
-#     lists
-# [x] I can navigate to a list of my bucket lists from the front page
+# [x] I can navigate to a list of my bucket lists from the page
 # [x] I can see the title, description, and public/saved setting of the bucket
 #     list
 # [x] The full list is displayed on its own show page
 # [x] The page displaying my bucket lists also displays my total number of bucket
 #     lists
 
-  # scenario "authenticated user views all their bucket lists" do
-  #   bucket_list = FactoryGirl.create(:bucket_list)
-  #
-  #   visit new_user_session_path
-  #   fill_in 'Email', with: bucket_list.user.email
-  #   fill_in 'Password', with: bucket_list.user.password
-  #   click_button 'Log in'
-  #   visit bucket_lists_path
-  #
-  #   expect(page).to have_content(bucket_list.title)
-  # end
-  #
-  # scenario "unauthenticated user views all their bucket lists" do
-  #   visit bucket_lists_path
-  #
-  #   expect(page).to have_content("You can do that after you sign in or sign up!")
-  #   expect(page).to have_content("Email")
-  #   expect(page).to have_content("Password")
-  # end
+  scenario "authenticated user views their bucket lists" do
+    user = FactoryGirl.create(:user)
+    bucket_list_1 = BucketList.create(
+      title: "Bucket List Number 1",
+      is_public: false,
+      user_id: user.id
+    )
+    bucket_list_2 = BucketList.create(
+      title: "Bucket List Number 2",
+      is_public: false,
+      user_id: user.id
+    )
+binding.pry
+    sign_in
+    visit bucket_lists_path
+save_and_open_page
+binding.pry
+    expect(page).to have_content(bucket_list.title)
+    expect(page).to have_content(bucket_list_2.title)
+  end
 
-  # scenario "authenticated user navigates from the front page to see a list of
-  #   all their bucket lists" do
-  #   bucket_list = FactoryGirl.create(:bucket_list)
-  #
-  #   visit new_user_session_path
-  #   fill_in 'Email', with: bucket_list.user.email
-  #   fill_in 'Password', with: bucket_list.user.password
-  #   click_button 'Log in'
-  #
-  #   click_link 'No adventures, just a new Bucket List please!'
-  #
-  #   # expect(page).to have_content(bucket_list.title)
-  # end
-  #
-  # scenario "authenticated user navigates from the create new bucket list page
-  #   to see a list of all their bucket lists" do
-  #   bucket_list = FactoryGirl.create(:bucket_list)
-  #
-  #   visit new_user_session_path
-  #   fill_in 'Email', with: bucket_list.user.email
-  #   fill_in 'Password', with: bucket_list.user.password
-  #   click_button 'Log in'
-  #
-  #   click_link 'No adventures, just a new Bucket List please!'
-  #
-  #   expect(page).to have_content(bucket_list.title)
-  # end
+  scenario "unauthenticated user views their bucket lists" do
+    visit bucket_lists_path
+
+    expect(page).to have_content("Email")
+    expect(page).to have_content("Password")
+  end
+
+  scenario "authenticated user navigates from the front page to see a list of
+    their bucket lists" do
+    bucket_list = FactoryGirl.create(:bucket_list)
+
+    sign_in
+    visit root_path
+    click_link "My Bucket Lists"
+
+    expect(page).to have_content(bucket_list.title)
+  end
+
+  scenario "authenticated user views the details of a particular bucket list" do
+    bucket_list = FactoryGirl.create(:bucket_list)
+    bucket_list_2 = BucketList.create(
+      title: "Bucket List Number 2",
+      is_public: false
+    )
+
+    sign_in
+    visit bucket_lists_path
+    click_link(bucket_list.title)
+
+    expect(page).to have_content(bucket_list.title)
+    expect(page).not_to have_content(bucket_list_2.title)
+  end
 end
