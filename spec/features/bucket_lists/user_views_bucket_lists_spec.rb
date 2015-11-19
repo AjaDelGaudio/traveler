@@ -15,23 +15,24 @@ feature "authenticated user views their bucket lists", %(
 
   scenario "authenticated user views their bucket lists" do
     user = FactoryGirl.create(:user)
-    bucket_list_1 = BucketList.create(
+    BucketList.create(
       title: "Bucket List Number 1",
       is_public: false,
       user_id: user.id
     )
-    bucket_list_2 = BucketList.create(
+    BucketList.create(
       title: "Bucket List Number 2",
       is_public: false,
       user_id: user.id
     )
-binding.pry
+    bucket_list_1_title = user.bucket_lists[0].title
+    bucket_list_2_title = user.bucket_lists[1].title
+
     sign_in
     visit bucket_lists_path
-save_and_open_page
-binding.pry
-    expect(page).to have_content(bucket_list.title)
-    expect(page).to have_content(bucket_list_2.title)
+
+    expect(page).to have_content(bucket_list_1_title)
+    expect(page).to have_content(bucket_list_2_title)
   end
 
   scenario "unauthenticated user views their bucket lists" do
