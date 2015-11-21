@@ -27,6 +27,7 @@ feature "authenticated user views their bucket lists", %(
     )
     bucket_list_1_title = user.bucket_lists[0].title
     bucket_list_2_title = user.bucket_lists[1].title
+
     sign_in
     visit bucket_lists_path
 
