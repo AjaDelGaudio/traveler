@@ -27,10 +27,10 @@ feature "authenticated user views their bucket lists", %(
     )
     bucket_list_1_title = user.bucket_lists[0].title
     bucket_list_2_title = user.bucket_lists[1].title
-
     sign_in
     visit bucket_lists_path
 
+save_and_open_page
     expect(page).to have_content(bucket_list_1_title)
     expect(page).to have_content(bucket_list_2_title)
   end
