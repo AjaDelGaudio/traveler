@@ -9,12 +9,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'rspec-rails', group: [:development, :test]
-gem 'capybara', group: [:development, :test]
-gem 'launchy', group: [:development, :test]
-gem 'factory_girl', group: [:development, :test]
-gem 'valid_attribute', group: [:development, :test]
-gem 'shoulda-matchers', '~> 2.8.0', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails'
 gem 'dotenv-rails'
@@ -28,6 +22,13 @@ gem 'pg_search'
 
 group :development, :test do
   gem 'codeship'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl'
+  gem 'valid_attribute'
+  gem 'shoulda-matchers', '~> 2.8.0', require: false
+
 end
 
 group :development do
@@ -37,4 +38,5 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
