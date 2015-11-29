@@ -34,7 +34,6 @@ class AdventuresController < ApplicationController
     @adventure = Adventure.new(adventure_params)
     @bucket_list_adventures = @adventure.bucket_list_adventures
     bla = adventure_params[:bucket_list_adventures_attributes]["0"]
-    bla = bla["0"]
     @bucket_list = BucketList.find(bla[:bucket_list_id])
 
     @is_achieved = @adventure.bucket_list_adventures.last.is_achieved
@@ -43,6 +42,10 @@ class AdventuresController < ApplicationController
     end
 
     if @adventure.save
+      flash[:notice] = "Excellent! Another adventure awaits!"
+      redirect_to bucket_list_path(@bucket_list)
+    elsif @adventure.id == nil && @bucket_list.id != nil
+      @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"
       redirect_to bucket_list_path(@bucket_list)
     else
