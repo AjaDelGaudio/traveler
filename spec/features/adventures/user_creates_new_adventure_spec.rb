@@ -44,5 +44,4 @@ feature "user creates an adventure", %(
     expect(page).not_to have_content("Address")
     expect(page).not_to have_content("New Adventure")
   end
-
 end
