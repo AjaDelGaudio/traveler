@@ -8,10 +8,7 @@ class Adventure < ActiveRecord::Base
   accepts_nested_attributes_for :bucket_lists
   accepts_nested_attributes_for :bucket_list_adventures
 
-  # validates :name, presence: true, unless: :address?
-  # validates :address, presence: true, unless: :name?
   validate :name_or_address
-
 
   validates :latitude, numericality: { only_float: true, allow_blank: true }
   validates :longitude, numericality: { only_float: true, allow_blank: true }
@@ -34,9 +31,9 @@ class Adventure < ActiveRecord::Base
 
   private
 
-    def name_or_address
-      if name.blank? && address.blank?
-        errors.add(:adventure, "Must specify a name and/or address")
-      end
+  def name_or_address
+    if name.blank? && address.blank?
+      errors.add(:adventure, "Must specify a name and/or address")
     end
+  end
 end
