@@ -45,8 +45,8 @@ feature "user creates an adventure", %(
     expect(page).not_to have_content("New Adventure")
   end
 
-  scenario "authenticated user fails to create and adventure due to " +
-  "no bucket_lists (0 count)" do
+  scenario "authenticated user fails to create and adventure due to " \
+    "no bucket_lists (0 count)" do
     sign_in
     visit new_adventure_path
 
