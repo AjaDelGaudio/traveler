@@ -24,13 +24,13 @@ feature "user creates an adventure", %(
     click_button "Toss it in!"
 
     expect(page).to have_content("Excellent! Another adventure awaits!")
+    expect(page).not_to have_content("Must specify a name and/or address")
   end
 
   scenario "authenticated user does not specify either name or address" do
     bucket_list_sign_in
     visit new_adventure_path
     click_button "Toss it in!"
-    save_and_open_page
 
     expect(page).to have_content("Must specify a name and/or address")
     expect(page).not_to have_content("Excellent! Another adventure awaits!")
