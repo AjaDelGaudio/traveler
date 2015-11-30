@@ -7,7 +7,7 @@ feature "user creates an adventure", %(
 ) do
   # Acceptance Criteria
   # [x] I must be signed in to add an adventure
-  # [] I must create a bucket list before I can create an adventure
+  # [x] I must create a bucket list before I can create an adventure
   # [x] I must provide a either a name, address, or both
   # [x] If I do not provide a name or address, I recieve an error message
   # [] I may include text notes about the adventure
@@ -23,6 +23,21 @@ feature "user creates an adventure", %(
     fill_in "Name", with: "Swim the Nile"
     click_button "Toss it in!"
 
+    expect(page).to have_content("Excellent! Another adventure awaits!")
+    expect(page).not_to have_content("Must specify a name and/or address")
+  end
+
+  scenario "authenticated user successfully creates an adventure w/ " \
+    "non-required attributes" do
+    bucket_list_sign_in
+    visit new_adventure_path
+    fill_in "Name", with: "Swim the Nile"
+    fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
+    checkbox = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
+    check "Seen it! Done it!"
+    click_button "Toss it in!"
+
+    expect(checkbox).to be_checked
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
