@@ -35,4 +35,14 @@ feature "user creates an adventure", %(
     expect(page).to have_content("Must specify a name and/or address")
     expect(page).not_to have_content("Excellent! Another adventure awaits!")
   end
+
+  scenario "unauthenticated user fails to create a new adventure" do
+    visit new_adventure_path
+
+    expect(page).to have_content("You can do that after you sign in or sign up!")
+    expect(page).to have_content("Sign In")
+    expect(page).not_to have_content("Address")
+    expect(page).not_to have_content("New Adventure")
+  end
+
 end
