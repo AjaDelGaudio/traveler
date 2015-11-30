@@ -42,10 +42,6 @@ class AdventuresController < ApplicationController
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"
       redirect_to bucket_list_path(@bucket_list)
-    elsif @adventure.id == nil && @bucket_list.id != nil
-      @adventure.save
-      flash[:notice] = "Excellent! Another adventure awaits!"
-      redirect_to bucket_list_path(@bucket_list)
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :new
