@@ -37,15 +37,9 @@ class AdventuresController < ApplicationController
     @bucket_list = BucketList.find(bla[:bucket_list_id])
 
     @is_achieved = @adventure.bucket_list_adventures.last.is_achieved
-    if @is_achieved == nil
-      @is_achieved = false
-    end
+    @is_achieved ||= false
 
     if @adventure.save
-      flash[:notice] = "Excellent! Another adventure awaits!"
-      redirect_to bucket_list_path(@bucket_list)
-    elsif @adventure.id == nil && @bucket_list.id != nil
-      @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"
       redirect_to bucket_list_path(@bucket_list)
     else

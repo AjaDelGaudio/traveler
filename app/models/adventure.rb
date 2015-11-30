@@ -9,6 +9,7 @@ class Adventure < ActiveRecord::Base
   accepts_nested_attributes_for :bucket_list_adventures
 
   validates :name, presence: true, unless: :address?
+  validates :address, presence: true, unless: :name?
   validates :latitude, numericality: { only_float: true, allow_blank: true }
   validates :longitude, numericality: { only_float: true, allow_blank: true }
 

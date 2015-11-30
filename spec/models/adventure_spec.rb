@@ -9,12 +9,9 @@ describe Adventure do
   it { should have_many :bucket_list_adventures }
   it { should have_many(:bucket_lists).through(:bucket_list_adventures) }
 
-  it { should have_valid(:name).when("Visit Sue", "Eat alligator") }
-  it { should have_valid(:address).when("Paris, France", "1 A St., NYC") }
-
-  it { should have_valid(:latitude).when(40.7127837, nil) }
-  it { should_not have_valid(:latitude).when("cat", ".") }
-
-  it { should have_valid(:longitude).when(116.4073949999, nil) }
-  it { should_not have_valid(:longitude).when("cat", ".") }
+  # it { should have_valid(:latitude).when(40.7127837, nil) }
+  # it { should_not have_valid(:latitude).when("cat", ".") }
+  #
+  # it { should have_valid(:longitude).when(116.4073949999, nil) }
+  # it { should_not have_valid(:longitude).when("cat", ".") }
 end
