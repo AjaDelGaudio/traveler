@@ -42,7 +42,6 @@ class AdventuresController < ApplicationController
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"
       redirect_to bucket_list_path(@bucket_list)
-      binding.pry
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :new
