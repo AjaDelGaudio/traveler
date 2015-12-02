@@ -10,9 +10,9 @@ feature "user creates an adventure", %(
   # [x] I must create a bucket list before I can create an adventure
   # [x] I must provide a either a name, address, or both
   # [x] If I do not provide a name or address, I recieve an error message
-  # [] I may include text notes about the adventure
-  # [] I may mark the adventure as achieved if I choose
-  # [] By defalut, the adventure is marked as not achieved
+  # [x] I may include text notes about the adventure
+  # [x] I may mark the adventure as achieved if I choose
+  # [x] By defalut, the adventure is marked as not achieved
   # [] I can select the bucket list I would like to add my adventure to from
   #    a dropdown list
   # [x] I recieve a success message when I successfully add an adventure
@@ -38,6 +38,22 @@ feature "user creates an adventure", %(
     click_button "Toss it in!"
 
     expect(checkbox).to be_checked
+    expect(page).to have_content("Excellent! Another adventure awaits!")
+    expect(page).not_to have_content("Must specify a name and/or address")
+  end
+
+  scenario "authenticated user successfully selects a bucket list" do
+    bucket_list_sign_in
+    visit new_bucket_list_path
+    fill_in "Title", with: "North Africa"
+    click_button "Save It!"
+
+    visit new_adventure_path
+    fill_in "Name", with: "Swim the Nile"
+    select "North Africa", from: "Bucket list"
+    click_button "Toss it in!"
+
+    expect(page).to have_content("North Africa")
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
