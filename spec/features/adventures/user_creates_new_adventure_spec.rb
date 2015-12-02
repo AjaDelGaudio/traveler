@@ -13,7 +13,7 @@ feature "user creates an adventure", %(
   # [x] I may include text notes about the adventure
   # [x] I may mark the adventure as achieved if I choose
   # [x] By defalut, the adventure is marked as not achieved
-  # [] I can select the bucket list I would like to add my adventure to from
+  # [x] I can select the bucket list I would like to add my adventure to from
   #    a dropdown list
   # [x] I recieve a success message when I successfully add an adventure
 
