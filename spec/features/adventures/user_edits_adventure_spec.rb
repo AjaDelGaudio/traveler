@@ -19,6 +19,8 @@ feature "user edits adventure", %(
 
     visit edit_adventure_path
 
+    expect(page).to have_content("Excellent! Another adventure awaits!")
+    expect(page).not_to have_content("Must specify a name and/or address")
   end
 
 end
