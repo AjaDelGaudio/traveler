@@ -14,4 +14,6 @@ feature "user edits adventure", %(
   # [x] I can change the bucket list I would like my adventure associated with
   #    by selecting from a dropdown list
   # [x] I recieve a success message when I successfully edit an adventure
+
+  
 end
