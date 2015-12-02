@@ -15,5 +15,10 @@ feature "user edits adventure", %(
   #    by selecting from a dropdown list
   # [x] I recieve a success message when I successfully edit an adventure
 
-  
+  scenario "authenticated user successfully edits an adventure" do
+
+    visit edit_adventure_path
+
+  end
+
 end
