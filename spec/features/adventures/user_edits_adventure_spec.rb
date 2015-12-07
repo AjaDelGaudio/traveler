@@ -32,7 +32,7 @@ feature "user edits adventure", %(
   "bucket_list_adventure attributes" do
     bucket_list_sign_in
     adventure = FactoryGirl.create(:adventure)
-    bucket_list_adventure = FactoryGirl.create(
+    FactoryGirl.create(
       :bucket_list_adventure,
       adventure_id: adventure.id
     )
