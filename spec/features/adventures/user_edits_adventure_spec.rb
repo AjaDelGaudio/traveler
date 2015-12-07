@@ -16,8 +16,9 @@ feature "user edits adventure", %(
   # [x] I recieve a success message when I successfully edit an adventure
 
   scenario "authenticated user successfully edits an adventure" do
-
-    visit edit_adventure_path
+    bucket_list_sign_in
+    adventure = FactoryGirl.create(:adventure)
+    visit edit_adventure_path(adventure)
 
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
