@@ -52,6 +52,10 @@ class AdventuresController < ApplicationController
     @bucket_lists = BucketList.where(is_public: true)
   end
 
+  def edit
+    @adventure = Adventure.find(params[:id])
+  end
+
 
   private
 
