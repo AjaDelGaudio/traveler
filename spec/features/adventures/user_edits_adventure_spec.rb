@@ -32,10 +32,13 @@ feature "user edits adventure", %(
   "bucket_list_adventure attributes" do
     bucket_list_sign_in
     adventure = FactoryGirl.create(:adventure)
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      adventure_id: adventure.id
+    )
 
     visit edit_adventure_path(adventure)
     fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
-    save_and_open_page
     checkbox = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
     check "Seen it! Done it!"
     click_button "Save It!"
