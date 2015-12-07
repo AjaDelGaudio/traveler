@@ -47,6 +47,4 @@ feature "user edits adventure", %(
     expect(page).to have_content("Changes saved!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
-
-
 end
