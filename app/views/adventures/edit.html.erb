@@ -20,7 +20,7 @@
         <%= ff.label :bucket_list_id %>
         <%= ff.collection_select(
           :bucket_list_id,
-          BucketList.where(user_id: current_user.id),
+          @bucket_lists,
           :id,
           :title,
           ) %>
@@ -34,7 +34,7 @@
         </div>
 
       <% end %>
-      
+
       <div class="small-9 columns small-centered divinding-line"></div>
 
       <div class="form-actions text-center">

@@ -54,8 +54,22 @@ class AdventuresController < ApplicationController
 
   def edit
     @adventure = Adventure.find(params[:id])
+    @bucket_lists = BucketList.where(user_id: current_user.id)
   end
 
+  def update
+    @adventure = Adventure.find(params[:id])
+    @adventure.update(adventure_params)
+
+    if @adventure.save
+      redirect_to root_path
+      flash[:info] = "Changes saved!"
+    else
+      @adventure = Adventure.where(user: current_user)[0]
+      flash[:warning] = "Every Adventure needs a name."
+      render :edit
+    end
+  end
 
   private
 

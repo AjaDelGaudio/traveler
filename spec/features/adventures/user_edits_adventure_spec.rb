@@ -19,8 +19,10 @@ feature "user edits adventure", %(
     bucket_list_sign_in
     adventure = FactoryGirl.create(:adventure)
     visit edit_adventure_path(adventure)
+    fill_in "Name", with: "feed fish while snorkeling"
+    click_button "Save It!"
 
-    expect(page).to have_content("Excellent! Another adventure awaits!")
+    expect(page).to have_content("Changes saved!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
 
