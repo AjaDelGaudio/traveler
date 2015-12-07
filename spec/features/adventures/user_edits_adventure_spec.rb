@@ -20,6 +20,7 @@ feature "user edits adventure", %(
     adventure = FactoryGirl.create(:adventure)
     visit edit_adventure_path(adventure)
     fill_in "Name", with: "feed fish while snorkeling"
+    fill_in "Address", with: "Fiji"
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")
