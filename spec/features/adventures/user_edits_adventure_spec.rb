@@ -43,6 +43,7 @@ feature "user edits adventure", %(
     check "Seen it! Done it!"
     click_button "Save It!"
 
+    expect(checkbox).to be_checked
     expect(page).to have_content("Changes saved!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
