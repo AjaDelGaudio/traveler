@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :adventures, only: [:new, :create, :index]
 
+  patch '/adventures/:id/edit', to: 'adventures#update'
+
   resources :adventures do
     collection do
       get "search"
