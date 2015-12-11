@@ -51,9 +51,9 @@ feature "user edits adventure", %(
   scenario "authenticated user successfully edits an adventure's bucket list" do
     user = FactoryGirl.create(:user)
     visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
     bucket_list_1 = FactoryGirl.create(
       :bucket_list,
       title: "Australia",
@@ -70,7 +70,8 @@ feature "user edits adventure", %(
       adventure_id: adventure.id,
       user_id: user.id
     )
-    bucket_list_adventure = FactoryGirl.create(:bucket_list_adventure,
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
       adventure_id: adventure.id,
       bucket_list_id: bucket_list_1.id
     )
