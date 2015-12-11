@@ -49,22 +49,31 @@ feature "user edits adventure", %(
   end
 
   scenario "authenticated user successfully edits an adventure's bucket list" do
-    bucket_list_sign_in
-
-    bucket_list_2 = FactoryGirl.create(:bucket_list, title: "Next vacation")
-    adventure = FactoryGirl.create(:adventure)
-    FactoryGirl.create(
-      :bucket_list_adventure,
-      adventure_id: adventure.id,
-      bucket_list_id: bucket_list_2.id
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
+    bucket_list_1 = FactoryGirl.create(
+      :bucket_list,
+      title: "Australia",
+      user_id: user.id
     )
-
-
-
-
+    bucket_list_2 = FactoryGirl.create(
+      :bucket_list,
+      title: "Outerspace",
+      user_id: user.id
+    )
+    adventure = FactoryGirl.create(:adventure)
+    adventure_user = FactoryGirl.create(
+      :adventure_user,
+      adventure_id: adventure.id,
+      user_id: user.id
+    )
+binding.pry
     visit edit_adventure_path(adventure)
-
     select "Next vacation", from: "Bucket list"
+save_and_open_page
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")
