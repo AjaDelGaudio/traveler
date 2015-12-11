@@ -70,10 +70,13 @@ feature "user edits adventure", %(
       adventure_id: adventure.id,
       user_id: user.id
     )
-binding.pry
+    bucket_list_adventure = FactoryGirl.create(:bucket_list_adventure,
+      adventure_id: adventure.id,
+      bucket_list_id: bucket_list_1.id
+    )
+
     visit edit_adventure_path(adventure)
-    select "Next vacation", from: "Bucket list"
-save_and_open_page
+    select "Outerspace", from: "Bucket list"
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")
