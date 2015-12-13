@@ -83,4 +83,14 @@ feature "user edits adventure", %(
     expect(page).to have_content("Changes saved!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
+
+  scenario "unauthenticated user fails to edit an adventure" do
+    adventure = FactoryGirl.create(:adventure)
+
+    visit edit_adventure_path(adventure)
+
+    expect(page).to have_content("You can do that after you sign in or sign up!")
+    expect(page).not_to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Changes saved!")
+  end
 end
