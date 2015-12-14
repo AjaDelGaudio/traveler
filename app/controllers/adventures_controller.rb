@@ -73,6 +73,7 @@ class AdventuresController < ApplicationController
   def destroy
     @adventure = Adventure.find(params[:id])
     if @adventure.destroy
+      binding.pry
       flash[:success] = "Adventure deleted"
       redirect_to adventures_path
     end

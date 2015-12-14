@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   patch '/bucket_lists/:id/edit', to: 'bucket_lists#update'
 
-  resources :adventures, only: [:new, :create, :index]
+  resources :adventures, only: [:new, :create, :index, :destroy]
 
   patch '/adventures/:id/edit', to: 'adventures#update'
 

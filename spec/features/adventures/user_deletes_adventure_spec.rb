@@ -11,9 +11,28 @@ feature "authenticated user deletes an adventure", %(
 # [x] After I delete an adventure it is no longer visible
 
   scenario "authenticated user sucessfully deletes an adventure" do
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
+    bucket_list = FactoryGirl.create(
+      :bucket_list,
+      title: "Australia",
+      user_id: user.id
+    )
     adventure = FactoryGirl.create(:adventure)
+    adventure_user = FactoryGirl.create(
+      :adventure_user,
+      adventure_id: adventure.id,
+      user_id: user.id
+    )
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      adventure_id: adventure.id,
+      bucket_list_id: bucket_list.id
+    )
 
-    sign_in
     visit edit_adventure_path(adventure)
     click_link "Delete"
 
