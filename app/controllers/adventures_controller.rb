@@ -70,6 +70,14 @@ class AdventuresController < ApplicationController
     end
   end
 
+  def destroy
+    @adventure = Adventure.find(params[:id])
+    if @adventure.destroy
+      flash[:success] = "Adventure deleted"
+      redirect_to adventures_path
+    end
+  end
+
   private
 
   def adventure_params
