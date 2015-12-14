@@ -5,7 +5,7 @@
 
     <div class="text-right">
       <%= link_to (fa_icon "trash-o") + " Delete",
-      adventure_path(@adventure), method: :adventure %>
+      adventure_path(@adventure), method: :delete %>
     </div>
 
     <%= form_for @adventure, url: edit_adventure_path(@adventure) do |f| %>
