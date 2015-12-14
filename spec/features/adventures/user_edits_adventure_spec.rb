@@ -38,7 +38,6 @@ feature "user edits adventure", %(
     )
 
     visit edit_adventure_path(adventure)
-    save_and_open_page
     fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
     checkbox = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
     check "Seen it! Done it!"
@@ -97,11 +96,10 @@ feature "user edits adventure", %(
 
   scenario "authenticated user fails to edit an adventure" do
     bucket_list_sign_in
-    adventure = FactoryGirl.create(:adventure)
+    adventure = FactoryGirl.create(:adventure, address: nil)
 
     visit edit_adventure_path(adventure)
-    fill_in "Name", with: ""
-    fill_in "Address", with: ""
+    find("input[id$='adventure_name']").set ""
     click_button "Save It!"
 
     expect(page).to have_content("Must specify a name and/or address")
