@@ -65,8 +65,7 @@ class AdventuresController < ApplicationController
       redirect_to root_path
       flash[:info] = "Changes saved!"
     else
-      @adventure = Adventure.where(user: current_user)[0]
-      flash[:warning] = "Every Adventure needs a name."
+      flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :edit
     end
   end

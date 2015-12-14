@@ -94,6 +94,18 @@ feature "user edits adventure", %(
     expect(page).not_to have_content("Changes saved!")
   end
 
+  scenario "authenticated user fails to edit an adventure" do
+    bucket_list_sign_in
+    adventure = FactoryGirl.create(:adventure, address: nil)
+
+    visit edit_adventure_path(adventure)
+    find("input[id$='adventure_name']").set ""
+    click_button "Save It!"
+
+    expect(page).to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Changes saved!")
+  end
+
   scenario "authenticated user successfully removes adventure name attribute" do
     bucket_list_sign_in
     adventure = FactoryGirl.create(:adventure)
