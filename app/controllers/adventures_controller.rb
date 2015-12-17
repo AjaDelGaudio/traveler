@@ -76,6 +76,8 @@ class AdventuresController < ApplicationController
       binding.pry
       flash[:success] = "Adventure deleted"
       redirect_to adventures_path
+    else
+      flash[:warning] = "Adventure NOT deleted"
     end
   end
 
