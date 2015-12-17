@@ -70,10 +70,21 @@ class AdventuresController < ApplicationController
     end
   end
 
+  def destroy
+    @adventure = Adventure.find(params[:id])
+    if @adventure.destroy
+      redirect_to bucket_lists_path
+      flash[:success] = "Adventure deleted"
+    else
+      flash[:warning] = "Adventure NOT deleted"
+    end
+  end
+
   private
 
   def adventure_params
       params.require(:adventure).permit(
+        :id,
         :name,
         :address,
         :latitude,
