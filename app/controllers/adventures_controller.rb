@@ -73,8 +73,8 @@ class AdventuresController < ApplicationController
   def destroy
     @adventure = Adventure.find(params[:id])
     if @adventure.destroy
-      flash[:success] = "Adventure deleted"
       redirect_to bucket_lists_path
+      flash[:success] = "Adventure deleted"
     else
       flash[:warning] = "Adventure NOT deleted"
     end

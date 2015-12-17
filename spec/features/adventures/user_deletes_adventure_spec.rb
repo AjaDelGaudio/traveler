@@ -37,7 +37,8 @@ feature "authenticated user deletes an adventure", %(
     click_link "Delete"
 
     expect(page).to have_content("Adventure deleted")
-    expect(page).not_to have_content(adventure.title)
+    expect(page).not_to have_content("Adventure NOT deleted")
+    expect(page).not_to have_content(adventure.name)
   end
 
   scenario "unauthenticated user fails to delete an adventure" do
