@@ -42,9 +42,10 @@ feature "authenticated user deletes an adventure", %(
   end
 
   scenario "unauthenticated user fails to delete an adventure" do
-    visit edit_adventure_path(adventure)
+# cannot navigate to edit_adventure_path(adventure) w/o being logged in
+    visit bucket_lists_path
 
     expect(page).to have_content("Log in")
-    expect(page).not_to have_content("Delete")
+    expect(page).not_to have_content("Edit")
   end
 end
