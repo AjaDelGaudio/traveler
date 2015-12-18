@@ -1,27 +1,15 @@
 require "rails_helper"
 
-feature 'authenticated user creates a an adventure using google maps', %(
+feature "authenticated user creates a an adventure using google maps", %(
   As a last minute traveler or traveler who's stay is unexpectedly extended,
   I want to create an adventure
   So I can add it to any of my bucket lists.
 ) do
 # Acceptance Criteria
-# [] I must be signed in to add an adventure to any of my bucket lists
-# [] I can create a new adventure from the index page
-# [] I must provide a either a name, address, or both
-# [] If I do not provide a name or address, I recieve an error message
-# [] I may include text notes about the adventure
-# [] I may mark the adventure as achieved if I choose
-# [] By defalut, the adventure is marked as not achieved
 # [] If the adventure is a location, I may create the adventure using
 #    google maps
 # [] The serach box will autocomplete as I type
 # [] The search box will show the adventure location on a map
-# [] If my adventure is not tied to a location (ex: action, event), I can
-#    fill out a field to submit the custom adventure
-# [] I can select the bucket list I would like to add my adventure to from
-#    a dropdown list
-# [] I must click a link to add the location to any bucket list
 # [] I recieve a success message when I successfully add an adventure
 
   # scenario "authenticated user successfully adds an adventure with title only" do
