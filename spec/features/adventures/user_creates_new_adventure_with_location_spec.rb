@@ -26,11 +26,9 @@ feature "authenticated user creates a an adventure using google maps", %(
   #
   scenario "authenticated user fails to add an adventure to an " +
     "existing bucket list with address only" do
-    bucket_list_sign_in
     visit new_adventure_path
     save_and_open_page
     fill_in "Name", with: "x"
-    select bucket_list.title, from: "Bucket list"
     click_button "Add to Bucket List!"
 
     expect(page).to have_content("Must specify a name and/or address")
