@@ -30,7 +30,7 @@ feature "authenticated user creates a an adventure using google maps", %(
     visit new_adventure_path
     save_and_open_page
     fill_in "Name", with: nil
-    fill_in "Address", with: nil
+    fill_in "Location", with: nil
     click_button "Add to Bucket List!"
 
     expect(page).to have_content("Must specify a name and/or address")
