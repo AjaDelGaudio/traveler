@@ -24,16 +24,17 @@ feature "authenticated user creates a an adventure using google maps", %(
   #   expect(page).to have_content("I've already been here/done this")
   # end
   #
-  # scenario "authenticated user fails to add an adventure to an " +
-  #   "existing bucket list with address only" do
-  #   bucket_list_sign_in
-  #   visit new_adventure_path
-  #   fill_in "Address", with: "x"
-  #   select bucket_list.title, from: "Bucket list"
-  #   click_button "Add to Bucket List!"
-  #
-  #   expect(page).to have_content("Must specify a name and/or address")
-  #   expect(page).not_to have_content("Excellent!  Another adventure to happen!")
-  #   expect(page).not_to have_content("I've already been here/done this")
-  # end
+  scenario "authenticated user fails to add an adventure to an " +
+    "existing bucket list with address only" do
+    bucket_list_sign_in
+
+    visit new_adventure_path
+    fill_in "Name", with: nil
+    fill_in "Location", with: nil
+    click_button "Toss it in!"
+
+    expect(page).to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Excellent!  Another adventure to happen!")
+    expect(page).not_to have_content("I've already been here/done this")
+  end
 end
