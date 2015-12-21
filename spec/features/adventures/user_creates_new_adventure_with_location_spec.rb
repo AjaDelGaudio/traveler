@@ -10,7 +10,8 @@ feature "authenticated user creates a an adventure using google maps", %(
 #    google maps
 # [] The serach box will autocomplete as I type
 # [] The search box will show the adventure location on a map
-# [] I recieve a success message when I successfully add an adventure
+# [x] I recieve a success message when I successfully add an adventure
+# [x] If I do not sucessfully save an adventure with location only, I am told why
 
   scenario "authenticated user successfully adds an adventure to an " +
     "existing bucket list with address only" do
