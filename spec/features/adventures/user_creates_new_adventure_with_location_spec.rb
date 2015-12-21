@@ -20,7 +20,7 @@ feature "authenticated user creates a an adventure using google maps", %(
     click_button "Toss it in!"
 
     expect(page).to have_content("Excellent!  Another adventure awaits!")
-    expect(page).to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Must specify a name and/or address")
   end
 
   scenario "authenticated user fails to add an adventure to an " +
