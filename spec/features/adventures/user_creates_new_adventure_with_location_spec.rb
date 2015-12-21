@@ -17,12 +17,12 @@ feature "authenticated user creates a an adventure using google maps", %(
     bucket_list_sign_in
     visit new_adventure_path
     fill_in "Location", with: "Paris, France"
-    click_button "Add to Bucket List!"
+    click_button "Toss it in!"
 
-    expect(page).to have_content("Excellent!  Another adventure to happen!")
+    expect(page).to have_content("Excellent!  Another adventure awaits!")
     expect(page).to have_content("Must specify a name and/or address")
   end
-  #
+
   scenario "authenticated user fails to add an adventure to an " +
     "existing bucket list with address only" do
     bucket_list_sign_in
@@ -33,6 +33,6 @@ feature "authenticated user creates a an adventure using google maps", %(
     click_button "Toss it in!"
 
     expect(page).to have_content("Must specify a name and/or address")
-    expect(page).not_to have_content("Excellent!  Another adventure to happen!")
+    expect(page).not_to have_content("Excellent!  Another adventure awaits!")
   end
 end
