@@ -84,6 +84,30 @@ feature "user edits adventure", %(
     expect(page).not_to have_content("Must specify a name and/or address")
   end
 
+  scenario "authenticated user successfully adds a address to an adventure" do
+    bucket_list_sign_in
+    adventure = FactoryGirl.create(:adventure, address: nil)
+
+    visit edit_adventure_path(adventure)
+    fill_in "Address", with: "Spain"
+    click_button "Save It!"
+
+    expect(page).to have_content("Changes saved!")
+    expect(page).not_to have_content("Must specify a name and/or address")
+  end
+
+  scenario "authenticated user successfully adds a name to an adventure" do
+    bucket_list_sign_in
+    adventure = FactoryGirl.create(:adventure, name: nil)
+
+    visit edit_adventure_path(adventure)
+    fill_in "Name", with: "Do this thing!"
+    click_button "Save It!"
+
+    expect(page).to have_content("Changes saved!")
+    expect(page).not_to have_content("Must specify a name and/or address")
+  end
+
   scenario "unauthenticated user fails to edit an adventure" do
     adventure = FactoryGirl.create(:adventure)
 
