@@ -1,17 +1,18 @@
 
-    <% @bucket_lists.each do |bucket_list| %>
-  <ul class="panel">
-      <li><%= bucket_list.title %></li>
-      <li><%= bucket_list.description %></li>
-      <li><% bucket_list.adventures.each do|adventure| %></li>
-        <ul>
-          <li><%= adventure.name %></li>
-          <li><%= adventure.address %></li>
-          <% if adventure.bucket_list_adventures.first.is_achieved %>
-            <li>ACHIEVED!HERE</li>
-          <% end %>
-          <li><%= adventure.bucket_list_adventures.first.notes %></li>
-        </ul>
-        <% end %>
-  </ul>
-    <% end %>
+<div class="row">
+  <div class="small-11 medium-6 columns small-centered">
+    <h3>Shared Bucket Lists:</h3>
+
+    <p><%= @bucket_lists.count %> Bucket List(s) being shared!</p>
+
+    <ul class="no-bullet">
+      <% @bucket_lists.each do |bucket_list| %>
+        <li class="bucket-list">
+          <div class="small-9 columns small-centered divinding-line"></div>
+          <h4><%= link_to bucket_list.title, bucket_list_path(bucket_list.id) %></h4>
+          <p><%= bucket_list.description %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
