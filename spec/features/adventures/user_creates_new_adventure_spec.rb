@@ -15,7 +15,7 @@ feature "user creates an adventure", %(
   # [x] By defalut, the adventure is marked as not achieved
   # [x] I can select the bucket list I would like to add my adventure to from
   #    a dropdown list
-  # [] I may include a link by pasting the location
+  # [] I may include a link by submitting the address
   # [x] I recieve a success message when I successfully add an adventure
 
   scenario "authenticated user successfully creates an adventure" do
@@ -43,7 +43,8 @@ feature "user creates an adventure", %(
     expect(page).not_to have_content("Must specify a name and/or address")
   end
 
-  scenario "authenticated user successfully selects a bucket list" do
+  scenario "authenticated user successfully creates adventure and selects a " \
+  "bucket list" do
     bucket_list_sign_in
     visit new_bucket_list_path
     fill_in "Title", with: "North Africa"
