@@ -8,13 +8,14 @@ feature "user creates an adventure", %(
   # Acceptance Criteria
   # [x] I must be signed in to add an adventure
   # [x] I must create a bucket list before I can create an adventure
-  # [x] I must provide a either a name, address, or both
-  # [x] If I do not provide a name or address, I recieve an error message
+  # [x] I must provide a either a name, location, or both
+  # [x] If I do not provide a name or location, I recieve an error message
   # [x] I may include text notes about the adventure
   # [x] I may mark the adventure as achieved if I choose
   # [x] By defalut, the adventure is marked as not achieved
   # [x] I can select the bucket list I would like to add my adventure to from
   #    a dropdown list
+  # [] I may include a link by pasting the location
   # [x] I recieve a success message when I successfully add an adventure
 
   scenario "authenticated user successfully creates an adventure" do
@@ -28,7 +29,7 @@ feature "user creates an adventure", %(
   end
 
   scenario "authenticated user successfully creates an adventure w/ " \
-    "non-required attributes" do
+    "notes and achieved attributes" do
     bucket_list_sign_in
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
@@ -57,6 +58,23 @@ feature "user creates an adventure", %(
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
+
+  scenario "authenticated user successfully creates an adventure w/ " \
+    "link attribute" do
+    bucket_list_sign_in
+    visit new_adventure_path
+    fill_in "Name", with: "Underground River"
+    fill_in "Location", with: "Underground River Palawan Philippines"
+    fill_in "Link", with: "https://en.wikipedia.org/wiki/Puerto_Princesa_Subterranean_River_National_Park"
+    checkbox = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
+    check "Seen it! Done it!"
+    click_button "Toss it in!"
+
+    expect(checkbox).to be_checked
+    expect(page).to have_content("Excellent! Another adventure awaits!")
+    expect(page).not_to have_content("Must specify a name and/or address")
+  end
+
 
   scenario "authenticated user does not specify either name or address" do
     bucket_list_sign_in
