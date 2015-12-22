@@ -18,23 +18,30 @@ feature "user views an of their adventures", %(
   scenario "authenticated user successfully views a list of their adventures " \
   "associated with each of their bucket lists by navigating to their bucket" \
   " list index page" do
-    bucket_list_sign_in
-    bucket_list_1 = FactoryGirl.create(:bucket_list, user: user)
+    user = FactoryGirl.create(:user)
+    bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure_1 = FactoryGirl.create(
-      :adventure,
-      user: user,
-      bucket_list: bucket_list_1
+      :adventure
+    )
+    bucket_list_adventure_1 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_1.id,
+      adventure_id: adventure_1.id
     )
     bucket_list_2 = FactoryGirl.create(
       :bucket_list,
-      title: "Mongolia",
-      user: user
+      user_id: user.id,
+      title: "Mongolia"
     )
     adventure_2 = FactoryGirl.create(
       :adventure,
-      name: "Sleep in a yurt"
-      user: user,
-      bucket_list: bucket_list_2
+      name: "Sleep in a yurt",
+      bucket_list_id: bucket_list_2.id
+    )
+    bucket_list_adventure_1 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_2.id,
+      adventure_id: adventure_2.id
     )
     visit bucket_list_path
 
