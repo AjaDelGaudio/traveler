@@ -15,6 +15,7 @@ feature "user creates an adventure", %(
   # [x] By defalut, the adventure is marked as not achieved
   # [x] I can select the bucket list I would like to add my adventure to from
   #    a dropdown list
+  # [] I may include a link by submitting the address
   # [x] I recieve a success message when I successfully add an adventure
 
   scenario "authenticated user successfully creates an adventure" do
@@ -28,7 +29,7 @@ feature "user creates an adventure", %(
   end
 
   scenario "authenticated user successfully creates an adventure w/ " \
-    "non-required attributes" do
+    "notes and achieved attributes" do
     bucket_list_sign_in
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
@@ -42,7 +43,8 @@ feature "user creates an adventure", %(
     expect(page).not_to have_content("Must specify a name and/or address")
   end
 
-  scenario "authenticated user successfully selects a bucket list" do
+  scenario "authenticated user successfully creates adventure and selects a " \
+  "bucket list" do
     bucket_list_sign_in
     visit new_bucket_list_path
     fill_in "Title", with: "North Africa"
@@ -54,6 +56,22 @@ feature "user creates an adventure", %(
     click_button "Toss it in!"
 
     expect(page).to have_content("North Africa")
+    expect(page).to have_content("Excellent! Another adventure awaits!")
+    expect(page).not_to have_content("Must specify a name and/or address")
+  end
+
+  scenario "authenticated user successfully creates an adventure w/ " \
+    "link attribute" do
+    bucket_list_sign_in
+    visit new_adventure_path
+    fill_in "Name", with: "Underground River"
+    fill_in "Location", with: "Underground River Palawan Philippines"
+    fill_in "Link", with: "https://en.wikipedia.org/wiki/Puerto_Princesa_Subterranean_River_National_Park"
+    checkbox = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
+    check "Seen it! Done it!"
+    click_button "Toss it in!"
+
+    expect(checkbox).to be_checked
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
