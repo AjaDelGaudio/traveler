@@ -65,7 +65,7 @@ feature "user creates an adventure", %(
     bucket_list_sign_in
     visit new_adventure_path
     fill_in "Name", with: "Underground River"
-    fill_in "Address", with: "Underground River Palawan Philippines"
+    fill_in "Location", with: "Underground River Palawan Philippines"
     fill_in "Link", with: "https://en.wikipedia.org/wiki/Puerto_Princesa_Subterranean_River_National_Park"
     checkbox = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
     check "Seen it! Done it!"
