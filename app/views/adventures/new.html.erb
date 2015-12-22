@@ -11,6 +11,9 @@
         <%= f.label :address, "Location" %>
         <%= f.text_area :address %>
 
+        <%= f.label :link %>
+        <%= f.text_area :link %>
+
         <%= f.fields_for :bucket_list_adventures do |ff| %>
 
           <%= ff.label :bucket_list_id %>
