@@ -19,6 +19,8 @@ feature "user views an of their adventures", %(
   "associated with each of their bucket lists by navigating to their bucket" \
   " list index page" do
     user = FactoryGirl.create(:user)
+
+    # bucket_list_1
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure_1 = FactoryGirl.create(
       :adventure
@@ -28,17 +30,17 @@ feature "user views an of their adventures", %(
       bucket_list_id: bucket_list_1.id,
       adventure_id: adventure_1.id
     )
+
+    # bucket_list_2
     bucket_list_2 = FactoryGirl.create(
       :bucket_list,
-      user_id: user.id,
       title: "Mongolia"
     )
     adventure_2 = FactoryGirl.create(
       :adventure,
-      name: "Sleep in a yurt",
-      bucket_list_id: bucket_list_2.id
+      name: "Sleep in a yurt"
     )
-    bucket_list_adventure_1 = FactoryGirl.create(
+    bucket_list_adventure_2 = FactoryGirl.create(
       :bucket_list_adventure,
       bucket_list_id: bucket_list_2.id,
       adventure_id: adventure_2.id
