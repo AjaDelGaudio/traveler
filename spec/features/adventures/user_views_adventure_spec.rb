@@ -45,7 +45,7 @@ feature "user views an of their adventures", %(
       bucket_list_id: bucket_list_2.id,
       adventure_id: adventure_2.id
     )
-    visit bucket_list_path
+    visit bucket_lists_path
 
     expect(page).to have_content(bucket_list_1.title)
     expect(page).to have_content(adventure_1.name)
