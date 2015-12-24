@@ -31,7 +31,9 @@ class AdventuresController < ApplicationController
   end
 
   def create
+    binding.pry
     @adventure = Adventure.new(adventure_params)
+    binding.pry
     @bucket_list_adventures = @adventure.bucket_list_adventures
     bla = adventure_params[:bucket_list_adventures_attributes]["0"]
     @bucket_list = BucketList.find(bla[:bucket_list_id])
@@ -89,7 +91,9 @@ class AdventuresController < ApplicationController
         :address,
         :latitude,
         :longitude,
-        bucket_list_adventures_attributes: [:bucket_list_id, :notes, :is_achieved]
+        :notes,
+        :is_achieved,
+        :is_shared
       )
   end
 end

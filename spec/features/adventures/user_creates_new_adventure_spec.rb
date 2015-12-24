@@ -29,7 +29,7 @@ feature "user creates an adventure", %(
   end
 
   scenario "authenticated user successfully creates an adventure w/ " \
-    "notes and achieved attributes" do
+    "unrequired attributes" do
     bucket_list_sign_in
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
