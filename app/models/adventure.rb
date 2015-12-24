@@ -1,8 +1,8 @@
 class Adventure < ActiveRecord::Base
+  belongs_to :user
+
   has_many :bucket_list_adventures, dependent: :destroy
   has_many :bucket_lists, through: :bucket_list_adventures
-
-  belongs_to :user
 
   accepts_nested_attributes_for :bucket_lists
   accepts_nested_attributes_for :bucket_list_adventures
