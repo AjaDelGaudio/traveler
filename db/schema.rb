@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151224215723) do
+ActiveRecord::Schema.define(version: 20151224222006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,10 @@ ActiveRecord::Schema.define(version: 20151224215723) do
     t.boolean  "is_achieved", default: false, null: false
     t.boolean  "is_shared",   default: false, null: false
     t.text     "notes"
+    t.integer  "user_id"
   end
+
+  add_index "adventures", ["user_id"], name: "index_adventures_on_user_id", using: :btree
 
   create_table "bucket_list_adventures", force: :cascade do |t|
     t.integer  "bucket_list_id", null: false
@@ -65,4 +68,5 @@ ActiveRecord::Schema.define(version: 20151224215723) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "adventures", "users"
 end
