@@ -87,7 +87,31 @@ feature "user views an of their adventures", %(
 
   scenario "authenticated user successfully clicks on an adventure link and " \
   "navigates to the associated address" do
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
 
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    adventure = FactoryGirl.create(
+      :adventure
+    )
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list.id,
+      adventure_id: adventure.id,
+      is_shared: true
+    )
+
+    visit bucket_list_path(bucket_list.id)
+    click_link "Public"
+
+    expect(page).to have_content(bucket_list.title)
+    expect(page).to have_content(adventure.name)
+    expect(page).to have_content("#{adventure.name} changed to Private")
+    expect(page).to have_content("Private")
+    expect(page).not_to have_content("Public")
   end
 
   scenario "authenticated user successfully switches an adventure from public" \
