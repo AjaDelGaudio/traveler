@@ -49,10 +49,10 @@ feature "user views an of their adventures", %(
     sign_in_with_adventures
     visit bucket_lists_path
 
-    expect(page).to have_content(bucket_list_1.title)
-    expect(page).to have_content(adventure_1.name)
-    expect(page).to have_content(bucket_list_2.title)
-    expect(page).to have_content(adventure_2.name)
+    expect(page).to have_content("Second Bucket List")
+    expect(page).to have_content("Go pearl diving")
+    expect(page).to have_content("Second Bucket List")
+    expect(page).to have_content("Paint something")
   end
 
   scenario "unauthenticated user fails to view a list of their adventures " \
