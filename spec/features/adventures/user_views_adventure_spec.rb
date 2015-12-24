@@ -15,9 +15,9 @@ feature "user views an of their adventures", %(
   #    and private
   # [] I can click a link to edit my adventure
 
-  scenario "authenticated user successfully views a list of their adventures " \
-  "associated with each of their bucket lists by navigating to their bucket" \
-  " list index page" do
+  scenario "authenticated user successfully views list of their adventures " \
+  "associated w/ a particular bucket lists by navigating to the bucket" \
+  " list show page" do
     user = FactoryGirl.create(:user)
 
     # bucket_list_1
@@ -47,12 +47,12 @@ feature "user views an of their adventures", %(
     )
 
     sign_in_with_adventures
-    visit bucket_lists_path
-
-    expect(page).to have_content("Second Bucket List")
-    expect(page).to have_content("Go pearl diving")
-    expect(page).to have_content("Second Bucket List")
-    expect(page).to have_content("Paint something")
+    visit bucket_list_path(bucket_list_1.id)
+save_and_open_page
+    expect(page).to have_content(bucket_list_1.title)
+    expect(page).to have_content(adventure_1.name)
+    expect(page).not_to have_content(bucket_list_2.title)
+    expect(page).not_to have_content(adventure_2.name)
   end
 
   scenario "unauthenticated user fails to view a list of their adventures " \
