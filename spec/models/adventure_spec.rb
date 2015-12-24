@@ -3,8 +3,7 @@ require "rails_helper"
 describe Adventure do
   subject { FactoryGirl.build(:adventure) }
 
-  it { should have_many :adventure_users }
-  it { should have_many(:users).through(:adventure_users) }
+  it { should belong_to(:user) }
 
   it { should have_many :bucket_list_adventures }
   it { should have_many(:bucket_lists).through(:bucket_list_adventures) }
