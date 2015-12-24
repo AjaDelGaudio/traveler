@@ -1,4 +1,4 @@
-class AddIsSharedAttributeToAdventures < ActiveRecord::Migration
+class AddIsSharedAttributeToBucketListAdventures < ActiveRecord::Migration
   def up
     add_column :adventures, :is_shared, :boolean, default: false, null: false
   end
