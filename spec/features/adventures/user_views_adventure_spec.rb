@@ -46,7 +46,7 @@ feature "user views an of their adventures", %(
       adventure_id: adventure_2.id
     )
 
-    user_sign_in
+    sign_in_with_adventures
     visit bucket_lists_path
 
     expect(page).to have_content(bucket_list_1.title)
