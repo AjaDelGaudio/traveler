@@ -32,12 +32,12 @@ class AdventuresController < ApplicationController
   def create
     @adventure = Adventure.new(adventure_params)
     @bucket_lists = BucketList.where(user_id: current_user.id)
-
     @adventure.is_achieved ||= false
 
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"
-      redirect_to bucket_list_path(@bucket_list)
+      binding.pry
+      redirect_to @adventure
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :new
@@ -87,7 +87,9 @@ class AdventuresController < ApplicationController
         :longitude,
         :notes,
         :is_achieved,
-        :is_shared
+        :is_shared,
+        :user_id,
+        :bucket_list_adventure_id
       )
   end
 end
