@@ -26,9 +26,4 @@ FactoryGirl.define do
     name "go spelunking"
     address "Vietnam"
   end
-
-  factory :adventure_user do
-    adventure_id 1
-    user_id 1
-  end
 end
