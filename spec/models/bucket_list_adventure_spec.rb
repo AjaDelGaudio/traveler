@@ -16,4 +16,6 @@ describe BucketListAdventure do
   # it { should_not have_valid(:adventure_id).when(nil, " ") }
 
   it { should validate_inclusion_of(:is_achieved).in_array([true, false]) }
+
+  it { should validate_inclusion_of(:is_shared).in_array([true, false]) }
 end
