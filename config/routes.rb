@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bucket_list_adventures, only: :update
+  resources :bucket_list_adventures, only: [:update, :edit]
 
   patch '/bucket_lists/:id/edit', to: 'bucket_lists#update'
 

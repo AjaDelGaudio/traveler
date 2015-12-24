@@ -110,12 +110,15 @@ feature "user views an of their adventures", %(
     )
 
     visit bucket_list_path(bucket_list.id)
-    click_link "Public"
+  save_and_open_page
+    click_link "Edit Adventure"
+    find("label", text: "Make public").click
 
     expect(page).to have_content(bucket_list.title)
     expect(page).to have_content(adventure.name)
     expect(page).to have_content("#{adventure.name} changed to Private")
     expect(page).to have_content("Private")
+    expect(page).to have_content("Edit Adventure")
     expect(page).not_to have_content("Public")
   end
 
