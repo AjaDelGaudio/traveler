@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151224204103) do
+ActiveRecord::Schema.define(version: 20151224204335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20151224204103) do
     t.string   "link"
     t.boolean  "is_achieved", default: false, null: false
     t.boolean  "is_shared",   default: false, null: false
+    t.text     "notes"
   end
 
   create_table "bucket_list_adventures", force: :cascade do |t|
