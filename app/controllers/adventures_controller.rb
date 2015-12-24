@@ -26,20 +26,17 @@ class AdventuresController < ApplicationController
       flash[:notice] = "You don't have any bucket lists yet."
     else
       @adventure = Adventure.new
-      @adventure.bucket_list_adventures.build
     end
   end
 
   def create
-    binding.pry
     @adventure = Adventure.new(adventure_params)
-    binding.pry
+    @bucket_lists = BucketList.where(user_id: current_user.id)
     @bucket_list_adventures = @adventure.bucket_list_adventures
-    bla = adventure_params[:bucket_list_adventures_attributes]["0"]
-    @bucket_list = BucketList.find(bla[:bucket_list_id])
+    binding.pry
 
-    @is_achieved = @adventure.bucket_list_adventures.last.is_achieved
-    @is_achieved ||= false
+
+    @adventure.is_achieved ||= false
 
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"

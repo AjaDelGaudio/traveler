@@ -34,7 +34,8 @@ feature "user creates an adventure", %(
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
     fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
-    checkbox = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
+    save_and_open_page
+    checkbox_achieved = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
     check "Seen it! Done it!"
     click_button "Toss it in!"
 
