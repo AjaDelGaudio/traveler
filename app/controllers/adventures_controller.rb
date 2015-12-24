@@ -32,9 +32,6 @@ class AdventuresController < ApplicationController
   def create
     @adventure = Adventure.new(adventure_params)
     @bucket_lists = BucketList.where(user_id: current_user.id)
-    @bucket_list_adventures = @adventure.bucket_list_adventures
-    binding.pry
-
 
     @adventure.is_achieved ||= false
 
