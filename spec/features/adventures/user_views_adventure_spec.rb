@@ -87,6 +87,11 @@ feature "user views an of their adventures", %(
 
   scenario "authenticated user successfully clicks on an adventure link and " \
   "navigates to the associated address" do
+
+  end
+
+  scenario "authenticated user successfully switches an adventure from public" \
+  " to private by clicking on the appropirate icon" do
     user = FactoryGirl.create(:user)
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -112,11 +117,6 @@ feature "user views an of their adventures", %(
     expect(page).to have_content("#{adventure.name} changed to Private")
     expect(page).to have_content("Private")
     expect(page).not_to have_content("Public")
-  end
-
-  scenario "authenticated user successfully switches an adventure from public" \
-  " to private by clicking on the appropirate icon" do
-
   end
 
   scenario "authenticated user successfully navigates to the edit page for " \
