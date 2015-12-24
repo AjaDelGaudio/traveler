@@ -1,2 +1,0 @@
-class AdventureUsersController < ApplicationController
-end
