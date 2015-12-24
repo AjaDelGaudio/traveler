@@ -10,6 +10,10 @@ class Adventure < ActiveRecord::Base
 
   validate :name_or_address
 
+  validates :is_achieved, inclusion: { in: [true, false] }
+
+  validates :is_shared, inclusion: { in: [true, false] }
+
   validates :latitude, numericality: { only_float: true, allow_blank: true }
   validates :longitude, numericality: { only_float: true, allow_blank: true }
 
