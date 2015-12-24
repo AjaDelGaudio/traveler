@@ -27,5 +27,6 @@ FactoryGirl.define do
     is_shared false
     link "www.google.com"
     notes "bring beer"
+    user
   end
 end
