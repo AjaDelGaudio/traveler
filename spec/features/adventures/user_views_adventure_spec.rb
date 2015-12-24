@@ -19,6 +19,10 @@ feature "user views an of their adventures", %(
   "associated w/ a particular bucket lists by navigating to the bucket" \
   " list show page" do
     user = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
 
     # bucket_list_1
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
@@ -46,9 +50,8 @@ feature "user views an of their adventures", %(
       adventure_id: adventure_2.id
     )
 
-    sign_in_with_adventures
     visit bucket_list_path(bucket_list_1.id)
-save_and_open_page
+
     expect(page).to have_content(bucket_list_1.title)
     expect(page).to have_content(adventure_1.name)
     expect(page).not_to have_content(bucket_list_2.title)
