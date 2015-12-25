@@ -50,16 +50,13 @@ feature "user creates an adventure", %(
   scenario "authenticated user successfully creates adventure and selects a " \
   "bucket list" do
     bucket_list_sign_in
-    visit new_bucket_list_path
-    fill_in "Title", with: "North Africa"
-    click_button "Save It!"
 
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
-    select "North Africa", from: "Bucket list"
+    select "First Bucket List", from: "Bucket list"
     click_button "Toss it in!"
 
-    expect(page).to have_content("North Africa")
+    expect(page).to have_content("First Bucket List")
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end

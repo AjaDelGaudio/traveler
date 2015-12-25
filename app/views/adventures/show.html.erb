@@ -3,7 +3,7 @@
 
     <div class="bucket-list">
       <h3><%= @adventure.name %></h3>
-      <p><%= @adventure.address %></p>
+      <h3><%= @adventure.address %></h3>
       <h6>
       <% if @adventure.is_shared %>
         <%= fa_icon "eye" %>Public /
@@ -19,6 +19,7 @@
       <% end %>
       <p><%= @adventure.link %></p>
       <p><%= @adventure.notes %></p>
+      <h3>Bucket List: <%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></h3>
     </div>
 
   </div>

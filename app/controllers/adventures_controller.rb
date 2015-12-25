@@ -47,6 +47,8 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = Adventure.find(params[:id])
+    binding.pry
+    @bucket_list = @adventure.bucket_list
   end
 
   def all_public
