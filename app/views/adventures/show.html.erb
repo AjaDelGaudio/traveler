@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="small-11 medium-6 columns small-centered">
+
+    <div class="bucket-list">
+      <h3><%= @adventure.name %></h3>
+      <p><%= @adventure.address %></p>
+      <h6>
+      <% if @adventure.is_shared %>
+        <%= fa_icon "eye" %>Public /
+      <% else %>
+        <%= fa_icon "eye-slash" %> Private /
+      <% end %>
+          <%= link_to "Edit", edit_adventure_path(@adventure) %>
+      </h6>
+      <% if @adventure.is_achieved %>
+        <%= fa_icon "fa-check-square-o" %> Seen it! Done it! /
+      <% else %>
+        <%= fa_icon "fa-square-o" %> Private /
+      <% end %>
+      <p><%= @adventure.link %></p>
+      <p><%= @adventure.notes %></p>
+    </div>
+
+  </div>
+</div>

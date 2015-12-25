@@ -29,16 +29,16 @@ feature "user creates an adventure", %(
   end
 
   scenario "authenticated user successfully creates an adventure w/ " \
-    "notes and achieved attributes" do
+    "unrequired attributes" do
     bucket_list_sign_in
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
     fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
-    checkbox = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
+    checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
     click_button "Toss it in!"
 
-    expect(checkbox).to be_checked
+    expect(checkbox_achieved).to be_checked
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end

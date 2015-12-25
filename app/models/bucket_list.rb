@@ -1,5 +1,6 @@
 class BucketList < ActiveRecord::Base
   belongs_to :user
+
   has_many :bucket_list_adventures, dependent: :destroy
   has_many :adventures, through: :bucket_list_adventures
 

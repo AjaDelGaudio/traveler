@@ -26,26 +26,27 @@ class AdventuresController < ApplicationController
       flash[:notice] = "You don't have any bucket lists yet."
     else
       @adventure = Adventure.new
-      @adventure.bucket_list_adventures.build
+      @bucket_lists = BucketList.where(user_id: current_user.id)
     end
   end
 
   def create
     @adventure = Adventure.new(adventure_params)
-    @bucket_list_adventures = @adventure.bucket_list_adventures
-    bla = adventure_params[:bucket_list_adventures_attributes]["0"]
-    @bucket_list = BucketList.find(bla[:bucket_list_id])
-
-    @is_achieved = @adventure.bucket_list_adventures.last.is_achieved
-    @is_achieved ||= false
+    @bucket_lists = BucketList.where(user_id: current_user.id)
+    @adventure.is_achieved ||= false
+    @adventure.user_id = current_user.id
 
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"
-      redirect_to bucket_list_path(@bucket_list)
+      redirect_to @adventure
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :new
     end
+  end
+
+  def show
+    @adventure = Adventure.find(params[:id])
   end
 
   def all_public
@@ -89,7 +90,11 @@ class AdventuresController < ApplicationController
         :address,
         :latitude,
         :longitude,
-        bucket_list_adventures_attributes: [:bucket_list_id, :notes, :is_achieved]
+        :notes,
+        :is_achieved,
+        :is_shared,
+        :user_id,
+        :bucket_list_adventure_id
       )
   end
 end

@@ -33,6 +33,14 @@
             <p><%= bla.adventure.name unless bla.adventure.name.nil? %></p>
             <p><%= bla.adventure.address unless bla.adventure.name.nil? %></p>
             <p><%= bla.notes unless bla.notes.nil? %></p>
+            <p>
+            <% if bla.is_shared %>
+              <%= fa_icon "eye" %>Public /
+            <% else %>
+              <%= fa_icon "eye-slash" %> Private /
+            <% end %>
+              <%= link_to "Edit Adventure", edit_bucket_list_adventure_path(bla.id) %>
+            </p>
           </li>
         <% end %>
       </ul>
