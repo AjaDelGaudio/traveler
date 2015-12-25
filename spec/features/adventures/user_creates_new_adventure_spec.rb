@@ -34,11 +34,15 @@ feature "user creates an adventure", %(
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
     fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
+    fill_in "Link", with: "http://wikitravel.org/en/Jinja"
     checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
+    checkbox_shared = find_by_id("adventure_is_shared")
+    check "Share it!"
     click_button "Toss it in!"
 
     expect(checkbox_achieved).to be_checked
+    expect(checkbox_shared).to be_checked
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
