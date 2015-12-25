@@ -4,8 +4,12 @@ class Adventure < ActiveRecord::Base
   has_many :bucket_list_adventures, dependent: :destroy
   has_many :bucket_lists, through: :bucket_list_adventures
 
-  accepts_nested_attributes_for :bucket_lists
-  accepts_nested_attributes_for :bucket_list_adventures
+  # accepts_nested_attributes_for :bucket_lists
+  # accepts_nested_attributes_for :bucket_list_adventures
+
+  validates :user_id, presence: true
+  validates :user_id, numericality: { only_integer: true }
+
 
   validate :name_or_address
 
