@@ -31,7 +31,6 @@ class AdventuresController < ApplicationController
   end
 
   def create
-    binding.pry
     @adventure = Adventure.new(adventure_params)
     @bucket_lists = BucketList.where(user_id: current_user.id)
     @adventure.is_achieved ||= false
@@ -44,6 +43,10 @@ class AdventuresController < ApplicationController
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :new
     end
+  end
+
+  def show
+    @adventure = Adventure.find(params[:id])
   end
 
   def all_public
