@@ -27,7 +27,7 @@ class AdventuresController < ApplicationController
     else
       @adventure = Adventure.new
       @bucket_lists = BucketList.where(user_id: current_user.id)
-      @adventure.bucket_list_adventures.build
+      @bucket_list_adventures = @adventure.bucket_list_adventures.build
     end
   end
 
@@ -36,16 +36,23 @@ class AdventuresController < ApplicationController
     @bucket_lists = BucketList.where(user_id: current_user.id)
     @adventure.is_achieved ||= false
     @adventure.user_id = current_user.id
-    @bucket_list_adventures = @adventure.bucket_list_adventures
-    binding.pry
+
+    if @adventure.user_id == current_user.id
+      binding.pry
+      @adventure.save
+      binding.pry
+    end
 
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"
+      binding.pry
       redirect_to @adventure
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
+      binding.pry
       render :new
     end
+    binding.pry
   end
 
   def show
