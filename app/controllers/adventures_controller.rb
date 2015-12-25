@@ -27,6 +27,7 @@ class AdventuresController < ApplicationController
     else
       @adventure = Adventure.new
       @bucket_lists = BucketList.where(user_id: current_user.id)
+      @adventure.bucket_list_adventures.build
     end
   end
 
@@ -35,6 +36,8 @@ class AdventuresController < ApplicationController
     @bucket_lists = BucketList.where(user_id: current_user.id)
     @adventure.is_achieved ||= false
     @adventure.user_id = current_user.id
+    @bucket_list_adventures = @adventure.bucket_list_adventures
+    binding.pry
 
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"
@@ -96,7 +99,7 @@ class AdventuresController < ApplicationController
         :is_achieved,
         :is_shared,
         :user_id,
-        :bucket_list_adventure_id
+        bucket_list_adventures_attributes: [:bucket_list_id]
       )
   end
 end
