@@ -26,17 +26,19 @@ class AdventuresController < ApplicationController
       flash[:notice] = "You don't have any bucket lists yet."
     else
       @adventure = Adventure.new
+      @bucket_lists = BucketList.where(user_id: current_user.id)
     end
   end
 
   def create
+    binding.pry
     @adventure = Adventure.new(adventure_params)
     @bucket_lists = BucketList.where(user_id: current_user.id)
     @adventure.is_achieved ||= false
+    @adventure.user_id = current_user.id
 
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"
-      binding.pry
       redirect_to @adventure
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")

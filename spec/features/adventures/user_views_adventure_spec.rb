@@ -110,7 +110,6 @@ feature "user views an of their adventures", %(
     )
 
     visit bucket_list_path(bucket_list.id)
-  save_and_open_page
     click_link "Edit Adventure"
     find("label", text: "Make public").click
 
