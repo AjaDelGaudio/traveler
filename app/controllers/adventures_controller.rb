@@ -36,29 +36,23 @@ class AdventuresController < ApplicationController
     @bucket_lists = BucketList.where(user_id: current_user.id)
     @adventure.is_achieved ||= false
     @adventure.user_id = current_user.id
-
-    if @adventure.user_id == current_user.id
-      binding.pry
-      @adventure.save
-      binding.pry
-    end
+    binding.pry
+    @bucket_list_adventure = @adventure.bucket_list_adventures[0]
+    binding.pry
 
     if @adventure.save
       flash[:notice] = "Excellent! Another adventure awaits!"
-      binding.pry
       redirect_to @adventure
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
-      binding.pry
       render :new
     end
-    binding.pry
   end
 
   def show
     @adventure = Adventure.find(params[:id])
-    binding.pry
-    @bucket_list = @adventure.bucket_list
+    bucket_list_adventure = @adventure.bucket_list_adventure
+    @bucket_list = BucketList.where(id: bucket_list_adventure.bucket_list_id)
   end
 
   def all_public
@@ -106,7 +100,7 @@ class AdventuresController < ApplicationController
         :is_achieved,
         :is_shared,
         :user_id,
-        bucket_list_adventures_attributes: [:bucket_list_id]
+        bucket_list_adventure: [:bucket_list_id]
       )
   end
 end
