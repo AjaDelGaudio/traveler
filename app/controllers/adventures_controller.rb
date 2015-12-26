@@ -37,9 +37,9 @@ class AdventuresController < ApplicationController
     @adventure.is_achieved ||= false
     @adventure.user_id = current_user.id
     @bucket_list_adventure = @adventure.bucket_list_adventures[0]
-    binding.pry
 
     if @adventure.save
+      @bucket_list_adventure.adventure_id = @adventure.id
       flash[:notice] = "Excellent! Another adventure awaits!"
       redirect_to @adventure
     else
@@ -50,8 +50,8 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = Adventure.find(params[:id])
-    bucket_list_adventure = @adventure.bucket_list_adventures
-    @bucket_list = BucketList.where(id: bucket_list_adventures.bucket_list_id)
+    bucket_list_adventure = @adventure.bucket_list_adventures[0]
+    @bucket_list = BucketList.where(id: bucket_list_adventure.bucket_list_id)
   end
 
   def all_public
