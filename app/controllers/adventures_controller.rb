@@ -51,7 +51,8 @@ class AdventuresController < ApplicationController
   def show
     @adventure = Adventure.find(params[:id])
     bucket_list_adventure = @adventure.bucket_list_adventures[0]
-    @bucket_list = BucketList.where(id: bucket_list_adventure.bucket_list_id)
+    bucket_list = BucketList.where(id: bucket_list_adventure.bucket_list_id)
+    @bucket_list = bucket_list[0].title
   end
 
   def all_public
