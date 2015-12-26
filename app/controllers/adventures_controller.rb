@@ -27,7 +27,7 @@ class AdventuresController < ApplicationController
     else
       @adventure = Adventure.new
       @bucket_lists = BucketList.where(user_id: current_user.id)
-      @bucket_list_adventures = @adventure.bucket_list_adventures.build
+      @adventure.bucket_list_adventures.build
     end
   end
 
@@ -36,7 +36,6 @@ class AdventuresController < ApplicationController
     @bucket_lists = BucketList.where(user_id: current_user.id)
     @adventure.is_achieved ||= false
     @adventure.user_id = current_user.id
-    binding.pry
     @bucket_list_adventure = @adventure.bucket_list_adventures[0]
     binding.pry
 
@@ -51,8 +50,8 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = Adventure.find(params[:id])
-    bucket_list_adventure = @adventure.bucket_list_adventure
-    @bucket_list = BucketList.where(id: bucket_list_adventure.bucket_list_id)
+    bucket_list_adventure = @adventure.bucket_list_adventures
+    @bucket_list = BucketList.where(id: bucket_list_adventures.bucket_list_id)
   end
 
   def all_public
@@ -96,11 +95,12 @@ class AdventuresController < ApplicationController
         :address,
         :latitude,
         :longitude,
-        :notes,
+        :link,
         :is_achieved,
         :is_shared,
+        :notes,
         :user_id,
-        bucket_list_adventure: [:bucket_list_id]
+        bucket_list_adventures_attributes: [:bucket_list_id, :adventure_id, :id]
       )
   end
 end
