@@ -34,11 +34,15 @@ feature "user creates an adventure", %(
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
     fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
+    fill_in "Link", with: "http://wikitravel.org/en/Jinja"
     checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
+    checkbox_shared = find_by_id("adventure_is_shared")
+    check "Share it!"
     click_button "Toss it in!"
 
     expect(checkbox_achieved).to be_checked
+    expect(checkbox_shared).to be_checked
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
@@ -46,16 +50,13 @@ feature "user creates an adventure", %(
   scenario "authenticated user successfully creates adventure and selects a " \
   "bucket list" do
     bucket_list_sign_in
-    visit new_bucket_list_path
-    fill_in "Title", with: "North Africa"
-    click_button "Save It!"
 
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
-    select "North Africa", from: "Bucket list"
+    select "First Bucket List", from: "Bucket list"
     click_button "Toss it in!"
 
-    expect(page).to have_content("North Africa")
+    expect(page).to have_content("First Bucket List")
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
@@ -67,11 +68,14 @@ feature "user creates an adventure", %(
     fill_in "Name", with: "Underground River"
     fill_in "Location", with: "Underground River Palawan Philippines"
     fill_in "Link", with: "https://en.wikipedia.org/wiki/Puerto_Princesa_Subterranean_River_National_Park"
-    checkbox = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
+    checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
+    checkbox_shared = find_by_id("adventure_is_shared")
+    check "Share it!"
     click_button "Toss it in!"
 
-    expect(checkbox).to be_checked
+    expect(checkbox_achieved).to be_checked
+    expect(checkbox_shared).to be_checked
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
