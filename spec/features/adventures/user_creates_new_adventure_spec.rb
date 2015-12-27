@@ -68,11 +68,14 @@ feature "user creates an adventure", %(
     fill_in "Name", with: "Underground River"
     fill_in "Location", with: "Underground River Palawan Philippines"
     fill_in "Link", with: "https://en.wikipedia.org/wiki/Puerto_Princesa_Subterranean_River_National_Park"
-    checkbox = find_by_id("adventure_bucket_list_adventures_attributes_0_is_achieved")
+    checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
+    checkbox_shared = find_by_id("adventure_is_shared")
+    check "Share it!"
     click_button "Toss it in!"
 
-    expect(checkbox).to be_checked
+    expect(checkbox_achieved).to be_checked
+    expect(checkbox_shared).to be_checked
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
