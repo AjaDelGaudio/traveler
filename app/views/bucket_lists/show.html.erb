@@ -3,6 +3,7 @@
 
     <div class="bucket-list">
       <h3><%= @bucket_list.title %></h3>
+
       <h6>
       <% if @bucket_list.is_public %>
         <%= fa_icon "eye" %>Public /
@@ -13,12 +14,12 @@
       </h6>
 
       <p><%= @bucket_list.description %></p>
-    </div>
 
       <ul class="no-bullet">
-        <% @bucket_list.adventures do |adventure| %>
+        <% @bucket_list.adventures.each do |adventure| %>
           <li class="adventure">
             <div class="small-9 columns small-centered divinding-line"></div>
+            <p>CAT</p>
             <p><%= link_to "#{adventure.name unless adventure.name.nil?}", adventure_path(adventure.id) %></p>
             <p><%= link_to "#{adventure.address unless adventure.name.nil?}", adventure_path(adventure.id) %></p>
             <p>
@@ -39,5 +40,8 @@
           </li>
         <% end %>
       </ul>
+
+    </div>
+
   </div>
 </div>
