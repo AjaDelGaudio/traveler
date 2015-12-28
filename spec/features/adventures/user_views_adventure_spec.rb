@@ -113,7 +113,7 @@ feature "user views their adventures", %(
     )
 
     visit bucket_list_path(bucket_list.id)
-    click_link "Edit Adventure"
+    click_link "edit adventure"
     find("label", text: "Make public").click
 
     expect(page).to have_content(bucket_list.title)
