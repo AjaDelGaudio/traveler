@@ -22,7 +22,6 @@ feature "user creates an adventure", %(
     bucket_list_sign_in
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
-    save_and_open_page
     click_button "Toss it in!"
 
     expect(page).to have_content("Excellent! Another adventure awaits!")

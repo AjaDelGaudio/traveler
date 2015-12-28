@@ -14,10 +14,10 @@
       </h6>
         <% if @adventure.is_achieved %>
           <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
-            "#", class: "achieved-toggle", id: adventure.id %>
+            "#", class: "achieved-toggle", id: @adventure.id %>
         <% else %>
           <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
-            "#", class: "achieved-toggle", id: adventure.id %>
+            "#", class: "achieved-toggle", id: @adventure.id %>
         <% end %>
       <p><%= @adventure.link unless @adventure.link.nil? %></p>
       <p><%= @adventure.notes unless @adventure.notes.nil? %></p>

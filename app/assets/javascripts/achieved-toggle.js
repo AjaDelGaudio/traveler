@@ -1,8 +1,8 @@
 $(".achieved-toggle").click(function(e){
   e.preventDefault();
 
-  var adventureID = e.target.id;
-  var updatePath = "/adventures/" + adventureID;
+  var id = e.target.id;
+  var updatePath = "/adventures/" + id;
 
   $.ajax({
     method: "PATCH",
