@@ -67,42 +67,6 @@ feature "user edits adventure", %(
     expect(page).not_to have_content("Must specify a name and/or address")
   end
 
-  scenario "authenticated user successfully edits an adventure's bucket list" do
-    user = FactoryGirl.create(:user)
-    visit new_user_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
-    bucket_list_1 = FactoryGirl.create(
-      :bucket_list,
-      title: "Australia",
-      user_id: user.id
-    )
-    bucket_list_2 = FactoryGirl.create(
-      :bucket_list,
-      title: "Outerspace",
-      user_id: user.id
-    )
-    adventure = FactoryGirl.create(:adventure)
-    adventure_user = FactoryGirl.create(
-      :adventure_user,
-      adventure_id: adventure.id,
-      user_id: user.id
-    )
-    bucket_list_adventure = FactoryGirl.create(
-      :bucket_list_adventure,
-      adventure_id: adventure.id,
-      bucket_list_id: bucket_list_1.id
-    )
-
-    visit edit_adventure_path(adventure)
-    select "Outerspace", from: "Bucket list"
-    click_button "Save It!"
-
-    expect(page).to have_content("Changes saved!")
-    expect(page).not_to have_content("Must specify a name and/or address")
-  end
-
   scenario "authenticated user successfully adds a link to an adventure" do
     bucket_list_sign_in
     adventure = FactoryGirl.create(:adventure)
