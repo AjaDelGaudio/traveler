@@ -28,10 +28,10 @@
                 <%= link_to "edit adventure", edit_adventure_path(adventure.id) %>
               <% if adventure.is_achieved %>
                 <%= link_to (fa_icon "check-square-o") + " seen it! done it!",
-                  "#", class: "achieved-toggle", id: bla.id %>
+                  "#", class: "achieved-toggle", id: adventure.id %>
               <% else %>
                 <%= link_to (fa_icon "square-o") + " seen it! done it!",
-                  "#", class: "achieved-toggle", id: bla.id %>
+                  "#", class: "achieved-toggle", id: adventure.id %>
               <% end %>
             </p>
           </li>

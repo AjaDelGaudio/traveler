@@ -20,9 +20,9 @@ feature "user views their adventures", %(
   " list's show page" do
     user = FactoryGirl.create(:user)
     visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
 
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure_1 = FactoryGirl.create(
@@ -53,9 +53,7 @@ feature "user views their adventures", %(
       adventure_id: adventure_2.id
     )
 
-    binding.pry
     visit bucket_list_path(bucket_list_1.id)
-    save_and_open_page
 
     expect(page).to have_content(bucket_list_1.title)
     expect(page).to have_content(adventure_1.name)
@@ -105,13 +103,13 @@ feature "user views their adventures", %(
 
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure = FactoryGirl.create(
-      :adventure
+      :adventure,
+      is_shared: true
     )
     bucket_list_adventure = FactoryGirl.create(
       :bucket_list_adventure,
       bucket_list_id: bucket_list.id,
       adventure_id: adventure.id,
-      is_shared: true
     )
 
     visit bucket_list_path(bucket_list.id)
