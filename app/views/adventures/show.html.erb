@@ -2,8 +2,8 @@
   <div class="small-11 medium-6 columns small-centered">
 
     <div class="bucket-list">
-      <h3><%= @adventure.name %></h3>
-      <h3><%= @adventure.address %></h3>
+      <h3><%= @adventure.name unless @adventure.name.nil? %></h3>
+      <h3><%= @adventure.address unless @adventure.name.nil? %></h3>
       <h6>
       <% if @adventure.is_shared %>
         <%= fa_icon "eye" %>Public /
@@ -12,13 +12,15 @@
       <% end %>
           <%= link_to "Edit", edit_adventure_path(@adventure) %>
       </h6>
-      <% if @adventure.is_achieved %>
-        <%= fa_icon "fa-check-square-o" %> Seen it! Done it! /
-      <% else %>
-        <%= fa_icon "fa-square-o" %> Private /
-      <% end %>
-      <p><%= @adventure.link %></p>
-      <p><%= @adventure.notes %></p>
+        <% if @adventure.is_achieved %>
+          <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
+            "#", class: "achieved-toggle", id: bla.id %>
+        <% else %>
+          <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
+            "#", class: "achieved-toggle", id: bla.id %>
+        <% end %>
+      <p><%= @adventure.link unless @adventure.link.nil? %></p>
+      <p><%= @adventure.notes unless @adventure.notes.nil? %></p>
       <h3>Bucket List: <%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></h3>
     </div>
 

@@ -8,6 +8,7 @@ class BucketListsController < ApplicationController
 
   def show
     @bucket_list = BucketList.find(params[:id])
+    binding.pry
   end
 
   def all_public
