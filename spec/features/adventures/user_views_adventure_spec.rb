@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user views an of their adventures", %(
+feature "user views their adventures", %(
   As a last minute traveler or traveler who's stay is unexpectedly extended,
   I want to view my adventures
   So that I can explore adventures on the fly.
@@ -16,32 +16,35 @@ feature "user views an of their adventures", %(
   # [] I can click a link to edit my adventure
 
   scenario "authenticated user successfully views list of their adventures " \
-  "associated w/ a particular bucket lists by navigating to the bucket" \
-  " list show page" do
+  "associated w/ a particular bucket lists by navigating to that bucket" \
+  " list's show page" do
     user = FactoryGirl.create(:user)
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
 
-    # bucket_list_1
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure_1 = FactoryGirl.create(
-      :adventure
+      :adventure,
+      user_id: user.id
     )
     bucket_list_adventure_1 = FactoryGirl.create(
       :bucket_list_adventure,
       bucket_list_id: bucket_list_1.id,
       adventure_id: adventure_1.id
     )
+    binding.pry
 
     # bucket_list_2
     bucket_list_2 = FactoryGirl.create(
       :bucket_list,
+      user_id: user.id,
       title: "Mongolia"
     )
     adventure_2 = FactoryGirl.create(
       :adventure,
+      user_id: user.id,
       name: "Sleep in a yurt"
     )
     bucket_list_adventure_2 = FactoryGirl.create(
@@ -50,7 +53,9 @@ feature "user views an of their adventures", %(
       adventure_id: adventure_2.id
     )
 
+    binding.pry
     visit bucket_list_path(bucket_list_1.id)
+    save_and_open_page
 
     expect(page).to have_content(bucket_list_1.title)
     expect(page).to have_content(adventure_1.name)
