@@ -114,7 +114,8 @@ feature "user views their adventures", %(
 
     visit bucket_list_path(bucket_list.id)
     click_link "edit adventure"
-    find("label", text: "Make public").click
+    checkbox_shared = find_by_id("adventure_is_shared")
+    check "Share it!"
 
     expect(page).to have_content(bucket_list.title)
     expect(page).to have_content(adventure.name)
