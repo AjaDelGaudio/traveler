@@ -97,9 +97,9 @@ feature "user views their adventures", %(
   " to private by clicking on the appropirate icon" do
     user = FactoryGirl.create(:user)
     visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
 
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure = FactoryGirl.create(
