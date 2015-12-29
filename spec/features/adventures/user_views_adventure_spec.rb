@@ -86,7 +86,7 @@ feature "user views their adventures", %(
     expect(page).not_to have_content(adventure.name)
   end
 
-  scenario "unauthenticated user successfully views list of public adventures " \
+  scenario "unauthenticated user successfully views list of public adventures" \
   " by navigating to the all_public adventures page" do
     # # bucket_list_1
     # bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: 1)
