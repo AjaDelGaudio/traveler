@@ -34,7 +34,6 @@ feature "user views their adventures", %(
       bucket_list_id: bucket_list_1.id,
       adventure_id: adventure_1.id
     )
-    binding.pry
 
     # bucket_list_2
     bucket_list_2 = FactoryGirl.create(
@@ -117,11 +116,10 @@ feature "user views their adventures", %(
     checkbox_shared = find_by_id("adventure_is_shared")
     check "Share it!"
 
-    expect(page).to have_content(bucket_list.title)
-    expect(page).to have_content(adventure.name)
-    expect(page).to have_content("#{adventure.name} changed to Private")
-    expect(page).to have_content("Private")
     expect(page).to have_content("Edit Adventure")
+    expect(checkbox_shared).to be_checked
+    expect(page).to have_content("Changes saved!")
+    expect(page).to have_content("Private")
     expect(page).not_to have_content("Public")
   end
 
