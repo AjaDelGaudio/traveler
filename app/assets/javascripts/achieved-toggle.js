@@ -1,8 +1,8 @@
 $(".achieved-toggle").click(function(e){
   e.preventDefault();
 
-  var blaID = e.target.id;
-  var updatePath = "/bucket_list_adventures/" + blaID;
+  var id = e.target.id;
+  var updatePath = "/adventures/" + id;
 
   $.ajax({
     method: "PATCH",

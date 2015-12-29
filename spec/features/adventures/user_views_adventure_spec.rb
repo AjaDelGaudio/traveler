@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user views an of their adventures", %(
+feature "user views their adventures", %(
   As a last minute traveler or traveler who's stay is unexpectedly extended,
   I want to view my adventures
   So that I can explore adventures on the fly.
@@ -16,18 +16,18 @@ feature "user views an of their adventures", %(
   # [] I can click a link to edit my adventure
 
   scenario "authenticated user successfully views list of their adventures " \
-  "associated w/ a particular bucket lists by navigating to the bucket" \
-  " list show page" do
+  "associated w/ a particular bucket lists by navigating to that bucket" \
+  " list's show page" do
     user = FactoryGirl.create(:user)
     visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
 
-    # bucket_list_1
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure_1 = FactoryGirl.create(
-      :adventure
+      :adventure,
+      user_id: user.id
     )
     bucket_list_adventure_1 = FactoryGirl.create(
       :bucket_list_adventure,
@@ -38,10 +38,12 @@ feature "user views an of their adventures", %(
     # bucket_list_2
     bucket_list_2 = FactoryGirl.create(
       :bucket_list,
+      user_id: user.id,
       title: "Mongolia"
     )
     adventure_2 = FactoryGirl.create(
       :adventure,
+      user_id: user.id,
       name: "Sleep in a yurt"
     )
     bucket_list_adventure_2 = FactoryGirl.create(
@@ -94,31 +96,30 @@ feature "user views an of their adventures", %(
   " to private by clicking on the appropirate icon" do
     user = FactoryGirl.create(:user)
     visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
 
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure = FactoryGirl.create(
-      :adventure
+      :adventure,
+      is_shared: true
     )
     bucket_list_adventure = FactoryGirl.create(
       :bucket_list_adventure,
       bucket_list_id: bucket_list.id,
       adventure_id: adventure.id,
-      is_shared: true
     )
 
     visit bucket_list_path(bucket_list.id)
-    click_link "Edit Adventure"
-    find("label", text: "Make public").click
+    click_link "edit adventure"
+    checkbox_shared = find_by_id("adventure_is_shared")
+    check "Share it!"
+    click_button "Save It!"
 
-    expect(page).to have_content(bucket_list.title)
-    expect(page).to have_content(adventure.name)
-    expect(page).to have_content("#{adventure.name} changed to Private")
-    expect(page).to have_content("Private")
-    expect(page).to have_content("Edit Adventure")
-    expect(page).not_to have_content("Public")
+    expect(checkbox_shared).to be_checked
+    expect(page).to have_content("Changes saved!")
+    expect(page).not_to have_content("Must specify a name and/or address")
   end
 
   scenario "authenticated user successfully navigates to the edit page for " \

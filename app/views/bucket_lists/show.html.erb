@@ -1,49 +1,41 @@
 <div class="row">
   <div class="small-11 medium-6 columns small-centered">
-
     <div class="bucket-list">
       <h3><%= @bucket_list.title %></h3>
       <h6>
-      <% if @bucket_list.is_public %>
-        <%= fa_icon "eye" %>Public /
-      <% else %>
-        <%= fa_icon "eye-slash" %> Private /
-      <% end %>
-          <%= link_to "Edit", edit_bucket_list_path(@bucket_list) %>
+        <% if @bucket_list.is_public %>
+          <%= fa_icon "eye" %>Public /
+        <% else %>
+          <%= fa_icon "eye-slash" %> Private /
+        <% end %>
+            <%= link_to "Edit", edit_bucket_list_path(@bucket_list) %>
       </h6>
-
       <p><%= @bucket_list.description %></p>
     </div>
-
       <ul class="no-bullet">
-        <% @bucket_list.bucket_list_adventures.each do |bla| %>
+        <% @bucket_list.adventures.each do |adventure| %>
           <li class="adventure">
             <div class="small-9 columns small-centered divinding-line"></div>
-            <% if bla.is_achieved %>
-              <h6>
-                <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
-                  "#", class: "achieved-toggle", id: bla.id %>
-              </h6>
-            <% else %>
-              <h6>
-                <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
-                  "#", class: "achieved-toggle", id: bla.id %>
-              </h6>
-            <% end %>
-            <p><%= bla.adventure.name unless bla.adventure.name.nil? %></p>
-            <p><%= bla.adventure.address unless bla.adventure.name.nil? %></p>
-            <p><%= bla.notes unless bla.notes.nil? %></p>
+            <p>cat</p>
+            <p><%= link_to "#{adventure.name unless adventure.name.nil?}", adventure_path(adventure.id) %></p>
+            <p><%= link_to "#{adventure.address unless adventure.name.nil?}", adventure_path(adventure.id) %></p>
             <p>
-            <% if bla.is_shared %>
-              <%= fa_icon "eye" %>Public /
-            <% else %>
-              <%= fa_icon "eye-slash" %> Private /
-            <% end %>
-              <%= link_to "Edit Adventure", edit_bucket_list_adventure_path(bla.id) %>
+              <% if adventure.is_shared %>
+                <%= fa_icon "eye" %>public /
+              <% else %>
+                <%= fa_icon "eye-slash" %> private /
+              <% end %>
+                <%= link_to "edit adventure", edit_adventure_path(adventure.id) %>
+              <% if adventure.is_achieved %>
+                <%= link_to (fa_icon "check-square-o") + " seen it! done it!",
+                  "#", class: "achieved-toggle", id: adventure.id %>
+              <% else %>
+                <%= link_to (fa_icon "square-o") + " seen it! done it!",
+                  "#", class: "achieved-toggle", id: adventure.id %>
+              <% end %>
             </p>
           </li>
         <% end %>
       </ul>
-
   </div>
 </div>

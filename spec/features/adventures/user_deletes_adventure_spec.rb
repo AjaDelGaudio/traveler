@@ -21,12 +21,7 @@ feature "authenticated user deletes an adventure", %(
       title: "Australia",
       user_id: user.id
     )
-    adventure = FactoryGirl.create(:adventure)
-    adventure_user = FactoryGirl.create(
-      :adventure_user,
-      adventure_id: adventure.id,
-      user_id: user.id
-    )
+    adventure = FactoryGirl.create(:adventure, user_id: user.id)
     bucket_list_adventure = FactoryGirl.create(
       :bucket_list_adventure,
       adventure_id: adventure.id,
