@@ -16,7 +16,6 @@
         <% @bucket_list.adventures.each do |adventure| %>
           <li class="adventure">
             <div class="small-9 columns small-centered divinding-line"></div>
-            <p>cat</p>
             <p><%= link_to "#{adventure.name unless adventure.name.nil?}", adventure_path(adventure.id) %></p>
             <p><%= link_to "#{adventure.address unless adventure.name.nil?}", adventure_path(adventure.id) %></p>
             <p>
