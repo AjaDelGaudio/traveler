@@ -9,11 +9,9 @@ feature "user views their adventures", %(
   # [] I must be signed in to view my private adventures
   # [] If my adventure includes a link and I click it, I am taken to the link
   #    address
-  # [] I can view a list of the adventures associated with each bucket_list
-  # [] I can see an icon telling me if my adventure is public or private
-  # [] I can click an icon link to switch any on my adventures between public
-  #    and private
-  # [] I can click a link to edit my adventure
+  # [x] I can view a list of the adventures associated with each bucket_list
+  # [x] I can see an icon telling me if my adventure is public or private
+  # [x] I can click a link to edit my adventure
 
   scenario "authenticated user successfully views list of their adventures " \
   "associated w/ a particular bucket lists by navigating to that bucket" \
@@ -24,6 +22,7 @@ feature "user views their adventures", %(
     fill_in "Password", with: user.password
     click_button "Log in"
 
+    # bucket_list_1
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure_1 = FactoryGirl.create(
       :adventure,
@@ -87,8 +86,80 @@ feature "user views their adventures", %(
     expect(page).not_to have_content(adventure.name)
   end
 
+  scenario "unauthenticated user successfully views list of public adventures " \
+  " by navigating to the all_public adventures page" do
+    # bucket_list_1
+    bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: 1)
+    adventure_1 = FactoryGirl.create(
+      :adventure,
+      user_id: 1,
+      is_shared: true
+    )
+    bucket_list_adventure_1 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_1.id,
+      adventure_id: adventure_1.id
+    )
+
+    # bucket_list_2
+    bucket_list_2 = FactoryGirl.create(
+      :bucket_list,
+      user_id: 2,
+      title: "Mongolia",
+      is_shared: false
+    )
+    adventure_2 = FactoryGirl.create(
+      :adventure,
+      user_id: user.id,
+      name: "Sleep in a yurt"
+    )
+    bucket_list_adventure_2 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_2.id,
+      adventure_id: adventure_2.id
+    )
+
+    visit bucket_list_path(bucket_list_1.id)
+
+    expect(page).to have_content(bucket_list_1.title)
+    expect(page).to have_content(adventure_1.name)
+    expect(page).not_to have_content(bucket_list_2.title)
+    expect(page).not_to have_content(adventure_2.name)
+  end
+
   scenario "authenticated user successfully clicks on an adventure link and " \
   "navigates to the associated address" do
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
+
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    adventure = FactoryGirl.create(
+      :adventure,
+      user_id: user.id
+    )
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_1.id,
+      adventure_id: adventure_1.id
+    )
+
+    visit adventure_path(adventure.id)
+
+    expect(page).to have_selector(:css, 'a[href="www.google.com"]')
+    expect(page).to have_content(bucket_list.title)
+    expect(page).to have_content(adventure.name)
+
+    click_link adventure.link
+
+    expect(page).not_to have_content(bucket_list.title)
+    expect(page).not_to have_content(adventure.name)
+  end
+
+  scenario "unauthenticated user fails to view a list of their adventures " \
+  "associated with each of their bucket lists" do
 
   end
 
