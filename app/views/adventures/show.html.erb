@@ -19,7 +19,7 @@
           <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
             "#", class: "achieved-toggle", id: @adventure.id %>
         <% end %>
-      <p><%= @adventure.link unless @adventure.link.nil? %></p>
+      <p><%= link_to "#{@adventure.link}", "http://#{@adventure.link}" unless @adventure.link.nil? %></p>
       <p><%= @adventure.notes unless @adventure.notes.nil? %></p>
       <h3>Bucket List: <%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></h3>
     </div>
