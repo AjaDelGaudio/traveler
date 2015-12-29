@@ -148,8 +148,7 @@ feature "user views their adventures", %(
 
     visit adventure_path(adventure.id)
 
-    save_and_open_page
-    expect(page).to have_selector(:css, 'a[href="www.google.com"]')
+    expect(page).to have_selector(:css, 'a[href="http://www.google.com"]')
     expect(page).to have_content(bucket_list.title)
     expect(page).to have_content(adventure.name)
 
