@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe User do
   subject { FactoryGirl.build(:user) }
-  it { should have_many(:adventures).through(:adventure_users) }
+  it { should have_many(:adventures) }
   it { should have_many(:bucket_lists) }
 
   it { should validate_presence_of(:username) }

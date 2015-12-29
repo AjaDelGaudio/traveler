@@ -115,12 +115,11 @@ feature "user views their adventures", %(
     click_link "edit adventure"
     checkbox_shared = find_by_id("adventure_is_shared")
     check "Share it!"
+    click_button "Save It!"
 
-    expect(page).to have_content("Edit Adventure")
     expect(checkbox_shared).to be_checked
     expect(page).to have_content("Changes saved!")
-    expect(page).to have_content("Private")
-    expect(page).not_to have_content("Public")
+    expect(page).not_to have_content("Must specify a name and/or address")
   end
 
   scenario "authenticated user successfully navigates to the edit page for " \
