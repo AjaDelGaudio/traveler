@@ -12,10 +12,7 @@ feature "authenticated user deletes an adventure", %(
 
   scenario "authenticated user sucessfully deletes an adventure" do
     user = FactoryGirl.create(:user)
-    visit new_user_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
+    sign_in(user)
     bucket_list = FactoryGirl.create(
       :bucket_list,
       title: "Australia",
