@@ -90,7 +90,7 @@ feature "user views their adventures", %(
   " by navigating to the adventures index page" do
     user = FactoryGirl.create(:user)
     sign_in(user)
-
+    
     # bucket_list_1
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure_1 = FactoryGirl.create(
