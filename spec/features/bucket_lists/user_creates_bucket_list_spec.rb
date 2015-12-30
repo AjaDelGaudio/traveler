@@ -16,7 +16,8 @@ feature 'authenticated user creates a bucket list', %(
 # [x] I must be signed in to create the list
 
   scenario "authenticated user successfully creates a bucket list" do
-    sign_in
+    user = FactoryGirl.create(:user)
+    sign_in(user)
     visit new_bucket_list_path
     fill_in "Title", with: "Europe"
     click_button "Save It!"
@@ -37,7 +38,8 @@ feature 'authenticated user creates a bucket list', %(
   end
 
   scenario "authenticated user fails to sucessfully create a bucket list" do
-    sign_in
+    user = FactoryGirl.create(:user)
+    sign_in(user)
     visit new_bucket_list_path
     click_button "Save It!"
 
