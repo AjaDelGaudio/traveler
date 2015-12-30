@@ -12,8 +12,9 @@ feature "authenticated user edits a bucket list", %(
 
   scenario "user successfully changes the title of a bucket list" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
-    visit edit_bucket_list_path(bucket_list)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
+    visit edit_bucket_list_path(bucket_list.id)
     fill_in "Title", with: "Africa"
     fill_in "Description", with: "Much warmer!"
     click_button "Save It!"
@@ -25,8 +26,9 @@ feature "authenticated user edits a bucket list", %(
 
   scenario "user successfully changes the private setting of a bucket list" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
-    visit edit_bucket_list_path(bucket_list)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
+    visit edit_bucket_list_path(bucket_list.id)
     find("label", text: "Make public").click
     click_button "Save It!"
 
