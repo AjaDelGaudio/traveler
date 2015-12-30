@@ -88,6 +88,41 @@ feature "user views their adventures", %(
 
   scenario "authenticated user successfully views list of their adventures" \
   " by navigating to the adventures index page" do
+    user = FactoryGirl.create(:user)
+    sign_in(user)
+    
+    # bucket_list_1
+    bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
+    adventure_1 = FactoryGirl.create(
+      :adventure,
+      user_id: user.id
+    )
+    bucket_list_adventure_1 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_1.id,
+      adventure_id: adventure_1.id
+    )
+
+    # bucket_list_2
+    bucket_list_2 = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Mongolia"
+    )
+    adventure_2 = FactoryGirl.create(
+      :adventure,
+      user_id: user.id,
+      name: "Sleep in a yurt"
+    )
+    bucket_list_adventure_2 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_2.id,
+      adventure_id: adventure_2.id
+    )
+
+    visit adventures_path
+    expect(page).to have_content(adventure_1.name)
+    expect(page).to have_content(adventure_2.name)
   end
 
   scenario "unauthenticated user fails to view list of their adventures" \
