@@ -19,7 +19,8 @@ feature "user creates an adventure", %(
   # [x] I recieve a success message when I successfully add an adventure
 
   scenario "authenticated user successfully creates an adventure" do
-    bucket_list_sign_in
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
     click_button "Toss it in!"
@@ -30,7 +31,8 @@ feature "user creates an adventure", %(
 
   scenario "authenticated user successfully creates an adventure w/ " \
     "unrequired attributes" do
-    bucket_list_sign_in
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
     fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
@@ -49,7 +51,8 @@ feature "user creates an adventure", %(
 
   scenario "authenticated user successfully creates adventure and selects a " \
   "bucket list" do
-    bucket_list_sign_in
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
 
     visit new_adventure_path
     fill_in "Name", with: "Swim the Nile"
@@ -63,7 +66,8 @@ feature "user creates an adventure", %(
 
   scenario "authenticated user successfully creates an adventure w/ " \
     "link attribute" do
-    bucket_list_sign_in
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
     visit new_adventure_path
     fill_in "Name", with: "Underground River"
     fill_in "Location", with: "Underground River Palawan Philippines"
@@ -81,7 +85,8 @@ feature "user creates an adventure", %(
   end
 
   scenario "authenticated user does not specify either name or address" do
-    bucket_list_sign_in
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
     visit new_adventure_path
     click_button "Toss it in!"
 
@@ -100,7 +105,8 @@ feature "user creates an adventure", %(
 
   scenario "authenticated user fails to create and adventure due to " \
     "no bucket_lists (0 count)" do
-    sign_in
+    user = FactoryGirl.create(:user)
+    sign_in(user)
     visit new_adventure_path
 
     expect(page).to have_content("You don't have any bucket lists yet")
