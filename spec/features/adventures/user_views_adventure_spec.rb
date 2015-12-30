@@ -127,7 +127,6 @@ feature "user views their adventures", %(
     # expect(page).not_to have_content(adventure_2.name)
   end
 
-
   scenario "authenticated user successfully clicks on an adventure link and " \
   "navigates to the associated address" do
   # TEST MANUALLY: deactivated b/c test only works for internal links
