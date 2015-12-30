@@ -11,9 +11,8 @@ feature "authenticated user edits a bucket list", %(
 # [x] I can toggle between private and public
 
   scenario "user successfully changes the title of a bucket list" do
-    bucket_list = FactoryGirl.create(:bucket_list)
-
-    sign_in
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
     visit edit_bucket_list_path(bucket_list)
     fill_in "Title", with: "Africa"
     fill_in "Description", with: "Much warmer!"
@@ -25,9 +24,8 @@ feature "authenticated user edits a bucket list", %(
   end
 
   scenario "user successfully changes the private setting of a bucket list" do
-    bucket_list = FactoryGirl.create(:bucket_list)
-
-    sign_in
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
     visit edit_bucket_list_path(bucket_list)
     find("label", text: "Make public").click
     click_button "Save It!"
