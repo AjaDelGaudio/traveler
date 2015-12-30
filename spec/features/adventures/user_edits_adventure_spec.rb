@@ -16,7 +16,8 @@ feature "user edits adventure", %(
   # [x] I recieve a success message when I successfully edit an adventure
 
   scenario "authenticated user successfully edits an adventure" do
-    bucket_list_sign_in
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
     adventure = FactoryGirl.create(:adventure)
     FactoryGirl.create(
       :bucket_list_adventure,
@@ -42,10 +43,7 @@ feature "user edits adventure", %(
 
   scenario "authenticated user successfully edits an adventure's bucket list" do
     user = FactoryGirl.create(:user)
-    visit new_user_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
+    sign_in(user)
     adventure = FactoryGirl.create(:adventure, user_id: user.id)
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     bucket_list_2 = FactoryGirl.create(
@@ -68,8 +66,9 @@ feature "user edits adventure", %(
   end
 
   scenario "authenticated user successfully adds a link to an adventure" do
-    bucket_list_sign_in
-    adventure = FactoryGirl.create(:adventure)
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
+    adventure = FactoryGirl.create(:adventure, user_id: user.id)
 
     visit edit_adventure_path(adventure)
     fill_in "Link", with: "https://en.wikipedia.org/wiki/List_of_caves_in_Vietnam"
@@ -80,8 +79,9 @@ feature "user edits adventure", %(
   end
 
   scenario "authenticated user successfully adds a address to an adventure" do
-    bucket_list_sign_in
-    adventure = FactoryGirl.create(:adventure, address: nil)
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
+    adventure = FactoryGirl.create(:adventure, address: nil, user_id: user.id)
 
     visit edit_adventure_path(adventure)
     fill_in "Address", with: "Spain"
@@ -92,8 +92,9 @@ feature "user edits adventure", %(
   end
 
   scenario "authenticated user successfully adds a name to an adventure" do
-    bucket_list_sign_in
-    adventure = FactoryGirl.create(:adventure, name: nil)
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
+    adventure = FactoryGirl.create(:adventure, name: nil, user_id: user.id)
 
     visit edit_adventure_path(adventure)
     fill_in "Name", with: "Do this thing!"
@@ -114,8 +115,9 @@ feature "user edits adventure", %(
   end
 
   scenario "authenticated user fails to edit an adventure" do
-    bucket_list_sign_in
-    adventure = FactoryGirl.create(:adventure, address: nil)
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
+    adventure = FactoryGirl.create(:adventure, address: nil, user_id: user.id)
 
     visit edit_adventure_path(adventure)
     find("input[id$='adventure_name']").set ""
@@ -126,8 +128,9 @@ feature "user edits adventure", %(
   end
 
   scenario "authenticated user successfully removes adventure name attribute" do
-    bucket_list_sign_in
-    adventure = FactoryGirl.create(:adventure)
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
+    adventure = FactoryGirl.create(:adventure, user_id: user.id)
 
     visit edit_adventure_path(adventure)
     fill_in "Name", with: ""
@@ -139,8 +142,9 @@ feature "user edits adventure", %(
   end
 
   scenario "authenticated user successfully removes adventure address attribute" do
-    bucket_list_sign_in
-    adventure = FactoryGirl.create(:adventure)
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
+    adventure = FactoryGirl.create(:adventure, user_id: user.id)
 
     visit edit_adventure_path(adventure)
     fill_in "Name", with: "Eat tacos"
