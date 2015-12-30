@@ -10,7 +10,7 @@
       <% else %>
         <%= fa_icon "eye-slash" %> Private /
       <% end %>
-          <%= link_to "Edit", edit_adventure_path(@adventure) %>
+      <%= link_to "Edit", edit_adventure_path(@adventure) %>
       </h6>
         <% if @adventure.is_achieved %>
           <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",

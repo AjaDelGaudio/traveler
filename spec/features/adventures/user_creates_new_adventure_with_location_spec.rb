@@ -15,7 +15,8 @@ feature "authenticated user creates a an adventure using google maps", %(
 
   scenario "authenticated user successfully adds an adventure to an " +
     "existing bucket list with address only" do
-    bucket_list_sign_in
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
     visit new_adventure_path
     fill_in "Location", with: "Paris, France"
     click_button "Toss it in!"
@@ -26,7 +27,8 @@ feature "authenticated user creates a an adventure using google maps", %(
 
   scenario "authenticated user fails to add an adventure to an " +
     "existing bucket list with address only" do
-    bucket_list_sign_in
+    user = FactoryGirl.create(:user)
+    bucket_list_sign_in(user)
 
     visit new_adventure_path
     fill_in "Name", with: nil

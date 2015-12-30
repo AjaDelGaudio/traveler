@@ -1,7 +1,5 @@
 module UserSignIn
-  def sign_in
-    user = FactoryGirl.create(:user)
-
+  def sign_in(user)
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
@@ -9,9 +7,8 @@ module UserSignIn
     click_button 'Log in'
   end
 
-  def sign_in_with_adventures
-    user = FactoryGirl.create(:user)
 
+  def sign_in_with_adventures(user)
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password

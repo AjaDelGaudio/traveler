@@ -11,10 +11,10 @@ feature "authenticated user deletes a bucket list", %(
 # [x] After I delete a bucket list it is no longer visible
 
   scenario "authenticated user sucessfully deletes a bucket list" do
-    bucket_list = FactoryGirl.create(:bucket_list)
-
-    sign_in
-    visit edit_bucket_list_path(bucket_list)
+    user = FactoryGirl.create(:user)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
+    visit edit_bucket_list_path(bucket_list.id)
     click_link "Delete"
 
     expect(page).to have_content("Bucket List deleted")
