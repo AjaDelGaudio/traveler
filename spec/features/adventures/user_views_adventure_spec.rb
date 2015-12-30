@@ -86,6 +86,14 @@ feature "user views their adventures", %(
     expect(page).not_to have_content(adventure.name)
   end
 
+  scenario "authenticated user successfully views list of their adventures" \
+  " by navigating to the adventures index page" do
+  end
+
+  scenario "unauthenticated user fails to view list of their adventures" \
+  " by navigating to the adventures index page" do
+  end
+
   scenario "unauthenticated user successfully views list of public adventures" \
   " by navigating to the all_public adventures page" do
     # # bucket_list_1
