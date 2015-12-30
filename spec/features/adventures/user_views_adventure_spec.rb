@@ -17,11 +17,7 @@ feature "user views their adventures", %(
   "associated w/ a particular bucket lists by navigating to that bucket" \
   " list's show page" do
     user = FactoryGirl.create(:user)
-    visit new_user_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
-
+    sign_in(user)
     # bucket_list_1
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure_1 = FactoryGirl.create(
@@ -90,7 +86,7 @@ feature "user views their adventures", %(
   " by navigating to the adventures index page" do
     user = FactoryGirl.create(:user)
     sign_in(user)
-    
+
     # bucket_list_1
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure_1 = FactoryGirl.create(
@@ -248,10 +244,7 @@ feature "user views their adventures", %(
   scenario "authenticated user successfully switches an adventure from public" \
   " to private by clicking on the appropirate icon" do
     user = FactoryGirl.create(:user)
-    visit new_user_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
+    sign_in(user)
 
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure = FactoryGirl.create(
