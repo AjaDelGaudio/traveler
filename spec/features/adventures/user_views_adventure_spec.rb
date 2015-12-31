@@ -202,7 +202,7 @@ feature "user views their adventures", %(
       adventure_id: adventure_public_2.id
     )
 
-    # bucket_list_private_3: Private
+    # bucket_list_private_3
     bucket_list_private_3 = FactoryGirl.create(
       :bucket_list,
       user_id: user.id,
@@ -231,6 +231,93 @@ feature "user views their adventures", %(
     adventure_private_4 = FactoryGirl.create(
       :adventure,
       user_id: user.id,
+      name: "Sleep in a yurt",
+      is_shared: false
+    )
+    bucket_list_adventure_private_4 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_4.id,
+      adventure_id: adventure_4.id,
+    )
+    visit all_public_adventures_path
+
+    expect(page).to have_content(adventure_public_1.name)
+    expect(page).to have_content(adventure_public_2.name)
+    expect(page).not_to have_content(adventure_private_3.name)
+    expect(page).not_to have_content(adventure_private_4.name)
+  end
+
+  scenario "authenticated user successfully views list of everyone's public" \
+  " adventures by navigating to the all_public adventures page" do
+    user = FactoryGirl.create(:user)
+    user_b = FactoryGirl.create(:user)
+    sign_in(user_b)
+
+    # bucket_list_public_1
+    bucket_list_public_1 = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      is_public: true
+    )
+    adventure_public_1 = FactoryGirl.create(
+      :adventure,
+      user_id: user.id,
+      is_shared: true
+    )
+    bucket_list_adventure_public_1 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_public_1.id,
+      adventure_id: adventure_public_1.id
+    )
+
+    # bucket_list_public_2
+    bucket_list_public_2 = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Mongolia",
+      is_public: true
+    )
+    adventure_public_2 = FactoryGirl.create(
+      :adventure,
+      user_id: user.id,
+      name: "Sleep in a yurt",
+      is_shared: true
+    )
+    bucket_list_adventure_public_2 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_public_2.id,
+      adventure_id: adventure_public_2.id
+    )
+
+    # bucket_list_private_3
+    bucket_list_private_3 = FactoryGirl.create(
+      :bucket_list,
+      user_id: user_b.id,
+      title: "Mongolia",
+      is_public: false
+    )
+    adventure_private_3 = FactoryGirl.create(
+      :adventure,
+      user_id: user_b.id,
+      name: "Sleep in a yurt",
+      is_shared: false
+    )
+    bucket_list_adventure_3 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_private_3.id,
+      adventure_id: adventure_private_3.id
+    )
+
+    # bucket_list_private_4
+    bucket_list_private_4 = FactoryGirl.create(
+      :bucket_list,
+      user_id: user_b.id,
+      title: "Mongolia",
+      is_public: false
+    )
+    adventure_private_4 = FactoryGirl.create(
+      :adventure,
+      user_id: user_b.id,
       name: "Sleep in a yurt",
       is_shared: false
     )
