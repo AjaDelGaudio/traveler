@@ -6,8 +6,8 @@ feature "user views their adventures", %(
   So that I can explore adventures on the fly.
 ) do
   # Acceptance Criteria
-  # [] I must be signed in to view my private adventures
-  # [] If my adventure includes a link and I click it, I am taken to the link
+  # [x] I must be signed in to view my private adventures
+  # [x] If my adventure includes a link and I click it, I am taken to the link
   #    address
   # [x] I can view a list of the adventures associated with each bucket_list
   # [x] I can see an icon telling me if my adventure is public or private
@@ -161,47 +161,91 @@ feature "user views their adventures", %(
     expect(page).not_to have_content(adventure_2.name)
   end
 
-  scenario "unauthenticated user successfully views list of public adventures" \
+  scenario "authenticated user successfully views list of public adventures" \
   " by navigating to the all_public adventures page" do
-    # # bucket_list_1
-    # bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: 1)
-    # adventure_1 = FactoryGirl.create(
-    #   :adventure,
-    #   user_id: 1,
-    #   is_shared: true
-    # )
-    # bucket_list_adventure_1 = FactoryGirl.create(
-    #   :bucket_list_adventure,
-    #   bucket_list_id: bucket_list_1.id,
-    #   adventure_id: adventure_1.id
-    # )
-    #
-    # # bucket_list_2
-    # bucket_list_2 = FactoryGirl.create(
-    #   :bucket_list,
-    #   user_id: 2,
-    #   title: "Mongolia",
-    #   is_shared: false
-    # )
-    # adventure_2 = FactoryGirl.create(
-    #   :adventure,
-    #   user_id: user.id,
-    #   name: "Sleep in a yurt"
-    # )
-    # bucket_list_adventure_2 = FactoryGirl.create(
-    #   :bucket_list_adventure,
-    #   bucket_list_id: bucket_list_2.id,
-    #   adventure_id: adventure_2.id
-    # )
-    #
-    # visit bucket_list_path(bucket_list_1.id)
-    #
-    # expect(page).to have_content(bucket_list_1.title)
-    # expect(page).to have_content(adventure_1.name)
-    # expect(page).not_to have_content(bucket_list_2.title)
-    # expect(page).not_to have_content(adventure_2.name)
-  end
+    user = FactoryGirl.create(:user)
+    sign_in(user)
 
+    # bucket_list_public_1
+    bucket_list_public_1 = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      is_public: true
+    )
+    adventure_public_1 = FactoryGirl.create(
+      :adventure,
+      user_id: user.id,
+      is_shared: true
+    )
+    bucket_list_adventure_public_1 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_public_1.id,
+      adventure_id: adventure_public_1.id
+    )
+
+    # bucket_list_public_2
+    bucket_list_public_2 = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Mongolia",
+      is_public: true
+    )
+    adventure_public_2 = FactoryGirl.create(
+      :adventure,
+      user_id: user.id,
+      name: "Sleep in a yurt",
+      is_shared: true
+    )
+    bucket_list_adventure_public_2 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_public_2.id,
+      adventure_id: adventure_public_2.id
+    )
+
+    # bucket_list_private_3: Private
+    bucket_list_private_3 = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Mongolia",
+      is_public: false
+    )
+    adventure_private_3 = FactoryGirl.create(
+      :adventure,
+      user_id: user.id,
+      name: "Sleep in a yurt",
+      is_shared: false
+    )
+    bucket_list_adventure_3 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_private_3.id,
+      adventure_id: adventure_private_3.id
+    )
+
+    # bucket_list_private_4
+    bucket_list_private_4 = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Mongolia",
+      is_public: false
+    )
+    adventure_private_4 = FactoryGirl.create(
+      :adventure,
+      user_id: user.id,
+      name: "Sleep in a yurt",
+      is_shared: false
+    )
+    bucket_list_adventure_private_4 = FactoryGirl.create(
+      :bucket_list_adventure,
+      bucket_list_id: bucket_list_4.id,
+      adventure_id: adventure_4.id,
+    )
+    visit all_public_adventures_path
+
+    expect(page).to have_content(adventure_public_1.name)
+    expect(page).to have_content(adventure_public_2.name)
+    expect(page).not_to have_content(adventure_private_3.name)
+    expect(page).not_to have_content(adventure_private_4.name)
+  end
 
   scenario "authenticated user successfully clicks on an adventure link and " \
   "navigates to the associated address" do
