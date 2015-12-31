@@ -236,11 +236,6 @@ feature "user views their adventures", %(
   #   expect(page).not_to have_content(adventure.name)
   end
 
-  scenario "unauthenticated user fails to view a list of their adventures " \
-  "associated with each of their bucket lists" do
-
-  end
-
   scenario "authenticated user successfully switches an adventure from public" \
   " to private by clicking on the appropirate icon" do
     user = FactoryGirl.create(:user)
@@ -266,10 +261,5 @@ feature "user views their adventures", %(
     expect(checkbox_shared).to be_checked
     expect(page).to have_content("Changes saved!")
     expect(page).not_to have_content("Must specify a name and/or address")
-  end
-
-  scenario "authenticated user successfully navigates to the edit page for " \
-  " one of their adventures by clicking on the appropriate link" do
-
   end
 end
