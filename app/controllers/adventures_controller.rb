@@ -56,7 +56,6 @@ class AdventuresController < ApplicationController
   end
 
   def all_public
-    binding.pry
     @adventures = Adventure.where(is_shared: true)
     binding.pry
   end
