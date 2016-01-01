@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :adventures do
     collection do
-      get 'all_public'
+      get 'all_public', 'search'
     end
   end
 
@@ -22,9 +22,4 @@ Rails.application.routes.draw do
 
   patch '/adventures/:id/edit', to: 'adventures#update'
 
-  resources :adventures do
-    collection do
-      get "search"
-    end
-  end
 end
