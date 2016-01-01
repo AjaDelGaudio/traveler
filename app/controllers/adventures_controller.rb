@@ -5,6 +5,10 @@ class AdventuresController < ApplicationController
     @adventures = Adventure.all
   end
 
+  def all_public
+    @adventures = Adventure.where(is_public: true)
+  end
+
   def search
     if params[:q].nil? || params[:q] == ""
       flash[:notice] = "Please enter a search term."
