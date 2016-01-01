@@ -59,7 +59,6 @@ class AdventuresController < ApplicationController
     @adventures = Adventure.where(is_shared: true)
   end
 
-
   def edit
     @adventure = Adventure.find(params[:id])
     @bucket_lists = BucketList.where(user_id: current_user.id)
