@@ -8,8 +8,8 @@
       <% @adventures.each do |adventure| %>
         <li class="bucket-list">
           <div class="small-9 columns small-centered divinding-line"></div>
-          <h4><%= link_to @adventure.name, adventure_path(adventure.id) unless @adventure.name.nil? %></h4>
-          <h4><%= link_to @adventure.address, adventure_path(adventure.id) unless @adventure.address.nil? %></h4>
+          <h4><%= link_to adventure.name, adventure_path(adventure.id) unless @adventure.name.nil? %></h4>
+          <h4><%= link_to adventure.address, adventure_path(adventure.id) unless @adventure.address.nil? %></h4>
           <p><%= adventure.link %></p>
           <p><%= adventure.notes %></p>
         </li>

@@ -241,8 +241,9 @@ feature "user views their adventures", %(
       bucket_list_id: bucket_list_private_4.id,
       adventure_id: adventure_private_4.id,
     )
+    binding.pry
     visit all_public_adventures_path
-
+binding.pry
     expect(page).to have_content(adventure_public_1.name)
     expect(page).to have_content(adventure_public_2.name)
     expect(page).not_to have_content(adventure_private_3.name)

@@ -6,7 +6,7 @@ class AdventuresController < ApplicationController
   end
 
   def all_public
-    @adventures = Adventure.where(is_public: true)
+    @adventures = Adventure.where(is_shared: true)
   end
 
   def search
