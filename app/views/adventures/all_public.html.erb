@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="small-11 medium-6 columns small-centered">
+    <h3>Shared Adventures:</h3>
+
+    <p><%= @adventures.count %> Adventure(s) being shared!</p>
+
+    <ul class="no-bullet">
+      <% @adventures.each do |adventure| %>
+        <li class="bucket-list">
+          <div class="small-9 columns small-centered divinding-line"></div>
+          <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
+          <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
+          <p><%= adventure.link %></p>
+          <p><%= adventure.notes %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

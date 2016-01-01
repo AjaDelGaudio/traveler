@@ -56,7 +56,7 @@ class AdventuresController < ApplicationController
   end
 
   def all_public
-    @bucket_lists = BucketList.where(is_public: true)
+    @adventures = Adventure.where(is_shared: true)
   end
 
   def edit
