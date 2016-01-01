@@ -238,8 +238,8 @@ feature "user views their adventures", %(
     )
     bucket_list_adventure_private_4 = FactoryGirl.create(
       :bucket_list_adventure,
-      bucket_list_id: bucket_list_4.id,
-      adventure_id: adventure_4.id,
+      bucket_list_id: bucket_list_private_4.id,
+      adventure_id: adventure_private_4.id,
     )
     visit all_public_adventures_path
 
