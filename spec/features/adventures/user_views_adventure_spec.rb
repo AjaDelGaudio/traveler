@@ -18,6 +18,7 @@ feature "user views their adventures", %(
   " list's show page" do
     user = FactoryGirl.create(:user)
     sign_in(user)
+
     # bucket_list_1
     bucket_list_1 = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure_1 = FactoryGirl.create(
@@ -207,13 +208,13 @@ feature "user views their adventures", %(
     bucket_list_private_3 = FactoryGirl.create(
       :bucket_list,
       user_id: user_b.id,
-      title: "Mongolia",
+      title: "Around the world in 80 days",
       is_public: false
     )
     adventure_private_3 = FactoryGirl.create(
       :adventure,
       user_id: user_b.id,
-      name: "Sleep in a yurt",
+      name: "hot air balloon ride",
       is_shared: false
     )
     bucket_list_adventure_3 = FactoryGirl.create(
@@ -226,13 +227,13 @@ feature "user views their adventures", %(
     bucket_list_private_4 = FactoryGirl.create(
       :bucket_list,
       user_id: user_b.id,
-      title: "Mongolia",
+      title: "Peru: Everywhere except Manu Picchu",
       is_public: false
     )
     adventure_private_4 = FactoryGirl.create(
       :adventure,
       user_id: user_b.id,
-      name: "Sleep in a yurt",
+      name: "Eat chocolate made from scratch",
       is_shared: false
     )
     bucket_list_adventure_private_4 = FactoryGirl.create(
