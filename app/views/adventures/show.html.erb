@@ -4,6 +4,9 @@
     <div class="bucket-list">
       <h3><%= @adventure.name unless @adventure.name.nil? %></h3>
       <h3><%= @adventure.address unless @adventure.name.nil? %></h3>
+      <div id="map-container">
+        <div id="map-canvas"></div>
+      </div>
       <h6>
       <% if @adventure.is_shared %>
         <%= fa_icon "eye" %>Public /
