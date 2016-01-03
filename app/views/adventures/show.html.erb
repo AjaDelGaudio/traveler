@@ -9,7 +9,7 @@
         <div id="map-canvas">
           <%= javascript_include_tag "map/gmap" %>
           <script async defer >
-                src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_SERVER_KEY"] %>&callback=initMap"
+                src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_BROWSER_KEY"] %>&callback=initMap"
                 >
           </script>
 
