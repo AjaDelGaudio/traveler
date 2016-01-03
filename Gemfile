@@ -11,7 +11,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'foundation-rails'
-gem 'dotenv-rails'
 gem 'geocoder'
 gem 'font-awesome-rails'
 gem 'rails_12factor', group: :production
@@ -28,7 +27,7 @@ group :development, :test do
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers', '~> 2.8.0', require: false
-
+  gem 'dotenv-rails'
 end
 
 group :development do
