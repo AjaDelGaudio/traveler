@@ -4,9 +4,18 @@
     <div class="bucket-list">
       <h3><%= @adventure.name unless @adventure.name.nil? %></h3>
       <h3><%= @adventure.address unless @adventure.name.nil? %></h3>
+
       <div id="map-container">
-        <div id="map-canvas"></div>
+        <div id="map-canvas">
+          <%= javascript_include_tag "map/gmap" %>
+          <script async defer >
+                src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_SERVER_KEY"] %>&callback=initMap"
+                >
+          </script>
+
+        </div>
       </div>
+
       <h6>
       <% if @adventure.is_shared %>
         <%= fa_icon "eye" %>Public /
@@ -28,8 +37,3 @@
     </div>
   </div>
 </div>
-
-<%= javascript_include_tag "map/gmap" %>
-<script async defer >
-      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_SERVER_KEY"] %>&callback=initMap">
-</script>
