@@ -17,6 +17,7 @@ gem 'rails_12factor', group: :production
 gem 'pry'
 gem 'pry-rails'
 gem 'pg_search'
+gem 'gmaps4rails'
 
 
 group :development, :test do
