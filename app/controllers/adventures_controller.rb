@@ -56,6 +56,7 @@ class AdventuresController < ApplicationController
     @hash = Gmaps4rails.build_markers(@adventure) do |adventure, marker|
       marker.lat adventure.latitude
       marker.lng adventure.longitude
+      marker.infowindow adventure.description
     end
   end
 
