@@ -254,7 +254,7 @@ DEPENDENCIES
   font-awesome-rails
   foundation-rails
   geocoder
-  gmaps4rails
+  gmaps4rails (= 2.1.2)
   jbuilder (~> 2.0)
   jquery-rails
   launchy
