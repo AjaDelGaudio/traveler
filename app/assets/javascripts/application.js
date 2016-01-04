@@ -15,5 +15,7 @@
 //= require foundation
 //= require vendor/modernizr
 //= require_tree .
+//= require underscore
+//= require gmaps/google
 
 $(function(){ $(document).foundation(); });
