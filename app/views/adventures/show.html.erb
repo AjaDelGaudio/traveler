@@ -15,17 +15,9 @@
       </div>
 
       <script type="text/javascript">
-        var mapOptions = { mapTypeId: google.maps.MapTypeId.HYBRID }
-        handler = Gmaps.build('Google');
-        handler.buildMap({
-          provider: mapOptions,
-          internal: {
-            id: 'map-canvas'
-          }}, function(){
-            markers = handler.addMarkers(<%=raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-            handler.getMap().setZoom(10);
+        $(document).ready(function(){
+          var rawMarkers = <%= raw @map_markers.to_json %>
+          gmap_show(rawMarkers);
         });
       </script>
 
