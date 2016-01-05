@@ -15,14 +15,13 @@
       </div>
 
       <script type="text/javascript">
+        var mapOptions = { mapTypeId: google.maps.MapTypeId.HYBRID }
         handler = Gmaps.build('Google');
         handler.buildMap({
-          provider: {
-        },
+          provider: mapOptions,
           internal: {
             id: 'map-canvas'
-          }
-        }, function(){
+          }}, function(){
           markers = handler.addMarkers(<%=raw @hash.to_json %>);
           handler.bounds.extendWith(markers);
           handler.fitMapToBounds();
