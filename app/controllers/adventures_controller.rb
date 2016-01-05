@@ -53,6 +53,11 @@ class AdventuresController < ApplicationController
     bucket_list_adventure = @adventure.bucket_list_adventures[0]
     bucket_list = BucketList.where(id: bucket_list_adventure.bucket_list_id)
     @bucket_list = bucket_list[0]
+    @map_markers = Gmaps4rails.build_markers(@adventure) do |adventure, marker|
+      marker.lat adventure.latitude
+      marker.lng adventure.longitude
+      marker.infowindow adventure.notes
+    end
   end
 
   def all_public
