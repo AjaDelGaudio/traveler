@@ -67,8 +67,18 @@ feature "user edits adventure", %(
 
   scenario "authenticated user successfully adds a link to an adventure" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    sign_in(user)
+    bucket_list = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Second Bucket List"
+    )
     adventure = FactoryGirl.create(:adventure, user_id: user.id)
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      adventure_id: adventure.id,
+      bucket_list_id: bucket_list.id
+    )
 
     visit edit_adventure_path(adventure)
     fill_in "Link", with: "https://en.wikipedia.org/wiki/List_of_caves_in_Vietnam"
@@ -80,8 +90,18 @@ feature "user edits adventure", %(
 
   scenario "authenticated user successfully adds a address to an adventure" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    sign_in(user)
+    bucket_list = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Second Bucket List"
+    )
     adventure = FactoryGirl.create(:adventure, address: nil, user_id: user.id)
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      adventure_id: adventure.id,
+      bucket_list_id: bucket_list.id
+    )
 
     visit edit_adventure_path(adventure)
     fill_in "Address", with: "Spain"
@@ -93,8 +113,18 @@ feature "user edits adventure", %(
 
   scenario "authenticated user successfully adds a name to an adventure" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    sign_in(user)
+    bucket_list = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Second Bucket List"
+    )
     adventure = FactoryGirl.create(:adventure, name: nil, user_id: user.id)
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      adventure_id: adventure.id,
+      bucket_list_id: bucket_list.id
+    )
 
     visit edit_adventure_path(adventure)
     fill_in "Name", with: "Do this thing!"
@@ -116,8 +146,18 @@ feature "user edits adventure", %(
 
   scenario "authenticated user fails to edit an adventure" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    sign_in(user)
+    bucket_list = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Second Bucket List"
+    )
     adventure = FactoryGirl.create(:adventure, address: nil, user_id: user.id)
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      adventure_id: adventure.id,
+      bucket_list_id: bucket_list.id
+    )
 
     visit edit_adventure_path(adventure)
     find("input[id$='adventure_name']").set ""
@@ -129,8 +169,18 @@ feature "user edits adventure", %(
 
   scenario "authenticated user successfully removes adventure name attribute" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    sign_in(user)
+    bucket_list = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Second Bucket List"
+    )
     adventure = FactoryGirl.create(:adventure, user_id: user.id)
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      adventure_id: adventure.id,
+      bucket_list_id: bucket_list.id
+    )
 
     visit edit_adventure_path(adventure)
     fill_in "Name", with: ""
@@ -143,9 +193,19 @@ feature "user edits adventure", %(
 
   scenario "authenticated user successfully removes adventure address attribute" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    sign_in(user)
+    bucket_list = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Second Bucket List"
+    )
     adventure = FactoryGirl.create(:adventure, user_id: user.id)
-
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      adventure_id: adventure.id,
+      bucket_list_id: bucket_list.id
+    )
+    
     visit edit_adventure_path(adventure)
     fill_in "Name", with: "Eat tacos"
     fill_in "Address", with: ""
