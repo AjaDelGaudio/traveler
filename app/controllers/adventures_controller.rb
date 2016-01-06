@@ -58,15 +58,11 @@ class AdventuresController < ApplicationController
       marker.lng adventure.longitude
       marker.infowindow adventure.notes
     end
+    binding.pry
   end
 
   def all_public
     @adventures = Adventure.where(is_shared: true)
-    @map_markers = Gmaps4rails.build_markers(@adventures) do |adventure, marker|
-      marker.lat adventure.latitude
-      marker.lng adventure.longitude
-      marker.infowindow adventure.notes
-    end
   end
 
   def edit
@@ -79,7 +75,7 @@ class AdventuresController < ApplicationController
     @adventure.update(adventure_params)
 
     if @adventure.save
-      redirect_to root_path
+      redirect_to @adventure
       flash[:info] = "Changes saved!"
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")

@@ -8,10 +8,6 @@
       <% @bucket_lists.each do |bucket_list| %>
         <li class="bucket-list">
           <div class="small-9 columns small-centered divinding-line"></div>
-          <div class="map-container">
-            <div class="map-canvas" id="map-canvas">
-            </div>
-          </div>
           <h4><%= link_to bucket_list.title, bucket_list_path(bucket_list.id) %></h4>
           <p><%= bucket_list.description %></p>
         </li>
@@ -23,6 +19,6 @@
 <script type="text/javascript">
   $(document).ready(function(){
     var rawMarkers = <%= raw @map_markers.to_json %>
-    gmapShow(rawMarkers);
+    gmapShowMultiMarkers(rawMarkers);
   });
 </script>
