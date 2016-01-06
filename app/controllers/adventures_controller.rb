@@ -3,6 +3,7 @@ class AdventuresController < ApplicationController
 
   def index
     @adventures = Adventure.all
+    
   end
 
   def search
@@ -58,7 +59,6 @@ class AdventuresController < ApplicationController
       marker.lng adventure.longitude
       marker.infowindow adventure.notes
     end
-    binding.pry
   end
 
   def all_public
