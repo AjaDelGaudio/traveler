@@ -3,7 +3,11 @@ class AdventuresController < ApplicationController
 
   def index
     @adventures = Adventure.all
-    
+    @map_markers = Gmaps4rails.build_markers(@adventure) do |adventure, marker|
+      marker.lat adventure.latitude
+      marker.lng adventure.longitude
+      marker.infowindow adventure.notes
+    end
   end
 
   def search
