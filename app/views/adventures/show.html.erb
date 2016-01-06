@@ -10,13 +10,6 @@
         </div>
       </div>
 
-      <script type="text/javascript">
-        $(document).ready(function(){
-          var rawMarkers = <%= raw @map_markers.to_json %>
-          gmapShow(rawMarkers);
-        });
-      </script>
-
       <h6>
       <% if @adventure.is_shared %>
         <%= fa_icon "eye" %>Public /
@@ -38,3 +31,10 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var rawMarkers = <%= raw @map_markers.to_json %>
+    gmapShow(rawMarkers);
+  });
+</script>
