@@ -71,7 +71,13 @@ class AdventuresController < ApplicationController
 
   def update
     @adventure = Adventure.find(params[:id])
+    bucket_list_adventure = BucketListAdventure.where(
+      adventure_id: @adventure.id
+    )
+    @bucket_list = BucketList.where(id: bucket_list_adventure[0].bucket_list_id)
+
     @adventure.update(adventure_params)
+    @bucket_list_adventure.update()
 
     if @adventure.save
       redirect_to @adventure

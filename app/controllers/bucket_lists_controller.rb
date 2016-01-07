@@ -67,7 +67,6 @@ class BucketListsController < ApplicationController
     end
   end
 
-
   private
 
   def bucket_list_params

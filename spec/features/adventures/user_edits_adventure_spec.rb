@@ -160,11 +160,13 @@ feature "user edits adventure", %(
     )
 
     visit edit_adventure_path(adventure)
-    find("input[id$='adventure_name']").set ""
+    fill_in "Name", with: nil
     click_button "Save It!"
 
     expect(page).to have_content("Must specify a name and/or address")
     expect(page).not_to have_content("Changes saved!")
+
+
   end
 
   scenario "authenticated user successfully removes adventure name attribute" do
@@ -205,7 +207,7 @@ feature "user edits adventure", %(
       adventure_id: adventure.id,
       bucket_list_id: bucket_list.id
     )
-    
+
     visit edit_adventure_path(adventure)
     fill_in "Name", with: "Eat tacos"
     fill_in "Address", with: ""
