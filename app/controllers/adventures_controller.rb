@@ -71,18 +71,18 @@ class AdventuresController < ApplicationController
 
   def update
     @adventure = Adventure.find(params[:id])
-    bucket_list_adventure = BucketListAdventure.where(
-      adventure_id: @adventure.id
-    )
+    bucket_list_id = adventure_params[:bucket_list_adventures_attributes]["0"][:bucket_list_id]
+    bucket_list_adventure = BucketListAdventure.where(bucket_list_id: bucket_list_id)
+binding.pry
     @bucket_list = BucketList.where(id: bucket_list_adventure[0].bucket_list_id)
-
     @adventure.update(adventure_params)
-    @bucket_list_adventure.update()
 
     if @adventure.save
+      binding.pry
       redirect_to @adventure
       flash[:info] = "Changes saved!"
     else
+      binding.pry
       flash[:errors] = @adventure.errors.full_messages.join(" | ")
       render :edit
     end

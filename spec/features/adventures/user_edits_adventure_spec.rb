@@ -17,11 +17,13 @@ feature "user edits adventure", %(
 
   scenario "authenticated user successfully edits an adventure" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
-    adventure = FactoryGirl.create(:adventure)
+    sign_in(user)
+    adventure = FactoryGirl.create(:adventure, user_id: user.id)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     FactoryGirl.create(
       :bucket_list_adventure,
-      adventure_id: adventure.id
+      adventure_id: adventure.id,
+      bucket_list_id: bucket_list.id,
     )
 
     visit edit_adventure_path(adventure)
