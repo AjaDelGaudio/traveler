@@ -146,31 +146,6 @@ feature "user edits adventure", %(
     expect(page).not_to have_content("Changes saved!")
   end
 
-  scenario "authenticated user fails to edit an adventure" do
-    user = FactoryGirl.create(:user)
-    sign_in(user)
-    bucket_list = FactoryGirl.create(
-      :bucket_list,
-      user_id: user.id,
-      title: "Second Bucket List"
-    )
-    adventure = FactoryGirl.create(:adventure, address: nil, user_id: user.id)
-    bucket_list_adventure = FactoryGirl.create(
-      :bucket_list_adventure,
-      adventure_id: adventure.id,
-      bucket_list_id: bucket_list.id
-    )
-
-    visit edit_adventure_path(adventure)
-    fill_in "Name", with: nil
-    click_button "Save It!"
-
-    expect(page).to have_content("Must specify a name and/or address")
-    expect(page).not_to have_content("Changes saved!")
-
-
-  end
-
   scenario "authenticated user successfully removes adventure name attribute" do
     user = FactoryGirl.create(:user)
     sign_in(user)
@@ -218,4 +193,26 @@ feature "user edits adventure", %(
     expect(page).to have_content("Changes saved!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
+
+  # scenario "authenticated user fails to edit an adventure" do
+  #   user = FactoryGirl.create(:user)
+  #   sign_in(user)
+  #   bucket_list = FactoryGirl.create(
+  #     :bucket_list,
+  #     user_id: user.id
+  #   )
+  #   adventure = FactoryGirl.create(:adventure, name: nil, user_id: user.id)
+  #   bucket_list_adventure = FactoryGirl.create(
+  #     :bucket_list_adventure,
+  #     adventure_id: adventure.id,
+  #     bucket_list_id: bucket_list.id
+  #   )
+  #
+  #   visit edit_adventure_path(adventure)
+  #   find(:css, "textarea[id$='adventure_address']").set("")
+  #   click_button "Save It!"
+  #
+  #   expect(page).to have_content("Must specify a name and/or address")
+  #   expect(page).not_to have_content("Changes saved!")
+  # end
 end
