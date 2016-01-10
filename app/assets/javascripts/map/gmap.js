@@ -8,7 +8,7 @@ function gmapShow(rawMarkers) {
     internal: {
       id: 'map-canvas'
     }}, function(){
-    markers = handler.addMarkers(rawMarkers);
+    var markers = handler.addMarkers(rawMarkers);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     handler.getMap().setZoom(10);
@@ -23,7 +23,7 @@ function gmapShowMultiMarkers(rawMarkers) {
     internal: {
       id: 'map-canvas-multi-markers'
     }}, function(){
-    markers = handler.addMarkers(rawMarkers);
+    var markers = handler.addMarkers(rawMarkers);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     handler.getMap().setZoom(10);
