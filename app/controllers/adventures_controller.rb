@@ -28,6 +28,7 @@ class AdventuresController < ApplicationController
       @adventure = Adventure.new
       @bucket_lists = BucketList.where(user_id: current_user.id)
       @adventure.bucket_list_adventures.build
+      binding.pry
     end
   end
 
@@ -36,9 +37,11 @@ class AdventuresController < ApplicationController
     @bucket_lists = BucketList.where(user_id: current_user.id)
     @adventure.is_achieved ||= false
     @adventure.user_id = current_user.id
+    geocode = Geocoder.search("#{@adventure.address}")
     @bucket_list_adventure = @adventure.bucket_list_adventures[0]
-
+binding.pry
     if @adventure.save
+      binding.pry
       @bucket_list_adventure.adventure_id = @adventure.id
       flash[:notice] = "Excellent! Another adventure awaits!"
       redirect_to @adventure
