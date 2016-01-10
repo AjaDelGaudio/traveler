@@ -11,10 +11,7 @@
           <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
           <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
           <% if adventure.is_shared %>
-            <h6>
-              <%= fa_icon "eye" %>
-              Public
-            </h6>
+            <h6><%= fa_icon "eye" %> Public </h6>
           <% else %>
             <h6><%= fa_icon "eye-slash" %> Private</h6>
           <% end %>

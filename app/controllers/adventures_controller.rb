@@ -36,8 +36,8 @@ class AdventuresController < ApplicationController
     @bucket_lists = BucketList.where(user_id: current_user.id)
     @adventure.is_achieved ||= false
     @adventure.user_id = current_user.id
+    geocode = Geocoder.search("#{@adventure.address}")
     @bucket_list_adventure = @adventure.bucket_list_adventures[0]
-
     if @adventure.save
       @bucket_list_adventure.adventure_id = @adventure.id
       flash[:notice] = "Excellent! Another adventure awaits!"
@@ -71,10 +71,9 @@ class AdventuresController < ApplicationController
 
   def update
     @adventure = Adventure.find(params[:id])
-    @adventure.update(adventure_params)
 
     if @adventure.save
-      redirect_to root_path
+      redirect_to @adventure
       flash[:info] = "Changes saved!"
     else
       flash[:errors] = @adventure.errors.full_messages.join(" | ")

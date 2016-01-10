@@ -1,6 +1,11 @@
 class Adventure < ActiveRecord::Base
-  belongs_to :user
+  geocoded_by :address
+  after_validation :geocode  # auto-fetch coordinates
+  # reverse_geocoded_by :latitude, :longitude, address: :address
+  # after_validation :reverse_geocode  # auto-fetch address
+  # after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
 
+  belongs_to :user
   has_many :bucket_list_adventures, dependent: :destroy
   has_many :bucket_lists, through: :bucket_list_adventures
 
@@ -26,15 +31,6 @@ class Adventure < ActiveRecord::Base
     using: {
       tsearch: { prefix: true }
     }
-
-  reverse_geocoded_by :latitude, :longitude, address: :address
-  after_validation :reverse_geocode
-
-  geocoded_by :address
-  after_validation :geocode  # auto-fetch coordinates
-  reverse_geocoded_by :latitude, :longitude, address: :address
-  after_validation :reverse_geocode  # auto-fetch address
-  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
 
   private
 

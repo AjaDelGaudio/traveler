@@ -86,7 +86,12 @@
   border-width: 7px;
 }
 
-.map-canvas {
+#map-canvas {
+  height: 384px;
+  width: 100%;
+}
+
+#map-canvas-multi-markers {
   height: 384px;
   width: 100%;
 }
