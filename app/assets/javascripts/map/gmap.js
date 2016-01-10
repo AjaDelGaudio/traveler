@@ -2,7 +2,7 @@ var geocoder;
 
 function gmapShow(rawMarkers) {
   var mapOptions = { mapTypeId: google.maps.MapTypeId.HYBRID };
-  handler = Gmaps.build('Google');
+  var handler = Gmaps.build('Google');
   handler.buildMap({
     provider: mapOptions,
     internal: {
@@ -17,7 +17,7 @@ function gmapShow(rawMarkers) {
 
 function gmapShowMultiMarkers(rawMarkers) {
   var mapOptions = { mapTypeId: google.maps.MapTypeId.HYBRID };
-  handler = Gmaps.build('Google');
+  var handler = Gmaps.build('Google');
   handler.buildMap({
     provider: mapOptions,
     internal: {
