@@ -15,7 +15,6 @@ class Adventure < ActiveRecord::Base
   validates :user_id, presence: true
   validates :user_id, numericality: { only_integer: true }
 
-
   validate :name_or_address
 
   validates :is_achieved, inclusion: { in: [true, false] }
