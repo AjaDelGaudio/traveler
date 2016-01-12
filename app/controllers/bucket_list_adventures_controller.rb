@@ -2,7 +2,6 @@ class BucketListAdventuresController < ApplicationController
   def update
     @bucket_list_adventure = BucketListAdventure.find(params[:id])
     @bucket_list_adventure.update(bucket_list_params)
-    binding.pry
   end
 
   private
