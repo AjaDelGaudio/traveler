@@ -38,10 +38,8 @@ class AdventuresController < ApplicationController
     @adventure.user_id = current_user.id
     geocode = Geocoder.search("#{@adventure.address}")
     @bucket_list_adventure = @adventure.bucket_list_adventures[0]
-    binding.pry
     if @adventure.save
       @bucket_list_adventure.adventure_id = @adventure.id
-      binding.pry
       flash[:notice] = "Excellent! Another adventure awaits!"
       redirect_to @adventure
     else
