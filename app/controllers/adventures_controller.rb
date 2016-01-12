@@ -71,8 +71,10 @@ class AdventuresController < ApplicationController
 
   def update
     @adventure = Adventure.find(params[:id])
-
+    @adventure.update(adventure_params)
+    
     if @adventure.save
+      binding.pry
       redirect_to @adventure
       flash[:info] = "Changes saved!"
     else
