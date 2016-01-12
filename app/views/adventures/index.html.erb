@@ -13,7 +13,7 @@
           <% if adventure.is_shared %>
             <h6><%= fa_icon "eye" %> Public </h6>
           <% else %>
-            <h6><%= fa_icon "eye-slash" %> Private</h6>
+            <h6><%= fa_icon "eye-slash" %> Private </h6>
           <% end %>
           <% if adventure.is_achieved %>
             <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
