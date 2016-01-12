@@ -4,7 +4,7 @@
       <h3><%= @bucket_list.title %></h3>
       <h6>
         <% if @bucket_list.is_public %>
-          <%= fa_icon "eye" %>Public /
+          <%= fa_icon "eye" %> Public /
         <% else %>
           <%= fa_icon "eye-slash" %> Private /
         <% end %>
@@ -20,9 +20,9 @@
             <p><%= link_to "#{adventure.address unless adventure.name.nil?}", adventure_path(adventure.id) %></p>
             <p>
               <% if adventure.is_shared %>
-                <%= fa_icon "eye" %>public /
+                <%= fa_icon "eye" %> Public /
               <% else %>
-                <%= fa_icon "eye-slash" %> private /
+                <%= fa_icon "eye-slash" %> Private /
               <% end %>
                 <%= link_to "edit adventure", edit_adventure_path(adventure.id) %>
               <% if adventure.is_achieved %>
