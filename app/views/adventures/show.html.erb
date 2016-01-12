@@ -5,6 +5,7 @@
       <h3><%= @adventure.name unless @adventure.name.nil? %></h3>
       <h3><%= @adventure.address unless @adventure.name.nil? %></h3>
 
+      <div class="is-achieved-toggle">
         <% if @adventure.is_achieved %>
           <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
             "#", class: "achieved-toggle", id: @adventure.id %>
@@ -12,6 +13,7 @@
           <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
             "#", class: "achieved-toggle", id: @adventure.id %>
         <% end %>
+      </div>
 
       <div class="map-container">
         <div class="map-canvas" id="map-canvas">
