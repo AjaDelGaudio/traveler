@@ -72,7 +72,7 @@ class AdventuresController < ApplicationController
   def update
     @adventure = Adventure.find(params[:id])
     @adventure.update(adventure_params)
-    
+binding.pry    
     if @adventure.save
       binding.pry
       redirect_to @adventure
