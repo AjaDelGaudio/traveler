@@ -1,10 +1,6 @@
 class Adventure < ActiveRecord::Base
   geocoded_by :address   # can also be an IP address
   after_validation :geocode, :if => lambda{ |obj| obj.address_changed? }
-  # after_validation :geocode, if: :address_new_or_changed?
-
-  # reverse_geocoded_by :latitude, :longitude, address: :address
-  # after_validation :reverse_geocode  # auto-fetch address
 
   belongs_to :user
   has_many :bucket_list_adventures, dependent: :destroy
@@ -38,9 +34,5 @@ class Adventure < ActiveRecord::Base
     if name.blank? && address.blank?
       errors.add(:adventure, "Must specify a name and/or address")
     end
-  end
-
-  def address_new_or_changed?
-    :address_changed? || :address.present?
   end
 end
