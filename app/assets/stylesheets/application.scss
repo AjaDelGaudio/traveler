@@ -105,9 +105,11 @@
 
 .adventures-search {
   width: 70%;
+  margin-left: 20%;
+  margin-right: 0;
 
   input {
-    width: 70%;
+    width: 60%;
     height: 3rem;
     display: inline-block;
   }
@@ -117,7 +119,7 @@
     padding-bottom: .5rem;
     padding-right: 1rem;
     padding-left: 1rem;
-    margin-top: 1rem;
+    margin-top: 2.5rem;
     width: 13rem;
     text-align: center;
     margin-left: -.6rem;
