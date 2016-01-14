@@ -36,5 +36,4 @@ class Adventure < ActiveRecord::Base
     end
   end
 
-
 end

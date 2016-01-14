@@ -21,7 +21,6 @@ class AdventuresController < ApplicationController
   end
 
   def new
-    binding.pry
     if current_user.bucket_lists.count == 0
       redirect_to new_bucket_list_path
       flash[:notice] = "You don't have any bucket lists yet."
