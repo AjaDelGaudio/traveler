@@ -6,17 +6,8 @@
     <div class="row">
       <%= form_tag(search_adventures_path, method: "get") do %>
         <%= text_field_tag :q, params[:q], id: "search-bar",
-          placeholder: "Search my adventures" %>
+          placeholder: "The world is your oyster... search it." %>
         <%= submit_tag "Find Adventure", class: "button" %>
-      <% end %>
-    <div class="small-9 columns small-centered divinding-line"></div>
-    </div>
-
-    <div class="row">
-      <% if current_user %>
-          <%= link_to "My Bucket Lists", bucket_lists_path %>
-      <% else %>
-        <%= link_to "Sign In", new_user_session_path %>
       <% end %>
     </div>
 
