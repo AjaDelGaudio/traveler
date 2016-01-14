@@ -1,28 +1,9 @@
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "TravelGo", root_path %></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+<header class="header">
+  <h1 class="main-header"><%= link_to "TravelGo", root_path %></h1>
+  <ul class="header-subnav">
+    <li><a href="#">Find Adventure</a></li>
+    <li><a href="#" class="is-active">Create Adventure</a></li>
+    <li><a target="_blank" href="http://zurb.com/responsive">Explore...</a></li>
+    <li><a href="#">Navigate Your World</a></li>
   </ul>
-
-  <section class="top-bar-section">
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li><%= link_to (fa_icon "bitbucket") + " New Bucket List", new_bucket_list_path%></li>
-      <li><%= link_to (fa_icon "map-signs") + " My Bucket Lists", bucket_lists_path %></li>
-      <li><%= link_to (fa_icon "suitcase") + " Add an Adventure", new_adventure_path %></li>
-      <li><%= link_to (fa_icon "map") + " Explore", all_public_bucket_lists_path%></li>
-    </ul>
-
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <%- if current_user -%>
-        <li><%= link_to (fa_icon "user") + ' Sign Out', destroy_user_session_path, method: :delete %></li>
-      <%- else -%>
-        <li><%= link_to (fa_icon "user") + ' Sign Up', new_user_registration_path %></li>
-        <li><%= link_to (fa_icon "user") + ' Sign In', new_user_session_path %></li>
-      <%- end -%>
-    </ul>
-  </section>
-</nav>
+</header>
