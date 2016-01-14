@@ -2,8 +2,9 @@ class BucketListsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :index, :edit]
 
   def index
+    @username = current_user.username
     @bucket_lists = BucketList.where(user_id: current_user.id)
-    @bucker_lists_count = @bucket_lists.count
+    @adventures = Adventure.where(user_id: current_user.id)
   end
 
   def show

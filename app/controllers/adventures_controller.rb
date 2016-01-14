@@ -3,8 +3,8 @@ class AdventuresController < ApplicationController
 
   def index
     adventures = Adventure.all
-    binding.pry
     @adventures = adventures.where(user_id: current_user.id)
+    @username = current_user.username
   end
 
   def search

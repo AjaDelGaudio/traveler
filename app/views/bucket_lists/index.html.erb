@@ -1,3 +1,22 @@
+<div class="adventures-search">
+  <%= form_tag(search_adventures_path, method: "get") do %>
+    <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
+      placeholder: "The world is your oyster... search it." %>
+    <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
+  <% end %>
+</div>
+
+<section class="welcome">
+  <p class="item-count">
+    Welcome <b><%= @username %></b>, you have <b><%= @bucket_lists.count %> groups</b>
+    with <b><%= @adventures.count %> total adventure(s)</b>!
+    <i>
+      Browse your groups of adventures below or use the searchbar above to find
+      a particular adventure.
+    </i>
+  </p>
+</section>
+
 <div class="row">
   <div class="small-11 medium-6 columns small-centered">
     <h3>My Bucket Lists:</h3>

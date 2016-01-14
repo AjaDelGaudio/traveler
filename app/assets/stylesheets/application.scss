@@ -139,6 +139,17 @@
   }
 }
 
+.welcome {
+  font-family: sans-serif;
+
+  style {
+    color: $charcoal;
+  }
+
+  i {
+    color: $charcoal;
+  }
+}
 
 .hero {
   // background: image-url('watercolour-world-map.jpg') no-repeat center center;

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "adventures#index"
+  root "bucket_lists#index"
   devise_for :users
 
   resources :bucket_lists do
