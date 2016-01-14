@@ -20,8 +20,8 @@
       %>
     </li>
     <li>
-      <%= link_to "Explore...", all_public_adventures_path, class:
-        if (params[:controller] == "adventures") && (params[:action] == "all_public")
+      <%= link_to "Group Adventures", new_bucket_list_path, class:
+        if (params[:controller] == "bucket_lists") && (params[:action] == "new")
           "is-active"
         else
           "not-active"
@@ -29,8 +29,8 @@
       %>
     </li>
     <li>
-      <%= link_to "Build New Bucket ", new_bucket_list_path, class:
-        if (params[:controller] == "bucket_lists") && (params[:action] == "new")
+      <%= link_to "Explore...", all_public_adventures_path, class:
+        if (params[:controller] == "adventures") && (params[:action] == "all_public")
           "is-active"
         else
           "not-active"
