@@ -7,15 +7,9 @@
       <%= form_tag(search_adventures_path, method: "get") do %>
         <%= text_field_tag :q, params[:q], id: "search-bar",
           placeholder: "Search my adventures" %>
-        <%= submit_tag "Find Adventure", class: "button round" %>
+        <%= submit_tag "Find Adventure", class: "button" %>
       <% end %>
     <div class="small-9 columns small-centered divinding-line"></div>
-    </div>
-
-
-    <div class="row">
-      <%= link_to "Add an Adventure", new_adventure_path, class: "button round" %>
-      <div class="small-9 columns small-centered divinding-line"></div>
     </div>
 
     <div class="row">
