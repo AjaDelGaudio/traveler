@@ -126,6 +126,16 @@
     border-width: 1px;
     border-color: $base;
 
+    &:hover {
+      background-color: rgba(51, 51, 51, 0.9);
+      color: $primary-color;
+      border-color: $primary-color;
+      transition: all .25s ease-in-out;
+    }
+
+    &.is-active {
+      color: #df19ad;
+    }
   }
 }
 
