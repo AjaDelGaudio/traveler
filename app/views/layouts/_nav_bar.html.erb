@@ -1,9 +1,11 @@
 <section>
   <ul>
     <li class="user-session">
-      <%- if current_user -%>
+      <% if current_user %>
         <li><%= link_to (fa_icon "user") + ' Sign Out', destroy_user_session_path, method: :delete %></li>
-      <%- end -%>
+      <% else %>
+        <li id="user-session-spacer"></li>
+      <% end %>
     </li>
   </ul>
 </section>
