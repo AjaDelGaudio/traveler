@@ -141,6 +141,10 @@
 
 .welcome {
   font-family: sans-serif;
+  width: 70%;
+  text-align: left;
+  margin-left: 15%;
+  margin-right: 15%;
 
   style {
     color: $charcoal;
@@ -148,6 +152,49 @@
 
   i {
     color: $charcoal;
+  }
+}
+
+.display-groups {
+  font-family: sans-serif;
+  margin-left: 7%;
+  margin-right: 7%;
+
+  h4 {
+
+  }
+
+  li {
+
+  }
+}
+
+.tiny-button {
+  width: 6rem;
+  height: 2rem;
+}
+
+.button {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-top: 2.5rem;
+  width: 13rem;
+  text-align: center;
+  margin-left: -.599rem;
+  border-width: 1px;
+  border-color: $base;
+
+  &:hover {
+    background-color: #148285;
+    color: $primary-color;
+    border-color: $primary-color;
+    transition: all .25s ease-in-out;
+  }
+
+  &.is-active {
+    color: #df19ad;
   }
 }
 
@@ -159,9 +206,6 @@
   // margin-bottom: 3em;
 }
 
-.adventure-search-bar {
-
-}
 
 .form-actions {
   margin-top: 2rem;

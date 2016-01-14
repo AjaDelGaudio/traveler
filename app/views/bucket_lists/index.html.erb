@@ -8,8 +8,8 @@
 
 <section class="welcome">
   <p class="item-count">
-    Welcome <b><%= @username %></b>, you have <b><%= @bucket_lists.count %> groups</b>
-    with <b><%= @adventures.count %> total adventure(s)</b>!
+    Welcome <strong><%= @username %></strong>, you have <b><%= @bucket_lists.count %> groups</b>
+    with <strong><%= @adventures.count %> total adventure(s)</strong>!
     <i>
       Browse your groups of adventures below or use the searchbar above to find
       a particular adventure.
@@ -17,28 +17,22 @@
   </p>
 </section>
 
-<div class="row">
-  <div class="small-11 medium-6 columns small-centered">
-    <h3>My Bucket Lists:</h3>
-
-    <p><%= @bucket_lists.count %> Bucket List(s) </p>
-
-    <ul class="no-bullet">
-      <% @bucket_lists.each do |bucket_list| %>
-        <li class="bucket-list">
-          <div class="small-9 columns small-centered divinding-line"></div>
-          <h4><%= link_to bucket_list.title, bucket_list_path(bucket_list.id) %></h4>
-          <% if bucket_list.is_public %>
-            <h6>
-              <%= fa_icon "eye" %>
-              Public
-            </h6>
-          <% else %>
-            <h6><%= fa_icon "eye-slash" %> Private</h6>
-          <% end %>
-          <p><%= bucket_list.description %></p>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<section class="display-groups">
+  <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+    <% @bucket_lists.each do |bucket_list| %>
+      <li>
+        <h4 class="button"><%= link_to bucket_list.title, bucket_list_path(bucket_list.id) %></h4>
+        <% if bucket_list.is_public %>
+            <span class="tiny-button open-eye">
+              <%= link_to "Share", edit_bucket_list_path(bucket_list.id) %><%= fa_icon " eye" %>
+            </span>
+        <% else %>
+          <span class="tiny-button slash-eye">
+            <%= link_to "Hide", edit_bucket_list_path(bucket_list.id) %><%= fa_icon " eye-slash" %>
+          </span>
+        <% end %>
+        <p><%= bucket_list.description %></p>
+      </li>
+    <% end %>
+  </ul>
+</section>
