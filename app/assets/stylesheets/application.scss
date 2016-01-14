@@ -44,19 +44,24 @@
       font-weight: bold;
       letter-spacing: 1px;
 
+      &:hover {
+        color: #148285;
+        transition: all .25s ease-in-out;
+      }
+
       &.is-active {
         background-color: $white;
         color: #df19ad;
       }
+    }
 
-      &:hover {
-        color: #0a8546;
-        transition: all .25s ease-in-out;
-      }
+    a.nav-link-padding {
+      padding: 0;
     }
   }
-}
 
+
+}
 
 
 

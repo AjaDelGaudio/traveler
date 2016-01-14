@@ -1,9 +1,41 @@
 <header class="header">
   <h1 class="main-header"><%= link_to "TravelGo", root_path %></h1>
   <ul class="header-subnav">
-    <li><a href="#">Find Adventure</a></li>
-    <li><a href="#" class="is-active">Create Adventure</a></li>
-    <li><a target="_blank" href="http://zurb.com/responsive">Explore...</a></li>
-    <li><a href="#">Navigate Your World</a></li>
+    <li>
+      <%= link_to "Find Adventure", root_path, class:
+        if (params[:controller] == "adventures") && (params[:action] == "index")
+          "is-active"
+        else
+          "not-active"
+        end
+      %>
+    </li>
+    <li>
+      <%= link_to "Create Adventure", new_adventure_path, class:
+        if (params[:controller] == "adventures") && (params[:action] == "new")
+          "is-active"
+        else
+          "not-active"
+        end
+      %>
+    </li>
+    <li>
+      <%= link_to "Explore...", all_public_adventures_path, class:
+        if (params[:controller] == "adventures") && (params[:action] == "all_public")
+          "is-active"
+        else
+          "not-active"
+        end
+      %>
+    </li>
+    <li>
+      <%= link_to "Build New Bucket ", new_bucket_list_path, class:
+        if (params[:controller] == "bucket_lists") && (params[:action] == "new")
+          "is-active"
+        else
+          "not-active"
+        end
+      %>
+    </li>
   </ul>
 </header>

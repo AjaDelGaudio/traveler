@@ -35,4 +35,6 @@ class Adventure < ActiveRecord::Base
       errors.add(:adventure, "Must specify a name and/or address")
     end
   end
+
+
 end
