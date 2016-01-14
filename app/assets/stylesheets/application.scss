@@ -103,9 +103,26 @@
   }
 }
 
+.adventures-search {
+  width: 70%;
 
+  input {
+    width: 70%;
+    height: 3rem;
+    display: inline-block;
+  }
 
-
+  a .button {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    width: 13rem;
+    text-align: center;
+    margin-left: -.6rem;
+  }
+}
 
 
 .hero {
