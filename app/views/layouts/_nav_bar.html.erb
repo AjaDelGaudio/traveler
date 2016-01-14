@@ -1,51 +1,52 @@
-<header class="header">
-  <h1 class="main-header"><%= link_to "TravelGo", root_path %></h1>
-  <ul class="header-subnav">
-    <li>
-      <%= link_to "Find Adventure", root_path, class:
-        if (params[:controller] == "adventures") && (params[:action] == "index")
-          "is-active"
-        else
-          "not-active"
-        end
-      %>
-    </li>
-    <li>
-      <%= link_to "Create Adventure", new_adventure_path, class:
-        if (params[:controller] == "adventures") && (params[:action] == "new")
-          "is-active"
-        else
-          "not-active"
-        end
-      %>
-    </li>
-    <li>
-      <%= link_to "Group Adventures", new_bucket_list_path, class:
-        if (params[:controller] == "bucket_lists") && (params[:action] == "new")
-          "is-active"
-        else
-          "not-active"
-        end
-      %>
-    </li>
-    <li>
-      <%= link_to "Explore...", all_public_adventures_path, class:
-        if (params[:controller] == "adventures") && (params[:action] == "all_public")
-          "is-active"
-        else
-          "not-active"
-        end
-      %>
+<section>
+  <ul>
+    <li class="user-session">
+      <%- if current_user -%>
+        <li><%= link_to (fa_icon "user") + ' Sign Out', destroy_user_session_path, method: :delete %></li>
+      <%- else -%>
+        <li><%= link_to (fa_icon "user") + ' Sign Up', new_user_registration_path %></li>
+        <li><%= link_to (fa_icon "user") + ' Sign In', new_user_session_path %></li>
+      <%- end -%>
     </li>
   </ul>
+</section>
 
-<!-- User Session Section -->
-  <ul class="user-session">
-    <%- if current_user -%>
-      <li><%= link_to (fa_icon "user") + ' Sign Out', destroy_user_session_path, method: :delete %></li>
-    <%- else -%>
-      <li><%= link_to (fa_icon "user") + ' Sign Up', new_user_registration_path %></li>
-      <li><%= link_to (fa_icon "user") + ' Sign In', new_user_session_path %></li>
-    <%- end -%>
-  </ul>
-</header>
+<h1 class="main-header"><%= link_to "TravelGo", root_path %></h1>
+<ul class="header-subnav">
+  <li>
+    <%= link_to "Find Adventure", root_path, class:
+      if (params[:controller] == "adventures") && (params[:action] == "index")
+        "is-active"
+      else
+        "not-active"
+      end
+    %>
+  </li>
+  <li>
+    <%= link_to "Create Adventure", new_adventure_path, class:
+      if (params[:controller] == "adventures") && (params[:action] == "new")
+        "is-active"
+      else
+        "not-active"
+      end
+    %>
+  </li>
+  <li>
+    <%= link_to "Group Adventures", new_bucket_list_path, class:
+      if (params[:controller] == "bucket_lists") && (params[:action] == "new")
+        "is-active"
+      else
+        "not-active"
+      end
+    %>
+  </li>
+  <li>
+    <%= link_to "Explore...", all_public_adventures_path, class:
+      if (params[:controller] == "adventures") && (params[:action] == "all_public")
+        "is-active"
+      else
+        "not-active"
+      end
+    %>
+  </li>
+</ul>
