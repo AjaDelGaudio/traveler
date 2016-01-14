@@ -2,7 +2,9 @@ class AdventuresController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :index, :edit, :search]
 
   def index
-    @adventures = Adventure.all
+    adventures = Adventure.all
+    binding.pry
+    @adventures = adventures.where(user_id: current_user.id)
   end
 
   def search
