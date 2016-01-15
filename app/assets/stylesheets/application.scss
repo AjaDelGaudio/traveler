@@ -142,23 +142,20 @@
 
 .grid-groups li {
   @include block-grid(
-    $per-row: 3,
+    $per-row: 5,
     $spacing: $block-grid-default-spacing,
     $base-style: true
   );
 
   // border: 1px solid $steel;
-  margin: 10px;
+  margin: 1%;
   padding: 2rem;
   background-color: rgba(250,250,250,0.7);
 }
-//
-// }
 
 .display-groups {
   font-family: sans-serif;
-  margin-left: 7%;
-  margin-right: 7%;
+  margin: 5%;
 
   h4 a {
     color: black;
