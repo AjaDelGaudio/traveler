@@ -152,7 +152,6 @@
     &:hover {
       background-color: rgba(242, 250, 97, 0.7);
       color: $black;
-      font-weight: bold;
       border-color: $black;
       transition: all .25s ease-in-out;
     }
@@ -177,6 +176,7 @@
   &:hover {
     background-color: rgba(223, 25, 173, 0.55);
     color: $black;
+    font-weight: bold;
     transition: all .25s ease-in-out;
   }
 }
