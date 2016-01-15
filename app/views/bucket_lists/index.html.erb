@@ -21,17 +21,23 @@
   <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-6">
     <% @bucket_lists.each do |bucket_list| %>
       <li>
-        <h4><%= link_to bucket_list.title, bucket_list_path(bucket_list.id) %></h4>
-        <p><%= bucket_list.description %></p>
-        <% if bucket_list.is_public %>
-        <span class="tiny-button open-eye">
-          <%= link_to "Sharing ", edit_bucket_list_path(bucket_list.id) %><%= fa_icon "eye" %>
-        </span>
-        <% else %>
-        <span class="tiny-button">
-          <%= link_to "Share it!", edit_bucket_list_path(bucket_list.id) %>
-        </span>
-        <% end %>
+        <div wrap-bucket-list>
+          <%= link_to(bucket_list_path(bucket_list.id)) do %>
+            <p><%= bucket_list.title %></p>
+            <p><%= bucket_list.description %></p>
+          <% end %>
+        </div>
+        <div wrap-is-public>
+          <span class="tiny-button open-eye">
+          <% if bucket_list.is_public %>
+            <%= link_to "Sharing ", edit_bucket_list_path(bucket_list.id) %><%= fa_icon "eye" %>
+          </span>
+          <% else %>
+          <span class="tiny-button">
+            <%= link_to "Share it!", edit_bucket_list_path(bucket_list.id) %>
+          </span>
+          <% end %>
+        </div>
       </li>
     <% end %>
   </ul>
