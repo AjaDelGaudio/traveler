@@ -139,19 +139,23 @@
   }
 }
 
-.display-groups {
+.small-block-grid-2 .medium-block-grid-3 .large-block-grid-4 {
   @include block-grid(
     $per-row: 5,
     $spacing: $block-grid-default-spacing,
     $base-style: true
   );
 
+  li {
+    border-width: thin;
+    border-color: red;
+  }
+}
+
+.display-groups {
   font-family: sans-serif;
   margin-left: 7%;
   margin-right: 7%;
-
-  li {
-  }
 
   h4 a {
     color: black;
@@ -164,6 +168,13 @@
       border-color: $black;
       transition: all .25s ease-in-out;
     }
+  }
+
+  .display-groups ul li {
+
+    border-width: 2rem;
+    border-color: red;
+    border-weight: bolder;
   }
 
   span a {
