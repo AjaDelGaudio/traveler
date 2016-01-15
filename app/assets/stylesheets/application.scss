@@ -1,5 +1,5 @@
 @import "components";
-
+@import "foundation/components/block-grid";
 @import "foundation_and_overrides";
 @import "font-awesome";
 
@@ -140,9 +140,18 @@
 }
 
 .display-groups {
+  @include block-grid(
+    $per-row: 5,
+    $spacing: $block-grid-default-spacing,
+    $base-style: true
+  );
+
   font-family: sans-serif;
   margin-left: 7%;
   margin-right: 7%;
+
+  li {
+  }
 
   h4 a {
     color: black;
@@ -165,6 +174,7 @@
     }
   }
 }
+
 
 .tiny-button {
   width: 6rem;

@@ -22,16 +22,16 @@
     <% @bucket_lists.each do |bucket_list| %>
       <li>
         <h4 class="button"><%= link_to bucket_list.title, bucket_list_path(bucket_list.id) %></h4>
-        <% if bucket_list.is_public %>
-            <span class="tiny-button open-eye">
-              <%= link_to "Sharing ", edit_bucket_list_path(bucket_list.id) %><%= fa_icon "eye" %>
-            </span>
-        <% else %>
-          <span class="tiny-button">
-            <%= link_to "Share it!", edit_bucket_list_path(bucket_list.id) %>
-          </span>
-        <% end %>
         <p><%= bucket_list.description %></p>
+        <% if bucket_list.is_public %>
+        <span class="tiny-button open-eye">
+          <%= link_to "Sharing ", edit_bucket_list_path(bucket_list.id) %><%= fa_icon "eye" %>
+        </span>
+        <% else %>
+        <span class="tiny-button">
+          <%= link_to "Share it!", edit_bucket_list_path(bucket_list.id) %>
+        </span>
+        <% end %>
       </li>
     <% end %>
   </ul>
