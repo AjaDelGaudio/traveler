@@ -26,7 +26,7 @@
     float: right;
     margin-top: -4rem;
     margin-right: -2rem;
-    font-family: sans-serif;
+    // font-family: sans-serif;
   }
 
   section ul a {
@@ -70,6 +70,7 @@
   position: relative;
   top: 4rem;
   text-align: center;
+  font-family: courier, sans-serif;
   margin-bottom: 0;
 
   li {
@@ -139,18 +140,20 @@
   }
 }
 
-.small-block-grid-2 .medium-block-grid-3 .large-block-grid-4 {
+.grid-groups li {
   @include block-grid(
-    $per-row: 5,
+    $per-row: 3,
     $spacing: $block-grid-default-spacing,
     $base-style: true
   );
 
-  li {
-    border-width: thin;
-    border-color: red;
-  }
+  // border: 1px solid $steel;
+  margin: 10px;
+  padding: 2rem;
+  background-color: rgba(250,250,250,0.7);
 }
+//
+// }
 
 .display-groups {
   font-family: sans-serif;
@@ -159,6 +162,7 @@
 
   h4 a {
     color: black;
+    text-align: center;
   }
 
   li h4 {
@@ -170,22 +174,16 @@
     }
   }
 
-  .display-groups ul li {
-
-    border-width: 2rem;
-    border-color: red;
-    border-weight: bolder;
-  }
-
   span a {
     color: $oil;
+    text-align: left;
+    font-size: 1rem;
 
     &:hover {
       color: $secondary-color;
     }
   }
 }
-
 
 .tiny-button {
   width: 6rem;
@@ -200,7 +198,6 @@
     transition: all .25s ease-in-out;
   }
 }
-
 
 .button {
   padding-top: .5rem;
