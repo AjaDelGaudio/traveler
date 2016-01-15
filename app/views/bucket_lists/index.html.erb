@@ -24,11 +24,11 @@
         <h4 class="button"><%= link_to bucket_list.title, bucket_list_path(bucket_list.id) %></h4>
         <% if bucket_list.is_public %>
             <span class="tiny-button open-eye">
-              <%= link_to "Share", edit_bucket_list_path(bucket_list.id) %><%= fa_icon " eye" %>
+              <%= link_to "Sharing ", edit_bucket_list_path(bucket_list.id) %><%= fa_icon "eye" %>
             </span>
         <% else %>
-          <span class="tiny-button slash-eye">
-            <%= link_to "Hide", edit_bucket_list_path(bucket_list.id) %><%= fa_icon " eye-slash" %>
+          <span class="tiny-button">
+            <%= link_to "Share it!", edit_bucket_list_path(bucket_list.id) %>
           </span>
         <% end %>
         <p><%= bucket_list.description %></p>
