@@ -29,7 +29,7 @@
         <%= f.label :notes %>
         <%= f.text_area :notes %>
 
-        <div class="check-boxes">
+        <div class="checkboxes">
           <%= f.check_box :is_achieved %>
           <%= f.label :is_achieved, "Seen it!  Done it!"  %>
 
@@ -38,9 +38,7 @@
         </div>
       </div>
 
-      <div class="form-actions text-center">
         <%= f.submit "Toss it in!", class: "button" %>
-      </div>
 
     <% end %>
   </div>
