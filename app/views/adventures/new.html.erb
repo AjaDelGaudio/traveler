@@ -1,33 +1,30 @@
 <div class="new-adventure-form-row">
   <div class="new-adventure-form small-11 medium-6 columns small-centered">
-    <h4>Create a new adventure...</h4>
 
     <%= form_for @adventure do |f| %>
       <div>
 
-        <%= f.label :name %>
+        <%= f.label :name, "Adventure Name:" %>
         <%= f.text_field :name %>
 
-        <%= f.label :address, "Address" %>
+        <%= f.label :address, "Adventure Address:" %>
         <%= f.text_area :address %>
 
-        <%= f.label :link %>
-        <%= f.text_area :link %>
-
         <%= f.fields_for :bucket_list_adventures do |ff| %>
-
-          <%= ff.label :bucket_list_id %>
+          <%= ff.label :bucket_list_id, "Add to group:" %>
           <%= ff.collection_select(
             :bucket_list_id,
             @bucket_lists,
             :id,
             :title
             ) %>
-
         <% end %>
 
-        <%= f.label :notes %>
+        <%= f.label :notes, "Notes:" %>
         <%= f.text_area :notes %>
+
+        <%= f.label :link, "Link:" %>
+        <%= f.text_area :link %>
 
         <div class="checkboxes">
           <%= f.check_box :is_achieved %>
