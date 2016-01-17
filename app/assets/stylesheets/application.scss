@@ -151,7 +151,7 @@
 }
 
 div.wrap-title-and-description {
-  padding: 2rem 2rem .5rem 2rem;
+  padding: 1.5rem 2rem .5rem 2rem;
   margin: 0;
   background-color: rgba(250,250,250,0.7);
 
@@ -180,7 +180,7 @@ div.wrap-title-and-description:hover {
 }
 
 div.wrap-is-public {
-  padding: .6rem 2rem 1rem 2rem;
+  padding: .6rem 2rem 1.5rem 2rem;
   background-color: rgba(250,250,250,0.7);
   font-size: 5rem;
   margin-top: 0;
@@ -201,6 +201,7 @@ div.wrap-is-public:hover a {
   margin-bottom: 0;
   padding-top: .6rem;
   padding-bottom: .1rem;
+  color: $third-color;
 }
 
 div.wrap-is-public:hover {
