@@ -62,7 +62,6 @@
       transition: all .25s ease-in-out;
     }
   }
-
 }
 
 .header-subnav {
@@ -120,7 +119,6 @@
     width: 13rem;
     margin-left: -.599rem;
     border-color: $base;
-
   }
 }
 
@@ -139,6 +137,8 @@
     color: $charcoal;
   }
 }
+
+// bucket-list index page
 
 .grid-groups li {
   @include block-grid(
@@ -254,6 +254,41 @@ p.tiny-button {
     transition: all .25 ease-in-out;
   }
 }
+
+
+// new adventure page
+
+.new-adventure-form-row {
+  margin-top: 3%;
+}
+
+.new-adventure-form {
+  border-radius: 16px 16px;
+  border-color: #fff;
+  border-style: solid;
+  box-shadow: 2px 2px 10px #B1B1B1;
+  margin-top: 25px;
+  border-width: 7px;
+}
+
+.new-adventure-form h4 {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 3%;
+}
+
+.check-boxes {
+  text-align: center;
+
+  label {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
 
 .hero {
   // background: image-url('watercolour-world-map.jpg') no-repeat center center;
