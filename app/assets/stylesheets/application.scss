@@ -180,7 +180,7 @@ div.wrap-title-and-description:hover {
 }
 
 div.wrap-is-public {
-  padding: 1rem 2rem 1rem 2rem;
+  padding: .6rem 2rem 1rem 2rem;
   background-color: rgba(250,250,250,0.7);
   font-size: 5rem;
   margin-top: 0;
@@ -189,7 +189,8 @@ div.wrap-is-public {
   p.is-public-link {
     margin-bottom: 0;
     padding-bottom: 0;
-
+    font-size: .9rem;
+    text-align: right;
   }
 }
 
@@ -198,8 +199,8 @@ div.wrap-is-public:hover a {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
-  padding-bottom: .5rem;
-  padding-top: .5rem;
+  padding-top: .6rem;
+  padding-bottom: .1rem;
 }
 
 div.wrap-is-public:hover {
@@ -208,8 +209,7 @@ div.wrap-is-public:hover {
   background-color: rgba(20, 130, 133, 0.4);
   margin-top: 0;
   margin-bottom: 0;
-  padding-bottom: .5rem;
-  padding-top: .5rem;
+  padding-top: 0;
 }
 
 .display-groups {
