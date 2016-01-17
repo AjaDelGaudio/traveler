@@ -650,14 +650,14 @@ $button-border-style: solid;
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
 // $input-font-size: rem-calc(14);
-$input-bg-color: #ffffff;
-// $input-focus-bg-color: scale-color($white, $lightness: -2%);
+$input-bg-color: $white;
+$input-focus-bg-color: scale-color($white, $lightness: 0%);
 // $input-border-color: scale-color($white, $lightness: -20%);
 // $input-focus-border-color: scale-color($white, $lightness: -40%);
 // $input-border-style: solid;
 // $input-border-width: 1px;
 // $input-border-radius: $global-radius;
-// $input-disabled-bg: $gainsboro;
+$input-disabled-bg: $white;
 // $input-disabled-cursor: $cursor-default-value;
 // $input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 $input-include-glowing-effect: true;
@@ -675,7 +675,7 @@ $fieldset-border-color: #474343;
 // $legend-padding: rem-calc(0 3);
 
 // We use these to style the prefix and postfix input elements
-// $input-prefix-bg: scale-color($white, $lightness: -5%);
+$input-prefix-bg: scale-color($white, $lightness: 0%);
 // $input-prefix-border-color: scale-color($white, $lightness: -20%);
 // $input-prefix-border-size: 1px;
 // $input-prefix-border-type: solid;
@@ -705,8 +705,8 @@ $fieldset-border-color: #474343;
 // $input-transition-fade-timing-function: linear;
 
 // Select variables
-// $select-bg-color: $ghost;
-// $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%);
+$select-bg-color: $white;
+$select-hover-bg-color: scale-color($select-bg-color, $lightness: 0%);
 
 
 // 12. Icon Bar
