@@ -160,16 +160,6 @@ div.wrap-title-and-description {
   }
 }
 
-div.wrap-is-public {
-  padding: .5rem 2rem 1rem 2rem;
-  background-color: rgba(250,250,250,0.7);
-  font-size: 5rem;
-
-  p.description {
-    margin: 0;
-  }
-}
-
 div.wrap-title-and-description:hover a {
   display: inline-block;
   width: 100%;
@@ -181,16 +171,36 @@ div.wrap-title-and-description:hover {
   background-color: rgba(20, 130, 133, 0.4);
 }
 
+div.wrap-is-public {
+  padding: 1rem 2rem 1rem 2rem;
+  background-color: rgba(250,250,250,0.7);
+  font-size: 5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  p.is-public-link {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
 
 div.wrap-is-public:hover a {
   display: inline-block;
   width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
 }
 
 div.wrap-is-public:hover {
   display: inline-block;
   width: 100%;
   background-color: rgba(20, 130, 133, 0.4);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
 }
 
 .display-groups {
@@ -205,14 +215,6 @@ div.wrap-is-public:hover {
     text-align: center;
     text-weight: bold;
   }
-
-//   span a {
-//     color: $oil;
-//     text-align: left;
-//     font-size: 1rem;
-//
-//
-//   }
 }
 
 span.tiny-button {
