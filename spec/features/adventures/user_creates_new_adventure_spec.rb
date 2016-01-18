@@ -20,9 +20,11 @@ feature "user creates an adventure", %(
 
   scenario "authenticated user successfully creates an adventure" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
+
     visit new_adventure_path
-    fill_in "Name", with: "Swim the Nile"
+    fill_in "Name:", with: "Swim the Nile"
     click_button "Toss it in!"
 
     expect(page).to have_content("Excellent! Another adventure awaits!")
@@ -32,11 +34,13 @@ feature "user creates an adventure", %(
   scenario "authenticated user successfully creates an adventure w/ " \
     "unrequired attributes" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
+
     visit new_adventure_path
-    fill_in "Name", with: "Swim the Nile"
-    fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
-    fill_in "Link", with: "http://wikitravel.org/en/Jinja"
+    fill_in "Name:", with: "Swim the Nile"
+    fill_in "Notes:", with: "Avoid crocodiles, wear sunscreen"
+    fill_in "Link:", with: "http://wikitravel.org/en/Jinja"
     checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
     checkbox_shared = find_by_id("adventure_is_shared")
@@ -52,14 +56,15 @@ feature "user creates an adventure", %(
   scenario "authenticated user successfully creates adventure and selects a " \
   "bucket list" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
 
     visit new_adventure_path
-    fill_in "Name", with: "Swim the Nile"
-    select "First Bucket List", from: "Bucket list"
+    fill_in "Name:", with: "Swim the Nile"
+    select bucket_list.title, from: "Add to group:"
     click_button "Toss it in!"
 
-    expect(page).to have_content("First Bucket List")
+    expect(page).to have_content(bucket_list.title)
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Must specify a name and/or address")
   end
@@ -67,11 +72,12 @@ feature "user creates an adventure", %(
   scenario "authenticated user successfully creates an adventure w/ " \
     "link attribute" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
+
     visit new_adventure_path
-    fill_in "Name", with: "Underground River"
-    fill_in "Location", with: "Underground River Palawan Philippines"
-    fill_in "Link", with: "https://en.wikipedia.org/wiki/Puerto_Princesa_Subterranean_River_National_Park"
+    fill_in "Name:", with: "Underground River"
+    fill_in "Link:", with: "https://en.wikipedia.org/wiki/Puerto_Princesa_Subterranean_River_National_Park"
     checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
     checkbox_shared = find_by_id("adventure_is_shared")
@@ -86,7 +92,9 @@ feature "user creates an adventure", %(
 
   scenario "authenticated user does not specify either name or address" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
+
     visit new_adventure_path
     click_button "Toss it in!"
 
