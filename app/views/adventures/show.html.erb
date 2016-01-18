@@ -1,14 +1,13 @@
-<div class="row">
-  <div class="display-adventure small-11 medium-6 columns small-centered">
+  <div class="display-adventure small-4 medium-8  large-8 columns small-centered">
 
     <% if @adventure.user_id == @current_user.id %>
       <%= link_to(edit_adventure_path(@adventure)) do %>
-        <h3><%= @adventure.name unless @adventure.name.nil? %></h3>
-        <h3><%= @adventure.address unless @adventure.name.nil? %></h3>
+        <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
+        <h2><%= @adventure.address unless @adventure.name.nil? %></h2>
       <% end %>
     <% else %>
-      <h3><%= @adventure.name unless @adventure.name.nil? %></h3>
-      <h3><%= @adventure.address unless @adventure.name.nil? %></h3>
+      <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
+      <h2><%= @adventure.address unless @adventure.name.nil? %></h2>
     <% end %>
 
     <div class="title-spacer"></div>
@@ -62,15 +61,16 @@
       </div>
     <div class="map-spacer"></div>
 
-    <p class="link-to-bucket-list"><%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></p>
+    <div class="adventure-details">
+      <p class="link-to-bucket-list"><%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></p>
 
-    <div class="display-adventure-spacer"></div>
+      <div class="display-adventure-spacer"></div>
 
-    <p class="adventure-notes"><%= @adventure.notes unless @adventure.notes.nil? %></p>
+      <p class="adventure-notes"><%= @adventure.notes unless @adventure.notes.nil? %></p>
 
-    <p class="adventure-link"><%= link_to "#{@adventure.link}", "#{@adventure.link}" unless @adventure.link.nil? %></p>
+      <p class="adventure-link"><%= link_to "#{@adventure.link}", "#{@adventure.link}" unless @adventure.link.nil? %></p>
+    </div>
   </div>
-</div>
 
 <script type="text/javascript">
   $(document).ready(function(){

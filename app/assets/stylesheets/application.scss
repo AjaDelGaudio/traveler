@@ -315,10 +315,17 @@ div.checkboxes.bucket-list-wrap-is-public span {
   }
 }
 
-.display-adventure h3 {
+div.display-adventure h2 {
   text-align: center;
   color: $third-color;
   font-weight: bold;
+}
+
+div.display-adventure a {
+
+  &:hover h2 {
+    color: $secondary-color;
+  }
 }
 
 div.title-spacer {
@@ -327,6 +334,7 @@ div.title-spacer {
 
 .achieved-flag-or-checkbox a {
   float: left;
+  padding-left: 2.5px;
 
   i {
     padding-right: 3px;
@@ -339,6 +347,7 @@ div.title-spacer {
 
 .public-or-username a {
   float: right;
+  padding-right: 2.5px;
 
   i {
     padding-right: 3px;
@@ -356,12 +365,11 @@ div.title-spacer {
 
 .map-container {
   height: 400px;
-  border-radius: 16px 16px;
-  border-color: #fff;
+  border-color: $oil;
   border-style: solid;
-  box-shadow: 2px 2px 10px #B1B1B1;
+  box-shadow: 2px 2px 10px $black;
   margin-top: 25px;
-  border-width: 7px;
+  border-width: 9px;
 }
 
 #map-canvas {
@@ -374,6 +382,10 @@ div.title-spacer {
   width: 100%;
 }
 
+div.adventure-details {
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+}
 
 p.link-to-bucket-list a {
   font-family: courier;
