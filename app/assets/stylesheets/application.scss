@@ -321,12 +321,32 @@ div.checkboxes.bucket-list-wrap-is-public span {
   font-weight: bold;
 }
 
-.achieved-flag-or-checkbox {
-  float: left;
+div.title-spacer {
+  height: 30px;
 }
 
-.public-or-username {
+.achieved-flag-or-checkbox a {
+  float: left;
+
+  i {
+    padding-right: 3px;
+  }
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+.public-or-username a {
   float: right;
+
+  i {
+    padding-right: 3px;
+  }
+
+  &:hover {
+    color: $secondary-color;
+  }
 }
 
 .map-spacer {
