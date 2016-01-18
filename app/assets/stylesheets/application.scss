@@ -321,16 +321,6 @@ div.display-adventure h2 {
   font-weight: bold;
 }
 
-div.display-adventure p.edit-link {
-  text-align: center;
-  color: $oil;
-  font-weight: bold;
-
-  &:hover {
-    background-color: $oil;
-    color: $primary-color;
-  }
-}
 
 
 div.display-adventure a {
@@ -374,8 +364,18 @@ div.title-spacer {
   }
 }
 
+div.display-adventure span.edit-link {
+  text-align: center;
+  color: $oil;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $oil;
+    color: $primary-color;
+  }
+}
 .map-spacer {
-  padding-top: 8px;
+  padding-top: 0;
   padding-bottom: 8px;
 }
 
