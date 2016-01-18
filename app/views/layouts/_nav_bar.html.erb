@@ -13,7 +13,7 @@
 <h1 class="main-header"><%= link_to "TravelGo", root_path %></h1>
 <ul class="header-subnav">
   <li>
-    <%= link_to "Find Adventure", root_path, class:
+    <%= link_to "Find Adventure", bucket_lists_path, class:
       if (params[:controller] == "bucket_lists") && (params[:action] == "index")
         "is-active"
       else
