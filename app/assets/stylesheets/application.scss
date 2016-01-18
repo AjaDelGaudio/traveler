@@ -364,18 +364,24 @@ div.title-spacer {
   }
 }
 
+p.is-public-link {
+  margin: 0;
+}
+
 div.display-adventure span.edit-link {
   text-align: center;
   color: $oil;
   font-weight: bold;
+  margin-bottom: 0;
 
   &:hover {
     background-color: $oil;
     color: $primary-color;
   }
 }
+
 .map-spacer {
-  padding-top: 0;
+  padding-top: 8px;
   padding-bottom: 8px;
 }
 
