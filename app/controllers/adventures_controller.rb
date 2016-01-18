@@ -2,7 +2,9 @@ class AdventuresController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :index, :edit, :search]
 
   def index
-    @adventures = Adventure.all
+    adventures = Adventure.all
+    @adventures = adventures.where(user_id: current_user.id)
+    @username = current_user.username
   end
 
   def search
@@ -36,7 +38,6 @@ class AdventuresController < ApplicationController
     @bucket_lists = BucketList.where(user_id: current_user.id)
     @adventure.is_achieved ||= false
     @adventure.user_id = current_user.id
-    geocode = Geocoder.search("#{@adventure.address}")
     @bucket_list_adventure = @adventure.bucket_list_adventures[0]
     if @adventure.save
       @bucket_list_adventure.adventure_id = @adventure.id
@@ -58,6 +59,7 @@ class AdventuresController < ApplicationController
       marker.lng adventure.longitude
       marker.infowindow adventure.notes
     end
+    @current_user = current_user
   end
 
   def all_public

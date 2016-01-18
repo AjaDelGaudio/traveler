@@ -1,43 +1,81 @@
-<div class="row">
-  <div class="small-11 medium-6 columns small-centered">
-    <div class="bucket-list">
+<div class="display-adventure small-4 medium-8  large-8 columns small-centered">
 
-      <h3><%= @adventure.name unless @adventure.name.nil? %></h3>
-      <h3><%= @adventure.address unless @adventure.name.nil? %></h3>
+  <% if @adventure.user_id == @current_user.id %>
+    <%= link_to(edit_adventure_path(@adventure)) do %>
+      <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
+      <h2><%= @adventure.address unless @adventure.name.nil? %></h2>
+    <% end %>
+  <% else %>
+    <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
+    <h2><%= @adventure.address unless @adventure.name.nil? %></h2>
+  <% end %>
 
-      <div class="is-achieved-toggle">
+  <div class="title-spacer"></div>
+
+  <div class="achieved-flag-or-checkbox">
+    <% if @adventure.user_id == @current_user.id %>
+      <%= link_to(edit_adventure_path(@adventure)) do %>
         <% if @adventure.is_achieved %>
-          <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
-            "#", class: "achieved-toggle", id: @adventure.id %>
+          <p class="is-achieved-link">
+            <i><%= fa_icon "check-square-o" %></i>
+            <span>Seen it! Done it!</span>
+          </p>
         <% else %>
-          <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
-            "#", class: "achieved-toggle", id: @adventure.id %>
+          <p class="is-achieved-link">
+            <i><%= fa_icon "square-o" %></i>
+            <span>Seen it! Done it!</span>
+          </p>
         <% end %>
-      </div>
-
-      <div class="map-spacer"></div>
-
-      <div class="map-container">
-        <div class="map-canvas" id="map-canvas">
-        </div>
-      </div>
-
-      <div class="map-spacer"></div>
-
-      <h6>
-      <% if @adventure.is_shared %>
-        <%= fa_icon "eye" %>  Public /
-      <% else %>
-        <%= fa_icon "eye-slash" %>  Private /
       <% end %>
-      <%= link_to "Edit", edit_adventure_path(@adventure) %> /
-      <%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %> Bucket List
-      </h6>
+    <% else %>
+      <% if @adventure.is_achieved %>
+        <p class="is-achieved-link">
+          <i><%= fa_icon "fa-flag" %></i>  <%= @current_user.username %>
+        </p>
+      <% else %>
+        <p class="is-achieved-link">
+          <%= @current_user.username %>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
 
-      <p><%= link_to "#{@adventure.link}", "#{@adventure.link}" unless @adventure.link.nil? %></p>
-      <p><%= @adventure.notes unless @adventure.notes.nil? %></p>
+  <div class="public-or-username">
+    <% if @adventure.user_id == @current_user.id %>
 
+      <%= link_to(edit_adventure_path(@adventure)) do %>
+        <% if @adventure.is_shared %>
+        <p class="is-public-link">
+          <i><%= fa_icon "eye" %></i>Sharing
+          <span class="button edit-link"> Edit </span>
+        </p>
+        <% else %>
+          <p class="is-public-link">
+            Share it!
+            <span class="button edit-link"> Edit </span>
+          </p>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p class="sharing-username"<%= @current_user.username %></p>
+    <% end %>
+  </div>
+
+  <div class="map-spacer"></div>
+    <div class="map-container">
+      <div class="map-canvas" id="map-canvas">
+      </div>
     </div>
+  <div class="map-spacer"></div>
+
+  <div class="adventure-details">
+    <p class="link-to-bucket-list"><%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></p>
+
+    <div class="display-adventure-spacer"></div>
+
+    <p class="adventure-notes"><%= @adventure.notes unless @adventure.notes.nil? %></p>
+
+    <p class="adventure-link"><%= link_to "#{@adventure.link}", "#{@adventure.link}" unless @adventure.link.nil? %></p>
   </div>
 </div>
 

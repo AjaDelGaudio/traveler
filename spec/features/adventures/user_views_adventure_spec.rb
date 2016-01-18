@@ -66,7 +66,8 @@ feature "user views their adventures", %(
       is_public: false
     )
     adventure = FactoryGirl.create(
-      :adventure
+      :adventure,
+      notes: "do all the things"
     )
     bucket_list_adventure = FactoryGirl.create(
       :bucket_list_adventure,
@@ -74,13 +75,11 @@ feature "user views their adventures", %(
       adventure_id: adventure.id
     )
 
-    visit root_path
-    click_link "My Bucket Lists"
+    visit adventures_path
 
     expect(page).to have_content("You can do that after you sign in or sign up!")
     expect(page).to have_content("Log in")
-    expect(page).not_to have_content(bucket_list.title)
-    expect(page).not_to have_content(adventure.name)
+    expect(page).not_to have_content(adventure.notes)
   end
 
   scenario "authenticated user successfully views list of their adventures" \

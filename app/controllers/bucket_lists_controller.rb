@@ -2,8 +2,9 @@ class BucketListsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :index, :edit]
 
   def index
+    @username = current_user.username
     @bucket_lists = BucketList.where(user_id: current_user.id)
-    @bucker_lists_count = @bucket_lists.count
+    @adventures = Adventure.where(user_id: current_user.id)
   end
 
   def show
@@ -50,7 +51,7 @@ class BucketListsController < ApplicationController
     @bucket_list.update(bucket_list_params)
 
     if @bucket_list.save
-      redirect_to root_path
+      redirect_to @bucket_list
       flash[:info] = "Changes saved!"
     else
       @bucket_list = BucketList.where(user: current_user)[0]

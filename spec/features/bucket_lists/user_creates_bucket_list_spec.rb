@@ -19,7 +19,8 @@ feature 'authenticated user creates a bucket list', %(
     user = FactoryGirl.create(:user)
     sign_in(user)
     visit new_bucket_list_path
-    fill_in "Title", with: "Europe"
+    fill_in "Group title:", with: "Europe"
+
     click_button "Save It!"
 
     expect(page).to have_content("You started a new Bucket List!")
@@ -28,13 +29,13 @@ feature 'authenticated user creates a bucket list', %(
 
   scenario "unauthenticated user creates a bucket list" do
     visit new_bucket_list_path
-    fill_in "Title", with: "Europe"
+    fill_in "Group title:", with: "Europe"
     click_button "Save It!"
 
     expect(page).to have_content("You can do that after you sign in or sign up!")
     expect(page).to have_content("Email")
     expect(page).to have_content("Password")
-    expect(page).not_to have_content("No adventures, just a new Bucket List please!")
+    expect(page).not_to have_content("You started a new Bucket List!")
   end
 
   scenario "authenticated user fails to sucessfully create a bucket list" do

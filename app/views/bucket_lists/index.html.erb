@@ -1,25 +1,42 @@
-<div class="row">
-  <div class="small-11 medium-6 columns small-centered">
-    <h3>My Bucket Lists:</h3>
-
-    <p><%= @bucket_lists.count %> Bucket List(s) </p>
-
-    <ul class="no-bullet">
-      <% @bucket_lists.each do |bucket_list| %>
-        <li class="bucket-list">
-          <div class="small-9 columns small-centered divinding-line"></div>
-          <h4><%= link_to bucket_list.title, bucket_list_path(bucket_list.id) %></h4>
-          <% if bucket_list.is_public %>
-            <h6>
-              <%= fa_icon "eye" %>
-              Public
-            </h6>
-          <% else %>
-            <h6><%= fa_icon "eye-slash" %> Private</h6>
-          <% end %>
-          <p><%= bucket_list.description %></p>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<div class="adventures-search">
+  <%= form_tag(search_adventures_path, method: "get") do %>
+    <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
+      placeholder: "The world is your oyster... search it." %>
+    <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
+  <% end %>
 </div>
+
+<section class="welcome">
+  <p class="item-count">
+    Welcome <strong><%= @username %></strong>, you have <b><%= @bucket_lists.count %> groups</b>
+    with <strong><%= @adventures.count %> total adventure(s)</strong>!
+    <i>
+      Browse your groups of adventures below or use the searchbar above to find
+      a particular adventure.
+    </i>
+  </p>
+</section>
+
+<section class="display-groups">
+  <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-6">
+    <% @bucket_lists.each do |bucket_list| %>
+      <li>
+        <div class="wrap-title-and-description">
+          <%= link_to(bucket_list_path(bucket_list.id)) do %>
+            <h4><%= bucket_list.title %></h4>
+            <p class="description"><%= bucket_list.description %></p>
+          <% end %>
+        </div>
+        <div class="wrap-is-public tiny-button">
+          <% if bucket_list.is_public %>
+              <%= link_to(edit_bucket_list_path(bucket_list.id)) do %>
+                <p class="is-public-link"><%= fa_icon "eye" %><%= "  Sharing"%></p>
+              <% end %>
+          <% else %>
+              <p class="is-public-link"><%= link_to "Share it!", edit_bucket_list_path(bucket_list.id) %></p>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</section>

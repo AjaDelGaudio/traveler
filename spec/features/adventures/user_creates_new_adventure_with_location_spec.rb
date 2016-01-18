@@ -16,9 +16,11 @@ feature "authenticated user creates a an adventure using google maps", %(
   scenario "authenticated user successfully adds an adventure to an " +
     "existing bucket list with address only" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
+
     visit new_adventure_path
-    fill_in "Location", with: "Paris, France"
+    fill_in "Adventure Address:", with: "Paris, France"
     click_button "Toss it in!"
 
     expect(page).to have_content("Excellent!  Another adventure awaits!")
@@ -28,11 +30,12 @@ feature "authenticated user creates a an adventure using google maps", %(
   scenario "authenticated user fails to add an adventure to an " +
     "existing bucket list with address only" do
     user = FactoryGirl.create(:user)
-    bucket_list_sign_in(user)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
 
     visit new_adventure_path
-    fill_in "Name", with: nil
-    fill_in "Location", with: nil
+    fill_in "Name:", with: nil
+    fill_in "Adventure Address:", with: nil
     click_button "Toss it in!"
 
     expect(page).to have_content("Must specify a name and/or address")

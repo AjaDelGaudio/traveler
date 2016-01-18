@@ -1,15 +1,475 @@
 @import "components";
-
+@import "foundation/components/block-grid";
 @import "foundation_and_overrides";
 @import "font-awesome";
 
-.hero {
-  background: image-url('japan-path.png') no-repeat center center;
-  background-size: cover;
-  height: 13rem;
-  overflow: hidden;
-  margin-bottom: 3em;
+
+.alert-box {
+  background: $primary-color;
+  padding: .5rem;
+  margin-bottom: 0;
+  font-family: sans-serif;
+  font-size: 1.1rem;
+  color: $black;
 }
+
+.header {
+  text-align: center;
+  background: image-url('watercolour-world-map.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 4rem;
+
+  section ul {
+    position: relative;
+    list-style-type: none;
+    padding: 1rem;
+    float: right;
+    margin-top: -4rem;
+    margin-right: -2rem;
+    // font-family: sans-serif;
+  }
+
+  section ul a {
+    color: $oil;
+    float: none;
+    display: inline-block;
+    background: rgba(250,250,250,0);
+    margin-right: -1rem;
+    padding: 1rem;
+
+    &:hover {
+      background: rgba(250,250,250,0.7);
+      color: $secondary-color;
+      transition: all .25s ease-in-out;
+    }
+  }
+
+  #user-session-spacer {
+    padding: 3rem;
+    margin-left: 2rem;
+  }
+  .main-header a {
+    color: $black;
+    background: rgba(250,250,250,0.7);
+    padding: 1rem;
+    margin-top: 10rem;
+    margin-right: -8rem;
+
+
+    &:hover {
+      background: $oil;
+      color: $primary-color;
+      transition: all .25s ease-in-out;
+    }
+  }
+}
+
+.header-subnav {
+  float: none;
+  position: relative;
+  top: 4rem;
+  text-align: center;
+  font-family: courier, sans-serif;
+  margin-bottom: 0;
+
+  li {
+    float: none;
+    display: inline-block;
+    background-color: rgba(250,250,250,0.7);
+
+    a {
+      padding: 0.9rem 1rem 0.75rem;
+      font-size: 1rem;
+      color: $black;
+      text-transform: uppercase;
+      display: block;
+      font-weight: bold;
+      letter-spacing: 1px;
+
+      &:hover {
+        color: $secondary-color;
+        transition: all .25s ease-in-out;
+      }
+
+      &.is-active {
+        background-color: $white;
+        color: $third-color;
+      }
+    }
+
+    a.nav-link-padding {
+      padding: 0;
+    }
+  }
+}
+
+.adventures-search {
+  width: 70%;
+  margin-left: 20%;
+  margin-right: 0;
+
+  input {
+    width: 60%;
+    height: 3rem;
+    display: inline-block;
+  }
+
+  a .button {
+    margin-top: 2.5rem;
+    width: 13rem;
+    margin-left: -.599rem;
+    border-color: $base;
+  }
+}
+
+.welcome {
+  font-family: sans-serif;
+  width: 80%;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 10%;
+  align-self: center;
+  style {
+    color: $charcoal;
+  }
+
+  i {
+    color: $charcoal;
+  }
+}
+
+// bucket-list index page
+
+.grid-groups li {
+  @include block-grid(
+    $per-row: 5,
+    $spacing: $block-grid-default-spacing,
+    $base-style: true
+  );
+
+  margin: 1%;
+}
+
+div.wrap-title-and-description {
+  padding: 1.5rem 2rem .5rem 2rem;
+  margin: 0;
+  background-color: rgba(250,250,250,0.7);
+
+  h4 {
+    font-weight: bolder;
+    color: $secondary-color;
+  }
+
+  p.description {
+    margin: 0;
+  }
+}
+
+div.wrap-title-and-description:hover a {
+  display: inline-block;
+  width: 100%;
+}
+
+div.wrap-title-and-description:hover {
+  display: inline-block;
+  width: 100%;
+  background-color: rgba(20, 130, 133, 0.4);
+  h4 {
+    color: $third-color;
+  }
+}
+
+div.wrap-is-public {
+  padding: .6rem 2rem 1.5rem 2rem;
+  background-color: rgba(250,250,250,0.7);
+  font-size: 5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  p.is-public-link {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: .9rem;
+    text-align: right;
+  }
+}
+
+div.wrap-is-public:hover a {
+  display: inline-block;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: .6rem;
+  padding-bottom: .1rem;
+  color: $third-color;
+}
+
+div.wrap-is-public:hover {
+  display: inline-block;
+  width: 100%;
+  background-color: rgba(20, 130, 133, 0.4);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.display-groups {
+  font-family: sans-serif;
+  margin: 3%;
+
+  a {
+    color: black;
+  }
+
+  li h4 {
+    text-align: center;
+    text-weight: bold;
+  }
+}
+
+span.tiny-button {
+  color: $oil;
+  text-align: right;
+}
+
+p.tiny-button {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  text-align: center;
+  border-width: 1px;
+  border-color: $base;
+  color: $black;
+
+  &:hover {
+    background-color: rgba(223, 25, 173, 0.55);
+    color: $black;
+    font-weight: bold;
+    transition: all .25 ease-in-out;
+  }
+}
+
+
+// new adventure page
+
+.form-row {
+  margin-top: 3%;
+}
+
+.form {
+  background-color: rgba(20, 130, 133, 0.1);
+  padding: 2rem;
+
+  label {
+    font-size: 1rem;
+  }
+}
+
+.form h4 {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 3%;
+}
+
+.form input.button {
+  margin-left: 37.7%;
+  margin-right: 37.7%;
+  margin-bottom: 0;
+  margin-top: .75rem;
+}
+
+.checkboxes {
+  text-align: center;
+
+  label {
+    font-size: 1rem;
+  }
+
+  input {
+    width: 1rem;
+    height: 1rem;
+    background-color: $white;
+    margin-bottom: 0;
+  }
+}
+
+div.checkboxes.bucket-list-wrap-is-public span {
+  line-height: 1.5rem;
+}
+
+
+// adventure show
+
+.display-adventure {
+  margin: 3%;
+  color: $oil;
+
+  a {
+    color: $oil;
+  }
+}
+
+div.display-adventure h2 {
+  text-align: center;
+  color: $third-color;
+  font-weight: bold;
+}
+
+
+
+div.display-adventure a {
+
+  &:hover h2 {
+    color: $secondary-color;
+  }
+
+  &:hover p.edit-link {
+    color: $secondary-color;
+  }
+}
+
+div.title-spacer {
+  height: 30px;
+}
+
+.achieved-flag-or-checkbox a {
+  float: left;
+  padding-left: 2.5px;
+
+  i {
+    padding-right: 3px;
+  }
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+.public-or-username a {
+  float: right;
+  padding-right: 2.5px;
+
+  i {
+    padding-right: 3px;
+  }
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+p.is-public-link {
+  margin: 0;
+}
+
+div.display-adventure span.edit-link {
+  text-align: center;
+  color: $oil;
+  font-weight: bold;
+  margin-left: 2.5px;
+  margin-bottom: 0;
+
+  &:hover {
+    background-color: $oil;
+    color: $primary-color;
+  }
+}
+
+.map-spacer {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.map-container {
+  height: 400px;
+  border-color: $oil;
+  border-style: solid;
+  box-shadow: 2px 2px 10px $black;
+  margin-top: 25px;
+  border-width: 9px;
+}
+
+#map-canvas {
+  height: 384px;
+  width: 100%;
+}
+
+#map-canvas-multi-markers {
+  height: 384px;
+  width: 100%;
+}
+
+div.adventure-details {
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+}
+
+p.link-to-bucket-list a {
+  font-family: courier;
+  color: $third-color;
+  float: right;
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    font-weight: bold;
+    color: $secondary-color;
+  }
+}
+
+div.display-adventure-spacer {
+  height: 15px;
+  width: 1px;
+  padding: 0;
+  margin: 0;
+}
+
+p.adventure-notes {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+p.adventure-link {
+  padding: 0;
+  margin: 0;
+}
+
+p.adventure-link a {
+  text-decoration: underline;
+  color: $third-color;
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    color: $secondary-color;
+  }
+
+  &.is-active {
+    color: $secondary-color;
+  }
+}
+
+
+
+
+
+
+
+.hero {
+  // background: image-url('watercolour-world-map.jpg') no-repeat center center;
+  // background-size: cover;
+  // height: 25%;
+  // overflow: hidden;
+  // margin-bottom: 3em;
+}
+
 
 .form-actions {
   margin-top: 2rem;
@@ -17,10 +477,6 @@
 
 .form-title {
   margin-bottom: 1.5rem;
-}
-
-.button {
-  width: 15em;
 }
 
 .divinding-line {
@@ -33,7 +489,7 @@
 
   h6 {
     font-size: 90%;
-    color: $jumbo;
+    color: $jet;
     margin-bottom: .75rem;
   }
 
@@ -60,46 +516,18 @@
   }
 }
 
-.adventure {
-  color: $dark-grey;
-
-  h6 {
-    font-size: 85%;
-  }
-
-  .divinding-line {
-    margin-top: 1.25rem;
-  }
-
-  p {
-    margin: 0;
-  }
-}
-
-.is-achieved-toggle {
-  float: right;
-}
-
-.map-spacer {
-  padding-bottom: 8px;
-}
-
-.map-container {
-  height: 400px;
-  border-radius: 16px 16px;
-  border-color: #fff;
-  border-style: solid;
-  box-shadow: 2px 2px 10px #B1B1B1;
-  margin-top: 25px;
-  border-width: 7px;
-}
-
-#map-canvas {
-  height: 384px;
-  width: 100%;
-}
-
-#map-canvas-multi-markers {
-  height: 384px;
-  width: 100%;
-}
+// .adventure {
+//   color: $dark-grey;
+//
+//   h6 {
+//     font-size: 85%;
+//   }
+//
+//   .divinding-line {
+//     margin-top: 1.25rem;
+//   }
+//
+//   p {
+//     margin: 0;
+//   }
+// }

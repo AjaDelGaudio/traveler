@@ -1,28 +1,51 @@
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "TravelGo", root_path %></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
-
-  <section class="top-bar-section">
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li><%= link_to (fa_icon "bitbucket") + " New Bucket List", new_bucket_list_path%></li>
-      <li><%= link_to (fa_icon "map-signs") + " My Bucket Lists", bucket_lists_path %></li>
-      <li><%= link_to (fa_icon "suitcase") + " Add an Adventure", new_adventure_path %></li>
-      <li><%= link_to (fa_icon "map") + " Explore", all_public_bucket_lists_path%></li>
-    </ul>
-
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <%- if current_user -%>
+<section>
+  <ul>
+    <li class="user-session">
+      <% if current_user %>
         <li><%= link_to (fa_icon "user") + ' Sign Out', destroy_user_session_path, method: :delete %></li>
-      <%- else -%>
-        <li><%= link_to (fa_icon "user") + ' Sign Up', new_user_registration_path %></li>
-        <li><%= link_to (fa_icon "user") + ' Sign In', new_user_session_path %></li>
-      <%- end -%>
-    </ul>
-  </section>
-</nav>
+      <% else %>
+        <li id="user-session-spacer"></li>
+      <% end %>
+    </li>
+  </ul>
+</section>
+
+<h1 class="main-header"><%= link_to "TravelGo", root_path %></h1>
+<ul class="header-subnav">
+  <li>
+    <%= link_to "Find Adventure", bucket_lists_path, class:
+      if (params[:controller] == "bucket_lists") && (params[:action] == "index")
+        "is-active"
+      else
+        "not-active"
+      end
+    %>
+  </li>
+  <li>
+    <%= link_to "Create Adventure", new_adventure_path, class:
+      if (params[:controller] == "adventures") && (params[:action] == "new")
+        "is-active"
+      else
+        "not-active"
+      end
+    %>
+  </li>
+  <li>
+    <%= link_to "Group Adventures", new_bucket_list_path, class:
+      if (params[:controller] == "bucket_lists") && (params[:action] == "new")
+        "is-active"
+      else
+        "not-active"
+      end
+    %>
+  </li>
+  <li>
+    <%= link_to "Explore...", all_public_adventures_path, class:
+      if (params[:controller] == "adventures") && (params[:action] == "all_public")
+        "is-active"
+      else
+        "not-active"
+      end
+    %>
+  </li>
+</ul>
