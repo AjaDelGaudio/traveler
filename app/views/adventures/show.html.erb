@@ -4,15 +4,41 @@
       <h3><%= @adventure.name unless @adventure.name.nil? %></h3>
       <h3><%= @adventure.address unless @adventure.name.nil? %></h3>
 
-      <div class="is-achieved-toggle">
-        <% if @adventure.is_achieved %>
-          <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
-            "#", class: "achieved-toggle", id: @adventure.id %>
-        <% else %>
-          <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
-            "#", class: "achieved-toggle", id: @adventure.id %>
+      <% if @adventure.user_id == @current_user.id %>
+        <%= link_to(edit_adventure_path(@adventure)) do %>
+          <% if @adventure.is_shared %>
+            <p class="is-public-link"><%= fa_icon "eye" %>  Sharing</p>
+          <% else %>
+            <p class="is-public-link">Share it!</p>
+          <% end %>
         <% end %>
-      </div>
+      <% else %>
+        <p class="sharing-username"<%= @current_user.username %></p>
+      <% end %>
+
+      <% if @adventure.user_id == @current_user.id %>
+        <%= link_to(edit_adventure_path(@adventure)) do %>
+          <% if @adventure.is_achieved %>
+            <p class="is-achieved-link">
+              <i><%= fa_icon "check-square-o" %></i>  Seen it! Done it!
+            </p>
+          <% else %>
+            <p class="is-achieved-link">
+              <i><%= fa_icon "square-o" %></i>  Seen it! Done it!
+            </p>
+          <% end %>
+        <% end %>
+      <% else %>
+        <% if @adventure.is_achieved %>
+          <p class="is-achieved-link">
+            <i><%= fa_icon "fa-flag" %></i>  <%= @current_user.username %>
+          </p>
+        <% else %>
+          <p class="is-achieved-link">
+            <%= @current_user.username %>
+          </p>
+        <% end %>
+      <% end %>
 
       <div class="map-spacer"></div>
         <div class="map-container">
@@ -21,19 +47,11 @@
         </div>
       <div class="map-spacer"></div>
 
-      <h6>
-      <% if @adventure.is_shared %>
-        <%= fa_icon "eye" %>  Public /
-      <% else %>
-        <%= fa_icon "eye-slash" %>  Private /
-      <% end %>
-      <%= link_to "Edit", edit_adventure_path(@adventure) %> /
-      <%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %> Bucket List
-      </h6>
+      <p><%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></p>
 
       <p><%= link_to "#{@adventure.link}", "#{@adventure.link}" unless @adventure.link.nil? %></p>
-      <p><%= @adventure.notes unless @adventure.notes.nil? %></p>
 
+      <p><%= @adventure.notes unless @adventure.notes.nil? %></p>
     </div>
 </div>
 

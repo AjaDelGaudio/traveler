@@ -59,6 +59,7 @@ class AdventuresController < ApplicationController
       marker.lng adventure.longitude
       marker.infowindow adventure.notes
     end
+    @current_user = current_user
   end
 
   def all_public
