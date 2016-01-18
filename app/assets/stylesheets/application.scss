@@ -321,9 +321,25 @@ div.display-adventure h2 {
   font-weight: bold;
 }
 
+div.display-adventure p.edit-link {
+  text-align: center;
+  color: $oil;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $oil;
+    color: $primary-color;
+  }
+}
+
+
 div.display-adventure a {
 
   &:hover h2 {
+    color: $secondary-color;
+  }
+
+  &:hover p.edit-link {
     color: $secondary-color;
   }
 }

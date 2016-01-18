@@ -42,11 +42,18 @@
 
     <div class="public-or-username">
       <% if @adventure.user_id == @current_user.id %>
+
         <%= link_to(edit_adventure_path(@adventure)) do %>
           <% if @adventure.is_shared %>
-            <p class="is-public-link"><%= fa_icon "eye" %>  Sharing</p>
+          <p class="is-public-link">
+            <i><%= fa_icon "eye" %></i>Sharing
+            <span class="button edit-link"> Edit </span>
+          </p>
           <% else %>
-            <p class="is-public-link">Share it!</p>
+            <p class="is-public-link">
+              Share it!
+              <span class="button edit-link"> Edit </span>
+            </p>
           <% end %>
         <% end %>
       <% else %>
@@ -70,6 +77,9 @@
 
       <p class="adventure-link"><%= link_to "#{@adventure.link}", "#{@adventure.link}" unless @adventure.link.nil? %></p>
     </div>
+
+    <% if @adventure.user_id == @current_user.id %>
+    <% end %>
   </div>
 
 <script type="text/javascript">
