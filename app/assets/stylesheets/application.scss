@@ -258,27 +258,28 @@ p.tiny-button {
 
 // new adventure page
 
-.new-adventure-form-row {
+.form-row {
   margin-top: 3%;
 }
 
-.new-adventure-form {
+.form {
   background-color: rgba(20, 130, 133, 0.1);
   padding: 2rem;
+
   label {
     font-size: 1rem;
   }
 }
 
-.new-adventure-form h4 {
+.form h4 {
   font-family: sans-serif;
   text-align: center;
   padding: 3%;
 }
 
-.new-adventure-form input.button {
-  margin-left: 35%;
-  margin-right: 35%;
+.form input.button {
+  margin-left: 37.7%;
+  margin-right: 37.7%;
   margin-bottom: 0;
   margin-top: .75rem;
 }
@@ -297,6 +298,28 @@ p.tiny-button {
     margin-bottom: 0;
   }
 }
+
+div.checkboxes.bucket-list-wrap-is-public span {
+  line-height: 1.5rem;
+}
+
+
+// adventure show
+
+.display-adventure {
+  margin: 3%;
+  color: $oil;
+
+  is-achieved-toggle {
+    color: $oil;
+  }
+}
+
+.display-adventure h3 {
+  text-align: center;
+  color: $third-color;
+}
+
 
 
 
