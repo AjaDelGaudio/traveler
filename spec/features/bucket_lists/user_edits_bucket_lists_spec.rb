@@ -19,11 +19,10 @@ feature "authenticated user edits a bucket list", %(
     fill_in "Title", with: "Africa"
     fill_in "Description", with: "Much warmer!"
     click_button "Save It!"
-save_and_open_page
+
     expect(page).to have_content("Changes saved!")
     expect(page).to have_content("Africa")
     expect(page).to have_content("Much warmer!")
-    expect(page).to have_content("Welcome")
   end
 
   scenario "user successfully changes the private setting of a bucket list" do
@@ -36,7 +35,6 @@ save_and_open_page
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")
-    expect(page).to have_content("Sharing")
-    expect(page).to have_content("Welcome")
+    expect(page).to have_content("Public")
   end
 end
