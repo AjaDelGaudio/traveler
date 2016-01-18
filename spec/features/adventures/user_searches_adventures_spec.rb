@@ -22,7 +22,8 @@ feature "user searches adventures", %(
     )
     adventure_1 = FactoryGirl.create(:adventure,
       user_id: user.id,
-      name: "Walk on the moon"
+      name: "Walk on the moon",
+      is_shared: true
     )
     bucket_list_adventure_1 = FactoryGirl.create(
       :bucket_list_adventure,
@@ -31,7 +32,8 @@ feature "user searches adventures", %(
     )
     adventure_2 = FactoryGirl.create(:adventure,
       user_id: user.id,
-      name: "Taste moon cheese"
+      name: "Taste moon cheese",
+      is_shared: false
     )
     bucket_list_adventure_2 = FactoryGirl.create(
       :bucket_list_adventure,
