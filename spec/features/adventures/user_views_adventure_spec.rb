@@ -75,12 +75,10 @@ feature "user views their adventures", %(
     )
 
     visit root_path
-    click_link "My Bucket Lists"
 
     expect(page).to have_content("You can do that after you sign in or sign up!")
     expect(page).to have_content("Log in")
-    expect(page).not_to have_content(bucket_list.title)
-    expect(page).not_to have_content(adventure.name)
+    expect(page).not_to have_content(bucket_list.description)
   end
 
   scenario "authenticated user successfully views list of their adventures" \
