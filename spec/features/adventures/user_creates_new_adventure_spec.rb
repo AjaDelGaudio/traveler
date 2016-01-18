@@ -106,21 +106,22 @@ feature "user creates an adventure", %(
     visit new_adventure_path
 
     expect(page).to have_content("You can do that after you sign in or sign up!")
-    expect(page).to have_content("Sign In")
+    expect(page).to have_content("Log in")
     expect(page).not_to have_content("Address")
     expect(page).not_to have_content("New Adventure")
   end
 
-  scenario "authenticated user fails to create and adventure due to " \
+  scenario "authenticated user fails to create an adventure due to " \
     "no bucket_lists (0 count)" do
     user = FactoryGirl.create(:user)
     sign_in(user)
     visit new_adventure_path
 
     expect(page).to have_content("You don't have any bucket lists yet")
-    expect(page).to have_content("Create a Bucket List")
-    expect(page).not_to have_content("New Adventure")
-    expect(page).not_to have_content("Address")
+    expect(page).to have_content("Group title:")
+    expect(page).to have_content("Description:")
+    expect(page).not_to have_content("Adventure Address")
+    expect(page).not_to have_content("Link")
     expect(page).not_to have_content("Excellent! Another adventure awaits!")
   end
 end
