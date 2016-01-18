@@ -23,6 +23,7 @@ feature "user signs out", %{
     expect(page).to have_content("Signed in successfully")
 
     click_link "Sign Out"
+save_and_open_page
     expect(page).to have_content("Signed out successfully")
   end
 

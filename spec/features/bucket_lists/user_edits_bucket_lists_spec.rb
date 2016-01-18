@@ -14,26 +14,29 @@ feature "authenticated user edits a bucket list", %(
     user = FactoryGirl.create(:user)
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     sign_in(user)
+    
     visit edit_bucket_list_path(bucket_list.id)
     fill_in "Title", with: "Africa"
     fill_in "Description", with: "Much warmer!"
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")
-    expect(page).to have_content("My Bucket Lists")
-    expect(page).to have_content("Add an Adventure")
+    expect(page).to have_content("Africa")
+    expect(page).to have_content("Much warmer!")
+    expect(page).to have_content("Welcome")
   end
 
   scenario "user successfully changes the private setting of a bucket list" do
     user = FactoryGirl.create(:user)
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     sign_in(user)
+
     visit edit_bucket_list_path(bucket_list.id)
     find("label", text: "Make public").click
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")
-    expect(page).to have_content("My Bucket Lists")
-    expect(page).to have_content("Add an Adventure")
+    expect(page).to have_content("Sharing")
+    expect(page).to have_content("Welcome")
   end
 end
