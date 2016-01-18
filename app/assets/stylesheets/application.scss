@@ -354,20 +354,51 @@ div.checkboxes.bucket-list-wrap-is-public span {
   width: 100%;
 }
 
-.link-to-bucket-list a {
+
+p.link-to-bucket-list a {
   font-family: courier;
   color: $third-color;
   float: right;
-  margin-bottom: 8px;
+  padding: 0;
+  margin: 0;
 
   &:hover {
     font-weight: bold;
-    color: $third-color;
+    color: $secondary-color;
   }
 }
 
-.adventure-link a {
+div.display-adventure-spacer {
+  height: 15px;
+  width: 1px;
+  padding: 0;
+  margin: 0;
+}
+
+p.adventure-notes {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+p.adventure-link {
+  padding: 0;
+  margin: 0;
+}
+
+p.adventure-link a {
   text-decoration: underline;
+  color: $third-color;
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    color: $secondary-color;
+  }
+
+  &.is-active {
+    color: $secondary-color;
+  }
 }
 
 
