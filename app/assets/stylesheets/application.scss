@@ -321,11 +321,16 @@ div.checkboxes.bucket-list-wrap-is-public span {
   font-weight: bold;
 }
 
-.is-achieved-toggle {
+.achieved-flag-or-checkbox {
+  float: left;
+}
+
+.public-or-username {
   float: right;
 }
 
 .map-spacer {
+  padding-top: 8px;
   padding-bottom: 8px;
 }
 
@@ -348,6 +353,26 @@ div.checkboxes.bucket-list-wrap-is-public span {
   height: 384px;
   width: 100%;
 }
+
+.link-to-bucket-list a {
+  font-family: courier;
+  color: $third-color;
+  float: right;
+  margin-bottom: 8px;
+
+  &:hover {
+    font-weight: bold;
+    color: $third-color;
+  }
+}
+
+.adventure-link a {
+  text-decoration: underline;
+}
+
+
+
+
 
 
 

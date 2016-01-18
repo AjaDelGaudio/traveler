@@ -4,41 +4,45 @@
       <h3><%= @adventure.name unless @adventure.name.nil? %></h3>
       <h3><%= @adventure.address unless @adventure.name.nil? %></h3>
 
-      <% if @adventure.user_id == @current_user.id %>
-        <%= link_to(edit_adventure_path(@adventure)) do %>
-          <% if @adventure.is_shared %>
-            <p class="is-public-link"><%= fa_icon "eye" %>  Sharing</p>
-          <% else %>
-            <p class="is-public-link">Share it!</p>
+      <div class="achieved-flag-or-checkbox">
+        <% if @adventure.user_id == @current_user.id %>
+          <%= link_to(edit_adventure_path(@adventure)) do %>
+            <% if @adventure.is_achieved %>
+              <p class="is-achieved-link">
+                <i><%= fa_icon "check-square-o" %></i>  Seen it! Done it!
+              </p>
+            <% else %>
+              <p class="is-achieved-link">
+                <i><%= fa_icon "square-o" %></i>  Seen it! Done it!
+              </p>
+            <% end %>
           <% end %>
-        <% end %>
-      <% else %>
-        <p class="sharing-username"<%= @current_user.username %></p>
-      <% end %>
-
-      <% if @adventure.user_id == @current_user.id %>
-        <%= link_to(edit_adventure_path(@adventure)) do %>
+        <% else %>
           <% if @adventure.is_achieved %>
             <p class="is-achieved-link">
-              <i><%= fa_icon "check-square-o" %></i>  Seen it! Done it!
+              <i><%= fa_icon "fa-flag" %></i>  <%= @current_user.username %>
             </p>
           <% else %>
             <p class="is-achieved-link">
-              <i><%= fa_icon "square-o" %></i>  Seen it! Done it!
+              <%= @current_user.username %>
             </p>
           <% end %>
         <% end %>
-      <% else %>
-        <% if @adventure.is_achieved %>
-          <p class="is-achieved-link">
-            <i><%= fa_icon "fa-flag" %></i>  <%= @current_user.username %>
-          </p>
+      </div>
+
+      <div class="public-or-username">
+        <% if @adventure.user_id == @current_user.id %>
+          <%= link_to(edit_adventure_path(@adventure)) do %>
+            <% if @adventure.is_shared %>
+              <p class="is-public-link"><%= fa_icon "eye" %>  Sharing</p>
+            <% else %>
+              <p class="is-public-link">Share it!</p>
+            <% end %>
+          <% end %>
         <% else %>
-          <p class="is-achieved-link">
-            <%= @current_user.username %>
-          </p>
+          <p class="sharing-username"<%= @current_user.username %></p>
         <% end %>
-      <% end %>
+      </div>
 
       <div class="map-spacer"></div>
         <div class="map-container">
@@ -47,9 +51,9 @@
         </div>
       <div class="map-spacer"></div>
 
-      <p><%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></p>
+      <p class="link-to-bucket-list"><%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></p>
 
-      <p><%= link_to "#{@adventure.link}", "#{@adventure.link}" unless @adventure.link.nil? %></p>
+      <p class="adventure-link"><%= link_to "#{@adventure.link}", "#{@adventure.link}" unless @adventure.link.nil? %></p>
 
       <p><%= @adventure.notes unless @adventure.notes.nil? %></p>
     </div>
