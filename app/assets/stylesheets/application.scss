@@ -411,21 +411,12 @@ div.display-adventure span.edit-link {
 #map-canvas {
   height: 384px;
   width: 100%;
+  background-size: cover;
 }
 
 #map-canvas-multi-markers {
   height: 384px;
-  width: 100%;
-}
-
-div.map-alt {
-  background: image-url('plane-tattoo.jpg') no-repeat center center;
-  background-size: cover;
-  height: 384px;
-  width: 100%;
-  overflow: hidden;
-  // margin-bottom: 3em;
-
+  width: 100.05%;
 }
 
 div.adventure-details {
@@ -482,18 +473,16 @@ p.adventure-link a {
 
 // all_public adventures
 
-div.user p {
-  font-size: 1rem;
-
-  &:hover {
-    background-color: #rgba(20, 130, 133, 0.1);
-  }
+section.welcome {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 div.all-public-adventures {
-  width: 70%;
-  margin-right: 15%;
-  margin-left: 15%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 
