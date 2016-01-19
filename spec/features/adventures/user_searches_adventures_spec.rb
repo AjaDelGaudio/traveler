@@ -17,6 +17,7 @@ feature "user searches adventures", %(
   "by name" do
     user = FactoryGirl.create(:user)
     sign_in(user)
+
     bucket_list = FactoryGirl.create(
       :bucket_list,
       user_id: user.id
@@ -68,6 +69,7 @@ feature "user searches adventures", %(
   "by address" do
     user = FactoryGirl.create(:user)
     sign_in(user)
+
     bucket_list = FactoryGirl.create(
       :bucket_list,
       user_id: user.id
@@ -94,7 +96,7 @@ feature "user searches adventures", %(
     )
     adventure_3 = FactoryGirl.create(:adventure,
       user_id: user.id,
-      address: "FUBAR, Urumqi, China"
+      address: "FuBar, Urumqi, China"
     )
     bucket_list_adventure_3 = FactoryGirl.create(
       :bucket_list_adventure,
@@ -106,21 +108,23 @@ feature "user searches adventures", %(
     find('.adventures-search-bar').set("beijing china")
     click_button "Find Adventure!"
 
-    expect(page).to have_content(adventure_1.name)
-    expect(page).to have_content(adventure_2.name)
-    expect(page).not_to have_content(adventure_3.name)
+    expect(page).to have_content(adventure_1.address)
+    expect(page).to have_content(adventure_2.address)
+    expect(page).not_to have_content(adventure_3.address)
   end
 
   scenario "authenticated user sucessfully searches for their own adventure " \
   "by notes" do
     user = FactoryGirl.create(:user)
     sign_in(user)
+
     bucket_list = FactoryGirl.create(
       :bucket_list,
       user_id: user.id
     )
     adventure_1 = FactoryGirl.create(:adventure,
       user_id: user.id,
+      name: "Num. 1",
       notes: "Get lessons first.",
       is_shared: true
     )
@@ -131,6 +135,7 @@ feature "user searches adventures", %(
     )
     adventure_2 = FactoryGirl.create(:adventure,
       user_id: user.id,
+      name: "Num. 2",
       address: "First bake egg.",
       is_shared: false
     )
@@ -141,6 +146,7 @@ feature "user searches adventures", %(
     )
     adventure_3 = FactoryGirl.create(:adventure,
       user_id: user.id,
+      name: "Num. 3",
       address: "Avoid purple."
     )
     bucket_list_adventure_3 = FactoryGirl.create(
@@ -170,6 +176,7 @@ feature "user searches adventures", %(
     )
     adventure_1 = FactoryGirl.create(:adventure,
       user_id: user.id,
+      name: "Num. 1",
       is_shared: true
     )
     bucket_list_adventure_1 = FactoryGirl.create(
@@ -185,6 +192,7 @@ feature "user searches adventures", %(
     )
     adventure_2 = FactoryGirl.create(:adventure,
       user_id: user.id,
+      name: "Num. 2"
       is_shared: false
     )
     bucket_list_adventure_2 = FactoryGirl.create(
@@ -199,7 +207,8 @@ feature "user searches adventures", %(
       title: "Guatamala"
     )
     adventure_3 = FactoryGirl.create(:adventure,
-      user_id: user.id
+      user_id: user.id,
+      name: "Num. 3"
     )
     bucket_list_adventure_3 = FactoryGirl.create(
       :bucket_list_adventure,
@@ -219,7 +228,7 @@ feature "user searches adventures", %(
   scenario "authenticated user sucessfully searches adventures and discovers " \
   "other user's shared adventure" do
     current_user = FactoryGirl.create(:user)
-    other_user = FactoryGirl.create(:user)
+    other_user = FactoryGirl.create(:user, username: "OtherUser111")
     sign_in(current_user)
 
     bucket_list_1 = FactoryGirl.create(
@@ -271,15 +280,17 @@ feature "user searches adventures", %(
     find('.adventures-search-bar').set("beijing")
     click_button "Find Adventure!"
 
-    expect(page).to have_content(adventure_1.name)
+    expect(page).to have_content(adventure_1.address)
     expect(page).to have_content(adventure_2.name)
-    expect(page).not_to have_content(adventure_3.name)
+    expect(page).not_to have_content(adventure_3.address)
+
+    expect(page).to have_content(other_user.username)
   end
 
   scenario "unathenticated user sucessfully searches public adventures and " \
   "find other user's shared adventure and his/her own " do
-    unauthenticated_user = FactoryGirl.create(:user)
-    other_user = FactoryGirl.create(:user)
+    unauthenticated_user = FactoryGirl.create(:user, username: "Stranger01")
+    other_user = FactoryGirl.create(:user, username: "OtherUser111")
 
     bucket_list_1 = FactoryGirl.create(
       :bucket_list,
@@ -345,9 +356,12 @@ feature "user searches adventures", %(
     find('.adventures-search-bar').set("mongolia")
     click_button "Find Adventure!"
 
-    expect(page).to have_content(adventure_1.name)
-    expect(page).not_to have_content(adventure_2.name)
-    expect(page).to have_content(adventure_3.name)
-    expect(page).not_to have_content(adventure_4.name)
+    expect(page).to have_content(adventure_1.address)
+    expect(page).not_to have_content(adventure_2.address)
+    expect(page).to have_content(adventure_3.address)
+    expect(page).not_to have_content(adventure_4.address)
+
+    expect(page).to have_content(unathenticated_user.username)
+    expect(page).to have_content(other_user.username)
   end
 end
