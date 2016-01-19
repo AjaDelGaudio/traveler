@@ -6,6 +6,18 @@
   <% end %>
 </div>
 
+<section class="welcome">
+  <% unless @current_user.nil? %>
+    <p>Welcome <strong><%= @current_user.username %></strong>!</p>
+  <% end %>
+  <p class="item-count">
+    <strong><%= @adventures.count %> shared adventure(s)</strong> today!
+    <i>
+      Explore other user's adventures or use the search bar above to find
+      exactly what you want.
+    </i>
+  </p>
+</section>
 
     <p><%= @adventures.count %> adventure(s) being shared!</p>
 <div class="small-11 medium-6 columns small-centered">
