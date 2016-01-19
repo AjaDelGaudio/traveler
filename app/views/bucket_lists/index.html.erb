@@ -29,9 +29,12 @@
         </div>
         <div class="wrap-is-public tiny-button">
           <% if bucket_list.is_public %>
+            <p class="is-public-link">
               <%= link_to(edit_bucket_list_path(bucket_list.id)) do %>
-                <p class="is-public-link"><%= fa_icon "eye" %><%= "  Sharing"%></p>
+                <%= fa_icon "eye" %>
+                <%= "  Sharing"%>
               <% end %>
+            </p>
           <% else %>
               <p class="is-public-link"><%= link_to "Share it!", edit_bucket_list_path(bucket_list.id) %></p>
           <% end %>

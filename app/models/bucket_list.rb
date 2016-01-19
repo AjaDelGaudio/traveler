@@ -11,4 +11,11 @@ class BucketList < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :user_id, numericality: { only_integer: true }
+
+  include PgSearch
+  pg_search_scope :search,
+    against: [:title, :description],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

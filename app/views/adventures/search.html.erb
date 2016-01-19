@@ -4,23 +4,27 @@
     <ul class="no-bullet">
       <% if @adventures %>
         <% @adventures.each do |adventure| %>
-          <% bla = adventure.bucket_list_adventures.first %>
           <li class="adventure-list">
             <div class="small-9 columns small-centered divinding-line"></div>
+
             <h6>
-              <% if bla.is_achieved %>
-                <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
-                  "#", class: "achieved-toggle", id: bla.id %>
+              <% if adventure.is_achieved %>
+                <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!" %>
               <% else %>
-                <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
-                  "#", class: "achieved-toggle", id: bla.id %>
+                <%= link_to (fa_icon "square-o") + " Seen it! Done it!" %>
               <% end %>
             </h6>
-            <p><%= link_to bla.bucket_list.title,
-              bucket_list_path(bla.bucket_list.id) %></p>
+
             <p><%= adventure.name unless adventure.name.nil? %></p>
             <p><%= adventure.address unless adventure.address.nil? %></p>
-            <p><%= bla.notes unless bla.notes.nil? %></p>
+
+            <% bucket_lists = adventure.bucket_lists %>
+
+            <p><%= bucket_lists[0].title %></p>
+            <% unless @current_user_id == adventure.user_id %>
+              <p><%= adventure.user.username %></p>
+            <% end %>
+
           </li>
         <% end %>
       <% end %>
