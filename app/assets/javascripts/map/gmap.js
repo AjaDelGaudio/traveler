@@ -26,6 +26,6 @@ function gmapShowMultiMarkers(rawMarkers) {
     var markers = handler.addMarkers(rawMarkers);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
-    handler.getMap().setZoom(1);
+    handler.getMap().setZoom(2);
   });
 }

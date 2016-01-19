@@ -369,7 +369,6 @@ div.public-or-username {
   }
 }
 
-
 p.is-public-link {
   margin: 0;
 }
@@ -483,9 +482,19 @@ p.adventure-link a {
 
 // all_public adventures
 
+div.user p {
+  font-size: 1rem;
 
+  &:hover {
+    background-color: #rgba(20, 130, 133, 0.1);
+  }
+}
 
-
+div.all-public-adventures {
+  width: 70%;
+  margin-right: 15%;
+  margin-left: 15%;
+}
 
 
 .hero {
