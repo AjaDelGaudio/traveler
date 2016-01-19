@@ -26,7 +26,6 @@
     float: right;
     margin-top: -4rem;
     margin-right: -2rem;
-    // font-family: sans-serif;
   }
 
   section ul a {
@@ -71,6 +70,8 @@
   text-align: center;
   font-family: courier, sans-serif;
   margin-bottom: 0;
+  margin-left: 10%;
+  margin-right: 10%;
 
   li {
     float: none;
@@ -103,15 +104,27 @@
   }
 }
 
+.center-content {
+  clear: both;
+  float: none;
+  width: 84%;
+  margin-left: 8%;
+  margin-right: 8%;
+  padding: 0;
+  align-content: center;
+}
+
 .adventures-search {
   width: 70%;
-  margin-left: 20%;
-  margin-right: 0;
+  margin-left: 15%;
+  margin-right: 15%;
+  align-content: center;
 
   input {
     width: 60%;
     height: 3rem;
     display: inline-block;
+    margin-left: 8%;
   }
 
   a .button {
@@ -124,11 +137,11 @@
 
 .welcome {
   font-family: sans-serif;
-  width: 80%;
-  text-align: left;
-  margin-left: 10%;
-  margin-right: 10%;
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
   align-self: center;
+
   style {
     color: $charcoal;
   }
@@ -140,6 +153,11 @@
 
 // bucket-list index page
 
+.display-groups {
+  margin: 0;
+  padding: 0;
+}
+
 .grid-groups li {
   @include block-grid(
     $per-row: 5,
@@ -147,7 +165,8 @@
     $base-style: true
   );
 
-  margin: 1%;
+  margin: 0;
+  padding: 0;
 }
 
 div.wrap-title-and-description {
@@ -414,11 +433,6 @@ div.display-adventure span.edit-link {
   background-size: cover;
 }
 
-#map-canvas-multi-markers {
-  height: 384px;
-  width: 100.05%;
-}
-
 div.adventure-details {
   padding-left: 2.5px;
   padding-right: 2.5px;
@@ -473,16 +487,16 @@ p.adventure-link a {
 
 // all_public adventures
 
-section.welcome {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+div.all-public-adventures {
+
 }
 
-div.all-public-adventures {
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+#map-canvas-multi-markers {
+  height: 384px;
+  width: 100.05%;
+}
+
+div.display-all-public-adventures ul.grid-gorups {
 }
 
 

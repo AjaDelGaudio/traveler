@@ -1,42 +1,44 @@
-<div class="adventures-search">
-  <%= form_tag(search_adventures_path, method: "get") do %>
-    <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
-    placeholder: "The world is your oyster... explore it." %>
-    <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
-  <% end %>
-</div>
-
-<section class="welcome">
-  <p class="item-count">
-    <% unless @current_user.nil? %>
-      Welcome <strong><%= @current_user.username %></strong>!
+<div class="public-adventures small-4 medium-8  large-8 columns center">
+  <div class="adventures-search">
+    <%= form_tag(search_adventures_path, method: "get") do %>
+      <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
+      placeholder: "The world is your oyster... explore it." %>
+      <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
     <% end %>
-    <strong> There are <%= @adventures.count %> adventure(s) being shared!</strong>
-    <i>Explore other user's adventures or use the search bar above to find
-      exactly what you want.</i>
-  </p>
-</section>
+  </div>
 
-<div class="map-container all-public-adventures">
-  <div class="map-canvas" id="map-canvas-multi-markers"> </div>
+  <section class="welcome">
+    <p class="item-count">
+      <% unless @current_user.nil? %>
+        Welcome <strong><%= @current_user.username %></strong>!
+      <% end %>
+      <strong> There are <%= @adventures.count %> adventure(s) being shared!</strong>
+      <i>Explore other user's adventures or use the search bar above to find
+        exactly what you want.</i>
+    </p>
+  </section>
+
+  <div class="map-container multi-marker-map">
+    <div class="map-canvas" id="map-canvas-multi-markers"> </div>
+  </div>
+
+  <section class="display-groups display-all-public-adventures">
+    <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-6">
+      <% @adventures.each do |adventure| %>
+        <li>
+          <div class="wrap-title-and-description">
+            <%= link_to(adventure_path(adventure.id)) do %>
+              <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
+              <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
+              <% user = adventure.user %>
+              <p><%= user.username %><p>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </section>
 </div>
-
-<section class="display-groups">
-  <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
-    <% @adventures.each do |adventure| %>
-      <li>
-        <div class="wrap-title-and-description">
-          <%= link_to(adventure_path(adventure.id)) do %>
-            <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
-            <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
-            <% user = adventure.user %>
-            <p><%= user.username %><p>
-          <% end %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</section>
 
 <script type="text/javascript">
   $(document).ready(function(){
