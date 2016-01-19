@@ -1,20 +1,14 @@
-<div class="row">
-  
-  <div class="small-11 medium-6 columns small-centered">
-    <div class="adventures-search">
-      <%= form_tag(search_adventures_path, method: "get") do %>
-      <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
-      placeholder: "The world is your oyster... search it." %>
-      <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
-      <% end %>
-    </div>
-
-    <h3>Shared Adventures:</h3>
-
-    <p><%= @adventures.count %> Adventure(s) being shared!</p>
+<div class="adventures-search">
+  <%= form_tag(search_adventures_path, method: "get") do %>
+    <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
+    placeholder: "The world is your oyster... explore it." %>
+    <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
+  <% end %>
+</div>
 
 
-
+    <p><%= @adventures.count %> adventure(s) being shared!</p>
+<div class="small-11 medium-6 columns small-centered">
 
     <ul class="no-bullet">
       <% @adventures.each do |adventure| %>
@@ -26,4 +20,3 @@
       <% end %>
     </ul>
   </div>
-</div>

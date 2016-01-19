@@ -14,10 +14,14 @@ class AdventuresController < ApplicationController
     elsif params[:q].present?
       search_results = Adventure.search(params[:q])
       @adventures = search_results.select do |result|
-        result.user_id == current_user.id || result.is_shared
+        if current_user.nil?
+          result.is_shared
+        else
+         result.user_id == current_user.id || result.is_shared
+         @current_user_id = current_user.id
+        end
       end
     end
-    @current_user_id = current_user.id
   end
 
   def new
