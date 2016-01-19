@@ -27,11 +27,7 @@
             <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
             <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
             <div class="map-container">
-              <% if @adventure_address %>
-                <div class="map-alt"></div>
-              <% else %>
                 <div class="map-canvas" id="map-canvas"></div>
-              <% end %>
             </div>
           <% end %>
         </div>

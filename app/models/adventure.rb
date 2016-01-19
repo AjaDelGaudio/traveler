@@ -12,7 +12,7 @@ class Adventure < ActiveRecord::Base
   validates :user_id, presence: true
   validates :user_id, numericality: { only_integer: true }
 
-  validate :name_or_address
+  validates :address, presence: true
 
   validates :is_achieved, inclusion: { in: [true, false] }
 
@@ -27,13 +27,4 @@ class Adventure < ActiveRecord::Base
     using: {
       tsearch: { prefix: true }
     }
-
-  private
-
-  def name_or_address
-    if name.blank? && address.blank?
-      errors.add(:adventure, "Must specify a name and/or address")
-    end
-  end
-
 end

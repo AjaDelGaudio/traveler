@@ -66,13 +66,6 @@ class AdventuresController < ApplicationController
 
     @current_user = current_user
     @username = @adventure.user.username
-
-    adventure_address = @adventure.address
-    if adventure_address.nil?
-      @adventure_address = false
-    else
-      @adventure_address = true
-    end
   end
 
   def all_public
