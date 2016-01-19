@@ -1,4 +1,4 @@
-<div class="public-adventures small-4 medium-8  large-8 columns center">
+<div class="wrap-page small-4 medium-8  large-8 columns center-content">
   <div class="adventures-search">
     <%= form_tag(search_adventures_path, method: "get") do %>
       <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
@@ -23,7 +23,7 @@
   </div>
 
   <section class="display-groups display-all-public-adventures">
-    <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-6">
+    <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
       <% @adventures.each do |adventure| %>
         <li>
           <div class="wrap-title-and-description">
