@@ -4,6 +4,15 @@
 
     <p><%= @adventures.count %> Adventure(s) being shared!</p>
 
+
+    <div class="adventures-search">
+      <%= form_tag(search_adventures_path, method: "get") do %>
+        <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
+          placeholder: "The world is your oyster... search it." %>
+        <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
+      <% end %>
+    </div>
+
     <ul class="no-bullet">
       <% @adventures.each do |adventure| %>
         <li class="bucket-list">
