@@ -2,7 +2,6 @@
   <div class="small-11 medium-6 columns small-centered">
     <h3 class="form-title">Search Results:</h3>
     <ul class="no-bullet">
-      <% if @adventures %>
         <% @adventures.each do |adventure| %>
           <li class="adventure-list">
             <div class="small-9 columns small-centered divinding-line"></div>
@@ -27,7 +26,6 @@
 
           </li>
         <% end %>
-      <% end %>
     </ul>
   </div>
 </div>

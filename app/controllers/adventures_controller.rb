@@ -13,14 +13,16 @@ class AdventuresController < ApplicationController
       render "homes/index"
     elsif params[:q].present?
       search_results = Adventure.search(params[:q])
-      @adventures = search_results.select do |result|
-        if current_user.nil?
-          result.is_shared
-        else
-         result.user_id == current_user.id || result.is_shared
-         @current_user_id = current_user.id
-        end
+      adventures = []
+      if current_user.nil?
+        adventures << search_results.where(is_shared: true)
+      else
+        adventures << search_results.where(is_shared: true)
+        adventures << search_results.where(user_id: current_user.id)
+        @current_user_id = current_user.id
       end
+      @adventures = adventures.flatten
+      binding.pry
     end
   end
 
