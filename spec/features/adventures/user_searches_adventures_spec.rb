@@ -279,7 +279,7 @@ feature "user searches adventures", %(
     visit bucket_lists_path
     find('.adventures-search-bar').set("beijing")
     click_button "Find Adventure!"
-save_and_open_page
+
     expect(page).to have_content(adventure_1.address)
     expect(page).to have_content(adventure_2.name)
     expect(page).not_to have_content(adventure_3.address)

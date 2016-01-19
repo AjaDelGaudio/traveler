@@ -22,7 +22,6 @@ class AdventuresController < ApplicationController
         @current_user_id = current_user.id
       end
       @adventures = adventures.flatten
-      binding.pry
     end
   end
 
