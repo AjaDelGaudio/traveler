@@ -45,10 +45,10 @@
 
       <%= link_to(edit_adventure_path(@adventure)) do %>
         <% if @adventure.is_shared %>
-        <p class="is-public-link">
-          <i><%= fa_icon "eye" %></i>Sharing
-          <span class="button edit-link"> Edit </span>
-        </p>
+          <p class="is-public-link">
+            <i><%= fa_icon "eye" %></i>Sharing
+            <span class="button edit-link"> Edit </span>
+          </p>
         <% else %>
           <p class="is-public-link">
             Share it!
@@ -61,12 +61,24 @@
     <% end %>
   </div>
 
-  <div class="map-spacer"></div>
-    <div class="map-container">
-      <div class="map-canvas" id="map-canvas">
+  <% if @adventure_address %>
+    <p> cat </p>
+    <div class="map-alt"></div>
+  <% else %>
+    <div class="map-spacer"></div>
+      <div class="map-container">
+          <div class="map-canvas" id="map-canvas">
+          </div>
       </div>
-    </div>
-  <div class="map-spacer"></div>
+    <div class="map-spacer"></div>
+  <% end %>
+
+
+
+
+
+
+
 
   <div class="adventure-details">
     <p class="link-to-bucket-list"><%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></p>

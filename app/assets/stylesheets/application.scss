@@ -406,6 +406,16 @@ div.display-adventure span.edit-link {
   width: 100%;
 }
 
+div.map-alt {
+  background: image-url('plane-tattoo.jpg') no-repeat center center;
+  background-size: cover;
+  height: 384px;
+  width: 100%;
+  overflow: hidden;
+  // margin-bottom: 3em;
+
+}
+
 div.adventure-details {
   padding-left: 2.5px;
   padding-right: 2.5px;
@@ -457,6 +467,8 @@ p.adventure-link a {
   }
 }
 
+
+// all_public adventures
 
 
 

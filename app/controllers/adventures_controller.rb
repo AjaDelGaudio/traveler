@@ -63,6 +63,12 @@ class AdventuresController < ApplicationController
       marker.infowindow adventure.notes
     end
     @current_user = current_user
+    adventure_address = @adventure.address
+    if adventure_address.nil?
+      @adventure_address = false
+    else
+      @adventure_address = true
+    end
   end
 
   def all_public
