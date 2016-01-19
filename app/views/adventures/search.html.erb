@@ -1,26 +1,32 @@
-<div class="form-row">
-  <div class="form small-11 medium-6 columns small-centered">
-    <h3>Search Results:</h3>
-        <% @adventures.each do |adventure| %>
-
-            <h6>
-              <% if adventure.is_achieved %>
-                <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!" %>
-              <% else %>
-                <%= link_to (fa_icon "square-o") + " Seen it! Done it!" %>
-              <% end %>
-            </h6>
-
-            <p><%= adventure.name unless adventure.name.nil? %></p>
-            <p><%= adventure.address unless adventure.address.nil? %></p>
-
-            <% bucket_lists = adventure.bucket_lists %>
-
-            <p><%= bucket_lists[0].title %></p>
-            <% unless @current_user_id == adventure.user_id %>
-              <p><%= adventure.user.username %></p>
-            <% end %>
-
-        <% end %>
+<div class="form-row center-content">
+  <div class="adventures-search">
+    <%= form_tag(search_adventures_path, method: "get") do %>
+      <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
+      placeholder: "The world is your oyster... explore it." %>
+      <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
+    <% end %>
   </div>
+
+
+    <section class="display-groups display-all-public-adventures">
+      <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
+        <% @adventures.each do |adventure| %>
+          <li>
+            <div class="wrap-title-and-description wrap-user">
+              <h4>
+                <%= link_to(adventure_path(adventure.id)) do %>
+                  <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
+                  <%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %>
+                <% end %>
+              </h4>
+              <p>
+                <% user = adventure.user %>
+                <%= user.username %>
+              <p>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
 </div>

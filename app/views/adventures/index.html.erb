@@ -1,3 +1,4 @@
+<div class="small-11 medium-6 columns small-centered">
   <div class="adventures-search">
     <%= form_tag(search_adventures_path, method: "get") do %>
       <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
@@ -6,30 +7,29 @@
     <% end %>
   </div>
 
-<div class="row">
-  <div class="small-11 medium-6 columns small-centered">
+  <div class="row">
     <p>Weclcome <%= @username %>, you have <%= @adventures.count %> adventure(s): </p>
-  <div class="small-9 columns small-centered divinding-line"></div>
-    <ul class="no-bullet">
-      <% @adventures.each do |adventure| %>
-        <li class="bucket-list">
-          <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
-          <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
-          <% if adventure.is_shared %>
-            <h6><%= fa_icon "eye" %> Public </h6>
-          <% else %>
-            <h6><%= fa_icon "eye-slash" %> Private </h6>
-          <% end %>
-          <% if adventure.is_achieved %>
-            <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
-              "#", class: "achieved-toggle", id: adventure.id %>
-          <% else %>
-            <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
-              "#", class: "achieved-toggle", id: adventure.id %>
-          <% end %>
-          <%= link_to "Edit", edit_adventure_path(adventure) %>
-        </li>
-      <% end %>
-    </ul>
+    <div class="small-9 columns small-centered divinding-line"></div>
+      <ul class="no-bullet">
+        <% @adventures.each do |adventure| %>
+          <li class="bucket-list">
+            <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
+            <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
+            <% if adventure.is_shared %>
+              <h6><%= fa_icon "eye" %> Public </h6>
+            <% else %>
+              <h6><%= fa_icon "eye-slash" %> Private </h6>
+            <% end %>
+            <% if adventure.is_achieved %>
+              <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!",
+                "#", class: "achieved-toggle", id: adventure.id %>
+            <% else %>
+              <%= link_to (fa_icon "square-o") + " Seen it! Done it!",
+                "#", class: "achieved-toggle", id: adventure.id %>
+            <% end %>
+            <%= link_to "Edit", edit_adventure_path(adventure) %>
+          </li>
+        <% end %>
+      </ul>
   </div>
 </div>
