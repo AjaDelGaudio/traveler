@@ -275,7 +275,7 @@ feature "user searches adventures", %(
       adventure_id: adventure_3.id,
       bucket_list_id: bucket_list_3.id
     )
-
+binding.pry
     visit bucket_lists_path
     find('.adventures-search-bar').set("beijing")
     click_button "Find Adventure!"

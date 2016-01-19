@@ -23,7 +23,7 @@ class Adventure < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search,
-    against: [:name, :address],
+    against: [:name, :address, :notes, :link],
     using: {
       tsearch: { prefix: true }
     }
