@@ -15,6 +15,11 @@
             </h6>
             <p><%= adventure.name unless adventure.name.nil? %></p>
             <p><%= adventure.address unless adventure.address.nil? %></p>
+
+            <% bucket_lists = adventure.bucket_lists %>
+            <p><%= bucket_lists[0].title %></p>
+            <p><%= adventure.user.username %></p>
+
           </li>
         <% end %>
       <% end %>
