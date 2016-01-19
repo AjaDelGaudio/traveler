@@ -6,6 +6,7 @@
         <% @adventures.each do |adventure| %>
           <li class="adventure-list">
             <div class="small-9 columns small-centered divinding-line"></div>
+
             <h6>
               <% if adventure.is_achieved %>
                 <%= link_to (fa_icon "check-square-o") + " Seen it! Done it!" %>
@@ -13,12 +14,16 @@
                 <%= link_to (fa_icon "square-o") + " Seen it! Done it!" %>
               <% end %>
             </h6>
+
             <p><%= adventure.name unless adventure.name.nil? %></p>
             <p><%= adventure.address unless adventure.address.nil? %></p>
 
             <% bucket_lists = adventure.bucket_lists %>
+
             <p><%= bucket_lists[0].title %></p>
-            <p><%= adventure.user.username %></p>
+            <% unless @current_user_id == adventure.user_id %>
+              <p><%= adventure.user.username %></p>
+            <% end %>
 
           </li>
         <% end %>

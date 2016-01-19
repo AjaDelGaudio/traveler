@@ -17,6 +17,7 @@ class AdventuresController < ApplicationController
         result.user_id == current_user.id || result.is_shared
       end
     end
+    @current_user_id = current_user.id
   end
 
   def new
