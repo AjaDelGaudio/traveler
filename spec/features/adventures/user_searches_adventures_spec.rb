@@ -164,66 +164,66 @@ feature "user searches adventures", %(
   #   expect(page).not_to have_content(adventure_3.name)
   # end
 
-  scenario "authenticated user sucessfully searches for their own adventure " \
-  "by bucket list" do
-    user = FactoryGirl.create(:user)
-    sign_in(user)
-
-    bucket_list_1 = FactoryGirl.create(
-      :bucket_list,
-      user_id: user.id,
-      title: "Mexico"
-    )
-    adventure_1 = FactoryGirl.create(:adventure,
-      user_id: user.id,
-      name: "Num. 1",
-      is_shared: true
-    )
-    bucket_list_adventure_1 = FactoryGirl.create(
-      :bucket_list_adventure,
-      adventure_id: adventure_1.id,
-      bucket_list_id: bucket_list_1.id
-    )
-
-    bucket_list_2 = FactoryGirl.create(
-      :bucket_list,
-      user_id: user.id,
-      title: "Mexico City"
-    )
-    adventure_2 = FactoryGirl.create(:adventure,
-      user_id: user.id,
-      name: "Num. 2",
-      is_shared: false
-    )
-    bucket_list_adventure_2 = FactoryGirl.create(
-      :bucket_list_adventure,
-      adventure_id: adventure_2.id,
-      bucket_list_id: bucket_list_2.id
-    )
-
-    bucket_list_3 = FactoryGirl.create(
-      :bucket_list,
-      user_id: user.id,
-      title: "Guatamala"
-    )
-    adventure_3 = FactoryGirl.create(:adventure,
-      user_id: user.id,
-      name: "Num. 3"
-    )
-    bucket_list_adventure_3 = FactoryGirl.create(
-      :bucket_list_adventure,
-      adventure_id: adventure_3.id,
-      bucket_list_id: bucket_list_3.id
-    )
-
-    visit bucket_lists_path
-    find('.adventures-search-bar').set("mexico")
-    click_button "Find Adventure!"
-
-    expect(page).to have_content(adventure_1.name)
-    expect(page).to have_content(adventure_2.name)
-    expect(page).not_to have_content(adventure_3.name)
-  end
+  # scenario "authenticated user sucessfully searches for their own adventure " \
+  # "by bucket list" do
+  #   user = FactoryGirl.create(:user)
+  #   sign_in(user)
+  #
+  #   bucket_list_1 = FactoryGirl.create(
+  #     :bucket_list,
+  #     user_id: user.id,
+  #     title: "Mexico"
+  #   )
+  #   adventure_1 = FactoryGirl.create(:adventure,
+  #     user_id: user.id,
+  #     name: "Num. 1",
+  #     is_shared: true
+  #   )
+  #   bucket_list_adventure_1 = FactoryGirl.create(
+  #     :bucket_list_adventure,
+  #     adventure_id: adventure_1.id,
+  #     bucket_list_id: bucket_list_1.id
+  #   )
+  #
+  #   bucket_list_2 = FactoryGirl.create(
+  #     :bucket_list,
+  #     user_id: user.id,
+  #     title: "Mexico City"
+  #   )
+  #   adventure_2 = FactoryGirl.create(:adventure,
+  #     user_id: user.id,
+  #     name: "Num. 2",
+  #     is_shared: false
+  #   )
+  #   bucket_list_adventure_2 = FactoryGirl.create(
+  #     :bucket_list_adventure,
+  #     adventure_id: adventure_2.id,
+  #     bucket_list_id: bucket_list_2.id
+  #   )
+  #
+  #   bucket_list_3 = FactoryGirl.create(
+  #     :bucket_list,
+  #     user_id: user.id,
+  #     title: "Guatamala"
+  #   )
+  #   adventure_3 = FactoryGirl.create(:adventure,
+  #     user_id: user.id,
+  #     name: "Num. 3"
+  #   )
+  #   bucket_list_adventure_3 = FactoryGirl.create(
+  #     :bucket_list_adventure,
+  #     adventure_id: adventure_3.id,
+  #     bucket_list_id: bucket_list_3.id
+  #   )
+  #
+  #   visit bucket_lists_path
+  #   find('.adventures-search-bar').set("mexico")
+  #   click_button "Find Adventure!"
+  #
+  #   expect(page).to have_content(adventure_1.name)
+  #   expect(page).to have_content(adventure_2.name)
+  #   expect(page).not_to have_content(adventure_3.name)
+  # end
 
   scenario "authenticated user sucessfully searches adventures and discovers " \
   "other user's shared adventure" do
