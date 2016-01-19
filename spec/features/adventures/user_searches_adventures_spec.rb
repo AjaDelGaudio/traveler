@@ -352,8 +352,8 @@ feature "user searches adventures", %(
       bucket_list_id: bucket_list_4.id
     )
 
-    visit bucket_lists_path
-    find('.adventures-search-bar').set("mongolia")
+    visit all_public_adventures_path
+    find('.adventures-search-bar').set("beijing")
     click_button "Find Adventure!"
 
     expect(page).to have_content(adventure_1.address)
