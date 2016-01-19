@@ -322,8 +322,6 @@ div.display-adventure h2 {
   font-weight: bold;
 }
 
-
-
 div.display-adventure a {
 
   &:hover h2 {
@@ -352,6 +350,12 @@ div.title-spacer {
   }
 }
 
+div.public-or-username {
+  min-width: 15px;
+  min-height: 0;
+  float: right;
+}
+
 .public-or-username a {
   float: right;
   padding-right: 2.5px;
@@ -365,8 +369,20 @@ div.title-spacer {
   }
 }
 
+p.sharing-username {
+  margin: 0;
+}
+
 p.is-public-link {
   margin: 0;
+}
+
+p.is-achieved-link {
+  margin: 0;
+}
+
+.is-achieved-link i {
+  padding-right: 2.5px;
 }
 
 div.display-adventure span.edit-link {

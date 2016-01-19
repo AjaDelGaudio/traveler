@@ -30,7 +30,7 @@
     <% else %>
       <% if @adventure.is_achieved %>
         <p class="is-achieved-link">
-          <i><%= fa_icon "flag" %></i>  <%= @current_user.username %>
+          <i><%= fa_icon "flag" %></i><%= @username %>
         </p>
       <% else %>
         <p class="is-achieved-link">
@@ -42,7 +42,6 @@
 
   <div class="public-or-username">
     <% if @adventure.user_id == @current_user.id %>
-
       <%= link_to(edit_adventure_path(@adventure)) do %>
         <% if @adventure.is_shared %>
           <p class="is-public-link">
@@ -57,19 +56,21 @@
         <% end %>
       <% end %>
     <% else %>
-      <p class="sharing-username"<%= @current_user.username %></p>
+      <p class="sharing-username"<%= @username %></p>
     <% end %>
   </div>
 
-  <div class="map-spacer"></div>
-    <div class="map-container">
       <% if @adventure_address %>
-        <div class="map-alt"></div>
+        <div class="map-container">
+          <div class="map-alt"></div>
+        </div>
       <% else %>
-        <div class="map-canvas" id="map-canvas"></div>
+        <div class="map-spacer"></div>
+          <div class="map-container">
+            <div class="map-canvas" id="map-canvas"></div>
+          </div>
       <% end %>
-    </div>
-  <div class="map-spacer"></div>
+      <div class="map-spacer"></div>
 
   <div class="adventure-details">
     <p class="link-to-bucket-list"><%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></p>
