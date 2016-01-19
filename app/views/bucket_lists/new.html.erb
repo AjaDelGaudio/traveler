@@ -9,14 +9,12 @@
       <%= f.label :description, "Description:" %>
       <%= f.text_area :description %>
 
-      <div class="checkboxes bucket-list-wrap-is-public">
-          <%= f.check_box :is_public %>
-          <%= f.label "Share it!" %>
+        <div class="checkboxes">
+            <%= f.check_box :is_public %>
+            <%= f.label "Share it!" %>
+        </div>
 
-      </div>
-
-      <%= f.submit "Save It!", class: "button" %>
-
+        <%= f.submit "Save It!", class: "button", id: "new-bucket-list-submit" %>
     <% end %>
   </div>
 </div>

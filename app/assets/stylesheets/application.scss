@@ -302,10 +302,12 @@ p.tiny-button {
   margin-right: 37.7%;
   margin-bottom: 0;
   margin-top: .75rem;
+  text-align: center;
 }
 
-.checkboxes {
+div.checkboxes {
   text-align: center;
+  line-height: 1.5rem;
 
   label {
     font-size: 1rem;
@@ -316,11 +318,8 @@ p.tiny-button {
     height: 1rem;
     background-color: $white;
     margin-bottom: 0;
+    padding-margin: px;
   }
-}
-
-div.checkboxes.bucket-list-wrap-is-public {
-  line-height: 1.5rem;
 }
 
 
@@ -485,10 +484,22 @@ p.adventure-link a {
 }
 
 
+// new bucket list
+
+.button#new-bucket-list-submit {
+  margin-left: 40.5%;
+}
+
+
+
 // all_public adventures
 
 div.all-public-adventures {
+  color: $oil;
 
+  ul li {
+    height: 250px;
+  }
 }
 
 #map-canvas-multi-markers {
@@ -496,9 +507,20 @@ div.all-public-adventures {
   width: 100.05%;
 }
 
+div.wrap-user {
+  display: inline-block;
+  width: 100%;
+
+  &:hover {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
 section.display-all-public-adventures p {
   float: right;
 }
+
 section.display-all-public-adventures h4 {
   &:hover a {
     padding: 0;
@@ -506,6 +528,9 @@ section.display-all-public-adventures h4 {
     color: $third-color;
   }
 }
+
+
+
 
 
 .hero {
@@ -557,9 +582,6 @@ section.display-all-public-adventures h4 {
     margin: 0;
   }
 
-  .divinding-line {
-    margin-top: 1.25rem;
-  }
 }
 
 // .adventure {

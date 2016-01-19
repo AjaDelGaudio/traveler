@@ -26,15 +26,17 @@
     <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
       <% @adventures.each do |adventure| %>
         <li>
-          <div class="wrap-title-and-description">
+          <div class="wrap-title-and-description wrap-user">
             <h4>
               <%= link_to(adventure_path(adventure.id)) do %>
                 <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
                 <%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %>
               <% end %>
             </h4>
-            <% user = adventure.user %>
-            <p><%= user.username %><p>
+            <p>
+              <% user = adventure.user %>
+              <%= user.username %>
+            <p>
           </div>
         </li>
       <% end %>
