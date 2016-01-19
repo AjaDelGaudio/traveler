@@ -14,10 +14,7 @@ class AdventuresController < ApplicationController
     elsif params[:q].present?
       search_results = Adventure.search(params[:q])
       @adventures = search_results.select do |result|
-        bla = result.bucket_list_adventures.first
-        bucket_list = bla.bucket_list
-        user = bucket_list.user
-        user == current_user
+        result.user_id == current_user.id || result.is_shared
       end
     end
   end
