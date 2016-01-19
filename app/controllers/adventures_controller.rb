@@ -71,6 +71,7 @@ class AdventuresController < ApplicationController
   def all_public
     @adventures = Adventure.where(is_shared: true)
     @current_user = current_user
+    binding.pry
   end
 
   def edit

@@ -32,7 +32,10 @@
           <% end %>
         </div>
         <div class="wrap-is-public tiny-button">
-          <div class="user"></div>
+          <div class="user">
+            <% user = adventure.user %>
+            <%= user.username %>
+          </div>
         </div>
       </li>
     <% end %>
