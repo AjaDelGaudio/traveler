@@ -52,7 +52,11 @@ feature "user searches adventures", %(
     )
 
     visit bucket_lists_path
-    fill_in "input#q.adventures-search-bar", with: "moon"
+    find('.adventures-search-bar').set("moon")
+    # fill_in 'input #q .adventures-search-bar', with: "moon"
+    # find(:css, "input[id$='q'][class$='adventures-search-bar']").set("moon")
+
+    # save_and_open_page
     click_button "Find Adventure!"
 
     expect(page).to have_content(adventure_1.name)
