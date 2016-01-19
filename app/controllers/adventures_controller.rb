@@ -71,7 +71,11 @@ class AdventuresController < ApplicationController
   def all_public
     @adventures = Adventure.where(is_shared: true)
     @current_user = current_user
-    binding.pry
+    @map_markers = Gmaps4rails.build_markers(@adventures) do |adventure, marker|
+      marker.lat adventure.latitude
+      marker.lng adventure.longitude
+      marker.infowindow adventure.notes
+    end
   end
 
   def edit

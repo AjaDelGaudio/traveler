@@ -18,6 +18,10 @@
   </p>
 </section>
 
+<div class="map-container">
+  <div class="map-canvas" id="map-canvas-multi-markers"></div>
+</div>
+
 <section class="display-groups">
   <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
     <% @adventures.each do |adventure| %>
@@ -26,9 +30,6 @@
           <%= link_to(adventure_path(adventure.id)) do %>
             <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
             <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
-            <div class="map-container">
-                <div class="map-canvas" id="map-canvas"></div>
-            </div>
           <% end %>
         </div>
         <div class="wrap-is-public tiny-button">
@@ -42,12 +43,9 @@
   </ul>
 </section>
 
-
-
-
-      <% @adventures.each do |adventure| %>
-        <li class="bucket-list">
-          <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
-          <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
-        </li>
-      <% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var rawMarkers = <%= raw @map_markers.to_json %>
+    gmapShowMultiMarkers(rawMarkers);
+  });
+</script>
