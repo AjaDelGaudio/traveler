@@ -114,7 +114,19 @@ feature "user edits adventure", %(
   end
 
   scenario "authenticated user successfully adds a name to an adventure" do
-    
+    user = FactoryGirl.create(:user)
+    sign_in(user)
+    bucket_list = FactoryGirl.create(
+      :bucket_list,
+      user_id: user.id,
+      title: "Second Bucket List"
+    )
+    adventure = FactoryGirl.create(:adventure, name: nil, user_id: user.id)
+    bucket_list_adventure = FactoryGirl.create(
+      :bucket_list_adventure,
+      adventure_id: adventure.id,
+      bucket_list_id: bucket_list.id
+    )
 
     visit edit_adventure_path(adventure)
     fill_in "Name", with: "Do this thing!"

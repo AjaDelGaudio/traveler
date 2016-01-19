@@ -269,8 +269,8 @@ feature "user searches adventures", %(
     expect(page).not_to have_content(adventure_3.name)
   end
 
-  scenario "unathenticated user sucessfully searches adventures and finds " \
-  "other user's shared adventure and his/her own " do
+  scenario "unathenticated user sucessfully searches public adventures and " \
+  "find other user's shared adventure and his/her own " do
     unauthenticated_user = FactoryGirl.create(:user)
     other_user = FactoryGirl.create(:user)
 
