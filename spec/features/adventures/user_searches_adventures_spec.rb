@@ -273,7 +273,6 @@ feature "user searches adventures", %(
   "other user's shared adventure and his/her own " do
     unauthenticated_user = FactoryGirl.create(:user)
     other_user = FactoryGirl.create(:user)
-    sign_in(unauthenticated_user)
 
     bucket_list_1 = FactoryGirl.create(
       :bucket_list,
@@ -281,7 +280,8 @@ feature "user searches adventures", %(
     )
     adventure_1 = FactoryGirl.create(:adventure,
       user_id: unauthenticated_user.id,
-      is_shared: true
+      is_shared: true,
+      address: "Mongolia"
     )
     bucket_list_adventure_1 = FactoryGirl.create(
       :bucket_list_adventure,
@@ -291,11 +291,12 @@ feature "user searches adventures", %(
 
     bucket_list_2 = FactoryGirl.create(
       :bucket_list,
-      user_id: other_user.id,
+      user_id: unauthenticated_user.id,
     )
     adventure_2 = FactoryGirl.create(:adventure,
-      user_id: other_user.id,
-      is_shared: true
+      user_id: unauthenticated_user.id,
+      is_shared: false,
+      address: "Mongolia"
     )
     bucket_list_adventure_2 = FactoryGirl.create(
       :bucket_list_adventure,
@@ -309,7 +310,8 @@ feature "user searches adventures", %(
     )
     adventure_3 = FactoryGirl.create(:adventure,
       user_id: other_user.id,
-      is_shared: false
+      is_shared: true,
+      address: "Mongolia"
     )
     bucket_list_adventure_3 = FactoryGirl.create(
       :bucket_list_adventure,
@@ -317,12 +319,28 @@ feature "user searches adventures", %(
       bucket_list_id: bucket_list_3.id
     )
 
+    bucket_list_4 = FactoryGirl.create(
+      :bucket_list,
+      user_id: other_user.id
+    )
+    adventure_4 = FactoryGirl.create(:adventure,
+      user_id: other_user.id,
+      is_shared: false,
+      address: "Mongolia"
+    )
+    bucket_list_adventure_4 = FactoryGirl.create(
+      :bucket_list_adventure,
+      adventure_id: adventure_4.id,
+      bucket_list_id: bucket_list_4.id
+    )
+
     visit bucket_lists_path
     fill_in "input#q.adventures-search-bar", with: "first"
     click_button "Find Adventure!"
 
     expect(page).to have_content(adventure_1.name)
-    expect(page).to have_content(adventure_2.name)
-    expect(page).not_to have_content(adventure_3.name)
+    expect(page).not_to have_content(adventure_2.name)
+    expect(page).to have_content(adventure_3.name)
+    expect(page).not_to have_content(adventure_4.name)
   end
 end
