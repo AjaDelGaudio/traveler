@@ -61,20 +61,15 @@
     <% end %>
   </div>
 
-  <% if @adventure_address %>
-    <div class="map-spacer"></div>
-      <div class="map-container">
-        <div class="map-alt"></div>
-      </div>
-    <div class="map-spacer"></div>
-  <% else %>
-    <div class="map-spacer"></div>
-      <div class="map-container">
-          <div class="map-canvas" id="map-canvas">
-          </div>
-      </div>
-    <div class="map-spacer"></div>
-  <% end %>
+<div class="map-spacer"></div>
+  <div class="map-container">
+    <% if @adventure_address %>
+      <div class="map-alt"></div>
+    <% else %>
+      <div class="map-canvas" id="map-canvas"></div>
+    <% end %>
+  </div>
+<div class="map-spacer"></div>
 
 
 
