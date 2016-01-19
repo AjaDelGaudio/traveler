@@ -10,7 +10,7 @@
   <section class="welcome">
     <p class="item-count">
       <% unless @current_user.nil? %>
-        Welcome <strong><%= @current_user.username %></strong>!
+        Welcome <%= @current_user.username %>!
       <% end %>
       <strong> There are <%= @adventures.count %> adventure(s) being shared!</strong>
       <i>Explore other user's adventures or use the search bar above to find
@@ -27,12 +27,14 @@
       <% @adventures.each do |adventure| %>
         <li>
           <div class="wrap-title-and-description">
-            <%= link_to(adventure_path(adventure.id)) do %>
-              <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
-              <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
-              <% user = adventure.user %>
-              <p><%= user.username %><p>
-            <% end %>
+            <h4>
+              <%= link_to(adventure_path(adventure.id)) do %>
+                <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
+                <%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %>
+              <% end %>
+            </h4>
+            <% user = adventure.user %>
+            <p><%= user.username %><p>
           </div>
         </li>
       <% end %>
