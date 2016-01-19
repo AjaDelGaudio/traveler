@@ -30,7 +30,7 @@
     <% else %>
       <% if @adventure.is_achieved %>
         <p class="is-achieved-link">
-          <i><%= fa_icon "fa-flag" %></i>  <%= @current_user.username %>
+          <i><%= fa_icon "flag" %></i>  <%= @current_user.username %>
         </p>
       <% else %>
         <p class="is-achieved-link">
@@ -61,22 +61,15 @@
     <% end %>
   </div>
 
-<div class="map-spacer"></div>
-  <div class="map-container">
-    <% if @adventure_address %>
-      <div class="map-alt"></div>
-    <% else %>
-      <div class="map-canvas" id="map-canvas"></div>
-    <% end %>
-  </div>
-<div class="map-spacer"></div>
-
-
-
-
-
-
-
+  <div class="map-spacer"></div>
+    <div class="map-container">
+      <% if @adventure_address %>
+        <div class="map-alt"></div>
+      <% else %>
+        <div class="map-canvas" id="map-canvas"></div>
+      <% end %>
+    </div>
+  <div class="map-spacer"></div>
 
   <div class="adventure-details">
     <p class="link-to-bucket-list"><%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id) %></p>

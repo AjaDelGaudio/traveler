@@ -1,5 +1,5 @@
 class AdventuresController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :index, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :index, :edit, :show]
 
   def index
     adventures = Adventure.all
