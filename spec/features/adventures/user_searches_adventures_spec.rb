@@ -103,7 +103,7 @@ feature "user searches adventures", %(
     )
 
     visit bucket_lists_path
-    fill_in "input#q.adventures-search-bar", with: "beijing china"
+    find('.adventures-search-bar').set("beijing china")
     click_button "Find Adventure!"
 
     expect(page).to have_content(adventure_1.name)
@@ -150,7 +150,7 @@ feature "user searches adventures", %(
     )
 
     visit bucket_lists_path
-    fill_in "input#q.adventures-search-bar", with: "first"
+    find('.adventures-search-bar').set("first")
     click_button "Find Adventure!"
 
     expect(page).to have_content(adventure_1.name)
@@ -208,7 +208,7 @@ feature "user searches adventures", %(
     )
 
     visit bucket_lists_path
-    fill_in "input#q.adventures-search-bar", with: "first"
+    find('.adventures-search-bar').set("mexico")
     click_button "Find Adventure!"
 
     expect(page).to have_content(adventure_1.name)
@@ -228,7 +228,8 @@ feature "user searches adventures", %(
     )
     adventure_1 = FactoryGirl.create(:adventure,
       user_id: current_user.id,
-      is_shared: true
+      is_shared: true,
+      address: "Temple Bar, Beijing, China"
     )
     bucket_list_adventure_1 = FactoryGirl.create(
       :bucket_list_adventure,
@@ -242,7 +243,8 @@ feature "user searches adventures", %(
     )
     adventure_2 = FactoryGirl.create(:adventure,
       user_id: other_user.id,
-      is_shared: true
+      is_shared: true,
+      name: "Beijing Undergound City"
     )
     bucket_list_adventure_2 = FactoryGirl.create(
       :bucket_list_adventure,
@@ -256,7 +258,8 @@ feature "user searches adventures", %(
     )
     adventure_3 = FactoryGirl.create(:adventure,
       user_id: other_user.id,
-      is_shared: false
+      is_shared: false,
+      address: "D-22, Beijing China"
     )
     bucket_list_adventure_3 = FactoryGirl.create(
       :bucket_list_adventure,
@@ -265,7 +268,7 @@ feature "user searches adventures", %(
     )
 
     visit bucket_lists_path
-    fill_in "input#q.adventures-search-bar", with: "first"
+    find('.adventures-search-bar').set("beijing")
     click_button "Find Adventure!"
 
     expect(page).to have_content(adventure_1.name)
@@ -339,7 +342,7 @@ feature "user searches adventures", %(
     )
 
     visit bucket_lists_path
-    fill_in "input#q.adventures-search-bar", with: "first"
+    find('.adventures-search-bar').set("mongolia")
     click_button "Find Adventure!"
 
     expect(page).to have_content(adventure_1.name)
