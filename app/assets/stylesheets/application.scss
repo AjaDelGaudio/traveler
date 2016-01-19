@@ -160,7 +160,7 @@
 
 .grid-groups li {
   @include block-grid(
-    $per-row: 5,
+    $per-row: 4,
     $spacing: $block-grid-default-spacing,
     $base-style: true
   );
