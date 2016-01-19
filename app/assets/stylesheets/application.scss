@@ -538,9 +538,12 @@ section.display-all-public-adventures h4 {
 // devise
 
 a.devise-link {
-  color: $third-color;
+  color: $secondary-color;
+  
+  &:hover {
+    color: $third-color;
+  }
 }
-
 
 
 

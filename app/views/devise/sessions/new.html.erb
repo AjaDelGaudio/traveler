@@ -1,6 +1,6 @@
 <div class="form-row center-content">
   <div class="small-11 medium-6 columns small-centered">
-    <h3 class="form-title">Log in</h3>
+    <h3 class="form-title text-center">Log in</h3>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
@@ -20,12 +20,14 @@
         </div>
       <% end -%>
 
-      <div class="actions text-center">
-        <%= f.submit "Log in", class: "button" %>
-      </div>
+      <div class="text-center">
+        <div class="actions">
+          <%= f.submit "Log in", class: "button" %>
+        </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
-
+          <div class="form-row">
+            <%= render "devise/shared/links" %>
+          </div>
+      </div>
   </div>
 </div>
