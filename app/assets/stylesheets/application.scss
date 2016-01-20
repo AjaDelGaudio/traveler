@@ -202,13 +202,7 @@ p#description.description.bucket-list-bloc {
   font-style: italic;
   padding: 1rem 0rem 0rem 0rem;
   margin: 0;
-
-  &:hover {
-    
-  }
 }
-
-
 
 div.wrap-top:hover {
   display: inline-block;
@@ -239,6 +233,13 @@ div.wrap-top:hover {
     margin: 0;
     transition: all .25 ease-in-out;
   }
+
+  p#description.description.bucket-list-bloc {
+    color: $third-color;
+    padding: 1rem 0rem 0rem 0rem;
+    margin: 0;
+    transition: all .25 ease-in-out;
+  }
 }
 
 div.wrap-bottom {
@@ -256,6 +257,16 @@ div.wrap-bottom {
   }
 }
 
+div.wrap-bottom:hover p {
+  display: inline-block;
+  width: 100%;
+  font-size: 1rem;
+  color: $third-color;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  transition: all .25 ease-in-out;
+}
 
 div.wrap-bottom:hover a {
   display: inline-block;
