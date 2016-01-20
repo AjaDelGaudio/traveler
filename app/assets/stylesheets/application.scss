@@ -336,31 +336,21 @@ div.checkboxes {
 .display-adventure {
   margin: 3%;
   color: $oil;
-
-
-  a {
-    color: $oil;
-  }
 }
 
 div.display-adventure h2 {
   text-align: center;
-  color: $third-color;
+  color: $oil;
   font-weight: bold;
+
+  &:hover a {
+    color: $secondary-color;
+    transition: all .25 ease-in-out;
+  }
 }
 
 div.display-adventure a {
   color: $oil;
-
-  &:hover h2 {
-    color: $secondary-color;
-    transition: all .25 ease-in-out;
-  }
-
-  &:hover p.edit-link {
-    color: $secondary-color;
-    transition: all .25 ease-in-out;
-  }
 }
 
 div.title-spacer {
@@ -414,19 +404,22 @@ p.is-achieved-link {
   padding-right: 2.5px;
 }
 
-div.display-adventure span.edit-link {
+
+.small-button {
   text-align: center;
-  color: $oil;
   font-weight: bold;
-  margin-left: 2.5px;
-  margin-bottom: 0;
+  color: $oil;
+  padding: .5rem;
+  background-color: $small-button-color;
+  border: 1px solid $base;
 
   &:hover {
-    background-color: $oil;
-    color: $primary-color;
+    background-color: $secondary-transparent-color;
+    color: $oil;
     transition: all .25 ease-in-out;
   }
 }
+
 
 .map-spacer {
   padding-top: 8px;
@@ -453,17 +446,15 @@ div.adventure-details {
   padding-right: 1.5%;
 }
 
-p.link-to-bucket-list a {
-  font-family: courier;
-  color: $third-color;
-  float: right;
-  padding: 0;
-  margin: 0;
+div.display-adventure span.small-button {
+  margin-left: 2.5px;
+  margin-bottom: 0;
+}
 
-  &:hover {
-    font-weight: bold;
-    color: $secondary-color;
-  }
+div.display-adventure a.small-button {
+  font-family: courier;
+  float: right;
+  clear: both;
 }
 
 div.display-adventure-spacer {
@@ -475,7 +466,7 @@ div.display-adventure-spacer {
 
 p.adventure-notes {
   font-size: 1.2rem;
-  margin-top: 15px;
+  margin-top: 45px;
   margin-bottom: 15px;
 }
 
@@ -486,12 +477,12 @@ p.adventure-link {
 
 p.adventure-link a {
   text-decoration: underline;
-  color: $third-color;
+  color: blue;
   padding: 0;
   margin: 0;
 
   &:hover {
-    color: $secondary-color;
+    color: $third-color;
     transition: all .25 ease-in-out;
   }
 
@@ -613,15 +604,12 @@ div.required-field label {
 .bucket-list {
   color: $dark-grey;
 
-  h6 {
-    font-size: 90%;
-    color: $jet;
-    margin-bottom: .75rem;
+  h3 {
+    text-align: center;
   }
 
-  h2,
-  h4 {
-    margin-bottom: 0;
+  p.is-public-link {
+    color: $oil;
   }
 }
 

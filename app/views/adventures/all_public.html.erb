@@ -27,8 +27,8 @@
       <% @adventures.each do |adventure| %>
         <li>
           <div class="wrap-title-and-description wrap-user">
-            <h4>
               <%= link_to(adventure_path(adventure.id)) do %>
+              <h4>
                 <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
                 <%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %>
               <% end %>
@@ -36,7 +36,7 @@
             <p>
               <% user = adventure.user %>
               <%= user.username %>
-            <p>
+              <p>
           </div>
         </li>
       <% end %>

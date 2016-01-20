@@ -118,16 +118,20 @@ $black       : #000000;
 
 // We use these as default colors throughout
 $primary-color: #f2fa61;
+$primary-transparent-color: rgba(242, 250, 97, 0.65);
 $secondary-color: #148285;
-$third-color: #df19ad;
+$secondary-transparent-color: rgba(20, 130, 133, 0.65);
+$third-color: #fa6161;
+$third-transparent-color: rgba(#df19ad, 0.3);
+$small-button-color: rgba(250,250,250,0.7);
 $alert-color: #f2fa61;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
 $info-color: #a0d3e8;
 
 // We use these to control various global styles
-// $body-bg: $white;
-// $body-font-color: $jet;
+$body-bg: $white-smoke;
+// $body-font-color: $oil;
 $body-font-family: courier;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
