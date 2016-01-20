@@ -663,8 +663,35 @@ div.required-field label {
 // bucket list show
 
 div.show-bucket-list {
-  color: $oil;
+  text-align: center;
 }
+
+div.show-bucket-list h3 {
+  color: $oil;
+  font-weight: bold;
+}
+
+div.show-bucket-list p.descripton {
+  color: $steel;
+  font-style: italic;
+  align-self: center;
+}
+
+div.show-bucket-list a {
+  color: $oil;
+  font-weight: bold;
+  text-align: center;
+
+  &:hover p {
+    color: $secondary-color;
+  }
+}
+
+div.show-bucket-list span.small-button {
+  margin-top: 5px;
+}
+
+
 
 
 .hero {
