@@ -74,7 +74,7 @@ class AdventuresController < ApplicationController
     @map_markers = Gmaps4rails.build_markers(@adventures) do |adventure, marker|
       marker.lat adventure.latitude
       marker.lng adventure.longitude
-      marker.infowindow adventure.notes
+      marker.infowindow adventure.address
     end
   end
 
