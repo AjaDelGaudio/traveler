@@ -3,8 +3,10 @@
 
     <%= form_for @bucket_list do |f| %>
 
-      <%= f.label :title, "Group title:" %>
-      <%= f.text_field :title %>
+      <div class="required-field">
+        <%= f.label :title, "Group title:" %>
+        <%= f.text_field :title %>
+      </div>
 
       <%= f.label :description, "Description:" %>
       <%= f.text_area :description %>

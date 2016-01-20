@@ -7,18 +7,20 @@
         <%= f.label :name, "Adventure Name:" %>
         <%= f.text_field :name %>
 
-        <%= f.label :address, "Adventure Address:" %>
-        <%= f.text_area :address %>
+        <div class="required-field">
+          <%= f.label :address, "Adventure Address:" %>
+          <%= f.text_area :address %>
 
-        <%= f.fields_for :bucket_list_adventures do |ff| %>
-          <%= ff.label :bucket_list_id, "Add to group:" %>
-          <%= ff.collection_select(
-            :bucket_list_id,
-            @bucket_lists,
-            :id,
-            :title
-            ) %>
-        <% end %>
+          <%= f.fields_for :bucket_list_adventures do |ff| %>
+            <%= ff.label :bucket_list_id, "Add to group:" %>
+            <%= ff.collection_select(
+              :bucket_list_id,
+              @bucket_lists,
+              :id,
+              :title
+              ) %>
+          <% end %>
+        </div>
 
         <%= f.label :notes, "Notes:" %>
         <%= f.text_area :notes %>

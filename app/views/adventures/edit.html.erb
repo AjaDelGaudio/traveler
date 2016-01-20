@@ -1,35 +1,39 @@
-<div class="row">
-  <div class="small-11 medium-6 columns small-centered">
+<div class="form-row">
+  <div class="form small-11 medium-6 columns small-centered">
 
     <h3 class="form-title">Edit Adventure</h3>
 
-    <div class="text-right">
+    <div class="text-right delete">
       <%= link_to (fa_icon "trash-o") + " Delete",
       adventure_path(@adventure), method: :delete %>
     </div>
 
     <%= form_for @adventure, url: edit_adventure_path(@adventure) do |f| %>
-      <%= f.label :name %>
+      <%= f.label :name, "Name:" %>
       <%= f.text_field :name %>
 
-      <%= f.label :address %>
-      <%= f.text_area :address %>
+      <div class="required-field">
+        <%= f.label :address, "Address:" %>
+        <%= f.text_area :address %>
+      </div>
 
-      <%= f.label :link %>
+      <%= f.label :link, "Link:" %>
       <%= f.text_area :link %>
 
-      <%= f.fields_for :bucket_list_adventures do |ff| %>
+      <div class="required-field">
+        <%= f.fields_for :bucket_list_adventures do |ff| %>
 
-        <%= ff.label :bucket_list_id %>
-        <%= ff.collection_select(
-          :bucket_list_id,
-          @bucket_lists,
-          :id,
-          :title
-          ) %>
-      <% end %>
-
-      <%= f.label :notes %>
+          <%= ff.label :bucket_list_id, "Group Name:" %>
+          <%= ff.collection_select(
+            :bucket_list_id,
+            @bucket_lists,
+            :id,
+            :title
+            ) %>
+        <% end %>
+      </div>
+      
+      <%= f.label :notes, "Notes:" %>
       <%= f.text_area :notes %>
 
       <div class="text-center">
@@ -40,11 +44,7 @@
         <%= f.label :is_shared, "Share it!"  %>
       </div>
 
-      <div class="small-9 columns small-centered divinding-line"></div>
-
-      <div class="form-actions text-center">
-        <%= f.submit "Save It!", class: "button round" %>
-      </div>
+        <%= f.submit "Save It!", class: "button" %>
     <% end %>
 
   </div>
