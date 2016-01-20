@@ -8,15 +8,21 @@
   </div>
 
     <div class="bucket-list">
-      <h3><%= @bucket_list.title %></h3>
-      <h6>
-        <% if @bucket_list.is_public %>
-          <%= fa_icon "eye" %> Public /
-        <% else %>
-          <%= fa_icon "eye-slash" %> Private /
-        <% end %>
-            <%= link_to "Edit", edit_bucket_list_path(@bucket_list) %>
-      </h6>
+      <%= link_to(edit_bucket_list_path(@bucket_list.id)) do %>
+        <h3><%= @bucket_list.title %></h3>
+      <% end %>
+
+      <% if @bucket_list.is_public %>
+        <p class="is-public-link">
+          <%= link_to(edit_bucket_list_path(@bucket_list.id)) do %>
+            <%= fa_icon "eye" %>
+            <%= "  Sharing"%>
+          <% end %>
+        </p>
+      <% else %>
+          <p class="is-public-link"><%= link_to "Share it!", edit_bucket_list_path(@bucket_list.id) %></p>
+      <% end %>
+
       <p><%= @bucket_list.description %></p>
     </div>
 
