@@ -337,6 +337,7 @@ div.checkboxes {
   margin: 3%;
   color: $oil;
 
+
   a {
     color: $oil;
   }
@@ -349,6 +350,7 @@ div.display-adventure h2 {
 }
 
 div.display-adventure a {
+  color: $oil;
 
   &:hover h2 {
     color: $secondary-color;
@@ -367,7 +369,7 @@ div.title-spacer {
 
 .achieved-flag-or-checkbox a {
   float: left;
-  padding-left: 2.5px;
+  padding-left: 1.5%;
 
   i {
     padding-right: 3px;
@@ -383,11 +385,12 @@ div.public-or-username {
   min-width: 15px;
   min-height: 0;
   float: right;
+  padding-right: 1.5%;
 }
 
 .public-or-username a {
   float: right;
-  padding-right: 2.5px;
+  padding-right: 1.5%;
 
   i {
     padding-right: 3px;
@@ -446,8 +449,8 @@ div.display-adventure span.edit-link {
 }
 
 div.adventure-details {
-  padding-left: 2.5px;
-  padding-right: 2.5px;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
 }
 
 p.link-to-bucket-list a {
