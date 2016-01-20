@@ -1,6 +1,6 @@
 class DropTableAdventureUsers02 < ActiveRecord::Migration
   def up
-    drop_table :adventure_users, if_exits: true
+    drop_table(:adventure_users, if_exits: true)
   end
 
   def down
