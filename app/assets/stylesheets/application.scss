@@ -540,6 +540,10 @@ div.wrap-user {
   }
 }
 
+div.form-row {
+  background: none;
+}
+
 section.display-all-public-adventures p {
   float: right;
 }
@@ -572,9 +576,10 @@ div.delete a {
   color: $oil;
   padding: .5rem;
   background: rgba(250,250,250,0.7);
+  border: 1px solid $base;
 
   &:hover {
-    color: $secondary-color;
+    background-color: $secondary-color;
     transition: all .25 ease-in-out;
   }
 }
