@@ -142,19 +142,26 @@
   }
 }
 
-.welcome {
+section.welcome p {
   font-family: sans-serif;
   text-align: center;
+  font-size: 1.4rem;
   margin-left: 0;
   margin-right: 0;
   align-self: center;
 
-  style {
+  i {
     color: $charcoal;
   }
 
-  i {
-    color: $charcoal;
+  strong {
+    font-weight: bolder;
+    color:$secondary-color;
+  }
+
+  span.feel-like-adventure {
+    color: $third-color;
+    font-weight: bolder;
   }
 }
 
