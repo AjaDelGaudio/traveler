@@ -11,7 +11,7 @@ function gmapShow(rawMarkers) {
     var markers = handler.addMarkers(rawMarkers);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
-    handler.getMap().setZoom(10);
+    handler.getMap().setZoom(8);
   });
 }
 

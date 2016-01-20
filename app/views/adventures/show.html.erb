@@ -1,13 +1,13 @@
-<div class="display-adventure small-4 medium-8  large-8 columns small-centered center-content">
+<div class="wrap page display-adventure small-4 medium-8  large-8 columns small-centered center-content">
 
   <% if @adventure.user_id == @current_user.id %>
     <%= link_to(edit_adventure_path(@adventure)) do %>
       <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
-      <h2><%= @adventure.address unless @adventure.name.nil? %></h2>
+      <h2><%= @adventure.address %></h2>
     <% end %>
   <% else %>
     <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
-    <h2><%= @adventure.address unless @adventure.name.nil? %></h2>
+    <h2><%= @adventure.address %></h2>
   <% end %>
 
   <div class="title-spacer"></div>
@@ -78,6 +78,9 @@
   <p class="adventure-notes"><%= @adventure.notes unless @adventure.notes.nil? %></p>
 
   <p class="adventure-link"><%= link_to "#{@adventure.link}", "#{@adventure.link}" unless @adventure.link.nil? %></p>
+
+  <div class="display-adventure-spacer"></div>
+
 </div>
 
 <script type="text/javascript">
