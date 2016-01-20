@@ -10,11 +10,12 @@
   <section class="welcome">
     <p class="item-count">
       <% unless @current_user.nil? %>
-        Welcome <%= @current_user.username %>!
+        Welcome <%= @current_user.username + "!  " %>
       <% end %>
-      <strong> There are <%= @adventures.count %> adventure(s) being shared!</strong>
-      <i>Explore other user's adventures or use the search bar above to find
-        exactly what you want.</i>
+      Feel like an adventure?
+      <i>Explore <strong>shared adventure ideas below</strong>, find a specific
+      adventure using the <strong>search bar above</strong>, or
+      check out the links above to <strong>create your own adventures</strong>!</i>
     </p>
   </section>
 
