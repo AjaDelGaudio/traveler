@@ -6,11 +6,11 @@
       <div>
 
         <%= f.label :name, "Adventure Name:" %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, placeholder: "Build a reed boat.." %>
 
         <div class="required-field">
-          <%= f.label :address, "Adventure Address:" %>
-          <%= f.text_area :address %>
+          <%= f.label :address, "Adventure address:" %>
+          <%= f.text_area :address, placeholder: "Lake Titicaca..." %>
 
           <%= f.fields_for :bucket_list_adventures do |ff| %>
             <%= ff.label :bucket_list_id, "Add to group:" %>
@@ -23,11 +23,13 @@
           <% end %>
         </div>
 
-        <%= f.label :notes, "Notes:" %>
-        <%= f.text_area :notes %>
-
         <%= f.label :link, "Link:" %>
-        <%= f.text_area :link %>
+        <%= f.text_area :link, placeholder: "http://wikitravel.org/en/Lake_Titicaca..." %>
+
+        <%= f.label :notes, "Notes:" %>
+        <%= f.text_area :notes, placeholder: "Highest commercially navigable" \
+        " body of water in the world.  High elevation: stay hydrated and" \
+        " drink the coca tea..." %>
 
         <div class="checkboxes">
           <%= f.check_box :is_achieved %>
