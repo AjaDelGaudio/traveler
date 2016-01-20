@@ -1,5 +1,12 @@
-<div class="row">
-  <div class="small-11 medium-6 columns small-centered">
+<div class="wrap-page small-4 medium-8  large-8 columns small-centered center-content">
+  <div class="adventures-search">
+    <%= form_tag(search_adventures_path, method: "get") do %>
+      <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
+        placeholder: "The world is your oyster... search it." %>
+      <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
+    <% end %>
+  </div>
+
     <div class="bucket-list">
       <h3><%= @bucket_list.title %></h3>
       <h6>
@@ -12,29 +19,25 @@
       </h6>
       <p><%= @bucket_list.description %></p>
     </div>
-      <ul class="no-bullet">
+
+    <section class="display-groups display-all-public-adventures">
+      <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
         <% @bucket_list.adventures.each do |adventure| %>
-          <li class="adventure">
-            <div class="small-9 columns small-centered divinding-line"></div>
-            <p><%= link_to "#{adventure.name unless adventure.name.nil?}", adventure_path(adventure.id) %></p>
-            <p><%= link_to "#{adventure.address unless adventure.name.nil?}", adventure_path(adventure.id) %></p>
-            <p>
-              <% if adventure.is_shared %>
-                <%= fa_icon "eye" %> Public /
-              <% else %>
-                <%= fa_icon "eye-slash" %> Private /
-              <% end %>
-                <%= link_to "edit adventure", edit_adventure_path(adventure.id) %>
-              <% if adventure.is_achieved %>
-                <%= link_to (fa_icon "check-square-o") + " seen it! done it!",
-                  "#", class: "achieved-toggle", id: adventure.id %>
-              <% else %>
-                <%= link_to (fa_icon "square-o") + " seen it! done it!",
-                  "#", class: "achieved-toggle", id: adventure.id %>
-              <% end %>
-            </p>
+          <li>
+            <div class="wrap-title-and-description wrap-user">
+              <h4>
+                <%= link_to(adventure_path(adventure.id)) do %>
+                  <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
+                  <%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %>
+                <% end %>
+              </h4>
+              <p>
+                <% user = adventure.user %>
+                <%= user.username %>
+              <p>
+            </div>
           </li>
         <% end %>
       </ul>
-  </div>
+    </section>
 </div>
