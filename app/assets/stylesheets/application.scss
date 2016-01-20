@@ -175,10 +175,9 @@
   padding: 1%;
 }
 
-div.wrap-title-and-description {
+div.wrap-top {
   display: inline-block;
   width: 100%;
-  font-weight: bold;
   padding: 1.5rem 2rem .5rem 2rem;
   margin: 0;
   background-color: rgba(250,250,250,0.7);
@@ -194,18 +193,27 @@ div.wrap-title-and-description {
     padding: .5rem 0rem .5rem 0rem;
   }
 
-  p.description {
-    font-weight: bold;
-    padding: 0;
-    margin: .5rem;
+}
+
+
+p#description.description.bucket-list-bloc {
+  text-align: left;
+  color: $charcoal;
+  font-style: italic;
+  padding: 1rem 0rem 0rem 0rem;
+  margin: 0;
+
+  &:hover {
+    
   }
 }
 
-div.wrap-title-and-description:hover {
+
+
+div.wrap-top:hover {
   display: inline-block;
   width: 100%;
   background-color: rgba(20, 130, 133, 0.4);
-  font-weight: bold;
   padding: 1.5rem 2rem .5rem 2rem;
   margin: 0;
   height: 250px;
@@ -216,7 +224,6 @@ div.wrap-title-and-description:hover {
     font-weight: bold;
     margin: 0;
     padding: 0;
-    display: inline-block;
     transition: all .25 ease-in-out;
   }
 
@@ -227,17 +234,14 @@ div.wrap-title-and-description:hover {
 
   p {
     color: $third-color;
-    font-weight: bold;
     margin: 0;
     padding: .5rem 0rem .5rem 0rem;
     margin: 0;
     transition: all .25 ease-in-out;
   }
-
-
 }
 
-div.wrap-is-public {
+div.wrap-bottom {
   color: $oil;
   background-color: rgba(250,250,250,0.7);
   font-size: 1rem;
@@ -253,7 +257,7 @@ div.wrap-is-public {
 }
 
 
-div.wrap-is-public:hover a {
+div.wrap-bottom:hover a {
   display: inline-block;
   width: 100%;
   font-size: 1rem;
@@ -264,7 +268,7 @@ div.wrap-is-public:hover a {
   transition: all .25 ease-in-out;
 }
 
-div.wrap-is-public:hover {
+div.wrap-bottom:hover {
   display: inline-block;
   width: 100%;
   font-size: 1rem;
@@ -341,6 +345,8 @@ div.wrap-is-public:hover {
     transition: all .25 ease-in-out;
   }
 }
+
+
 
 
 // new adventure page

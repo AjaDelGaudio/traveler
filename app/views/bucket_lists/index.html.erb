@@ -18,29 +18,29 @@
     </p>
   </section>
 
-  <section class="display-groups">
+  <section class="display-groups bucket-list-bloc">
     <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
       <% @bucket_lists.each do |bucket_list| %>
-        <li>
-          <div class="wrap-title-and-description">
-            <%= link_to(bucket_list_path(bucket_list.id)) do %>
+        <%= link_to(bucket_list_path(bucket_list.id)) do %>
+          <li>
+            <div class="wrap-top bucket-list-bloc">
               <h4><%= bucket_list.title %></h4>
-              <p class="description"><%= bucket_list.description %></p>
+              <p class="description bucket-list-bloc" id="description"><%= bucket_list.description %></p>
+            </div>
+            <%= link_to(edit_bucket_list_path(bucket_list.id)) do %>
+              <div class="wrap-bottom tiny-button bucket-list-bloc">
+                <p class="is-public-link bucket-list-bloc">
+                  <% if bucket_list.is_public %>
+                    <%= fa_icon "eye" %>
+                    <%= "  Sharing"%>
+                  <% else %>
+                    <%= "Share it!" %>
+                  <% end %>
+                </p>
+              </div>
             <% end %>
-          </div>
-          <div class="wrap-is-public tiny-button">
-            <% if bucket_list.is_public %>
-              <p class="is-public-link">
-                <%= link_to(edit_bucket_list_path(bucket_list.id)) do %>
-                  <%= fa_icon "eye" %>
-                  <%= "  Sharing"%>
-                <% end %>
-              </p>
-            <% else %>
-                <p class="is-public-link"><%= link_to "Share it!", edit_bucket_list_path(bucket_list.id) %></p>
-            <% end %>
-          </div>
-        </li>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </section>

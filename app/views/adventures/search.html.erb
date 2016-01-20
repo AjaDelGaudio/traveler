@@ -13,13 +13,13 @@
         <% @adventures.each do |adventure| %>
           <%= link_to(adventure_path(adventure.id)) do %>
             <li>
-              <div class="wrap-title-and-description wrap-user">
+              <div class="wrap-top wrap-user">
                 <h4>
                   <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
                   <%= link_to adventure.address, adventure_path(adventure.id) %>
                 </h4>
               </div>
-              <div class="wrap-is-public tiny-button">
+              <div class="wrap-bottom tiny-button">
                 <p>
                   <% user = adventure.user %>
                   <%= user.username %>

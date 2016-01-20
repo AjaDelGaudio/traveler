@@ -28,20 +28,22 @@
     <section class="display-groups display-all-public-adventures">
       <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
         <% @bucket_list.adventures.each do |adventure| %>
-          <li>
-            <div class="wrap-title-and-description wrap-user">
-              <h4>
-                <%= link_to(adventure_path(adventure.id)) do %>
-                  <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
-                  <%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %>
-                <% end %>
-              </h4>
-              <p>
-                <% user = adventure.user %>
-                <%= user.username %>
-              <p>
-            </div>
-          </li>
+          <%= link_to(adventure_path(adventure.id)) do %>
+            <li>
+              <div class="wrap-top wrap-user">
+                <h4>
+                    <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
+                    <%= link_to adventure.address, adventure_path(adventure.id) %>
+                </h4>
+              </div>
+              <div class="wrap-bottom">
+                <p>
+                  <% user = adventure.user %>
+                  <%= user.username %>
+                <p>
+              </div>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </section>
