@@ -83,3 +83,7 @@ production:
   database: traveler_production
   username: traveler
   password: <%= ENV['TRAVELER_DATABASE_PASSWORD'] %>
+
+production:
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
