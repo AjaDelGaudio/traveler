@@ -27,8 +27,8 @@ feature "user edits adventure", %(
     )
 
     visit edit_adventure_path(adventure)
-    fill_in "Name", with: "feed fish while snorkeling"
-    fill_in "Address", with: "Fiji"
+    fill_in "Adventure name:", with: "feed fish while snorkeling"
+    fill_in "Adventure address:", with: "Fiji"
     fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
     fill_in "Link", with: "http://wikitravel.org/en/Jinja"
     checkbox_achieved = find_by_id("adventure_is_achieved")
@@ -40,7 +40,7 @@ feature "user edits adventure", %(
     expect(checkbox_achieved).to be_checked
     expect(checkbox_shared).to be_checked
     expect(page).to have_content("Changes saved!")
-    expect(page).not_to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Address can't be blank")
   end
 
   scenario "authenticated user successfully edits an adventure's bucket list" do
@@ -60,11 +60,11 @@ feature "user edits adventure", %(
     )
 
     visit edit_adventure_path(adventure)
-    select "Second Bucket List", from: "Bucket list"
+    select "Second Bucket List", from: "Add to group:"
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")
-    expect(page).not_to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Address can't be blank")
   end
 
   scenario "authenticated user successfully adds a link to an adventure" do
@@ -87,30 +87,7 @@ feature "user edits adventure", %(
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")
-    expect(page).not_to have_content("Must specify a name and/or address")
-  end
-
-  scenario "authenticated user successfully adds a address to an adventure" do
-    user = FactoryGirl.create(:user)
-    sign_in(user)
-    bucket_list = FactoryGirl.create(
-      :bucket_list,
-      user_id: user.id,
-      title: "Second Bucket List"
-    )
-    adventure = FactoryGirl.create(:adventure, address: nil, user_id: user.id)
-    bucket_list_adventure = FactoryGirl.create(
-      :bucket_list_adventure,
-      adventure_id: adventure.id,
-      bucket_list_id: bucket_list.id
-    )
-
-    visit edit_adventure_path(adventure)
-    fill_in "Address", with: "Spain"
-    click_button "Save It!"
-
-    expect(page).to have_content("Changes saved!")
-    expect(page).not_to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Address can't be blank")
   end
 
   scenario "authenticated user successfully adds a name to an adventure" do
@@ -129,11 +106,11 @@ feature "user edits adventure", %(
     )
 
     visit edit_adventure_path(adventure)
-    fill_in "Name", with: "Do this thing!"
+    fill_in "Adventure address:", with: "Do this thing!"
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")
-    expect(page).not_to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Address can't be blank")
   end
 
   scenario "unauthenticated user fails to edit an adventure" do
@@ -142,7 +119,7 @@ feature "user edits adventure", %(
     visit edit_adventure_path(adventure)
 
     expect(page).to have_content("You can do that after you sign in or sign up!")
-    expect(page).not_to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Address can't be blank")
     expect(page).not_to have_content("Changes saved!")
   end
 
@@ -162,36 +139,12 @@ feature "user edits adventure", %(
     )
 
     visit edit_adventure_path(adventure)
-    fill_in "Name", with: ""
-    fill_in "Address", with: "Fiji"
+    fill_in "Adventure name:", with: ""
+    fill_in "Adventure address:", with: "Fiji"
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")
-    expect(page).not_to have_content("Must specify a name and/or address")
-  end
-
-  scenario "authenticated user successfully removes adventure address attribute" do
-    user = FactoryGirl.create(:user)
-    sign_in(user)
-    bucket_list = FactoryGirl.create(
-      :bucket_list,
-      user_id: user.id,
-      title: "Second Bucket List"
-    )
-    adventure = FactoryGirl.create(:adventure, user_id: user.id)
-    bucket_list_adventure = FactoryGirl.create(
-      :bucket_list_adventure,
-      adventure_id: adventure.id,
-      bucket_list_id: bucket_list.id
-    )
-
-    visit edit_adventure_path(adventure)
-    fill_in "Name", with: "Eat tacos"
-    fill_in "Address", with: ""
-    click_button "Save It!"
-
-    expect(page).to have_content("Changes saved!")
-    expect(page).not_to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Address can't be blank")
   end
 
   # scenario "authenticated user fails to edit an adventure" do
@@ -212,7 +165,7 @@ feature "user edits adventure", %(
   #   find(:css, "textarea[id$='adventure_address']").set("")
   #   click_button "Save It!"
   #
-  #   expect(page).to have_content("Must specify a name and/or address")
+  #   expect(page).to have_content("Address can't be blank")
   #   expect(page).not_to have_content("Changes saved!")
   # end
 end

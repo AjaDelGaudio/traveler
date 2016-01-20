@@ -10,18 +10,18 @@
     </div>
 
     <%= form_for @adventure, url: edit_adventure_path(@adventure) do |f| %>
-      <%= f.label :name, "Name:" %>
+      <%= f.label :name, "Adventure name:" %>
       <%= f.text_field :name, placeholder: "Build a reed boat.." %>
 
       <div class="required-field">
-        <%= f.label :address, "Address:" %>
+        <%= f.label :address, "Adventure address:" %>
         <%= f.text_area :address, placeholder: "Lake Titicaca..."  %>
       </div>
 
       <div class="required-field">
         <%= f.fields_for :bucket_list_adventures do |ff| %>
 
-          <%= ff.label :bucket_list_id, "Group Name:" %>
+          <%= ff.label :bucket_list_id, "Add to group:" %>
           <%= ff.collection_select(
             :bucket_list_id,
             @bucket_lists,
@@ -49,6 +49,9 @@
 
         <%= f.submit "Save It!", class: "button" %>
     <% end %>
-
+    <div class="button small-button text-center small-centered cancel">
+      <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
+      bucket_lists_path %>
+    </div>
   </div>
 </div>

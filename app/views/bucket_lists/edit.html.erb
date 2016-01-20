@@ -12,7 +12,7 @@
     <%= form_for @bucket_list, url: edit_bucket_list_path(@bucket_list) do |f| %>
 
       <div class="required-field">
-        <%= f.label :title, "Title: " %>
+        <%= f.label :title, "Group title: " %>
         <%= f.text_field :title, placeholder: "Peru 2016..." %>
       </div>
 
@@ -29,6 +29,9 @@
         <%= f.submit "Save It!", class: "button" %>
       </div>
     <% end %>
-
+    <div class="button small-button text-center cancel">
+      <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
+      bucket_list_path(@bucket_list) %>
+    </div>
   </div>
 </div>

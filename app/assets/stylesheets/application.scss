@@ -646,6 +646,8 @@ section.display-all-public-adventures h4 {
 }
 
 
+
+
 // devise
 
 a.devise-link {
@@ -676,6 +678,27 @@ div.required-field label {
   font-weight: bold;
   color: $oil;
 }
+
+div.cancel {
+  color: $oil;
+  background-color: $small-button-color;
+
+  margin-left: 42.5%;
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+
+  a {
+    color: inherit;
+  }
+
+  &:hover {
+    color: inherit;
+    background-color: $secondary-transparent-color;
+    transition: all .25 ease-in-out;
+  }
+}
+
+
 
 
 // bucket list show

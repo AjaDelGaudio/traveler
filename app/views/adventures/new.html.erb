@@ -5,7 +5,7 @@
     <%= form_for @adventure do |f| %>
       <div>
 
-        <%= f.label :name, "Adventure Name:" %>
+        <%= f.label :name, "Adventure name:" %>
         <%= f.text_field :name, placeholder: "Build a reed boat.." %>
 
         <div class="required-field">
@@ -41,7 +41,10 @@
       </div>
 
         <%= f.submit "Toss it in!", class: "button" %>
-
     <% end %>
+    <div class="button small-button text-center cancel">
+      <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
+      bucket_lists_path %>
+    </div>
   </div>
 </div>
