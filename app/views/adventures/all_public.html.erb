@@ -2,7 +2,7 @@
   <div class="adventures-search">
     <%= form_tag(search_adventures_path, method: "get") do %>
       <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
-      placeholder: "The world is your oyster... explore it." %>
+      placeholder: "The world is your oyster..." %>
       <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
     <% end %>
   </div>

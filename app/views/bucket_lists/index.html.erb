@@ -2,18 +2,18 @@
   <div class="adventures-search">
     <%= form_tag(search_adventures_path, method: "get") do %>
       <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
-        placeholder: "The world is your oyster... search it." %>
+        placeholder: "The world is your oyster..." %>
       <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
     <% end %>
   </div>
 
   <section class="welcome">
     <p class="item-count">
-      Hi <strong><%= @username %></strong>, you have 
-      <b><%= @bucket_lists.count %> groups </b>
+      Hi <span><%= @username %></span>, you have
+      <strong><%= @bucket_lists.count %> group(s) </strong>
       and <strong><%= @adventures.count %> adventure(s)</strong> total!
-      <i>  Browse <strong>your groups below</strong> or use the <strong>search bar
-      above</strong> to find specific adventures.</i>
+      <i>  Browse <strong>your groups below</strong> or find specific adventures
+      using the <strong>search bar above</strong>.</i>
     </p>
   </section>
 
