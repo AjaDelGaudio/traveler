@@ -135,7 +135,8 @@
     border-color: $base;
 
     &:hover {
-      background-color: $secondary-transparent-color;
+      background-color: $third-color;
+      color: $oil;
       transition: all .25 ease-in-out;
     }
   }
