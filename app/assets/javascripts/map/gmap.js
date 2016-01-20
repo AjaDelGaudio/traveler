@@ -1,5 +1,3 @@
-// var geocoder;
-//
 function gmapShow(rawMarkers) {
   var mapOptions = { mapTypeId: google.maps.MapTypeId.HYBRID };
   var handler = Gmaps.build('Google');
