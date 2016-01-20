@@ -7,23 +7,25 @@
     <% end %>
   </div>
 
-    <div class="bucket-list">
-      <%= link_to(edit_bucket_list_path(@bucket_list.id)) do %>
-        <h3><%= @bucket_list.title %></h3>
-      <% end %>
+  <div class="show-bucket-list">
+    <%= link_to(edit_bucket_list_path(@bucket_list.id)) do %>
+
+      <h3><%= @bucket_list.title %></h3>
+
+      <p class="is-public-link">
         <% if @bucket_list.is_public %>
-          <p class="is-public-link">
-            <%= link_to(edit_bucket_list_path(@bucket_list.id)) do %>
-              <%= fa_icon "eye" %>
-              <%= "  Sharing"%>
-            <% end %>
-          </p>
+          <%= fa_icon "eye" %>
+          <%= "  Sharing"%>
         <% else %>
-            <p class="is-public-link"><%= link_to "Share it!", edit_bucket_list_path(@bucket_list.id) %></p>
+          <%= "Share it!"%>
         <% end %>
+      </p>
+
       <span class="button small-button"> Edit </span>
-      <p><%= @bucket_list.description %></p>
-    </div>
+
+    <% end %>
+
+    <p><%= @bucket_list.description %></p>
 
     <section class="display-groups display-all-public-adventures">
       <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
@@ -32,11 +34,11 @@
             <li>
               <div class="wrap-top wrap-user">
                 <h4>
-                    <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
-                    <%= link_to adventure.address, adventure_path(adventure.id) %>
+                  <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
+                  <%= link_to adventure.address, adventure_path(adventure.id) %>
                 </h4>
               </div>
-              <div class="wrap-bottom">
+              <div class="wrap-bottom tiny-button">
                 <p>
                   <% user = adventure.user %>
                   <%= user.username %>
@@ -47,4 +49,6 @@
         <% end %>
       </ul>
     </section>
+  </div>
+
 </div>
