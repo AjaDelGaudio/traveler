@@ -1,5 +1,5 @@
 class BucketListsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :index, :edit]
+  before_action :authenticate_user!, only: [:create, :new, :index, :edit]
 
   def index
     @username = current_user.username
