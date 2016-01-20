@@ -60,7 +60,10 @@
     <% end %>
   </div>
 
-<div class="map-spacer"></div>
+  <% unless @adventure.user_id != @current_user.id %>
+    <div class="map-spacer"></div>
+  <% end %>
+
   <div class="map-container">
       <div class="map-canvas" id="map-canvas"></div>
   </div>
