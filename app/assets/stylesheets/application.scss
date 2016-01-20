@@ -89,12 +89,12 @@
       letter-spacing: 1px;
 
       &:hover {
-        color: $secondary-color;
+        color: $third-color;
         transition: all .25s ease-in-out;
       }
 
       &.is-active {
-        background-color: $white;
+        background-color: $white-smoke;
         color: $third-color;
       }
     }
@@ -133,6 +133,10 @@
     width: 13rem;
     margin-left: -.599rem;
     border-color: $base;
+
+    &:hover {
+      background-color: $third-color;
+    }
   }
 }
 
@@ -184,6 +188,7 @@ div.wrap-title-and-description {
   p.description {
     margin: 0;
   }
+
 }
 
 div.wrap-title-and-description:hover a {
@@ -195,9 +200,24 @@ div.wrap-title-and-description:hover {
   display: inline-block;
   width: 100%;
   background-color: rgba(20, 130, 133, 0.4);
-  h4 {
+  margin: 0;
+  padding: 0;
+  height: 250px;
+
+  a {
     color: $third-color;
+    margin: 0;
+    padding:0;
+    display: inline-block;
   }
+
+  p {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+
+
 }
 
 div.wrap-is-public {
@@ -223,9 +243,9 @@ div.wrap-is-public:hover a {
   margin-bottom: 0;
   padding-top: .6rem;
   padding-bottom: .1rem;
-  color: $black;
+  color: $third-color;
   font-weight: bold;
-
+  height: 50px;
 }
 
 div.wrap-is-public:hover {
@@ -235,14 +255,15 @@ div.wrap-is-public:hover {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 0;
+  font-weight: bold;
+  text-align: center;
 }
 
 .display-groups {
-  font-family: sans-serif;
   margin: 3%;
 
   a {
-    color: black;
+    color: $oil;
   }
 
   li h4 {
@@ -251,15 +272,43 @@ div.wrap-is-public:hover {
   }
 }
 
-span.tiny-button {
+.tiny-button {
+  display: inline-block;
+  width: 100%;
   color: $oil;
   text-align: right;
+  margin: 0;
+  padding-top: .6rem;
+  padding-bottom: .1rem;
+  font-size: 1rem;
+  height: 50px;
+
+  &:hover p {
+    display: inline-block;
+    width: 100%;
+    color: $oil;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0;
+    padding-top: .6rem;
+    padding-bottom: .1rem;
+    height: 50px;
+  }
+
+  &:hover a {
+    display: inline-block;
+    width: 100%;
+    color: $third-color;
+    text-align: right;
+    font-size: 1rem;
+    margin: 0;
+    padding-top: .6rem;
+    padding-bottom: .1rem;
+    height: 50px;
+  }
 }
 
-p.tiny-button {
-  margin: 0;
-  padding: 0;
-}
 
 .button {
   padding-top: .5rem;
@@ -272,7 +321,7 @@ p.tiny-button {
   color: $black;
 
   &:hover {
-    background-color: rgba(223, 25, 173, 0.55);
+    background-color: $third-color;
     color: $black;
     font-weight: bold;
     transition: all .25 ease-in-out;
@@ -324,7 +373,7 @@ div.checkboxes {
   input {
     width: 1rem;
     height: 1rem;
-    background-color: $white;
+    background-color: $white-smoke;
     margin-bottom: 0;
     padding-margin: px;
   }
@@ -477,12 +526,12 @@ p.adventure-link {
 
 p.adventure-link a {
   text-decoration: underline;
-  color: blue;
+  color: $third-color;
   padding: 0;
   margin: 0;
 
   &:hover {
-    color: $third-color;
+    color: $secondary-color;
     transition: all .25 ease-in-out;
   }
 
