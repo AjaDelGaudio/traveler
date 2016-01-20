@@ -18,6 +18,7 @@ gem 'pry'
 gem 'pry-rails'
 gem 'pg_search'
 gem 'gmaps4rails', '2.1.2'
+gem "rack-timeout"
 
 
 group :development, :test do
