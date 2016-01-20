@@ -1,30 +1,35 @@
+<div class="form-row-black"></div>
 <div class="form-row">
   <div class="form small-11 medium-6 columns small-centered">
 
     <%= form_for @adventure do |f| %>
       <div>
 
-        <%= f.label :name, "Adventure Name:" %>
-        <%= f.text_field :name %>
+        <%= f.label :name, "Adventure name:" %>
+        <%= f.text_field :name, placeholder: "Build a reed boat.." %>
 
-        <%= f.label :address, "Adventure Address:" %>
-        <%= f.text_area :address %>
+        <div class="required-field">
+          <%= f.label :address, "Adventure address:" %>
+          <%= f.text_area :address, placeholder: "Lake Titicaca..." %>
 
-        <%= f.fields_for :bucket_list_adventures do |ff| %>
-          <%= ff.label :bucket_list_id, "Add to group:" %>
-          <%= ff.collection_select(
-            :bucket_list_id,
-            @bucket_lists,
-            :id,
-            :title
-            ) %>
-        <% end %>
-
-        <%= f.label :notes, "Notes:" %>
-        <%= f.text_area :notes %>
+          <%= f.fields_for :bucket_list_adventures do |ff| %>
+            <%= ff.label :bucket_list_id, "Add to group:" %>
+            <%= ff.collection_select(
+              :bucket_list_id,
+              @bucket_lists,
+              :id,
+              :title
+              ) %>
+          <% end %>
+        </div>
 
         <%= f.label :link, "Link:" %>
-        <%= f.text_area :link %>
+        <%= f.text_area :link, placeholder: "http://wikitravel.org/en/Lake_Titicaca..." %>
+
+        <%= f.label :notes, "Notes:" %>
+        <%= f.text_area :notes, placeholder: "Highest commercially navigable" \
+        " body of water in the world.  High elevation: stay hydrated and" \
+        " drink the coca tea..." %>
 
         <div class="checkboxes">
           <%= f.check_box :is_achieved %>
@@ -36,7 +41,10 @@
       </div>
 
         <%= f.submit "Toss it in!", class: "button" %>
-
     <% end %>
+    <div class="button small-button text-center cancel">
+      <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
+      bucket_lists_path %>
+    </div>
   </div>
 </div>

@@ -20,11 +20,11 @@ feature "authenticated user creates a an adventure using google maps", %(
     sign_in(user)
 
     visit new_adventure_path
-    fill_in "Adventure Address:", with: "Paris, France"
+    fill_in "Adventure address:", with: "Paris, France"
     click_button "Toss it in!"
 
     expect(page).to have_content("Excellent!  Another adventure awaits!")
-    expect(page).not_to have_content("Must specify a name and/or address")
+    expect(page).not_to have_content("Address can't be blank")
   end
 
   scenario "authenticated user fails to add an adventure to an " +
@@ -34,11 +34,11 @@ feature "authenticated user creates a an adventure using google maps", %(
     sign_in(user)
 
     visit new_adventure_path
-    fill_in "Name:", with: nil
-    fill_in "Adventure Address:", with: nil
+    fill_in "Adventure name:", with: nil
+    fill_in "Adventure address:", with: nil
     click_button "Toss it in!"
 
-    expect(page).to have_content("Must specify a name and/or address")
+    expect(page).to have_content("Address can't be blank")
     expect(page).not_to have_content("Excellent!  Another adventure awaits!")
   end
 end

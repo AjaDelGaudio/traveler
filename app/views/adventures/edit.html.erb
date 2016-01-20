@@ -1,36 +1,43 @@
-<div class="row">
-  <div class="small-11 medium-6 columns small-centered">
+<div class="form-row-black"></div>
+<div class="form-row">
+  <div class="form small-11 medium-6 columns small-centered">
 
     <h3 class="form-title">Edit Adventure</h3>
 
-    <div class="text-right">
+    <div class="text-right delete">
       <%= link_to (fa_icon "trash-o") + " Delete",
       adventure_path(@adventure), method: :delete %>
     </div>
 
     <%= form_for @adventure, url: edit_adventure_path(@adventure) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.label :name, "Adventure name:" %>
+      <%= f.text_field :name, placeholder: "Build a reed boat.." %>
 
-      <%= f.label :address %>
-      <%= f.text_area :address %>
+      <div class="required-field">
+        <%= f.label :address, "Adventure address:" %>
+        <%= f.text_area :address, placeholder: "Lake Titicaca..."  %>
+      </div>
 
-      <%= f.label :link %>
-      <%= f.text_area :link %>
+      <div class="required-field">
+        <%= f.fields_for :bucket_list_adventures do |ff| %>
 
-      <%= f.fields_for :bucket_list_adventures do |ff| %>
+          <%= ff.label :bucket_list_id, "Add to group:" %>
+          <%= ff.collection_select(
+            :bucket_list_id,
+            @bucket_lists,
+            :id,
+            :title
+            ) %>
+        <% end %>
+      </div>
 
-        <%= ff.label :bucket_list_id %>
-        <%= ff.collection_select(
-          :bucket_list_id,
-          @bucket_lists,
-          :id,
-          :title
-          ) %>
-      <% end %>
+      <%= f.label :link, "Link:" %>
+      <%= f.text_area :link, placeholder: "http://wikitravel.org/en/Lake_Titicaca..."  %>
 
-      <%= f.label :notes %>
-      <%= f.text_area :notes %>
+      <%= f.label :notes, "Notes:" %>
+      <%= f.text_area :notes, placeholder: "Highest commercially navigable" \
+      " body of water in the world.  High elevation: stay hydrated and" \
+      " drink the coca tea..." %>
 
       <div class="text-center">
         <%= f.check_box :is_achieved %>
@@ -40,12 +47,11 @@
         <%= f.label :is_shared, "Share it!"  %>
       </div>
 
-      <div class="small-9 columns small-centered divinding-line"></div>
-
-      <div class="form-actions text-center">
-        <%= f.submit "Save It!", class: "button round" %>
-      </div>
+        <%= f.submit "Save It!", class: "button" %>
     <% end %>
-
+    <div class="button small-button text-center small-centered cancel">
+      <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
+      bucket_lists_path %>
+    </div>
   </div>
 </div>

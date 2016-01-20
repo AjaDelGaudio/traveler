@@ -26,7 +26,6 @@
     float: right;
     margin-top: -4rem;
     margin-right: -2rem;
-    // font-family: sans-serif;
   }
 
   section ul a {
@@ -48,8 +47,9 @@
     padding: 3rem;
     margin-left: 2rem;
   }
+
   .main-header a {
-    color: $black;
+    color: $oil;
     background: rgba(250,250,250,0.7);
     padding: 1rem;
     margin-top: 10rem;
@@ -71,6 +71,8 @@
   text-align: center;
   font-family: courier, sans-serif;
   margin-bottom: 0;
+  margin-left: 10%;
+  margin-right: 10%;
 
   li {
     float: none;
@@ -80,19 +82,20 @@
     a {
       padding: 0.9rem 1rem 0.75rem;
       font-size: 1rem;
-      color: $black;
+      color: $oil;
       text-transform: uppercase;
       display: block;
       font-weight: bold;
       letter-spacing: 1px;
+      height: 51px;
 
       &:hover {
-        color: $secondary-color;
+        color: $third-color;
         transition: all .25s ease-in-out;
       }
 
       &.is-active {
-        background-color: $white;
+        background-color: $white-smoke;
         color: $third-color;
       }
     }
@@ -103,15 +106,27 @@
   }
 }
 
+.center-content {
+  clear: both;
+  float: none;
+  width: 84%;
+  margin-left: 8%;
+  margin-right: 8%;
+  padding: 0;
+  align-content: center;
+}
+
 .adventures-search {
   width: 70%;
-  margin-left: 20%;
-  margin-right: 0;
+  margin-left: 15%;
+  margin-right: 15%;
+  align-content: center;
 
   input {
     width: 60%;
     height: 3rem;
     display: inline-block;
+    margin-left: 8%;
   }
 
   a .button {
@@ -119,107 +134,175 @@
     width: 13rem;
     margin-left: -.599rem;
     border-color: $base;
+
+    &:hover {
+      background-color: $third-color;
+      color: $oil;
+      transition: all .25 ease-in-out;
+    }
   }
 }
 
-.welcome {
+section.welcome p {
   font-family: sans-serif;
-  width: 80%;
-  text-align: left;
-  margin-left: 10%;
-  margin-right: 10%;
+  text-align: center;
+  font-size: 1.4rem;
+  margin-left: 0;
+  margin-right: 0;
   align-self: center;
-  style {
-    color: $charcoal;
-  }
 
   i {
     color: $charcoal;
+  }
+
+  strong {
+    font-weight: bolder;
+    color:$secondary-color;
+  }
+
+  span {
+    color: $third-color;
+    font-weight: bolder;
   }
 }
 
 // bucket-list index page
 
+.display-groups {
+  margin: 0;
+  padding: 0;
+}
+
 .grid-groups li {
   @include block-grid(
-    $per-row: 5,
+    $per-row: 4,
     $spacing: $block-grid-default-spacing,
     $base-style: true
   );
 
-  margin: 1%;
+  margin: 0;
+  padding: 1%;
 }
 
-div.wrap-title-and-description {
+div.wrap-top {
+  display: inline-block;
+  width: 100%;
   padding: 1.5rem 2rem .5rem 2rem;
   margin: 0;
   background-color: rgba(250,250,250,0.7);
+  height: 250px;
 
   h4 {
-    font-weight: bolder;
-    color: $secondary-color;
-  }
-
-  p.description {
+    font-weight: bold;
+    padding: 0;
     margin: 0;
   }
+
+  h4 a {
+    padding: .5rem 0rem .5rem 0rem;
+  }
+
 }
 
-div.wrap-title-and-description:hover a {
-  display: inline-block;
-  width: 100%;
+p#description.description.bucket-list-bloc {
+  text-align: left;
+  color: $charcoal;
+  font-style: italic;
+  padding: 1rem 0rem 0rem 0rem;
+  margin: 0;
 }
 
-div.wrap-title-and-description:hover {
+div.wrap-top:hover {
   display: inline-block;
   width: 100%;
   background-color: rgba(20, 130, 133, 0.4);
+  padding: 1.5rem 2rem .5rem 2rem;
+  margin: 0;
+  height: 250px;
+  transition: all .25 ease-in-out;
+
   h4 {
     color: $third-color;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    transition: all .25 ease-in-out;
+  }
+
+  h4 a {
+    padding: .5rem 0rem .5rem 0rem;
+    transition: all .25 ease-in-out;
+  }
+
+  p {
+    color: $third-color;
+    margin: 0;
+    padding: .5rem 0rem .5rem 0rem;
+    margin: 0;
+    transition: all .25 ease-in-out;
+  }
+
+  p#description.description.bucket-list-bloc {
+    color: $third-color;
+    padding: 1rem 0rem 0rem 0rem;
+    margin: 0;
+    transition: all .25 ease-in-out;
   }
 }
 
-div.wrap-is-public {
-  padding: .6rem 2rem 1.5rem 2rem;
+div.wrap-bottom {
+  color: $oil;
   background-color: rgba(250,250,250,0.7);
-  font-size: 5rem;
-  margin-top: 0;
-  margin-bottom: 0;
+  font-size: 1rem;
+  padding: .6rem 2rem 1.5rem 2rem;
+  margin: 0;
 
   p.is-public-link {
-    margin-bottom: 0;
     padding-bottom: 0;
-    font-size: .9rem;
+    margin-bottom: 0;
+    font-size: 1rem;
     text-align: right;
   }
 }
 
-
-div.wrap-is-public:hover a {
+div.wrap-bottom:hover p {
   display: inline-block;
   width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: .6rem;
-  padding-bottom: .1rem;
+  font-size: 1rem;
   color: $third-color;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  transition: all .25 ease-in-out;
 }
 
-div.wrap-is-public:hover {
+div.wrap-bottom:hover a {
   display: inline-block;
   width: 100%;
+  font-size: 1rem;
+  color: $third-color;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  transition: all .25 ease-in-out;
+}
+
+div.wrap-bottom:hover {
+  display: inline-block;
+  width: 100%;
+  font-size: 1rem;
+  color: $third-color;
   background-color: rgba(20, 130, 133, 0.4);
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 0;
+  padding: .6rem 2rem 1.5rem 2rem;
+  margin: 0;
+  transition: all .25 ease-in-out;
 }
 
 .display-groups {
-  font-family: sans-serif;
   margin: 3%;
 
   a {
-    color: black;
+    color: $oil;
   }
 
   li h4 {
@@ -228,15 +311,41 @@ div.wrap-is-public:hover {
   }
 }
 
-span.tiny-button {
+.tiny-button {
+  display: inline-block;
+  width: 100%;
   color: $oil;
   text-align: right;
+  padding: .6rem 0rem .1rem 0rem;
+  margin: 0;
+  font-size: 1rem;
+  height: 50px;
+
+  &:hover p {
+    display: inline-block;
+    width: 100%;
+    color: $oil;
+    text-align: right;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    transition: all .25 ease-in-out;
+  }
+
+  &:hover a {
+    display: inline-block;
+    width: 100%;
+    color: $third-color;
+    text-align: right;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    transition: all .25 ease-in-out;
+  }
 }
 
-p.tiny-button {
-  margin: 0;
-  padding: 0;
-}
 
 .button {
   padding-top: .5rem;
@@ -246,25 +355,40 @@ p.tiny-button {
   text-align: center;
   border-width: 1px;
   border-color: $base;
-  color: $black;
+  color: $oil;
 
   &:hover {
-    background-color: rgba(223, 25, 173, 0.55);
-    color: $black;
+    background-color: $third-color;
+    color: $oil;
     font-weight: bold;
     transition: all .25 ease-in-out;
   }
 }
 
 
+
+
 // new adventure page
 
-.form-row {
-  margin-top: 3%;
+body div.form-row-black {
+  background-color: $oil;
+  height: 1rem;
+  width: 100%;
+  padding: .5rem 0rem .5rem 0rem;
+  margin: 0;
+}
+
+body div.form-row {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  background: image-url('jungle-bridge-transparent.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
 }
 
 .form {
-  background-color: rgba(20, 130, 133, 0.1);
+  background-color: rgba(250,250,250,0.7);
   padding: 2rem;
 
   label {
@@ -283,10 +407,12 @@ p.tiny-button {
   margin-right: 37.7%;
   margin-bottom: 0;
   margin-top: .75rem;
+  text-align: center;
 }
 
-.checkboxes {
+div.checkboxes {
   text-align: center;
+  line-height: 1.5rem;
 
   label {
     font-size: 1rem;
@@ -295,13 +421,10 @@ p.tiny-button {
   input {
     width: 1rem;
     height: 1rem;
-    background-color: $white;
+    background-color: $white-smoke;
     margin-bottom: 0;
+    padding-margin: px;
   }
-}
-
-div.checkboxes.bucket-list-wrap-is-public {
-  line-height: 1.5rem;
 }
 
 
@@ -310,29 +433,21 @@ div.checkboxes.bucket-list-wrap-is-public {
 .display-adventure {
   margin: 3%;
   color: $oil;
-
-  a {
-    color: $oil;
-  }
 }
 
 div.display-adventure h2 {
   text-align: center;
-  color: $third-color;
+  color: $oil;
   font-weight: bold;
+
+  &:hover a {
+    color: $secondary-color;
+    transition: all .25 ease-in-out;
+  }
 }
 
-
-
 div.display-adventure a {
-
-  &:hover h2 {
-    color: $secondary-color;
-  }
-
-  &:hover p.edit-link {
-    color: $secondary-color;
-  }
+  color: $oil;
 }
 
 div.title-spacer {
@@ -341,7 +456,7 @@ div.title-spacer {
 
 .achieved-flag-or-checkbox a {
   float: left;
-  padding-left: 2.5px;
+  padding-left: 1.5%;
 
   i {
     padding-right: 3px;
@@ -349,12 +464,20 @@ div.title-spacer {
 
   &:hover {
     color: $secondary-color;
+    transition: all .25 ease-in-out;
   }
+}
+
+div.public-or-username {
+  min-width: 15px;
+  min-height: 0;
+  float: right;
+  padding-right: 1.5%;
 }
 
 .public-or-username a {
   float: right;
-  padding-right: 2.5px;
+  padding-right: 1.5%;
 
   i {
     padding-right: 3px;
@@ -362,6 +485,7 @@ div.title-spacer {
 
   &:hover {
     color: $secondary-color;
+    transition: all .25 ease-in-out;
   }
 }
 
@@ -369,18 +493,30 @@ p.is-public-link {
   margin: 0;
 }
 
-div.display-adventure span.edit-link {
+p.is-achieved-link {
+  margin: 0;
+}
+
+.is-achieved-link i {
+  padding-right: 2.5px;
+}
+
+
+.small-button {
   text-align: center;
-  color: $oil;
   font-weight: bold;
-  margin-left: 2.5px;
-  margin-bottom: 0;
+  color: $oil;
+  padding: .5rem;
+  background-color: $small-button-color;
+  border: 1px solid $base;
 
   &:hover {
-    background-color: $oil;
-    color: $primary-color;
+    background-color: $secondary-transparent-color;
+    color: $oil;
+    transition: all .25 ease-in-out;
   }
 }
+
 
 .map-spacer {
   padding-top: 8px;
@@ -391,37 +527,31 @@ div.display-adventure span.edit-link {
   height: 400px;
   border-color: $oil;
   border-style: solid;
-  box-shadow: 2px 2px 10px $black;
+  box-shadow: 2px 2px 10px $oil;
   margin-top: 25px;
   border-width: 9px;
 }
 
 #map-canvas {
   height: 384px;
-  width: 100%;
-}
-
-#map-canvas-multi-markers {
-  height: 384px;
-  width: 100%;
+  width: 100.05%;
+  background-size: cover;
 }
 
 div.adventure-details {
-  padding-left: 2.5px;
-  padding-right: 2.5px;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
 }
 
-p.link-to-bucket-list a {
-  font-family: courier;
-  color: $third-color;
-  float: right;
-  padding: 0;
-  margin: 0;
+div.display-adventure span.small-button {
+  margin-left: 2.5px;
+  margin-bottom: 0;
+}
 
-  &:hover {
-    font-weight: bold;
-    color: $secondary-color;
-  }
+div.display-adventure a.small-button {
+  font-family: courier;
+  float: right;
+  clear: both;
 }
 
 div.display-adventure-spacer {
@@ -433,7 +563,7 @@ div.display-adventure-spacer {
 
 p.adventure-notes {
   font-size: 1.2rem;
-  margin-top: 15px;
+  margin-top: 45px;
   margin-bottom: 15px;
 }
 
@@ -450,6 +580,7 @@ p.adventure-link a {
 
   &:hover {
     color: $secondary-color;
+    transition: all .25 ease-in-out;
   }
 
   &.is-active {
@@ -458,7 +589,152 @@ p.adventure-link a {
 }
 
 
+// new bucket list
 
+form.button#new-bucket-list-submit {
+  margin: 0;
+}
+
+
+// search results
+
+
+
+
+
+// all_public adventures
+
+div.all-public-adventures {
+  color: $oil;
+
+  ul li {
+    height: 250px;
+  }
+}
+
+#map-canvas-multi-markers {
+  height: 384px;
+  width: 100.05%;
+}
+
+div.wrap-user {
+  display: inline-block;
+  width: 100%;
+
+  &:hover {
+    display: inline-block;
+    width: 100%;
+    transition: all .25 ease-in-out;
+  }
+}
+
+div.form-row {
+  background: none;
+}
+
+section.display-all-public-adventures p {
+  float: right;
+}
+
+section.display-all-public-adventures h4 {
+  &:hover a {
+    padding: 0;
+    margin: 0;
+    color: $third-color;
+    transition: all .25 ease-in-out;
+  }
+}
+
+
+
+
+// devise
+
+a.devise-link {
+  color: $secondary-color;
+
+  &:hover {
+    color: $third-color;
+    transition: all .25 ease-in-out;
+  }
+}
+
+
+// edit pages
+
+div.delete a {
+  color: $oil;
+  padding: .5rem;
+  background: rgba(250,250,250,0.7);
+  border: 1px solid $base;
+
+  &:hover {
+    background-color: $secondary-color;
+    transition: all .25 ease-in-out;
+  }
+}
+
+div.required-field label {
+  font-weight: bold;
+  color: $oil;
+}
+
+div.cancel {
+  color: $oil;
+  background-color: $small-button-color;
+
+  margin-left: 42.5%;
+  margin-top: 15px;
+  margin-bottom: 0;
+
+  a {
+    color: inherit;
+  }
+
+  &:hover {
+    color: inherit;
+    background-color: $secondary-transparent-color;
+    transition: all .25 ease-in-out;
+  }
+}
+
+#new-bucket-list-submit {
+  margin-left: 41.7%;
+}
+
+
+
+
+// bucket list show
+
+div.show-bucket-list {
+  text-align: center;
+}
+
+div.show-bucket-list h3 {
+  color: $oil;
+  font-weight: bold;
+}
+
+div.show-bucket-list p.descripton {
+  color: $steel;
+  font-style: italic;
+  align-self: center;
+}
+
+div.show-bucket-list a {
+  color: $oil;
+  font-weight: bold;
+  text-align: center;
+
+  &:hover p {
+    color: $secondary-color;
+  }
+}
+
+div.show-bucket-list span.small-button {
+  margin-top: 5px;
+}
 
 
 
@@ -478,25 +754,20 @@ p.adventure-link a {
 
 .form-title {
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.divinding-line {
-  border-bottom: 1px $iron solid;
-  margin-bottom: 1.25rem;
-}
+
 
 .bucket-list {
   color: $dark-grey;
 
-  h6 {
-    font-size: 90%;
-    color: $jet;
-    margin-bottom: .75rem;
+  h3 {
+    text-align: center;
   }
 
-  h2,
-  h4 {
-    margin-bottom: 0;
+  p.is-public-link {
+    color: $oil;
   }
 }
 
@@ -512,23 +783,4 @@ p.adventure-link a {
     margin: 0;
   }
 
-  .divinding-line {
-    margin-top: 1.25rem;
-  }
 }
-
-// .adventure {
-//   color: $dark-grey;
-//
-//   h6 {
-//     font-size: 85%;
-//   }
-//
-//   .divinding-line {
-//     margin-top: 1.25rem;
-//   }
-//
-//   p {
-//     margin: 0;
-//   }
-// }

@@ -1,45 +1,46 @@
-<div class="adventures-search">
-  <%= form_tag(search_adventures_path, method: "get") do %>
-    <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
-      placeholder: "The world is your oyster... search it." %>
-    <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
-  <% end %>
-</div>
-
-<section class="welcome">
-  <p class="item-count">
-    Welcome <strong><%= @username %></strong>, you have <b><%= @bucket_lists.count %> groups</b>
-    with <strong><%= @adventures.count %> total adventure(s)</strong>!
-    <i>
-      Browse your groups of adventures below or use the searchbar above to find
-      a particular adventure.
-    </i>
-  </p>
-</section>
-
-<section class="display-groups">
-  <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-6">
-    <% @bucket_lists.each do |bucket_list| %>
-      <li>
-        <div class="wrap-title-and-description">
-          <%= link_to(bucket_list_path(bucket_list.id)) do %>
-            <h4><%= bucket_list.title %></h4>
-            <p class="description"><%= bucket_list.description %></p>
-          <% end %>
-        </div>
-        <div class="wrap-is-public tiny-button">
-          <% if bucket_list.is_public %>
-            <p class="is-public-link">
-              <%= link_to(edit_bucket_list_path(bucket_list.id)) do %>
-                <%= fa_icon "eye" %>
-                <%= "  Sharing"%>
-              <% end %>
-            </p>
-          <% else %>
-              <p class="is-public-link"><%= link_to "Share it!", edit_bucket_list_path(bucket_list.id) %></p>
-          <% end %>
-        </div>
-      </li>
+<div class="wrap-page small-4 medium-8  large-8 columns small-centered center-content">
+  <div class="adventures-search">
+    <%= form_tag(search_adventures_path, method: "get") do %>
+      <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
+        placeholder: "The world is your oyster..." %>
+      <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
     <% end %>
-  </ul>
-</section>
+  </div>
+
+  <section class="welcome">
+    <p class="item-count">
+      Hi <span><%= @username %></span>, you have
+      <strong><%= @bucket_lists.count %> group(s) </strong>
+      and <strong><%= @adventures.count %> adventure(s)</strong> total!
+      <i>  Browse <strong>your groups below</strong> or find specific adventures
+      using the <strong>search bar above</strong>.</i>
+    </p>
+  </section>
+
+  <section class="display-groups bucket-list-bloc">
+    <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
+      <% @bucket_lists.each do |bucket_list| %>
+        <%= link_to(bucket_list_path(bucket_list.id)) do %>
+          <li>
+            <div class="wrap-top bucket-list-bloc">
+              <h4><%= bucket_list.title %></h4>
+              <p class="description bucket-list-bloc" id="description"><%= bucket_list.description %></p>
+            </div>
+            <%= link_to(edit_bucket_list_path(bucket_list.id)) do %>
+              <div class="wrap-bottom tiny-button bucket-list-bloc">
+                <p class="is-public-link bucket-list-bloc">
+                  <% if bucket_list.is_public %>
+                    <%= fa_icon "eye" %>
+                    <%= "  Sharing"%>
+                  <% else %>
+                    <%= "Share it!" %>
+                  <% end %>
+                </p>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+</div>

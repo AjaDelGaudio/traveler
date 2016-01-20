@@ -1,31 +1,37 @@
-<div class="row">
-  <div class="small-11 medium-6 columns small-centered">
+<div class="form-row-black"></div>
+<div class="form-row">
+  <div class="form small-11 medium-6 columns small-centered">
 
-    <h3 class="form-title">Edit Bucket List</h3>
+    <h3 class="form-title">Edit Group</h3>
 
-    <div class="text-right">
+    <div class="text-right delete">
       <%= link_to (fa_icon "trash-o") + " Delete",
       bucket_list_path(@bucket_list), method: :delete %>
     </div>
 
     <%= form_for @bucket_list, url: edit_bucket_list_path(@bucket_list) do |f| %>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
 
-      <%= f.label :description %>
-      <%= f.text_area :description %>
+      <div class="required-field">
+        <%= f.label :title, "Group title: " %>
+        <%= f.text_field :title, placeholder: "Peru 2016..." %>
+      </div>
+
+      <%= f.label :description, "Description:" %>
+      <%= f.text_area :description, placeholder: "Touring the equatorial south"\
+      " by motorcycle, boat, and foot..." %>
 
       <div class="text-center">
         <%= f.check_box :is_public %>
         <%= f.label "Make public" %>
       </div>
 
-      <div class="small-9 columns small-centered divinding-line"></div>
-
-      <div class="form-actions text-center">
-        <%= f.submit "Save It!", class: "button round" %>
+      <div class="text-center">
+        <%= f.submit "Save It!", class: "button" %>
       </div>
     <% end %>
-
+    <div class="button small-button text-center cancel">
+      <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
+      bucket_list_path(@bucket_list) %>
+    </div>
   </div>
 </div>

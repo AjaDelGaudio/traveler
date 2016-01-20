@@ -1,22 +1,28 @@
+<div class="form-row-black"></div>
 <div class="form-row">
   <div class="form small-11 medium-6 columns small-centered">
 
     <%= form_for @bucket_list do |f| %>
 
-      <%= f.label :title, "Group title:" %>
-      <%= f.text_field :title %>
-
-      <%= f.label :description, "Description:" %>
-      <%= f.text_area :description %>
-
-      <div class="checkboxes bucket-list-wrap-is-public">
-          <%= f.check_box :is_public %>
-          <%= f.label "Share it!" %>
-
+      <div class="required-field">
+        <%= f.label :title, "Group title:" %>
+        <%= f.text_field :title, placeholder: "Peru 2016..." %>
       </div>
 
-      <%= f.submit "Save It!", class: "button" %>
+      <%= f.label :description, "Description:" %>
+      <%= f.text_area :description, placeholder: "Touring the equatorial south"\
+      " by motorcycle, boat, and foot..." %>
 
+        <div class="checkboxes">
+            <%= f.check_box :is_public %>
+            <%= f.label "Share it!" %>
+        </div>
+
+        <%= f.submit "Save It!", class: "button", id: "new-bucket-list-submit" %>
     <% end %>
+    <div class="button small-button text-center cancel">
+      <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
+      bucket_lists_path %>
+    </div>
   </div>
 </div>

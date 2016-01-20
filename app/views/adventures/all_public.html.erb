@@ -1,29 +1,55 @@
-<div class="row">
-  
-  <div class="small-11 medium-6 columns small-centered">
-    <div class="adventures-search">
-      <%= form_tag(search_adventures_path, method: "get") do %>
+<div class="wrap-page small-4 medium-8  large-8 columns small-centered center-content">
+  <div class="adventures-search">
+    <%= form_tag(search_adventures_path, method: "get") do %>
       <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
-      placeholder: "The world is your oyster... search it." %>
+      placeholder: "The world is your oyster..." %>
       <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
+    <% end %>
+  </div>
+
+  <section class="welcome">
+    <p class="item-count">
+      <% unless @current_user.nil? %>
+        Welcome <%= @current_user.username + "!  " %>
       <% end %>
-    </div>
+      <span class="feel-like-adventure">Feel like an adventure?</span>
+      <i>Explore <strong>shared adventure ideas below</strong>, find a specific
+      adventure using the <strong>search bar above</strong>, or
+      check out the links above to <strong>create your own adventures</strong>!</i>
+    </p>
+  </section>
 
-    <h3>Shared Adventures:</h3>
+  <div class="map-container multi-marker-map">
+    <div class="map-canvas" id="map-canvas-multi-markers"> </div>
+  </div>
 
-    <p><%= @adventures.count %> Adventure(s) being shared!</p>
-
-
-
-
-    <ul class="no-bullet">
+  <section class="display-groups display-all-public-adventures">
+    <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
       <% @adventures.each do |adventure| %>
-        <li class="bucket-list">
-          <div class="small-9 columns small-centered divinding-line"></div>
-          <h4><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></h4>
-          <h4><%= link_to adventure.address, adventure_path(adventure.id) unless adventure.address.nil? %></h4>
-        </li>
+        <%= link_to(adventure_path(adventure.id)) do %>
+          <li>
+            <div class="wrap-top wrap-user">
+              <h4>
+                <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
+                <%= link_to adventure.address, adventure_path(adventure.id) %>
+              </h4>
+            </div>
+            <div class="wrap-bottom tiny-button">
+              <p>
+                <% user = adventure.user %>
+                <%= user.username %>
+              <p>
+            </div>
+          </li>
+        <% end %>
       <% end %>
     </ul>
-  </div>
+  </section>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var rawMarkers = <%= raw @map_markers.to_json %>
+    gmapShowMultiMarkers(rawMarkers);
+  });
+</script>

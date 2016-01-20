@@ -16,7 +16,7 @@ module UserSignIn
     click_button 'Log in'
 
     visit new_bucket_list_path
-    fill_in "Title", with: "First Bucket List"
+    fill_in "Group title:", with: "First Bucket List"
     click_button "Save It!"
 
     visit new_adventure_path
@@ -25,7 +25,7 @@ module UserSignIn
     click_button "Toss it in!"
 
     visit new_bucket_list_path
-    fill_in "Title", with: "Second Bucket List"
+    fill_in "Group title:", with: "Second Bucket List"
     click_button "Save It!"
 
     visit new_adventure_path

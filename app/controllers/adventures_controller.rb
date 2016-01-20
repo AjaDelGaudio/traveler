@@ -1,5 +1,5 @@
 class AdventuresController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :index, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :index, :edit, :show]
 
   def index
     adventures = Adventure.all
@@ -13,11 +13,16 @@ class AdventuresController < ApplicationController
       render "homes/index"
     elsif params[:q].present?
       search_results = Adventure.search(params[:q])
-      @adventures = search_results.select do |result|
-        result.user_id == current_user.id || result.is_shared
+      adventures = []
+      if current_user.nil?
+        adventures << search_results.where(is_shared: true)
+      else
+        adventures << search_results.where(is_shared: true)
+        adventures << search_results.where(user_id: current_user.id)
+        @current_user_id = current_user.id
       end
+      @adventures = adventures.flatten
     end
-    @current_user_id = current_user.id
   end
 
   def new
@@ -52,16 +57,25 @@ class AdventuresController < ApplicationController
     bucket_list_adventure = @adventure.bucket_list_adventures[0]
     bucket_list = BucketList.where(id: bucket_list_adventure.bucket_list_id)
     @bucket_list = bucket_list[0]
+
     @map_markers = Gmaps4rails.build_markers(@adventure) do |adventure, marker|
       marker.lat adventure.latitude
       marker.lng adventure.longitude
       marker.infowindow adventure.notes
     end
+
     @current_user = current_user
+    @username = @adventure.user.username
   end
 
   def all_public
     @adventures = Adventure.where(is_shared: true)
+    @current_user = current_user
+    @map_markers = Gmaps4rails.build_markers(@adventures) do |adventure, marker|
+      marker.lat adventure.latitude
+      marker.lng adventure.longitude
+      marker.infowindow adventure.address
+    end
   end
 
   def edit

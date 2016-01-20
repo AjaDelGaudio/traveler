@@ -6,7 +6,7 @@ module BucketListSignIn
     click_button 'Log in'
 
     visit new_bucket_list_path
-    fill_in "Title", with: "First Bucket List"
+    fill_in "Group title:", with: "First Bucket List"
     click_button "Save It!"
   end
 end
