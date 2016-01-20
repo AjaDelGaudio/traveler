@@ -10,5 +10,6 @@ class AdventureUsers < ActiveRecord::Migration
 
   def down
     drop_table :adventure_users
+    end
   end
 end
