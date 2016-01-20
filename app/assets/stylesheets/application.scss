@@ -650,17 +650,31 @@ section.display-all-public-adventures h4 {
 
 // devise
 
+.form-actions {
+  margin-top: 2rem;
+}
+
+.form-title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
 a.devise-link {
-  color: $secondary-color;
+  color: $third-color;
 
   &:hover {
-    color: $third-color;
+    color: $secondary-color;
     transition: all .25 ease-in-out;
   }
 }
 
 div.devise-links {
   margin-top: 25px;
+}
+
+div.field {
+  margin-right: 25px;
+  margin-left: 25px;
 }
 
 
@@ -750,17 +764,6 @@ div.show-bucket-list span.small-button {
   // overflow: hidden;
   // margin-bottom: 3em;
 }
-
-
-.form-actions {
-  margin-top: 2rem;
-}
-
-.form-title {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
 
 
 .bucket-list {
