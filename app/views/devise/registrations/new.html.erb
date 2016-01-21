@@ -19,10 +19,7 @@
 
       <div class="field required-field">
         <%= f.label :password, "Password:" %>
-        <% if @minimum_password_length %>
-        <i>(<%= @minimum_password_length %> characters minimum)</i>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Minimum 8 characters" %>
       </div>
 
       <div class="field required-field">
@@ -35,7 +32,7 @@
       </div>
     <% end %>
 
-    <div class="button small-button text-center cancel">
+    <div class="button small-button text-center cancel" id="return-to-log-in">
       <%= link_to (fa_icon "arrow-circle-left") + " Log in",
       new_session_path(resource_name) %><br />
     </div>

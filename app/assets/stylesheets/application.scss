@@ -356,6 +356,7 @@ div.wrap-bottom:hover {
   border-width: 1px;
   border-color: $base;
   color: $oil;
+  font-weight: bold;
 
   &:hover {
     background-color: $third-color;
@@ -719,7 +720,9 @@ div.cancel {
   margin-left: 41.7%;
 }
 
-
+#return-to-log-in {
+  margin-top: 25px;
+}
 
 
 // bucket list show
