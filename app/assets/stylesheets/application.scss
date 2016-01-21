@@ -592,15 +592,15 @@ p.adventure-link a {
 
 // new bucket list
 
-form.button#new-bucket-list-submit {
-  margin: 0;
+input.button.save-button {
+  margin-top: 35px;
+  margin-bottom: 15px;
+  margin-left: 40%;
 }
 
-
-// search results
-
-
-
+#save-edit-button {
+  margin-left: 38%;
+}
 
 
 // all_public adventures
@@ -678,6 +678,10 @@ div.field {
   margin-left: 25px;
 }
 
+#return-to-log-in {
+  margin-top: 25px;
+}
+
 // edit pages
 
 div.delete a {
@@ -720,9 +724,7 @@ div.cancel {
   margin-left: 41.7%;
 }
 
-#return-to-log-in {
-  margin-top: 25px;
-}
+
 
 
 // bucket list show
