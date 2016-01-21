@@ -13,8 +13,13 @@ function gmapShow(rawMarkers) {
   });
 }
 
+
+
 function gmapShowMultiMarkers(rawMarkers) {
-  var mapOptions = { mapTypeId: google.maps.MapTypeId.HYBRID };
+  var mapOptions = {
+    mapTypeId: google.maps.MapTypeId.HYBRID,
+  };
+
   var handler = Gmaps.build('Google');
   handler.buildMap({
     provider: mapOptions,

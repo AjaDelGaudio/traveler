@@ -21,8 +21,6 @@ gem 'gmaps4rails', '2.1.2'
 gem 'rack-timeout'
 gem 'puma'
 
-
-
 group :development, :test do
   gem 'codeship'
   gem 'rspec-rails'

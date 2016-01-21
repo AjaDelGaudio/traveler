@@ -13,6 +13,7 @@ class AdventuresController < ApplicationController
       render "homes/index"
     elsif params[:q].present?
       search_results = Adventure.search(params[:q])
+      search_terms = params[:q]
       adventures = []
       if current_user.nil?
         adventures << search_results.where(is_shared: true)
@@ -22,6 +23,11 @@ class AdventuresController < ApplicationController
         @current_user_id = current_user.id
       end
       @adventures = adventures.flatten
+      if @adventures[0].nil?
+        @search_summary = "Sorry, there are no results for '#{search_terms}'."
+      else
+        @search_summary = "#{@adventures.count}' results for #{search_terms}':"
+      end
     end
   end
 
