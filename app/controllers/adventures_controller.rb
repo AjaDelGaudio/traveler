@@ -26,7 +26,7 @@ class AdventuresController < ApplicationController
       if @adventures[0].nil?
         @search_summary = "Sorry, there are no results for '#{search_terms}'."
       else
-        @search_summary = "#{@adventures.count}' results for #{search_terms}':"
+        @search_summary = "#{@adventures.count} result(s) for '#{search_terms}':"
       end
     end
   end
