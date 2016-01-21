@@ -29,8 +29,6 @@ feature 'authenticated user creates a bucket list', %(
 
   scenario "unauthenticated user creates a bucket list" do
     visit new_bucket_list_path
-    fill_in "Group title:", with: "Europe"
-    click_button "Save It!"
 
     expect(page).to have_content("You can do that after you sign in or sign up!")
     expect(page).to have_content("Email")
