@@ -15,10 +15,10 @@ feature "user registers", %{
   scenario "provide valid registration information" do
     visit new_user_registration_path
 
-    fill_in "Username", with: "mrappleseed"
-    fill_in "Email", with: "john@example.com"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
+    fill_in "Username:", with: "mrappleseed"
+    fill_in "Email:", with: "john@example.com"
+    fill_in "Password:", with: "password"
+    fill_in "Confirm password:", with: "password"
 
     click_button "Sign up"
 
@@ -38,10 +38,10 @@ feature "user registers", %{
   scenario "password too short" do
     visit new_user_registration_path
 
-    fill_in "Username", with: "mrappleseed"
-    fill_in "Email", with: "john@example.com"
-    fill_in "Password", with: "1"
-    fill_in "Password confirmation", with: "1"
+    fill_in "Username:", with: "mrappleseed"
+    fill_in "Email:", with: "john@example.com"
+    fill_in "Password:", with: "1"
+    fill_in "Confirm password:", with: "1"
 
     click_button "Sign up"
 

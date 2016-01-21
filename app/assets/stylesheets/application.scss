@@ -356,6 +356,7 @@ div.wrap-bottom:hover {
   border-width: 1px;
   border-color: $base;
   color: $oil;
+  font-weight: bold;
 
   &:hover {
     background-color: $third-color;
@@ -591,15 +592,15 @@ p.adventure-link a {
 
 // new bucket list
 
-form.button#new-bucket-list-submit {
-  margin: 0;
+input.button.save-button {
+  margin-top: 35px;
+  margin-bottom: 15px;
+  margin-left: 40%;
 }
 
-
-// search results
-
-
-
+#save-edit-button {
+  margin-left: 38%;
+}
 
 
 // all_public adventures
@@ -650,15 +651,36 @@ section.display-all-public-adventures h4 {
 
 // devise
 
+.form-actions {
+  margin-top: 2rem;
+}
+
+.form-title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
 a.devise-link {
-  color: $secondary-color;
+  color: $third-color;
 
   &:hover {
-    color: $third-color;
+    color: $secondary-color;
     transition: all .25 ease-in-out;
   }
 }
 
+div.devise-links {
+  margin-top: 25px;
+}
+
+div.field {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+#return-to-log-in {
+  margin-top: 25px;
+}
 
 // edit pages
 
@@ -669,7 +691,7 @@ div.delete a {
   border: 1px solid $base;
 
   &:hover {
-    background-color: $secondary-color;
+    background-color: $secondary-transparent-color;
     transition: all .25 ease-in-out;
   }
 }
@@ -746,17 +768,6 @@ div.show-bucket-list span.small-button {
   // overflow: hidden;
   // margin-bottom: 3em;
 }
-
-
-.form-actions {
-  margin-top: 2rem;
-}
-
-.form-title {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
 
 
 .bucket-list {
