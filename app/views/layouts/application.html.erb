@@ -16,12 +16,7 @@
   <%= javascript_include_tag 'application', media: 'all' %>
 </head>
 <body>
-  <%- flash.each do |key, value| -%>
-    <div data-alert class="alert-box">
-      <%= value %>
-      <a href="#" class="close">&times;</a>
-    </div>
-  <%- end -%>
+  <%= render 'layouts/messages' %>
 
   <header class="header">
     <%= render "layouts/nav_bar" %>
