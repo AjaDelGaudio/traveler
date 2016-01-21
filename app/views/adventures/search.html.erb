@@ -1,4 +1,4 @@
-<div class="form-row center-content">
+<div class="center-content">
   <div class="adventures-search">
     <%= form_tag(search_adventures_path, method: "get") do %>
       <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
@@ -7,6 +7,7 @@
     <% end %>
   </div>
 
+    <p class="search-summary"><%= @search_summary %></p>
 
     <section class="display-groups display-all-public-adventures">
       <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
