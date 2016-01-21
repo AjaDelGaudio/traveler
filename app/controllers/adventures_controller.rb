@@ -69,8 +69,12 @@ class AdventuresController < ApplicationController
   end
 
   def all_public
+    if current_user.nil?
+      @user = "Visitor"
+    else
+      @user = current_user.username
+    end
     @adventures = Adventure.where(is_shared: true)
-    @current_user = current_user
     @map_markers = Gmaps4rails.build_markers(@adventures) do |adventure, marker|
       marker.lat adventure.latitude
       marker.lng adventure.longitude
