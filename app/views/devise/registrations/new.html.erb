@@ -35,8 +35,9 @@
       </div>
     <% end %>
 
-    <div class="button small-button text-center">
-      <%= render "devise/shared/links" %>
+    <div class="button small-button text-center cancel">
+      <%= link_to (fa_icon "arrow-circle-left") + " Log in",
+      new_session_path(resource_name) %><br />
     </div>
   </div>
 </div>
