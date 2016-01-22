@@ -821,7 +821,7 @@ body div.form-row {
   background: image-url('jungle-bridge-transparent.jpg') no-repeat center center;
   background-size: cover;
   height: 100%;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .form {
@@ -839,31 +839,7 @@ body div.form-row {
   padding: 3%;
 }
 
-.form input.button {
-  margin-left: 37.7%;
-  margin-right: 37.7%;
-  margin-bottom: 0;
-  margin-top: .75rem;
-  text-align: center;
-}
 
-.checkboxes {
-  text-align: center;
-  line-height: 1.5rem;
-
-  label {
-    font-size: 1rem;
-    margin-top: 10px;
-  }
-
-  input {
-    width: 1rem;
-    height: 1rem;
-    background-color: $white-smoke;
-    margin-bottom: 0;
-    margin-top: 10px;
-  }
-}
 
 
 // adventure show
@@ -1050,26 +1026,58 @@ p.adventure-link a {
   }
 }
 
-input.button.save-button {
-  margin-top: 35px;
-  margin-bottom: 15px;
-  margin-left: 40%;
+.field {
+  margin-top: 10px;
+}
+
+
+.large-text-field {
+  height: 100px;
+}
+
+textarea#adventure_notes {
+  height: 100px;
 }
 
 .edit-save-button {
   margin-left: 36%;
 }
 
-.field {
-  margin-top: 3%;
+
+.new-save-button {
+  margin-left: 33%;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 #new-bucket-list-submit {
-  margin-left: 38%;
+  margin-left: 36%;
 }
 
-.large-text-field {
-  height: 100px;
+.new-cancel-button {
+  margin-left: 37.5%;
+  margin-top: 25px;
+}
+
+.checkboxes {
+  text-align: center;
+  line-height: 1.5rem;
+  margin-top: 10px;
+
+  label {
+    font-size: 1rem;
+  }
+
+  input {
+    width: 1rem;
+    height: 1rem;
+    background-color: $white-smoke;
+    margin-bottom: 0;
+  }
+}
+
+div.checkboxes {
+  margin-top: 35px;
 }
 
 // all_public adventures

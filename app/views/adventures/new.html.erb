@@ -4,32 +4,41 @@
 
     <%= form_for @adventure do |f| %>
       <div>
-
-        <%= f.label :name, "Adventure name:" %>
-        <%= f.text_field :name, placeholder: "Build a reed boat.." %>
-
         <div class="required-field">
-          <%= f.label :address, "Adventure address:" %>
-          <%= f.text_area :address, placeholder: "Lake Titicaca..." %>
-
-          <%= f.fields_for :bucket_list_adventures do |ff| %>
-            <%= ff.label :bucket_list_id, "Add to group:" %>
-            <%= ff.collection_select(
-              :bucket_list_id,
-              @bucket_lists,
-              :id,
-              :title
+          <div class="field">
+            <%= f.fields_for :bucket_list_adventures do |ff| %>
+              <%= ff.label :bucket_list_id, "Add to group:" %>
+              <%= ff.collection_select(
+                :bucket_list_id,
+                @bucket_lists,
+                :id,
+                :title
               ) %>
-          <% end %>
+            <% end %>
+          </div>
+
+          <div class="field">
+            <%= f.label :address, "Adventure address:" %>
+            <%= f.text_area :address, placeholder: "Lake Titicaca..." %>
+          </div>
         </div>
 
-        <%= f.label :link, "Link:" %>
-        <%= f.text_area :link, placeholder: "http://wikitravel.org/en/Lake_Titicaca..." %>
+        <div class="field">
+          <%= f.label :name, "Adventure name:" %>
+          <%= f.text_field :name, placeholder: "Build a reed boat.." %>
+        </div>
 
-        <%= f.label :notes, "Notes:" %>
-        <%= f.text_area :notes, placeholder: "Highest commercially navigable" \
-        " body of water in the world.  High elevation: stay hydrated and" \
-        " drink the coca tea..." %>
+        <div class="field">
+          <%= f.label :link, "Link:" %>
+          <%= f.text_area :link, placeholder: "http://wikitravel.org/en/Lake_Titicaca..." %>
+        </div>
+
+        <div class="field large-text-field">
+          <%= f.label :notes, "Notes:" %>
+          <%= f.text_area :notes, placeholder: "Highest commercially navigable" \
+          " body of water in the world.  High elevation: stay hydrated and" \
+          " drink the coca tea..." %>
+        </div>
 
         <div class="checkboxes">
           <%= f.check_box :is_achieved %>
@@ -40,9 +49,10 @@
         </div>
       </div>
 
-        <%= f.submit "Toss it in!", class: "button save-button" %>
+        <%= f.submit "Toss it in!", class: "button new-save-button" %>
     <% end %>
-    <div class="button small-button text-center cancel">
+
+    <div class="button small-button text-center cancel new-cancel-button">
       <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
       bucket_lists_path %>
     </div>
