@@ -21,7 +21,7 @@ feature "authenticated user creates a an adventure using google maps", %(
 
     visit new_adventure_path
     fill_in "Adventure address:", with: "Paris, France"
-    click_button "Toss it in!"
+    click_button "Save it!"
 
     expect(page).to have_content("Excellent!  Another adventure awaits!")
     expect(page).not_to have_content("Address can't be blank")
@@ -36,7 +36,7 @@ feature "authenticated user creates a an adventure using google maps", %(
     visit new_adventure_path
     fill_in "Adventure name:", with: nil
     fill_in "Adventure address:", with: nil
-    click_button "Toss it in!"
+    click_button "Save it!"
 
     expect(page).to have_content("Address can't be blank")
     expect(page).not_to have_content("Excellent!  Another adventure awaits!")
