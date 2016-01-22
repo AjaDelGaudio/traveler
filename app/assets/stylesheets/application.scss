@@ -747,60 +747,6 @@ div.wrap-bottom:hover {
   }
 }
 
-.tiny-button {
-  display: inline-block;
-  width: 100%;
-  color: $oil;
-  text-align: right;
-  padding: .6rem 0rem .1rem 0rem;
-  margin: 0;
-  font-size: 1rem;
-  height: 50px;
-
-  &:hover p {
-    display: inline-block;
-    width: 100%;
-    color: $oil;
-    text-align: right;
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-    height: 50px;
-    transition: all .25 ease-in-out;
-  }
-
-  &:hover a {
-    display: inline-block;
-    width: 100%;
-    color: $third-color;
-    text-align: right;
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-    height: 50px;
-    transition: all .25 ease-in-out;
-  }
-}
-
-
-.button {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  text-align: center;
-  border-width: 1px;
-  border-color: $base;
-  color: $oil;
-  font-weight: bold;
-
-  &:hover {
-    background-color: $third-color;
-    color: $oil;
-    font-weight: bold;
-    transition: all .25 ease-in-out;
-  }
-}
 
 
 
@@ -917,7 +863,9 @@ p.is-achieved-link {
 
 
 
+// Gmaps //
 
+// adventure show gmap
 .map-spacer {
   padding-top: 8px;
   padding-bottom: 8px;
@@ -938,6 +886,15 @@ p.is-achieved-link {
   background-size: cover;
 
 }
+
+// multimarker all_public gmap
+#map-canvas-multi-markers {
+  height: 384px;
+  width: 100.05%;
+}
+
+
+// adventure show
 
 div.adventure-details {
   padding-left: 1.5%;
@@ -990,7 +947,61 @@ p.adventure-link a {
 }
 
 
-// button styles
+// Button & input styles //
+
+.tiny-button {
+  display: inline-block;
+  width: 100%;
+  color: $oil;
+  text-align: right;
+  padding: .6rem 0rem .1rem 0rem;
+  margin: 0;
+  font-size: 1rem;
+  height: 50px;
+
+  &:hover p {
+    display: inline-block;
+    width: 100%;
+    color: $oil;
+    text-align: right;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    transition: all .25 ease-in-out;
+  }
+
+  &:hover a {
+    display: inline-block;
+    width: 100%;
+    color: $third-color;
+    text-align: right;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    transition: all .25 ease-in-out;
+  }
+}
+
+.button {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  text-align: center;
+  border-width: 1px;
+  border-color: $base;
+  color: $oil;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $third-color;
+    color: $oil;
+    font-weight: bold;
+    transition: all .25 ease-in-out;
+  }
+}
 
 .small-button {
   text-align: center;
@@ -1026,6 +1037,17 @@ p.adventure-link a {
   }
 }
 
+.new-cancel-button {
+  margin-left: 36.5%;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.edit-cancel-button {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
 .field {
   margin-top: 10px;
 }
@@ -1039,25 +1061,21 @@ textarea#adventure_notes {
   height: 100px;
 }
 
+
 .edit-save-button {
-  margin-left: 36%;
+  margin-left: 38%;
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
 
 .new-save-button {
-  margin-left: 33%;
+  margin-left: 36%;
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
-#new-bucket-list-submit {
-  margin-left: 36%;
-}
 
-.new-cancel-button {
-  margin-left: 37.5%;
-  margin-top: 25px;
-}
 
 .checkboxes {
   text-align: center;
@@ -1076,9 +1094,10 @@ textarea#adventure_notes {
   }
 }
 
-div.checkboxes {
+#new-adventure-checkboxes {
   margin-top: 35px;
 }
+
 
 // all_public adventures
 
@@ -1090,10 +1109,6 @@ div.all-public-adventures {
   }
 }
 
-#map-canvas-multi-markers {
-  height: 384px;
-  width: 100.05%;
-}
 
 div.wrap-user {
   display: inline-block;
@@ -1126,7 +1141,7 @@ section.display-all-public-adventures h4 {
 
 
 
-// devise
+// devise //
 
 .form-actions {
   margin-top: 2rem;
@@ -1175,7 +1190,8 @@ div.field {
   margin-bottom: 25px;
 }
 
-// edit pages
+
+// edit views //
 
 .delete a {
   color: $oil;
