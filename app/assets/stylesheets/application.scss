@@ -640,7 +640,7 @@ div.wrap-top {
 
 }
 
-p#description.description.bucket-list-bloc {
+#description.description.bucket-list-bloc {
   text-align: left;
   color: $charcoal;
   font-style: italic;
@@ -847,12 +847,13 @@ body div.form-row {
   text-align: center;
 }
 
-div.checkboxes {
+.checkboxes {
   text-align: center;
   line-height: 1.5rem;
 
   label {
     font-size: 1rem;
+    margin-top: 10px;
   }
 
   input {
@@ -860,7 +861,7 @@ div.checkboxes {
     height: 1rem;
     background-color: $white-smoke;
     margin-bottom: 0;
-    padding-margin: px;
+    margin-top: 10px;
   }
 }
 
@@ -1027,7 +1028,27 @@ p.adventure-link a {
 }
 
 
-// new bucket list
+// buttons
+
+
+.cancel {
+  color: $oil;
+  background-color: $small-button-color;
+
+  margin-left: 39%;
+  margin-top: 15px;
+  margin-bottom: 0;
+
+  a {
+    color: inherit;
+  }
+
+  &:hover {
+    color: inherit;
+    background-color: $secondary-transparent-color;
+    transition: all .25 ease-in-out;
+  }
+}
 
 input.button.save-button {
   margin-top: 35px;
@@ -1039,6 +1060,9 @@ input.button.save-button {
   margin-left: 38%;
 }
 
+#new-bucket-list-submit {
+  margin-left: 38%;
+}
 
 // all_public adventures
 
@@ -1121,7 +1145,7 @@ div.field {
 }
 
 .reset-password-button {
-  margin-left: 10%;
+  margin-left: 12%;
   margin-top: 10px;
 }
 
@@ -1130,7 +1154,7 @@ div.field {
   background: none;
 }
 
-div.reset-password-form h2 {
+.reset-password-form h2 {
   margin-left: 4%;
   margin-bottom: 25px;
 }
@@ -1153,30 +1177,6 @@ div.required-field label {
   font-weight: bold;
   color: $oil;
 }
-
-div.cancel {
-  color: $oil;
-  background-color: $small-button-color;
-
-  margin-left: 42.5%;
-  margin-top: 15px;
-  margin-bottom: 0;
-
-  a {
-    color: inherit;
-  }
-
-  &:hover {
-    color: inherit;
-    background-color: $secondary-transparent-color;
-    transition: all .25 ease-in-out;
-  }
-}
-
-#new-bucket-list-submit {
-  margin-left: 41.7%;
-}
-
 
 
 
