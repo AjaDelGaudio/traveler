@@ -443,8 +443,10 @@ th {
 }
 
 .alert {
-  margin-left: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: 25px;
+  list-style: none;
 }
 
 
@@ -489,7 +491,6 @@ th {
     padding: 1rem;
     margin-top: 10rem;
     margin-right: -8rem;
-
 
     &:hover {
       background: $oil;
