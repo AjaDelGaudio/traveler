@@ -1,5 +1,8 @@
-<div class="row">
-  <div class="small-11 medium-6 columns small-centered">
+<div class="form-row-black"></div>
+
+<div class="form-row">
+  <div class="form small-11 medium-6 columns small-centered">
+
     <h3 class="form-title">Edit <%= resource_name.to_s.humanize %></h3>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -30,7 +33,7 @@
       </div>
 
       <div class="actions text-center">
-        <%= f.submit "Update", class: "button round" %>
+        <%= f.submit "Update", class: "button" %>
       </div>
     <% end %>
 
