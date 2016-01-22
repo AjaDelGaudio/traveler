@@ -947,7 +947,7 @@ p.adventure-link a {
 }
 
 
-// Button & input styles //
+// Button styles //
 
 .tiny-button {
   display: inline-block;
@@ -1018,6 +1018,19 @@ p.adventure-link a {
   }
 }
 
+.delete a {
+  color: $oil;
+  padding: .5rem;
+  background: rgba(250,250,250,0.7);
+  border: 1px solid $base;
+  margin-right: 5%;
+
+  &:hover {
+    background-color: $secondary-transparent-color;
+    transition: all .25 ease-in-out;
+  }
+}
+
 .cancel {
   color: $oil;
   background-color: $small-button-color;
@@ -1037,21 +1050,34 @@ p.adventure-link a {
   }
 }
 
+.new-save-button {
+  margin-left: 38%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 .new-cancel-button {
-  margin-left: 36.5%;
+  margin-left: 39%;
   margin-top: 0;
   margin-bottom: 10px;
 }
 
+.edit-save-button {
+  margin-left: 38%;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
 .edit-cancel-button {
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
+
+
+// Fields //
 .field {
   margin-top: 10px;
 }
-
 
 .large-text-field {
   height: 100px;
@@ -1062,21 +1088,7 @@ textarea#adventure_notes {
 }
 
 
-.edit-save-button {
-  margin-left: 38%;
-  margin-top: 25px;
-  margin-bottom: 15px;
-}
-
-
-.new-save-button {
-  margin-left: 36%;
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-
-
-
+// checkboxes //
 .checkboxes {
   text-align: center;
   line-height: 1.5rem;
@@ -1099,8 +1111,7 @@ textarea#adventure_notes {
 }
 
 
-// all_public adventures
-
+// all_public adventures //
 div.all-public-adventures {
   color: $oil;
 
@@ -1139,10 +1150,7 @@ section.display-all-public-adventures h4 {
 }
 
 
-
-
 // devise //
-
 .form-actions {
   margin-top: 2rem;
 }
@@ -1192,20 +1200,6 @@ div.field {
 
 
 // edit views //
-
-.delete a {
-  color: $oil;
-  padding: .5rem;
-  background: rgba(250,250,250,0.7);
-  border: 1px solid $base;
-  margin-right: 5%;
-
-  &:hover {
-    background-color: $secondary-transparent-color;
-    transition: all .25 ease-in-out;
-  }
-}
-
 .required-field label {
   font-weight: bold;
   color: $oil;
@@ -1213,8 +1207,7 @@ div.field {
 
 
 
-// bucket list show
-
+// Bucket list show //
 div.show-bucket-list {
   text-align: center;
 }
