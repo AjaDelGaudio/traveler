@@ -985,10 +985,7 @@ p.adventure-link a {
 }
 
 .button {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding: .5rem 1rem .5rem 1rem;
   text-align: center;
   border-width: 1px;
   border-color: $base;
@@ -1052,13 +1049,17 @@ p.adventure-link a {
 }
 
 .new-save-button {
-  margin-left: 38%;
+  margin-left: 41%;
+  // margin-left: 50%;
+  // margin-right: 50%;
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
 .new-cancel-button {
-  margin-left: 39%;
+  margin-left: 42%;
+  // margin-left: 50%;
+  // margin-right: 50%;
   margin-top: 0;
   margin-bottom: 10px;
 }
@@ -1068,6 +1069,11 @@ p.adventure-link a {
   margin-top: 25px;
   margin-bottom: 15px;
 }
+
+#edit-bucket-list-save-button {
+  margin-left: -7%;
+}
+
 .edit-cancel-button {
   margin-top: 10px;
   margin-bottom: 15px;
