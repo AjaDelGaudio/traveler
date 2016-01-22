@@ -1023,7 +1023,6 @@ p.adventure-link a {
   padding: .5rem;
   background: rgba(250,250,250,0.7);
   border: 1px solid $base;
-  margin-right: 5%;
 
   &:hover {
     background-color: $secondary-transparent-color;
@@ -1031,11 +1030,13 @@ p.adventure-link a {
   }
 }
 
+.delete {
+  margin-right: 4%;
+}
+
 .cancel {
   color: $oil;
   background-color: $small-button-color;
-
-  margin-left: 39%;
   margin-top: 15px;
   margin-bottom: 0;
 
@@ -1070,8 +1071,8 @@ p.adventure-link a {
 .edit-cancel-button {
   margin-top: 10px;
   margin-bottom: 15px;
+  margin-left: 39%;
 }
-
 
 
 // Fields //
