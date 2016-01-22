@@ -25,7 +25,7 @@ feature "user creates an adventure", %(
 
     visit new_adventure_path
     fill_in "Adventure address:", with: "Egypt"
-    click_button "Toss it in!"
+    click_button "Save it!"
 
     expect(page).to have_content("Excellent! Another adventure awaits!")
     expect(page).not_to have_content("Address can't be blank")
@@ -45,7 +45,7 @@ feature "user creates an adventure", %(
     check "Seen it! Done it!"
     checkbox_shared = find_by_id("adventure_is_shared")
     check "Share it!"
-    click_button "Toss it in!"
+    click_button "Save it!"
 
     expect(checkbox_achieved).to be_checked
     expect(checkbox_shared).to be_checked
@@ -62,7 +62,7 @@ feature "user creates an adventure", %(
     visit new_adventure_path
     fill_in "Adventure address:", with: "Egypt"
     select bucket_list.title, from: "Add to group:"
-    click_button "Toss it in!"
+    click_button "Save it!"
 
     expect(page).to have_content(bucket_list.title)
     expect(page).to have_content("Excellent! Another adventure awaits!")
@@ -82,7 +82,7 @@ feature "user creates an adventure", %(
     check "Seen it! Done it!"
     checkbox_shared = find_by_id("adventure_is_shared")
     check "Share it!"
-    click_button "Toss it in!"
+    click_button "Save it!"
 
     expect(checkbox_achieved).to be_checked
     expect(checkbox_shared).to be_checked

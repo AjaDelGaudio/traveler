@@ -11,25 +11,27 @@
 
     <%= form_for @bucket_list, url: edit_bucket_list_path(@bucket_list) do |f| %>
 
-      <div class="required-field">
+      <div class="field required-field">
         <%= f.label :title, "Group title: " %>
         <%= f.text_field :title, placeholder: "Peru 2016..." %>
       </div>
 
-      <%= f.label :description, "Description:" %>
-      <%= f.text_area :description, placeholder: "Touring the equatorial south"\
-      " by motorcycle, boat, and foot..." %>
+      <div class="field required-field">
+        <%= f.label :description, "Description:" %>
+        <%= f.text_area :description, placeholder: "Touring the equatorial south"\
+        " by motorcycle, boat, and foot..." %>
+      </div>
 
-      <div class="text-center">
+      <div class="text-center checkboxes">
         <%= f.check_box :is_public %>
         <%= f.label "Make public" %>
       </div>
 
       <div class="text-center">
-        <%= f.submit "Save It!", class: "button save-button", id: "save-edit-button" %>
+        <%= f.submit "Save It!", class: "button edit-save-button", id: "edit-bucket-list-save-button" %>
       </div>
     <% end %>
-    <div class="button small-button text-center cancel">
+    <div class="button small-button text-center cancel edit-cancel-button">
       <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
       bucket_list_path(@bucket_list) %>
     </div>
