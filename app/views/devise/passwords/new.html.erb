@@ -1,7 +1,7 @@
 <div class="form-row-black"></div>
 
 <div class="form-row">
-  <div class="form small-11 medium-6 columns small-centered">
+  <div class="form small-11 medium-6 columns small-centered reset-password-form">
 
     <h2>Forgot your password?</h2>
 
@@ -9,7 +9,7 @@
       <%= devise_error_messages! %>
 
       <div class="field required-field">
-        <%= f.label :email, "Email:" %><br />
+        <%= f.label :email, "Email:" %>
         <%= f.email_field :email, autofocus: true %>
       </div>
 
