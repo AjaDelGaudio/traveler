@@ -433,6 +433,9 @@ th {
 /** end normalize **/
 
 
+
+
+// Alert boxes //
 .alert-box {
   background: $primary-color;
   padding: .5rem;
@@ -450,6 +453,7 @@ th {
 }
 
 
+// Header //
 .header {
   text-align: center;
   background: image-url('watercolour-world-map.jpg') no-repeat center center;
@@ -478,11 +482,6 @@ th {
       color: $secondary-color;
       transition: all .25s ease-in-out;
     }
-  }
-
-  #user-session-spacer {
-    padding: 3rem;
-    margin-left: 2rem;
   }
 
   .main-header a {
@@ -542,6 +541,7 @@ th {
   }
 }
 
+// Search bar - Find Adventure //
 .center-content {
   clear: both;
   float: none;
@@ -549,7 +549,6 @@ th {
   margin-left: 8%;
   margin-right: 8%;
   padding: 0;
-  align-content: center;
 }
 
 .adventures-search {
@@ -564,21 +563,22 @@ th {
     display: inline-block;
     margin-left: 8%;
   }
+}
 
-  a .button {
-    margin-top: 2.5rem;
-    width: 13rem;
-    margin-left: -.599rem;
-    border-color: $base;
+.adventures-search a .button {
+  margin-top: 2.5rem;
+  width: 13rem;
+  margin-left: -.599rem;
+  border-color: $base;
 
-    &:hover {
-      background-color: $third-color;
-      color: $oil;
-      transition: all .25 ease-in-out;
-    }
+  &:hover {
+    background-color: $third-color;
+    color: $oil;
+    transition: all .25 ease-in-out;
   }
 }
 
+// Welcome text //
 section.welcome p {
   font-family: sans-serif;
   text-align: center;
@@ -602,8 +602,7 @@ section.welcome p {
   }
 }
 
-// bucket-list index page
-
+// Block grid
 .display-groups {
   margin: 0;
   padding: 0;
@@ -1181,9 +1180,9 @@ div.field {
   margin-left: 25px;
 }
 
-#return-to-log-in {
+.return-to-log-in {
   margin-top: 25px;
-  margin-left: 40.2%;
+  margin-left: 42.5%;
 }
 
 .reset-password-button {
