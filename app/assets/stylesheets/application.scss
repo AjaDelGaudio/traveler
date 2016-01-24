@@ -676,10 +676,6 @@ div.wrap-top:hover {
     transition: all .25 ease-in-out;
   }
 
-  // h4 a {
-  //   transition: all .25 ease-in-out;
-  // }
-
   p {
     color: $third-color;
     font-weight: 300;
@@ -699,6 +695,8 @@ div.wrap-top:hover {
 }
 
 div.wrap-bottom {
+  display: inline-block;
+  width: 100%;
   color: $oil;
   background-color: rgba(250,250,250,0.7);
   font-size: 1rem;
@@ -711,40 +709,55 @@ div.wrap-bottom {
     font-size: 1rem;
     text-align: right;
   }
+
+  &:hover {
+    display: inline-block;
+    width: 100%;
+    font-size: 1rem;
+    color: $third-color;
+    background-color: rgba(20, 130, 133, 0.4);
+    padding: .6rem 2rem 1.5rem 2rem;
+    margin: 0;
+  }
+
+  &:hover p {
+    color: $third-color;
+    transition: all .25 ease-in-out;
+  }
 }
 
-div.wrap-bottom:hover p {
-  display: inline-block;
-  width: 100%;
-  font-size: 1rem;
-  color: $third-color;
-  padding: 0;
-  margin: 0;
-  height: 50px;
-  transition: all .25 ease-in-out;
-}
+// .wrap-bottom:hover p {
+//   display: inline-block;
+//   width: 100%;
+//   font-size: 1rem;
+//   color: $third-color;
+//   padding: 0;
+//   margin: 0;
+//   height: 50px;
+//   transition: all .25 ease-in-out;
+// }
+//
+// .wrap-bottom:hover a {
+//   display: inline-block;
+//   width: 100%;
+//   font-size: 1rem;
+//   color: $third-color;
+//   padding: 0;
+//   margin: 0;
+//   height: 50px;
+//   transition: all .25 ease-in-out;
+// }
 
-div.wrap-bottom:hover a {
-  display: inline-block;
-  width: 100%;
-  font-size: 1rem;
-  color: $third-color;
-  padding: 0;
-  margin: 0;
-  height: 50px;
-  transition: all .25 ease-in-out;
-}
-
-div.wrap-bottom:hover {
-  display: inline-block;
-  width: 100%;
-  font-size: 1rem;
-  color: $third-color;
-  background-color: rgba(20, 130, 133, 0.4);
-  padding: .6rem 2rem 1.5rem 2rem;
-  margin: 0;
-  transition: all .25 ease-in-out;
-}
+// .wrap-bottom:hover {
+//   display: inline-block;
+//   width: 100%;
+//   font-size: 1rem;
+//   color: $third-color;
+//   background-color: rgba(20, 130, 133, 0.4);
+//   padding: .6rem 2rem 1.5rem 2rem;
+//   margin: 0;
+//   transition: all .25 ease-in-out;
+// }
 
 // Display classes //
 .display-attributes {
