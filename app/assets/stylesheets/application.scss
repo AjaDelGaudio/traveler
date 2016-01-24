@@ -728,39 +728,6 @@ div.wrap-bottom {
   }
 }
 
-// .wrap-bottom:hover p {
-//   display: inline-block;
-//   width: 100%;
-//   font-size: 1rem;
-//   color: $third-color;
-//   padding: 0;
-//   margin: 0;
-//   height: 50px;
-//   transition: all .25 ease-in-out;
-// }
-//
-// .wrap-bottom:hover a {
-//   display: inline-block;
-//   width: 100%;
-//   font-size: 1rem;
-//   color: $third-color;
-//   padding: 0;
-//   margin: 0;
-//   height: 50px;
-//   transition: all .25 ease-in-out;
-// }
-
-// .wrap-bottom:hover {
-//   display: inline-block;
-//   width: 100%;
-//   font-size: 1rem;
-//   color: $third-color;
-//   background-color: rgba(20, 130, 133, 0.4);
-//   padding: .6rem 2rem 1.5rem 2rem;
-//   margin: 0;
-//   transition: all .25 ease-in-out;
-// }
-
 // Display classes //
 .display-attributes {
   margin: 3%;
@@ -821,6 +788,7 @@ body div.form-row-black {
 }
 
 div.form-row {
+  font-family: 'Roboto Condensed', sans-serif;
   background: none;
 }
 
@@ -838,13 +806,28 @@ body div.form-row {
   padding: 2rem;
 
   label {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   h4 {
     font-family: sans-serif;
     text-align: center;
     padding: 3%;
+  }
+
+  select {
+    font-family: 'Architects Daughter', sans-serif;
+    font-size: 1.2rem;
+  }
+
+  input {
+    font-family: 'Architects Daughter', sans-serif;
+    font-size: 1.2rem;
+  }
+
+  textarea {
+    font-family: 'Architects Daughter', sans-serif;
+    font-size: 1.2rem;
   }
 }
 
@@ -1046,6 +1029,8 @@ p.adventure-link a {
 }
 
 .cancel {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
   color: $oil;
   background-color: $small-button-color;
   margin-top: 15px;
