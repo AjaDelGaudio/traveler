@@ -26,10 +26,8 @@
         <%= link_to(adventure_path(adventure.id)) do %>
           <li>
             <div class="wrap-top wrap-user">
-              <h4>
-                <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
-                <%= link_to adventure.address, adventure_path(adventure.id) %>
-              </h4>
+              <h4><%= link_to adventure.address, adventure_path(adventure.id) %></h4>
+              <p><%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %></p>
             </div>
             <div class="wrap-bottom tiny-button">
               <p>
