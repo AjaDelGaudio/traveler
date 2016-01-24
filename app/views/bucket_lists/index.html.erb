@@ -17,13 +17,13 @@
     </p>
   </section>
 
-  <section class="display-groups bucket-list-bloc">
+  <section class="display-attributes bucket-list-bloc">
     <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
       <% @bucket_lists.each do |bucket_list| %>
         <%= link_to(bucket_list_path(bucket_list.id)) do %>
           <li>
             <div class="wrap-top bucket-list-bloc">
-              <h4><%= bucket_list.title %></h4>
+              <h4><%= bucket_list.title %></h4></br>
               <p class="description bucket-list-bloc" id="description"><%= bucket_list.description %></p>
             </div>
             <%= link_to(edit_bucket_list_path(bucket_list.id)) do %>

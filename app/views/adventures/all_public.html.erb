@@ -20,7 +20,7 @@
     <div class="map-canvas" id="map-canvas-multi-markers"> </div>
   </div>
 
-  <section class="display-groups display-all-public-adventures">
+  <section class="display-attributes display-adventure-attributes">
     <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
       <% @adventures.each do |adventure| %>
         <%= link_to(adventure_path(adventure.id)) do %>

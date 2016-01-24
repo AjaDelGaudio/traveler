@@ -2,6 +2,7 @@
 @import "foundation/components/block-grid";
 @import "foundation_and_overrides";
 @import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Architects+Daughter|Roboto+Condensed:400,700,700italic,300,300italic,400italic);
 
 /* normalize css */
 
@@ -471,6 +472,8 @@ th {
 
   section ul a {
     color: $oil;
+    // font-family: 'Architects Daughter', courier;
+    // font-weight: bold;
     float: none;
     display: inline-block;
     background: rgba(250,250,250,0);
@@ -485,6 +488,8 @@ th {
   }
 
   .main-header a {
+    font-family: 'Architects Daughter', courier;
+    font-weight: bold;
     color: $oil;
     background: rgba(250,250,250,0.7);
     padding: 1rem;
@@ -504,7 +509,8 @@ th {
   position: relative;
   top: 4rem;
   text-align: center;
-  font-family: courier, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
   margin-bottom: 0;
   margin-left: 10%;
   margin-right: 10%;
@@ -518,6 +524,7 @@ th {
       padding: 0.9rem 1rem 0.75rem;
       font-size: 1rem;
       color: $oil;
+      font-weight: bold;
       text-transform: uppercase;
       display: block;
       font-weight: bold;
@@ -558,6 +565,7 @@ th {
   align-content: center;
 
   input {
+    font-family: 'Architects Daughter', courier;
     width: 60%;
     height: 3rem;
     display: inline-block;
@@ -565,22 +573,10 @@ th {
   }
 }
 
-.adventures-search a .button {
-  margin-top: 2.5rem;
-  width: 13rem;
-  margin-left: -.599rem;
-  border-color: $base;
-
-  &:hover {
-    background-color: $third-color;
-    color: $oil;
-    transition: all .25 ease-in-out;
-  }
-}
-
 // Welcome text //
 section.welcome p {
-  font-family: sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
   text-align: center;
   font-size: 1.4rem;
   margin-left: 0;
@@ -592,7 +588,7 @@ section.welcome p {
   }
 
   strong {
-    font-weight: bolder;
+    font-weight: 700;
     color:$secondary-color;
   }
 
@@ -602,7 +598,7 @@ section.welcome p {
   }
 }
 
-// Block grid
+// Block grid //
 .display-groups {
   margin: 0;
   padding: 0;
@@ -733,7 +729,8 @@ div.wrap-bottom:hover {
   transition: all .25 ease-in-out;
 }
 
-.display-groups {
+// Display classes //
+.display-attributes {
   margin: 3%;
 
   a {
@@ -746,18 +743,53 @@ div.wrap-bottom:hover {
   }
 }
 
+.display-adventure {
+  margin: 3%;
+  color: $oil;
+}
+
+.display-adventure a {
+  color: $oil;
+}
+
+.display-adventure h2 {
+  text-align: center;
+  color: $oil;
+  font-weight: bold;
+}
+
+div.display-adventure-spacer {
+  height: 15px;
+  width: 1px;
+  padding: 0;
+  margin: 0;
+}
+
+section.display-adventure-attributes p {
+  float: right;
+}
+
+section.display-adventure-attributes h4 {
+  &:hover a {
+    padding: 0;
+    margin: 0;
+    color: $third-color;
+    transition: all .25 ease-in-out;
+  }
+}
 
 
-
-
-// new adventure page
-
+// Forms //
 body div.form-row-black {
   background-color: $oil;
   height: 1rem;
   width: 100%;
   padding: .5rem 0rem .5rem 0rem;
   margin: 0;
+}
+
+div.form-row {
+  background: none;
 }
 
 body div.form-row {
@@ -776,39 +808,15 @@ body div.form-row {
   label {
     font-size: 1rem;
   }
-}
 
-.form h4 {
-  font-family: sans-serif;
-  text-align: center;
-  padding: 3%;
-}
-
-
-
-
-// adventure show
-
-.display-adventure {
-  margin: 3%;
-  color: $oil;
-}
-
-div.display-adventure h2 {
-  text-align: center;
-  color: $oil;
-  font-weight: bold;
-
-  &:hover a {
-    color: $secondary-color;
-    transition: all .25 ease-in-out;
+  h4 {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 3%;
   }
 }
 
-div.display-adventure a {
-  color: $oil;
-}
-
+// Adventures show view //
 div.title-spacer {
   height: 30px;
 }
@@ -860,62 +868,9 @@ p.is-achieved-link {
   padding-right: 2.5px;
 }
 
-
-
-// Gmaps //
-
-// adventure show gmap
-.map-spacer {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.map-container {
-  height: 400px;
-  border-color: $oil;
-  border-style: solid;
-  box-shadow: 2px 2px 10px $oil;
-  margin-top: 25px;
-  border-width: 9px;
-}
-
-#map-canvas {
-  height: 384px;
-  width: 100.05%;
-  background-size: cover;
-
-}
-
-// multimarker all_public gmap
-#map-canvas-multi-markers {
-  height: 384px;
-  width: 100.05%;
-}
-
-
-// adventure show
-
 div.adventure-details {
   padding-left: 1.5%;
   padding-right: 1.5%;
-}
-
-div.display-adventure span.small-button {
-  margin-left: 2.5px;
-  margin-bottom: 0;
-}
-
-div.display-adventure a.small-button {
-  font-family: courier;
-  float: right;
-  clear: both;
-}
-
-div.display-adventure-spacer {
-  height: 15px;
-  width: 1px;
-  padding: 0;
-  margin: 0;
 }
 
 p.adventure-notes {
@@ -946,8 +901,36 @@ p.adventure-link a {
 }
 
 
-// Button styles //
+// Gmaps //
+// adventure show gmap
+.map-spacer {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 
+.map-container {
+  height: 400px;
+  border-color: $oil;
+  border-style: solid;
+  box-shadow: 2px 2px 10px $oil;
+  margin-top: 25px;
+  border-width: 9px;
+}
+
+#map-canvas {
+  height: 384px;
+  width: 100.05%;
+  background-size: cover;
+
+}
+
+// multimarker all_public gmap
+#map-canvas-multi-markers {
+  height: 384px;
+  width: 100.05%;
+}
+
+// Buttons //
 .tiny-button {
   display: inline-block;
   width: 100%;
@@ -1075,6 +1058,52 @@ p.adventure-link a {
   margin-right: 41%;
 }
 
+.adventures-search a .button {
+  margin-top: 2.5rem;
+  width: 13rem;
+  margin-left: -.599rem;
+  border-color: $base;
+
+  &:hover {
+    background-color: $third-color;
+    color: $oil;
+    transition: all .25 ease-in-out;
+  }
+}
+
+div.display-adventure span.small-button {
+  margin-left: 2.5px;
+  margin-bottom: 0;
+}
+
+div.display-adventure a.small-button {
+  font-family: courier;
+  float: right;
+  clear: both;
+}
+
+.return-to-log-in-button {
+  margin-top: 25px;
+  margin-left: 42.25%;
+  margin-right: 42.25%;
+}
+
+.sign-up-button {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.reset-password-button {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10px;
+}
+
+#reset-password-button {
+  border: 0;
+  background: none;
+}
+
 
 // Fields //
 .field {
@@ -1108,12 +1137,12 @@ textarea#adventure_notes {
   }
 }
 
-#new-adventure-checkboxes {
+#new-adventure-checkbox {
   margin-top: 35px;
 }
 
 
-// all_public adventures //
+// Adventures all_public //
 div.all-public-adventures {
   color: $oil;
 
@@ -1121,7 +1150,6 @@ div.all-public-adventures {
     height: 250px;
   }
 }
-
 
 div.wrap-user {
   display: inline-block;
@@ -1134,25 +1162,8 @@ div.wrap-user {
   }
 }
 
-div.form-row {
-  background: none;
-}
 
-section.display-all-public-adventures p {
-  float: right;
-}
-
-section.display-all-public-adventures h4 {
-  &:hover a {
-    padding: 0;
-    margin: 0;
-    color: $third-color;
-    transition: all .25 ease-in-out;
-  }
-}
-
-
-// devise //
+// Devise //
 .form-actions {
   margin-top: 2rem;
 }
@@ -1180,28 +1191,6 @@ div.field {
   margin-left: 25px;
 }
 
-.return-to-log-in {
-  margin-top: 25px;
-  margin-left: 42.25%;
-  margin-right: 42.25%;
-}
-
-.sign-up-button {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.reset-password-button {
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 10px;
-}
-
-#reset-password-button {
-  border: 0;
-  background: none;
-}
-
 .reset-password-form h2 {
   margin-left: 13.5%;
   margin-right: 13.5%;
@@ -1209,31 +1198,30 @@ div.field {
 }
 
 
-// edit views //
+// Edit views //
 .required-field label {
   font-weight: bold;
   color: $oil;
 }
 
 
-
-// Bucket list show //
-div.show-bucket-list {
+// Bucket lists show (Groups show)//
+.show-bucket-list {
   text-align: center;
 }
 
-div.show-bucket-list h2 {
+.show-bucket-list h2 {
   color: $oil;
   font-weight: bold;
 }
 
-div.show-bucket-list p.descripton {
+.show-bucket-list p.descripton {
   color: $steel;
   font-style: italic;
   align-self: center;
 }
 
-div.show-bucket-list a {
+.show-bucket-list a {
   color: $oil;
   font-weight: bold;
   text-align: center;
@@ -1243,14 +1231,11 @@ div.show-bucket-list a {
   }
 }
 
-div.show-bucket-list span.small-button {
+.show-bucket-list span.small-button {
   margin-top: 15px;
 }
 
-
-
-
-
+// Bucket lists //
 .bucket-list {
   color: $dark-grey;
 
@@ -1263,6 +1248,7 @@ div.show-bucket-list span.small-button {
   }
 }
 
+// Adventures //
 .adventure-list {
   color: $dark-grey;
 
@@ -1274,5 +1260,4 @@ div.show-bucket-list span.small-button {
   p {
     margin: 0;
   }
-
 }
