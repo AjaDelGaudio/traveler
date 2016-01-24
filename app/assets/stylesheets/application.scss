@@ -472,8 +472,6 @@ th {
 
   section ul a {
     color: $oil;
-    // font-family: 'Architects Daughter', courier;
-    // font-weight: bold;
     float: none;
     display: inline-block;
     background: rgba(250,250,250,0);
@@ -491,6 +489,7 @@ th {
     font-family: 'Architects Daughter', courier;
     font-weight: bold;
     color: $oil;
+    font-size: 4rem;
     background: rgba(250,250,250,0.7);
     padding: 1rem;
     margin-top: 10rem;
@@ -570,6 +569,10 @@ th {
     height: 3rem;
     display: inline-block;
     margin-left: 8%;
+  }
+
+  a input {
+    font-size: 1.4rem;
   }
 }
 
