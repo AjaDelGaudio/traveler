@@ -16,10 +16,11 @@
             <li>
               <div class="wrap-top wrap-user">
                 <h4>
-                  <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
-                  <%= link_to adventure.address, adventure_path(adventure.id) %>
+                  <%= adventure.address %>
+                  <%= adventure.name unless adventure.name.nil? %>
                 </h4>
               </div>
+          <% end %>
               <div class="wrap-bottom tiny-button">
                 <p>
                   <% user = adventure.user %>
@@ -27,7 +28,6 @@
                 <p>
               </div>
             </li>
-          <% end %>
         <% end %>
       </ul>
     </section>
