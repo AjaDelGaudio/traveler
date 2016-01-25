@@ -1,14 +1,15 @@
 <div class="wrap-page display-adventure small-4 medium-8  large-8 columns small-centered center-content">
-
-  <% if @adventure.user_id == @current_user.id %>
-    <%= link_to(edit_adventure_path(@adventure)) do %>
-      <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
+  <div class="display-adventure-title">
+    <% if @adventure.user_id == @current_user.id %>
+      <%= link_to(edit_adventure_path(@adventure)) do %>
+        <h2><%= @adventure.address %></h2>
+        <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
+      <% end %>
+    <% else %>
       <h2><%= @adventure.address %></h2>
+      <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
     <% end %>
-  <% else %>
-    <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
-    <h2><%= @adventure.address %></h2>
-  <% end %>
+  </div>
 
   <div class="title-spacer"></div>
 
