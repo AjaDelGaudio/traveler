@@ -796,8 +796,8 @@ div.form-row {
 }
 
 body div.form-row {
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   background: image-url('jungle-bridge-transparent.jpg') no-repeat center center;
   background-size: cover;
   height: 100%;
@@ -821,6 +821,7 @@ body div.form-row {
   select {
     font-family: 'Architects Daughter', sans-serif;
     font-size: 1.2rem;
+    height: 42px;
   }
 
   input {
