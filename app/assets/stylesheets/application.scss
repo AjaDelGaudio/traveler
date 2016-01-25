@@ -551,30 +551,55 @@ th {
 
 // Body //
 .center-content {
-  width: 85%;
+  width: 80%;
+  padding: 0;
   margin: auto;
 }
 
 // Search bar - Find Adventure //
 .adventures-search {
-  // width: 70%;
-  // margin-left: 15%;
-  // margin-right: 15%;
-  align-content: center;
-
-  input {
-    font-family: 'Architects Daughter', courier;
-    font-size: 1rem;
-    width: 60%;
-    height: 3rem;
-    display: inline-block;
-    margin-left: 8%;
-  }
-
-  a input {
-    font-size: 1.4rem;
-  }
+  display: block;
 }
+
+.adventures-search form {
+  // width: 657px;
+}
+.adventures-search input {
+  display: inline-block;
+}
+
+input.adventures-search-bar {
+  height: 38.5px;
+  width: 500px;
+  margin: 0;
+}
+
+input.adventures-search-button {
+  width: 152px;
+  float: left;
+}
+
+input.button.search-adventures-button {
+  margin: 0;
+}
+
+
+// .adventures-search {
+//   font-family: 'Architects Daughter', courier;
+//   font-size: 1rem;
+// }
+
+
+// div.adventures-search input.button {
+//   font-size: 1.2rem;
+//   text-align: center;
+//   width: auto;
+  // display: block;
+  // padding-left: -1px;
+  // margin: 0;
+  // float: right;
+// }
+
 
 // Welcome text //
 section.welcome p {
@@ -945,6 +970,37 @@ p.adventure-link a {
 }
 
 // Buttons //
+.button {
+  padding: .5rem 1rem .5rem 1rem;
+  text-align: center;
+  border-width: 1px;
+  border-color: $base;
+  color: $oil;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $third-color;
+    color: $oil;
+    font-weight: bold;
+    transition: all .25 ease-in-out;
+  }
+}
+
+.small-button {
+  text-align: center;
+  font-weight: bold;
+  color: $oil;
+  padding: .5rem;
+  background-color: $small-button-color;
+  border: 1px solid $base;
+
+  &:hover {
+    background-color: $secondary-transparent-color;
+    color: $oil;
+    transition: all .25 ease-in-out;
+  }
+}
+
 .tiny-button {
   display: inline-block;
   width: 100%;
@@ -976,37 +1032,6 @@ p.adventure-link a {
     padding: 0;
     margin: 0;
     height: 50px;
-    transition: all .25 ease-in-out;
-  }
-}
-
-.button {
-  padding: .5rem 1rem .5rem 1rem;
-  text-align: center;
-  border-width: 1px;
-  border-color: $base;
-  color: $oil;
-  font-weight: bold;
-
-  &:hover {
-    background-color: $third-color;
-    color: $oil;
-    font-weight: bold;
-    transition: all .25 ease-in-out;
-  }
-}
-
-.small-button {
-  text-align: center;
-  font-weight: bold;
-  color: $oil;
-  padding: .5rem;
-  background-color: $small-button-color;
-  border: 1px solid $base;
-
-  &:hover {
-    background-color: $secondary-transparent-color;
-    color: $oil;
     transition: all .25 ease-in-out;
   }
 }
