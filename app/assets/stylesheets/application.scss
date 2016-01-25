@@ -1119,6 +1119,10 @@ div.display-adventure a.small-button {
   margin-top: 25px;
   margin-left: 42.25%;
   margin-right: 42.25%;
+
+  &:hover {
+    font-weight: 400;
+  }
 }
 
 .sign-up-button {
