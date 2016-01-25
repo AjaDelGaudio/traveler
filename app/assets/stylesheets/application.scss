@@ -549,20 +549,17 @@ th {
   }
 }
 
-// Search bar - Find Adventure //
+// Body //
 .center-content {
-  clear: both;
-  float: none;
-  width: 84%;
-  margin-left: 8%;
-  margin-right: 8%;
-  padding: 0;
+  width: 85%;
+  margin: auto;
 }
 
+// Search bar - Find Adventure //
 .adventures-search {
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
+  // width: 70%;
+  // margin-left: 15%;
+  // margin-right: 15%;
   align-content: center;
 
   input {
