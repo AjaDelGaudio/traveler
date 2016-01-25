@@ -438,6 +438,7 @@ th {
 
 // Alert boxes //
 .alert-box {
+  font-family: 'Architects Daughter', sans-serif;
   background: $primary-color;
   padding: .5rem;
   margin-bottom: 0;
@@ -447,6 +448,7 @@ th {
 }
 
 .alert {
+  font-family: 'Roboto Condensed', sans-serif;
   margin-left: 11%;
   margin-right: 11%;
   margin-bottom: 25px;
@@ -1100,6 +1102,7 @@ div.display-adventure a.small-button {
 }
 
 .return-to-log-in-button {
+  font-size: 1.1rem;
   margin-top: 25px;
   margin-left: 42.25%;
   margin-right: 42.25%;
@@ -1186,11 +1189,14 @@ div.wrap-user {
 }
 
 .form-title {
+  font-family: 'Architects Daughter', courier;
+  font-size: 3rem;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .devise-links a {
+  font-size: 1.1rem;
   color: $third-color;
 
   &:hover {
@@ -1209,9 +1215,14 @@ div.field {
 }
 
 .reset-password-form h2 {
+  font-family: 'Architects Daughter', courier;
   margin-left: 13.5%;
   margin-right: 13.5%;
   margin-bottom: 25px;
+}
+
+.password-private {
+  // add spacing between characters for visiblity
 }
 
 
