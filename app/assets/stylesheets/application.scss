@@ -1063,44 +1063,21 @@ input.button.search-adventures-button {
 }
 
 .new-save-button {
-  margin-left: 41%;
-  margin-right: 41%;
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
 .new-cancel-button {
-  margin-left: 42%;
-  margin-right: 42%;
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .edit-save-button {
-  margin-left: 40%;
-  margin-right: 43%;
   margin-top: 25px;
   margin-bottom: 15px;
 }
 
 .edit-cancel-button {
-  margin-top: 10px;
-  margin-bottom: 15px;
-  margin-left: 41%;
-  margin-right: 41%;
-}
-
-.adventures-search a .button {
-  margin-top: 2.5rem;
-  width: 13rem;
-  margin-left: -.599rem;
-  border-color: $base;
-
-  &:hover {
-    background-color: $third-color;
-    color: $oil;
-    transition: all .25 ease-in-out;
-  }
 }
 
 div.display-adventure span.small-button {
@@ -1117,8 +1094,6 @@ div.display-adventure a.small-button {
 .return-to-log-in-button {
   font-size: 1.1rem;
   margin-top: 25px;
-  margin-left: 42.25%;
-  margin-right: 42.25%;
 
   &:hover {
     font-weight: 400;
@@ -1126,13 +1101,11 @@ div.display-adventure a.small-button {
 }
 
 .sign-up-button {
-  margin-right: 0;
-  margin-left: 0;
+  width: auto;
+  margin: auto;
 }
 
 .reset-password-button {
-  margin-left: 20%;
-  margin-right: 20%;
   margin-top: 10px;
 }
 
@@ -1205,6 +1178,10 @@ div.wrap-user {
   margin-top: 2rem;
 }
 
+.form {
+  text-align: center;
+}
+
 .form-title {
   font-family: 'Architects Daughter', courier;
   font-size: 3rem;
@@ -1227,14 +1204,11 @@ div.devise-links {
 }
 
 div.field {
-  margin-right: 25px;
-  margin-left: 25px;
+  text-align: left;
 }
 
 .reset-password-form h2 {
   font-family: 'Architects Daughter', courier;
-  margin-left: 13.5%;
-  margin-right: 13.5%;
   margin-bottom: 25px;
 }
 
