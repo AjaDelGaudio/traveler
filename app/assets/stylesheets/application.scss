@@ -970,12 +970,12 @@ p.adventure-link a {
 }
 
 .small-button {
+  color: $oil;
   text-align: center;
   font-weight: bold;
-  color: $oil;
-  padding: .5rem;
   background-color: $small-button-color;
   border: 1px solid $base;
+  padding: .5rem 1rem .5rem 1rem;
 
   &:hover {
     background-color: $secondary-transparent-color;
