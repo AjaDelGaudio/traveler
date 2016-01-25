@@ -559,10 +559,12 @@ th {
 // Search bar - Find Adventure //
 .adventures-search {
   display: block;
+  margin-top: 5%;
+  margin-bottom: 3%;
 }
 
 .adventures-search form {
-  width: 652px;
+  width: 702px;
   margin: auto;
 }
 .adventures-search input {
@@ -571,7 +573,7 @@ th {
 
 input.adventures-search-bar {
   height: 38.5px;
-  width: 500px;
+  width: 550px;
   margin: 0;
 }
 
