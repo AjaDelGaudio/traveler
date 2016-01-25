@@ -564,7 +564,7 @@ th {
 }
 
 .adventures-search form {
-  width: 702px;
+  width: 726px;
   margin: auto;
 }
 .adventures-search input {
@@ -572,36 +572,12 @@ th {
 }
 
 input.adventures-search-bar {
-  height: 38.5px;
+  font-family: 'Architects Daughter', courier;
+  font-size: 1.2rem;
+  height: 45px;
   width: 550px;
   margin: 0;
 }
-
-input.adventures-search-button {
-  width: 152px;
-  float: left;
-}
-
-input.button.search-adventures-button {
-  margin: 0;
-}
-
-
-// .adventures-search {
-//   font-family: 'Architects Daughter', courier;
-//   font-size: 1rem;
-// }
-
-
-// div.adventures-search input.button {
-//   font-size: 1.2rem;
-//   text-align: center;
-//   width: auto;
-  // display: block;
-  // padding-left: -1px;
-  // margin: 0;
-  // float: right;
-// }
 
 
 // Welcome text //
@@ -1037,6 +1013,17 @@ p.adventure-link a {
     height: 50px;
     transition: all .25 ease-in-out;
   }
+}
+
+input.adventures-search-button {
+  width: 176px;
+  float: left;
+}
+
+input.button.search-adventures-button {
+  font-family: 'Architects Daughter', courier;
+  font-size: 1.2rem;
+  margin: 0;
 }
 
 .delete a {
