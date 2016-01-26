@@ -538,7 +538,7 @@ th {
       }
 
       &.is-active {
-        background-color: $white-smoke;
+        background-color: $snow;
         color: $third-color;
       }
     }
@@ -550,6 +550,9 @@ th {
 }
 
 // Body //
+body {
+  background-color: $snow;
+}
 .center-content {
   width: 80%;
   padding: 0;
@@ -626,7 +629,7 @@ div.wrap-top {
   font-family: 'Roboto Condensed', sans-serif;
   color: $oil;
   text-align: center;
-  background-color: rgba(250,250,250,0.7);
+  background-color: $secondary-transparent-color;
   height: 250px;
   display: inline-block;
   width: 100%;
@@ -664,23 +667,22 @@ div.wrap-top:hover {
   font-family: 'Roboto Condensed', sans-serif;
   display: inline-block;
   width: 100%;
-  background-color: rgba(20, 130, 133, 0.4);
+  background-color: $third-transparent-color;
   padding: 1.5rem 2rem .5rem 2rem;
   margin: 0;
   height: 250px;
   transition: all .25 ease-in-out;
 
   h4 {
-    color: $third-color;
+    color: $oil;
     font-weight: 700;
     margin: 0;
-    // padding: 0;
     padding: .5rem 0rem .5rem 0rem;
     transition: all .25 ease-in-out;
   }
 
   p {
-    color: $third-color;
+    color: $charcoal;
     font-weight: 300;
     font-style: italic;
     margin: 0;
@@ -719,7 +721,7 @@ div.wrap-bottom {
     width: 100%;
     font-size: 1rem;
     color: $third-color;
-    background-color: rgba(20, 130, 133, 0.4);
+    // background-color: rgba(20, 130, 133, 0.4);
     padding: .6rem 2rem 1.5rem 2rem;
     margin: 0;
   }
