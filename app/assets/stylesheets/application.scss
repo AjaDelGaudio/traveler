@@ -1002,13 +1002,13 @@ p.adventure-link a {
   height: 384px;
   width: 100.05%;
   background-size: cover;
-
 }
 
 // multimarker all_public gmap
 #map-canvas-multi-markers {
   height: 384px;
   width: 100.05%;
+  background-size: cover;
 }
 
 // Buttons //
@@ -1497,15 +1497,14 @@ div.field {
     }
   }
 
-
+  .center-content {
+    display: block;
+    width: 90%;
+    padding: 0;
+    margin: auto;
+  }
 }
 
-.center-content {
-  display: block;
-  width: 90%;
-  padding: 0;
-  margin: auto;
-}
 @media screen and (max-width: 500px) {
 
   header .header {
@@ -1603,5 +1602,25 @@ div.field {
     width: 90%;
     padding: 0;
     margin: auto;
+  }
+
+  .map-container {
+    height: 300px;
+    border-color: $oil;
+    border-style: solid;
+    box-shadow: 2px 2px 10px $oil;
+    margin-top: 25px;
+    border-width: 9px;
+  }
+
+  #map-canvas {
+    height: 100%;
+    width: 100.05%;
+  }
+
+  // multimarker all_public gmap
+  #map-canvas-multi-markers {
+    height: 100%;
+    width: 100.05%;
   }
 }
