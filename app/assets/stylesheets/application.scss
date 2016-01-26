@@ -1410,7 +1410,6 @@ div.field {
     margin-top: 25px;
   }
 
-
   .adventures-search form {
     width: 526px;
     margin: auto;
@@ -1445,7 +1444,13 @@ div.field {
 
     li {
       width: 100%;
+
+      a.is-active {
+        background-color: $secondary-transparent-color;
+      }
     }
+
+
   }
 
   .adventures-search form {
@@ -1486,16 +1491,21 @@ div.field {
     display: block;
     height: 202px;
     margin-top: -10%;
+
+    li a.is-active {
+      background-color: $secondary-transparent-color;
+    }
   }
 
-  .center-content {
-    display: block;
-    width: 90%;
-    padding: 0;
-    margin: auto;
-  }
+
 }
 
+.center-content {
+  display: block;
+  width: 90%;
+  padding: 0;
+  margin: auto;
+}
 @media screen and (max-width: 500px) {
 
   header .header {
@@ -1531,6 +1541,10 @@ div.field {
 
     li {
       width: 100%;
+    }
+
+    a.is-active {
+      background-color: $secondary-transparent-color;
     }
   }
 
