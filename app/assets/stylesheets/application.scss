@@ -646,13 +646,16 @@ div.wrap-top {
     font-family: 'Architects Daughter', 'Roboto Condensed', sans-serif;
     font-weight: 300;
     font-style: italic;
+    color: $charcoal;
     padding: .5rem 0rem .5rem 0rem;
   }
-}
 
-#adventure-name {
-  float: none;
-  text-align: center;
+  p#search-result-adventure-name {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 #description {
@@ -665,9 +668,10 @@ div.wrap-top {
 
 div.wrap-top:hover {
   font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+  background-color: $third-transparent-color;
   display: inline-block;
   width: 100%;
-  background-color: $third-transparent-color;
   padding: 1.5rem 2rem .5rem 2rem;
   margin: 0;
   height: 250px;
@@ -682,10 +686,10 @@ div.wrap-top:hover {
   }
 
   p {
-    color: $charcoal;
+    font-family: 'Architects Daughter', 'Roboto Condensed', sans-serif;
     font-weight: 300;
     font-style: italic;
-    margin: 0;
+    color: $charcoal;
     padding: .5rem 0rem .5rem 0rem;
     margin: 0;
     transition: all .25 ease-in-out;
@@ -699,6 +703,7 @@ div.wrap-top:hover {
   }
 }
 
+
 div.wrap-bottom {
   display: inline-block;
   width: 100%;
@@ -710,6 +715,7 @@ div.wrap-bottom {
   margin: 0;
 
   p.is-public-link {
+    color: $charcoal;
     padding-bottom: 0;
     margin-bottom: 0;
     font-size: 1rem;
