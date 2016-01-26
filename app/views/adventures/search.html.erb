@@ -2,24 +2,23 @@
   <div class="adventures-search">
     <%= form_tag(search_adventures_path, method: "get") do %>
       <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
-      placeholder: "The world is your oyster... explore it." %>
-      <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
+      placeholder: "The world is your oyster..." %><!--
+      --><%= submit_tag "Find adventure!", class: "button search-adventures-button" %>
     <% end %>
   </div>
 
     <p class="search-summary"><%= @search_summary %></p>
 
-    <section class="display-groups display-all-public-adventures">
-      <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
+    <section class="display-attributes display-adventure-attributes">
+      <ul class="grid-groups small-block-grid-1 medium-block-grid-3 large-block-grid-4">
         <% @adventures.each do |adventure| %>
           <%= link_to(adventure_path(adventure.id)) do %>
             <li>
               <div class="wrap-top wrap-user">
-                <h4>
-                  <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
-                  <%= link_to adventure.address, adventure_path(adventure.id) %>
-                </h4>
+                <h4><%= adventure.address %></h4>
+                <p id="search-result-adventure-name"><%= adventure.name unless adventure.name.nil? %></p>
               </div>
+          <% end %>
               <div class="wrap-bottom tiny-button">
                 <p>
                   <% user = adventure.user %>
@@ -27,7 +26,6 @@
                 <p>
               </div>
             </li>
-          <% end %>
         <% end %>
       </ul>
     </section>

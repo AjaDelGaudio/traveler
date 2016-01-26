@@ -2,6 +2,7 @@
 @import "foundation/components/block-grid";
 @import "foundation_and_overrides";
 @import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Architects+Daughter|Roboto+Condensed:400,700,700italic,300,300italic,400italic);
 
 /* normalize css */
 
@@ -433,7 +434,11 @@ th {
 /** end normalize **/
 
 
+
+
+// Alert boxes //
 .alert-box {
+  font-family: 'Architects Daughter', sans-serif;
   background: $primary-color;
   padding: .5rem;
   margin-bottom: 0;
@@ -443,6 +448,7 @@ th {
 }
 
 .alert {
+  font-family: 'Roboto Condensed', sans-serif;
   margin-left: 11%;
   margin-right: 11%;
   margin-bottom: 25px;
@@ -450,7 +456,9 @@ th {
 }
 
 
+// Header //
 .header {
+  font-family: 'Roboto Condensed', sans-serif;
   text-align: center;
   background: image-url('watercolour-world-map.jpg') no-repeat center center;
   background-size: cover;
@@ -480,20 +488,18 @@ th {
     }
   }
 
-  #user-session-spacer {
-    padding: 3rem;
-    margin-left: 2rem;
-  }
-
   .main-header a {
+    font-family: 'Architects Daughter', courier;
+    font-weight: bold;
     color: $oil;
+    font-size: 4rem;
     background: rgba(250,250,250,0.7);
     padding: 1rem;
     margin-top: 10rem;
     margin-right: -8rem;
 
     &:hover {
-      background: $oil;
+      background: $charcoal;
       color: $primary-color;
       transition: all .25s ease-in-out;
     }
@@ -505,7 +511,7 @@ th {
   position: relative;
   top: 4rem;
   text-align: center;
-  font-family: courier, sans-serif;
+  font-weight: 700;
   margin-bottom: 0;
   margin-left: 10%;
   margin-right: 10%;
@@ -513,12 +519,13 @@ th {
   li {
     float: none;
     display: inline-block;
-    background-color: rgba(250,250,250,0.7);
+    background-color: rgba(250,250,250,0.5);
 
     a {
       padding: 0.9rem 1rem 0.75rem;
       font-size: 1rem;
       color: $oil;
+      font-weight: bold;
       text-transform: uppercase;
       display: block;
       font-weight: bold;
@@ -531,7 +538,7 @@ th {
       }
 
       &.is-active {
-        background-color: $white-smoke;
+        background-color: $snow;
         color: $third-color;
       }
     }
@@ -542,45 +549,44 @@ th {
   }
 }
 
+// Body //
+body {
+  background-color: $snow;
+}
 .center-content {
-  clear: both;
-  float: none;
-  width: 84%;
-  margin-left: 8%;
-  margin-right: 8%;
+  width: 80%;
   padding: 0;
-  align-content: center;
+  margin: auto;
 }
 
+// Search bar - Find Adventure //
 .adventures-search {
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
-  align-content: center;
-
-  input {
-    width: 60%;
-    height: 3rem;
-    display: inline-block;
-    margin-left: 8%;
-  }
-
-  a .button {
-    margin-top: 2.5rem;
-    width: 13rem;
-    margin-left: -.599rem;
-    border-color: $base;
-
-    &:hover {
-      background-color: $third-color;
-      color: $oil;
-      transition: all .25 ease-in-out;
-    }
-  }
+  display: block;
+  margin-top: 5%;
+  margin-bottom: 3%;
 }
 
+.adventures-search form {
+  width: 726px;
+  margin: auto;
+}
+.adventures-search input {
+  display: inline-block;
+}
+
+input.adventures-search-bar {
+  font-family: 'Architects Daughter', courier;
+  font-size: 1.2rem;
+  height: 45px;
+  width: 550px;
+  margin: 0;
+}
+
+
+// Welcome text //
 section.welcome p {
-  font-family: sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
   text-align: center;
   font-size: 1.4rem;
   margin-left: 0;
@@ -592,7 +598,7 @@ section.welcome p {
   }
 
   strong {
-    font-weight: bolder;
+    font-weight: 700;
     color:$secondary-color;
   }
 
@@ -602,8 +608,7 @@ section.welcome p {
   }
 }
 
-// bucket-list index page
-
+// Block grid //
 .display-groups {
   margin: 0;
   padding: 0;
@@ -617,31 +622,46 @@ section.welcome p {
   );
 
   margin: 0;
-  padding: 1%;
+  padding: 2%;
 }
 
 div.wrap-top {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: $charcoal;
+  text-align: center;
+  background-color: $secondary-transparent-color;
+  height: 250px;
   display: inline-block;
   width: 100%;
   padding: 1.5rem 2rem .5rem 2rem;
   margin: 0;
-  background-color: rgba(250,250,250,0.7);
-  height: 250px;
 
   h4 {
-    font-weight: bold;
-    padding: 0;
+    color: $oil;
+    font-weight: 700;
+    padding: .5rem 0rem .5rem 0rem;
     margin: 0;
   }
 
-  h4 a {
+  p {
+    font-family: 'Architects Daughter', 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    color: $charcoal;
     padding: .5rem 0rem .5rem 0rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
-
 }
 
-#description.description.bucket-list-bloc {
-  text-align: left;
+#bucket-list-show-adventure-address {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: $oil;
+}
+
+#description {
+  text-align: center;
   color: $charcoal;
   font-style: italic;
   padding: 1rem 0rem 0rem 0rem;
@@ -649,46 +669,86 @@ div.wrap-top {
 }
 
 div.wrap-top:hover {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+  background-color: $third-transparent-color;
   display: inline-block;
   width: 100%;
-  background-color: rgba(20, 130, 133, 0.4);
   padding: 1.5rem 2rem .5rem 2rem;
   margin: 0;
   height: 250px;
   transition: all .25 ease-in-out;
 
   h4 {
-    color: $third-color;
-    font-weight: bold;
+    color: $oil;
+    font-weight: 700;
     margin: 0;
-    padding: 0;
-    transition: all .25 ease-in-out;
-  }
-
-  h4 a {
     padding: .5rem 0rem .5rem 0rem;
     transition: all .25 ease-in-out;
   }
 
   p {
-    color: $third-color;
-    margin: 0;
+    font-family: 'Architects Daughter', 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    color: $charcoal;
     padding: .5rem 0rem .5rem 0rem;
     margin: 0;
     transition: all .25 ease-in-out;
   }
 
-  p#description.description.bucket-list-bloc {
-    color: $third-color;
+  p.adventure-name {
+    color: $charcoal;
+  }
+
+  p#description.description {
+    color: $charcoal;
     padding: 1rem 0rem 0rem 0rem;
     margin: 0;
     transition: all .25 ease-in-out;
   }
 }
 
+
 div.wrap-bottom {
-  color: $oil;
-  background-color: rgba(250,250,250,0.7);
+  display: inline-block;
+  width: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: $charcoal;
+  background-color: $snow;
+  font-size: 1rem;
+  padding: .6rem 2rem 1.5rem 2rem;
+  margin: 0;
+
+  p.is-public-link {
+    color: $charcoal;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 1rem;
+    text-align: right;
+  }
+
+  &:hover {
+    display: inline-block;
+    width: 100%;
+    font-size: 1rem;
+    color: $third-color;
+    padding: .6rem 2rem 1.5rem 2rem;
+    margin: 0;
+  }
+
+  &:hover p {
+    color: $third-color;
+    transition: all .25 ease-in-out;
+  }
+}
+
+div.bucket-list-bloc.wrap-bottom {
+  display: inline-block;
+  width: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: $charcoal;
+  background-color: $secondary-transparent-color;
   font-size: 1rem;
   padding: .6rem 2rem 1.5rem 2rem;
   margin: 0;
@@ -699,42 +759,26 @@ div.wrap-bottom {
     font-size: 1rem;
     text-align: right;
   }
+
+  &:hover {
+    font-size: 1rem;
+    color: $charcoal;
+    background-color: $third-transparent-color;
+    display: inline-block;
+    width: 100%;
+    padding: .6rem 2rem 1.5rem 2rem;
+    margin: 0;
+  }
+
+  &:hover p {
+    color: $charcoal;
+    transition: all .25 ease-in-out;
+  }
 }
 
-div.wrap-bottom:hover p {
-  display: inline-block;
-  width: 100%;
-  font-size: 1rem;
-  color: $third-color;
-  padding: 0;
-  margin: 0;
-  height: 50px;
-  transition: all .25 ease-in-out;
-}
 
-div.wrap-bottom:hover a {
-  display: inline-block;
-  width: 100%;
-  font-size: 1rem;
-  color: $third-color;
-  padding: 0;
-  margin: 0;
-  height: 50px;
-  transition: all .25 ease-in-out;
-}
-
-div.wrap-bottom:hover {
-  display: inline-block;
-  width: 100%;
-  font-size: 1rem;
-  color: $third-color;
-  background-color: rgba(20, 130, 133, 0.4);
-  padding: .6rem 2rem 1.5rem 2rem;
-  margin: 0;
-  transition: all .25 ease-in-out;
-}
-
-.display-groups {
+// Display classes //
+.display-attributes {
   margin: 3%;
 
   a {
@@ -747,12 +791,43 @@ div.wrap-bottom:hover {
   }
 }
 
+.display-adventure {
+  margin: 3%;
+  color: $oil;
+}
+
+.display-adventure a {
+  color: $oil;
+}
+
+.display-adventure h2 {
+  text-align: center;
+  color: $oil;
+  font-weight: bold;
+}
+
+div.display-adventure-spacer {
+  height: 15px;
+  width: 1px;
+  padding: 0;
+  margin: 0;
+}
+
+section.display-adventure-attributes p {
+  float: right;
+}
+
+section.display-adventure-attributes h4 {
+  &:hover a {
+    padding: 0;
+    margin: 0;
+    color: $third-color;
+    transition: all .25 ease-in-out;
+  }
+}
 
 
-
-
-// new adventure page
-
+// Forms //
 body div.form-row-black {
   background-color: $oil;
   height: 1rem;
@@ -761,56 +836,62 @@ body div.form-row-black {
   margin: 0;
 }
 
+div.form-row {
+  font-family: 'Roboto Condensed', sans-serif;
+  background: none;
+}
+
 body div.form-row {
-  padding-top: 3%;
-  padding-bottom: 3%;
   background: image-url('jungle-bridge-transparent.jpg') no-repeat center center;
   background-size: cover;
   height: 100%;
   overflow: scroll;
+  position: relative;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .form {
   background-color: rgba(250,250,250,0.7);
   padding: 2rem;
+  // margin-top: 5%;
+  margin-bottom: 5%;
 
   label {
-    font-size: 1rem;
+    font-size: 1.1rem;
+  }
+
+  h4 {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 3%;
+  }
+
+  select {
+    font-family: 'Architects Daughter', sans-serif;
+    font-size: 1.2rem;
+    height: 42px;
+  }
+
+  input {
+    font-family: 'Architects Daughter', sans-serif;
+    font-size: 1.2rem;
+  }
+
+  textarea {
+    font-family: 'Architects Daughter', sans-serif;
+    font-size: 1.2rem;
   }
 }
 
-.form h4 {
-  font-family: sans-serif;
-  text-align: center;
-  padding: 3%;
+// Adventures show view //
+.display-adventure-title h2:last-of-type {
+  font-family: 'Architects Daughter', sans-serif;
+  color: $charcoal;
+  text-size: 1.4;
 }
 
-
-
-
-// adventure show
-
-.display-adventure {
-  margin: 3%;
-  color: $oil;
-}
-
-div.display-adventure h2 {
-  text-align: center;
-  color: $oil;
-  font-weight: bold;
-
-  &:hover a {
-    color: $secondary-color;
-    transition: all .25 ease-in-out;
-  }
-}
-
-div.display-adventure a {
-  color: $oil;
-}
-
-div.title-spacer {
+.title-spacer {
   height: 30px;
 }
 
@@ -823,7 +904,7 @@ div.title-spacer {
   }
 
   &:hover {
-    color: $secondary-color;
+    color: $third-color;
     transition: all .25 ease-in-out;
   }
 }
@@ -844,7 +925,7 @@ div.public-or-username {
   }
 
   &:hover {
-    color: $secondary-color;
+    color: $third-color;
     transition: all .25 ease-in-out;
   }
 }
@@ -861,10 +942,42 @@ p.is-achieved-link {
   padding-right: 2.5px;
 }
 
+div.adventure-details {
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+
+p.adventure-notes {
+  font-family: 'Architects Daughter', sans-serif;
+  font-size: 1.2rem;
+  color: $charcoal;
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+
+p.adventure-link {
+  padding: 0;
+  margin: 0;
+}
+
+p.adventure-link a {
+  text-decoration: underline;
+  color: $third-color;
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    color: $secondary-color;
+    transition: all .25 ease-in-out;
+  }
+
+  &.is-active {
+    color: $secondary-color;
+  }
+}
 
 
 // Gmaps //
-
 // adventure show gmap
 .map-spacer {
   padding-top: 8px;
@@ -893,107 +1006,18 @@ p.is-achieved-link {
   width: 100.05%;
 }
 
-
-// adventure show
-
-div.adventure-details {
-  padding-left: 1.5%;
-  padding-right: 1.5%;
-}
-
-div.display-adventure span.small-button {
-  margin-left: 2.5px;
-  margin-bottom: 0;
-}
-
-div.display-adventure a.small-button {
-  font-family: courier;
-  float: right;
-  clear: both;
-}
-
-div.display-adventure-spacer {
-  height: 15px;
-  width: 1px;
-  padding: 0;
-  margin: 0;
-}
-
-p.adventure-notes {
-  font-size: 1.2rem;
-  margin-top: 45px;
-  margin-bottom: 15px;
-}
-
-p.adventure-link {
-  padding: 0;
-  margin: 0;
-}
-
-p.adventure-link a {
-  text-decoration: underline;
-  color: $third-color;
-  padding: 0;
-  margin: 0;
-
-  &:hover {
-    color: $secondary-color;
-    transition: all .25 ease-in-out;
-  }
-
-  &.is-active {
-    color: $secondary-color;
-  }
-}
-
-
-// Button styles //
-
-.tiny-button {
-  display: inline-block;
-  width: 100%;
-  color: $oil;
-  text-align: right;
-  padding: .6rem 0rem .1rem 0rem;
-  margin: 0;
-  font-size: 1rem;
-  height: 50px;
-
-  &:hover p {
-    display: inline-block;
-    width: 100%;
-    color: $oil;
-    text-align: right;
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-    height: 50px;
-    transition: all .25 ease-in-out;
-  }
-
-  &:hover a {
-    display: inline-block;
-    width: 100%;
-    color: $third-color;
-    text-align: right;
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-    height: 50px;
-    transition: all .25 ease-in-out;
-  }
-}
-
+// Buttons //
 .button {
-  padding: .5rem 1rem .5rem 1rem;
-  text-align: center;
-  border-width: 1px;
-  border-color: $base;
   color: $oil;
   font-weight: bold;
+  text-align: center;
+  background-color: $primary-color;
+  border-width: 1px;
+  border-color: $base;
+  padding: .5rem 1rem .5rem 1rem;
 
   &:hover {
-    background-color: $third-color;
+    background-color: $third-transparent-color;
     color: $oil;
     font-weight: bold;
     transition: all .25 ease-in-out;
@@ -1001,28 +1025,88 @@ p.adventure-link a {
 }
 
 .small-button {
+  color: $oil;
   text-align: center;
   font-weight: bold;
-  color: $oil;
-  padding: .5rem;
-  background-color: $small-button-color;
+  background-color: $white;
   border: 1px solid $base;
+  padding: .5rem 1rem .5rem 1rem;
 
   &:hover {
-    background-color: $secondary-transparent-color;
     color: $oil;
+    background-color: $primary-color;
     transition: all .25 ease-in-out;
   }
 }
 
+.show-bucket-list span.button {
+  margin-top: 15px;
+}
+
+div.display-adventure span.button {
+  margin-left: 2.5px;
+  margin-bottom: 0;
+}
+
+div.display-adventure a.button {
+  clear: both;
+  float: right;
+}
+
+.tiny-button {
+  color: $oil;
+  font-size: 1rem;
+  text-align: right;
+  width: 100%;
+  height: 50px;
+  padding: .6rem 0rem .1rem 0rem;
+  margin: 0;
+  display: inline-block;
+
+  &:hover p {
+    color: $oil;
+    font-size: 1rem;
+    text-align: right;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    transition: all .25 ease-in-out;
+  }
+
+  &:hover a {
+    color: $third-color;
+    font-size: 1rem;
+    text-align: right;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    transition: all .25 ease-in-out;
+  }
+}
+
+input.adventures-search-button {
+  width: 176px;
+  float: left;
+}
+
+input.button.search-adventures-button {
+  font-family: 'Architects Daughter', courier;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
 .delete a {
   color: $oil;
-  padding: .5rem;
-  background: rgba(250,250,250,0.7);
+  background: $white;
   border: 1px solid $base;
+  padding: .5rem;
 
   &:hover {
-    background-color: $secondary-transparent-color;
+    background-color: $primary-color;
     transition: all .25 ease-in-out;
   }
 }
@@ -1032,8 +1116,10 @@ p.adventure-link a {
 }
 
 .cancel {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
   color: $oil;
-  background-color: $small-button-color;
+  background-color: $snow;
   margin-top: 15px;
   margin-bottom: 0;
 
@@ -1043,37 +1129,67 @@ p.adventure-link a {
 
   &:hover {
     color: inherit;
-    background-color: $secondary-transparent-color;
+    background-color: $iron;
     transition: all .25 ease-in-out;
   }
 }
 
 .new-save-button {
-  margin-left: 41%;
-  margin-right: 41%;
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
 .new-cancel-button {
-  margin-left: 42%;
-  margin-right: 42%;
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .edit-save-button {
-  margin-left: 40%;
-  margin-right: 43%;
   margin-top: 25px;
   margin-bottom: 15px;
 }
 
 .edit-cancel-button {
+}
+
+.return-to-log-in-button {
+  font-size: 1.1rem;
+  margin-top: 25px;
+
+  &:hover {
+    font-weight: 400;
+    transition: all .25 ease-in-out;
+  }
+}
+
+.bucket-list-show-cancel-button {
+  width: 95px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 5%
+}
+
+.adventure-show-cancel-button {
+  width: 95px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 5%;
+}
+
+.sign-up-button {
+  width: auto;
+  margin: auto;
+}
+
+.reset-password-button {
   margin-top: 10px;
-  margin-bottom: 15px;
-  margin-left: 41%;
-  margin-right: 41%;
+}
+
+#reset-password-button {
+  border: 0;
+  background: none;
 }
 
 
@@ -1109,12 +1225,12 @@ textarea#adventure_notes {
   }
 }
 
-#new-adventure-checkboxes {
+#new-adventure-checkbox {
   margin-top: 35px;
 }
 
 
-// all_public adventures //
+// Adventures all_public //
 div.all-public-adventures {
   color: $oil;
 
@@ -1122,7 +1238,6 @@ div.all-public-adventures {
     height: 250px;
   }
 }
-
 
 div.wrap-user {
   display: inline-block;
@@ -1135,35 +1250,25 @@ div.wrap-user {
   }
 }
 
-div.form-row {
-  background: none;
-}
 
-section.display-all-public-adventures p {
-  float: right;
-}
-
-section.display-all-public-adventures h4 {
-  &:hover a {
-    padding: 0;
-    margin: 0;
-    color: $third-color;
-    transition: all .25 ease-in-out;
-  }
-}
-
-
-// devise //
+// Devise //
 .form-actions {
   margin-top: 2rem;
 }
 
+.form {
+  text-align: center;
+}
+
 .form-title {
+  font-family: 'Architects Daughter', courier;
+  font-size: 3rem;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .devise-links a {
+  font-size: 1.1rem;
   color: $third-color;
 
   &:hover {
@@ -1177,75 +1282,29 @@ div.devise-links {
 }
 
 div.field {
-  margin-right: 25px;
-  margin-left: 25px;
-}
-
-#return-to-log-in {
-  margin-top: 25px;
-  margin-left: 40.2%;
-}
-
-.reset-password-button {
-  margin-left: 12%;
-  margin-top: 10px;
-}
-
-#reset-password-button {
-  border: 0;
-  background: none;
+  text-align: left;
 }
 
 .reset-password-form h2 {
-  margin-left: 4%;
+  font-family: 'Architects Daughter', courier;
   margin-bottom: 25px;
 }
 
+.password-private {
+  // add spacing between characters for visiblity
+}
 
-// edit views //
+
+// Edit views //
 .required-field label {
   font-weight: bold;
   color: $oil;
 }
 
 
-
-// Bucket list show //
-div.show-bucket-list {
-  text-align: center;
-}
-
-div.show-bucket-list h2 {
-  color: $oil;
-  font-weight: bold;
-}
-
-div.show-bucket-list p.descripton {
-  color: $steel;
-  font-style: italic;
-  align-self: center;
-}
-
-div.show-bucket-list a {
-  color: $oil;
-  font-weight: bold;
-  text-align: center;
-
-  &:hover p {
-    color: $secondary-color;
-  }
-}
-
-div.show-bucket-list span.small-button {
-  margin-top: 15px;
-}
-
-
-
-
-
+// Bucket lists show (Groups show)//
 .bucket-list {
-  color: $dark-grey;
+  color: $charcoal;
 
   h3 {
     text-align: center;
@@ -1256,8 +1315,43 @@ div.show-bucket-list span.small-button {
   }
 }
 
+.show-bucket-list {
+  text-align: center;
+}
+
+.show-bucket-list h2 {
+  color: $oil;
+  font-weight: bold;
+}
+
+.show-bucket-list h4:last-of-type {
+  font-family: 'Architects Daughter', sans-serif;
+  color: $charcoal;
+}
+
+.show-bucket-list p.descripton {
+  font-family: 'Architects Daughter', sans-serif;
+  font-size: 1.2rem;
+  color: $charcoal;
+  font-style: italic;
+  align-self: center;
+  margin-top: 25px;
+}
+
+.show-bucket-list a {
+  color: $oil;
+  font-weight: bold;
+  text-align: center;
+
+  &:hover p {
+    color: $third-color;
+  }
+}
+
+
+// Adventures //
 .adventure-list {
-  color: $dark-grey;
+  color: $charcoal;
 
   h6 {
     font-size: 90%;
@@ -1267,5 +1361,4 @@ div.show-bucket-list span.small-button {
   p {
     margin: 0;
   }
-
 }

@@ -1,9 +1,9 @@
-<div class="wrap-page small-4 medium-8  large-8 columns small-centered center-content">
+<div class="small-4 medium-8  large-8 columns small-centered center-content">
   <div class="adventures-search">
     <%= form_tag(search_adventures_path, method: "get") do %>
       <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
-        placeholder: "The world is your oyster..." %>
-      <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
+      placeholder: "The world is your oyster..." %><!--
+      --><%= submit_tag "Find adventure!", class: "button search-adventures-button" %>
     <% end %>
   </div>
 
@@ -17,8 +17,8 @@
     </p>
   </section>
 
-  <section class="display-groups bucket-list-bloc">
-    <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
+  <section class="display-attributes bucket-list-bloc">
+    <ul class="grid-groups small-block-grid-1 medium-block-grid-3 large-block-grid-4">
       <% @bucket_lists.each do |bucket_list| %>
         <%= link_to(bucket_list_path(bucket_list.id)) do %>
           <li>
@@ -26,6 +26,7 @@
               <h4><%= bucket_list.title %></h4>
               <p class="description bucket-list-bloc" id="description"><%= bucket_list.description %></p>
             </div>
+        <% end %>
             <%= link_to(edit_bucket_list_path(bucket_list.id)) do %>
               <div class="wrap-bottom tiny-button bucket-list-bloc">
                 <p class="is-public-link bucket-list-bloc">
@@ -39,7 +40,6 @@
               </div>
             <% end %>
           </li>
-        <% end %>
       <% end %>
     </ul>
   </section>

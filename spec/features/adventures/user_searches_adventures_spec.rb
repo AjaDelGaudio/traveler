@@ -58,7 +58,7 @@ feature "user searches adventures", %(
     # find(:css, "input[id$='q'][class$='adventures-search-bar']").set("moon")
 
     # save_and_open_page
-    click_button "Find Adventure!"
+    click_button "Find adventure!"
 
     expect(page).to have_content(adventure_1.name)
     expect(page).to have_content(adventure_2.name)
@@ -106,7 +106,7 @@ feature "user searches adventures", %(
 
     visit bucket_lists_path
     find('.adventures-search-bar').set("beijing china")
-    click_button "Find Adventure!"
+    click_button "Find adventure!"
 
     expect(page).to have_content(adventure_1.address)
     expect(page).to have_content(adventure_2.address)
@@ -157,7 +157,7 @@ feature "user searches adventures", %(
 
     visit bucket_lists_path
     find('.adventures-search-bar').set("first")
-    click_button "Find Adventure!"
+    click_button "Find adventure!"
 
     expect(page).to have_content(adventure_1.name)
     expect(page).to have_content(adventure_2.name)
@@ -218,7 +218,7 @@ feature "user searches adventures", %(
   #
   #   visit bucket_lists_path
   #   find('.adventures-search-bar').set("mexico")
-  #   click_button "Find Adventure!"
+  #   click_button "Find adventure!"
   #
   #   expect(page).to have_content(adventure_1.name)
   #   expect(page).to have_content(adventure_2.name)
@@ -278,7 +278,7 @@ feature "user searches adventures", %(
 
     visit bucket_lists_path
     find('.adventures-search-bar').set("beijing")
-    click_button "Find Adventure!"
+    click_button "Find adventure!"
 
     expect(page).to have_content(adventure_1.address)
     expect(page).to have_content(adventure_2.name)

@@ -1,14 +1,15 @@
-<div class="wrap page display-adventure small-4 medium-8  large-8 columns small-centered center-content">
-
-  <% if @adventure.user_id == @current_user.id %>
-    <%= link_to(edit_adventure_path(@adventure)) do %>
-      <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
+<div class="wrap-page display-adventure small-4 medium-8  large-8 columns small-centered center-content">
+  <div class="display-adventure-title">
+    <% if @adventure.user_id == @current_user.id %>
+      <%= link_to(edit_adventure_path(@adventure)) do %>
+        <h2><%= @adventure.address %></h2>
+        <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
+      <% end %>
+    <% else %>
       <h2><%= @adventure.address %></h2>
+      <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
     <% end %>
-  <% else %>
-    <h2><%= @adventure.name unless @adventure.name.nil? %></h2>
-    <h2><%= @adventure.address %></h2>
-  <% end %>
+  </div>
 
   <div class="title-spacer"></div>
 
@@ -46,12 +47,12 @@
         <% if @adventure.is_shared %>
           <p class="is-public-link">
             <i><%= fa_icon "eye" %></i>Sharing
-            <span class="button small-button"> Edit </span>
+            <span class="button"> Edit </span>
           </p>
         <% else %>
           <p class="is-public-link">
             Share it!
-            <span class="button small-button"> Edit </span>
+            <span class="button"> Edit </span>
           </p>
         <% end %>
       <% end %>
@@ -70,7 +71,7 @@
 <div class="map-spacer"></div>
 
   <div class="adventure-details">
-    <%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id), class: "small-button" %>
+    <%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id), class: "button" %>
   </div>
 
   <div class="display-adventure-spacer"></div>
@@ -80,6 +81,11 @@
   <p class="adventure-link"><%= link_to "#{@adventure.link}", "#{@adventure.link}" unless @adventure.link.nil? %></p>
 
   <div class="display-adventure-spacer"></div>
+
+  <div class="button small-button text-center small-centered cancel adventure-show-cancel-button">
+    <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
+    bucket_list_path(@bucket_list) %>
+  </div>
 
 </div>
 

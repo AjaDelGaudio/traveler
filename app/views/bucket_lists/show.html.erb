@@ -2,8 +2,8 @@
   <div class="adventures-search">
     <%= form_tag(search_adventures_path, method: "get") do %>
       <%= text_field_tag :q, params[:q], class: "adventures-search-bar",
-        placeholder: "The world is your oyster... search it." %>
-      <a href="#"><%= submit_tag "Find Adventure!", class: "button" %></a>
+        placeholder: "The world is your oyster..." %><!--
+      --><%= submit_tag "Find adventure!", class: "button search-adventures-button" %>
     <% end %>
   </div>
 
@@ -21,23 +21,22 @@
         <% end %>
       </p>
 
-      <span class="button small-button"> Edit </span>
+      <span class="button"> Edit </span>
 
     <% end %>
 
     <p class="descripton"><%= @bucket_list.description %></p>
 
-    <section class="display-groups display-all-public-adventures">
-      <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
+    <section class="display-attributes display-adventure-attributes">
+      <ul class="grid-groups small-block-grid-1 medium-block-grid-3 large-block-grid-4">
         <% @bucket_list.adventures.each do |adventure| %>
           <%= link_to(adventure_path(adventure.id)) do %>
             <li>
-              <div class="wrap-top wrap-user">
-                <h4>
-                  <%= link_to adventure.name, adventure_path(adventure.id) unless adventure.name.nil? %>
-                  <%= link_to adventure.address, adventure_path(adventure.id) %>
-                </h4>
+              <div class="wrap-top">
+                <h4 id="bucket-list-show-adventure-address"><%= adventure.address %></h4>
+                <p class="adventure-name"><%= adventure.name unless adventure.name.nil? %></p>
               </div>
+          <% end %>
               <div class="wrap-bottom tiny-button">
                 <p>
                   <% user = adventure.user %>
@@ -45,10 +44,14 @@
                 <p>
               </div>
             </li>
-          <% end %>
         <% end %>
       </ul>
     </section>
+  </div>
+
+  <div class="button small-button text-center small-centered cancel bucket-list-show-cancel-button">
+    <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
+    bucket_lists_path %>
   </div>
 
 </div>
