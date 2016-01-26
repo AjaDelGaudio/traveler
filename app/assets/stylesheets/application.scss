@@ -904,7 +904,7 @@ body div.form-row {
   }
 
   &:hover {
-    color: $secondary-color;
+    color: $third-color;
     transition: all .25 ease-in-out;
   }
 }
@@ -925,7 +925,7 @@ div.public-or-username {
   }
 
   &:hover {
-    color: $secondary-color;
+    color: $third-color;
     transition: all .25 ease-in-out;
   }
 }
@@ -1344,7 +1344,7 @@ div.field {
   text-align: center;
 
   &:hover p {
-    color: $secondary-color;
+    color: $third-color;
   }
 }
 
