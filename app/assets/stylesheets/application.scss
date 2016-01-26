@@ -538,13 +538,14 @@ th {
       height: 51px;
 
       &:hover {
-        color: $third-color;
+        color: $secondary-color;
+        background-color: $snow;
         transition: all .25s ease-in-out;
       }
 
       &.is-active {
-        background-color: $snow;
         color: $third-color;
+        background-color: $snow;
       }
     }
 
