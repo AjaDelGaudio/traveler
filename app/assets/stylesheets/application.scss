@@ -1421,15 +1421,15 @@ div.field {
   }
 
   header.header h1.main-header {
+    background-color: $primary-color;
     margin: 0;
+    width: 100%;
 
     a {
-      text-align: center;
       font-size: 2rem;
+      width: 100%;
       padding-top: .25rem;
-      padding-right: 40%;
       padding-bottom: .25rem;
-      padding-left: 43%;
     }
   }
 
@@ -1502,53 +1502,11 @@ div.field {
     }
   }
 
-  // h1.main-header {
-  //   width: 100%;
-  //   padding: 0;
-  //   margin: 0;
-  // }
-  //
-  // .header h1.main-header a {
-  //   width: 100%;
-  //   font-size: 2.5rem;
-  //   padding: .5rem;
-  // }
-  //
-  // .header-subnav {
-  //   display: inline-block;
-  //   margin-left: 0;
-  //   margin-right: 0;
-  //   margin-top: -8%;
-  //   height: 50%;
-  //
-  //   li {
-  //     width: 100%;
-  //   }
-  //
-  //   a.is-active {
-  //     background-color: $secondary-transparent-color;
-  //   }
-  //
-  // }
-
-  // .header-subnav {
-  //   width: 100%;
-  //   height: 255px;
-  //   display: inline-block;
-  //   padding-left: 0;
-  //   padding-right: 0;
-  //   margin-left: 0;
-  //   margin-right: 0;
-  //
-  //   li {
-  //     width: 100%;
-  //
-  //   }
-  //
-    // a.is-active {
-    //   background-color: $secondary-transparent-color;
-    // }
-  // }
+  .header-subnav li {
+    a.is-active {
+      background-color: $secondary-transparent-color;
+    }
+  }
 
   .center-content {
     display: block;
@@ -1568,145 +1526,17 @@ div.field {
   }
 }
 
-// @media screen and (max-width: 600px){
-//   .header {
-//     width: 100%;
-//     height: 449px;
-//     display: block;
-//     padding: 2.5% 0 0 0;
-//
-//     h1 {
-//       margin: 2.5% 0 0 0;
-//     }
-//   }
-//
-//   .header-subnav {
-//     width: 100%;
-//     height: 255px;
-//     display: inline-block;
-//     padding-left: 0;
-//     padding-right: 0;
-//     margin-left: 0;
-//     margin-right: 0;
-//
-//     li {
-//       width: 100%;
-//
-//     }
-//
-//     a.is-active {
-//       background-color: $secondary-transparent-color;
-//     }
-//   }
-//
-//   .center-content {
-//     display: block;
-//   }
-// }
-
-// @media screen and (max-width: 540px){
-//
-//   header.header {
-//     background-size: auto auto;
-//     display: block;
-//     width: 100%;
-//     height: 404px;
-//     padding-left: 0;
-//     padding-right: 0;
-//     padding-bottom: 0;
-//   }
-//
-//   .main-header {
-//     width: 316px;
-//     margin-left: auto;
-//     margin-right: auto;
-//     margin-top: 0;
-//     margin-bottom: 0;
-//   }
-//
-//   ul.header-subnav {
-//     display: block;
-//     height: 255px;
-//     margin-top: -10%;
-//
-//     li a.is-active {
-//       background-color: $secondary-transparent-color;
-//     }
-//   }
-//
-//   .center-content {
-//     display: block;
-//     width: 90%;
-//     padding: 0;
-//     margin: auto;
-//   }
-// }
-
-// @media screen and (max-width: 500px) {
-//
-//   header .header {
-//     background-size: auto auto;
-//     display: block;
-//     width: 100%;
-//     height: 404px;
-//     padding: 0;
-//   }
-//
-//   .header {
-//     display: block;
-//     padding: 0;
-//     background-size: auto auto;
-//   }
-//
-//   .header h1 {
-//     width: 100%;
-//     margin: 0;
-//   }
-//
-//   .main-header {
-//     width: 100%;
-//     margin: 0 auto 0 auto;
-//   }
-//
-//   .header-subnav {
-//     display: block;
-//     height: 202px;
-//     margin-left: 0;
-//     margin-right: 0;
-//     margin-top: -10%;
-//
-//     li {
-//       width: 100%;
-//     }
-//
-//     a.is-active {
-//       background-color: $secondary-transparent-color;
-//     }
-//   }
-//
-//   .center-content {
-//     width: 90%;
-//     padding: 0;
-//     margin: auto;
-//   }
-//
-// }
 
 @media screen and (max-width: 475px){
 
-  .header h1 {
-    width: 100%;
+  header.header ul.header-subnav li {
+    a.is-active {
+      background-color: $secondary-transparent-color;
+    }
   }
 
-  .header-subnav {
-    display: inline-block;
-    margin-left: 0;
-    margin-right: 0;
-    height: 254px;
-
-    li {
-      width: 100%;
-    }
+  .display-adventure-title {
+    padding: 25px 0 0 0; 
   }
 
   .adventures-search {
