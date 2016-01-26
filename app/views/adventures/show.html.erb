@@ -47,12 +47,12 @@
         <% if @adventure.is_shared %>
           <p class="is-public-link">
             <i><%= fa_icon "eye" %></i>Sharing
-            <span class="button small-button"> Edit </span>
+            <span class="button"> Edit </span>
           </p>
         <% else %>
           <p class="is-public-link">
             Share it!
-            <span class="button small-button"> Edit </span>
+            <span class="button"> Edit </span>
           </p>
         <% end %>
       <% end %>
@@ -71,7 +71,7 @@
 <div class="map-spacer"></div>
 
   <div class="adventure-details">
-    <%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id), class: "small-button" %>
+    <%= link_to "#{@bucket_list.title}", bucket_list_path(@bucket_list.id), class: "button" %>
   </div>
 
   <div class="display-adventure-spacer"></div>
