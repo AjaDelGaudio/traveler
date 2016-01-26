@@ -10,7 +10,7 @@
     <p class="search-summary"><%= @search_summary %></p>
 
     <section class="display-attributes display-adventure-attributes">
-      <ul class="grid-groups small-block-grid-1 medium-block-grid-4 large-block-grid-4">
+      <ul class="grid-groups small-block-grid-1 medium-block-grid-3 large-block-grid-4">
         <% @adventures.each do |adventure| %>
           <%= link_to(adventure_path(adventure.id)) do %>
             <li>
