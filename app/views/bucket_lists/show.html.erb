@@ -32,8 +32,8 @@
         <% @bucket_list.adventures.each do |adventure| %>
           <%= link_to(adventure_path(adventure.id)) do %>
             <li>
-              <div class="wrap-top wrap-user">
-                <h4><%= adventure.address %></h4>
+              <div class="wrap-top">
+                <h4 id="bucket-list-show-adventure-address"><%= adventure.address %></h4>
                 <p class="adventure-name"><%= adventure.name unless adventure.name.nil? %></p>
               </div>
           <% end %>

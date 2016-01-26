@@ -627,7 +627,7 @@ section.welcome p {
 
 div.wrap-top {
   font-family: 'Roboto Condensed', sans-serif;
-  color: $oil;
+  color: $charcoal;
   text-align: center;
   background-color: $secondary-transparent-color;
   height: 250px;
@@ -637,6 +637,7 @@ div.wrap-top {
   margin: 0;
 
   h4 {
+    color: $oil;
     font-weight: 700;
     padding: .5rem 0rem .5rem 0rem;
     margin: 0;
@@ -651,8 +652,12 @@ div.wrap-top {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-
   }
+}
+
+#bucket-list-show-adventure-address {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: $oil;
 }
 
 #description {
@@ -690,6 +695,10 @@ div.wrap-top:hover {
     padding: .5rem 0rem .5rem 0rem;
     margin: 0;
     transition: all .25 ease-in-out;
+  }
+
+  p.adventure-name {
+    color: $charcoal;
   }
 
   p#description.description {
