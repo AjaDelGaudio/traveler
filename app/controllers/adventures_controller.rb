@@ -74,7 +74,7 @@ class AdventuresController < ApplicationController
 
   def all_public
     if current_user.nil?
-      @user = "Visitor"
+      @user = "traveler"
     else
       @user = current_user.username
     end
