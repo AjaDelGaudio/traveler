@@ -1535,14 +1535,6 @@ div.field {
     }
   }
 
-  .display-adventure-title {
-    padding: 25px 0 0 0;
-  }
-
-  .show-bucket-list {
-    padding: 25px 0 0 0;     
-  }
-
   .adventures-search {
     display: block;
   }
@@ -1573,6 +1565,18 @@ div.field {
     width: 90%;
     padding: 0;
     margin: auto;
+  }
+
+  .grid-groups {
+    font-size: 2rem;
+  }
+
+  .display-adventure-title {
+    padding: 25px 0 0 0;
+  }
+
+  .show-bucket-list {
+    padding: 25px 0 0 0;
   }
 
   .map-container {
