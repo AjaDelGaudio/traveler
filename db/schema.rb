@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151224222006) do
+ActiveRecord::Schema.define(version: 20160129151833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20151224222006) do
     t.float    "longitude"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.string   "link"
     t.boolean  "is_achieved", default: false, null: false
     t.boolean  "is_shared",   default: false, null: false
     t.text     "notes"

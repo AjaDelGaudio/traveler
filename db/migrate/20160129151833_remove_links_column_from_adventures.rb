@@ -4,6 +4,6 @@ class RemoveLinksColumnFromAdventures < ActiveRecord::Migration
   end
 
   def down
-     add_column :adventures, :link
+     add_column :adventures, :link, :string
   end
 end
