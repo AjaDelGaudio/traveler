@@ -32,5 +32,6 @@ FactoryGirl.define do
   factory :link do
     link_address "www.wikipedia.com"
     link_name "Wikipedia"
+    adventure
   end
 end
