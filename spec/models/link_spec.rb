@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe Adventure do
+describe Link do
   subject { FactoryGirl.build(:link) }
 
   it { should belong_to(:adventure) }
