@@ -4,4 +4,5 @@ class Link < ActiveRecord::Base
   validates :user_id, presence: true
   validates :user_id, numericality: { only_integer: true }
 
+  validates :link_address, presence: true
 end
