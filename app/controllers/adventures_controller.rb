@@ -127,7 +127,8 @@ class AdventuresController < ApplicationController
         :is_shared,
         :notes,
         :user_id,
-        bucket_list_adventures_attributes: [:bucket_list_id, :adventure_id, :id]
+        bucket_list_adventures_attributes: [:bucket_list_id, :adventure_id, :id],
+        links_attributes: [:link_address, :link_name, :adventure_id, :id]
       )
   end
 end
