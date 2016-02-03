@@ -1,0 +1,11 @@
+<%= f.fields_for :links do |f| %>
+  <div class="field">
+    <%= f.label :link_name, "Link Name:" %>
+    <%= f.text_field :link_name, id: "link-name", placeholder: "Ex: Wikipedia" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :link_address, "Link Address:" %>
+    <%= f.text_field :link_address, id: "link-address", placeholder: "Ex: www.wikipedia.org" %>
+  </div>
+<% end %>
