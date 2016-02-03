@@ -35,12 +35,21 @@
           " drink the tea..." %>
         </div>
 
-          <%= f.fields_for :links do |ff| %>
+        <%= f.fields_for :links do |ff| %>
+          <div class="field">
             <%= ff.label :link_name, "Link Name:" %>
-            <%= ff.text_field :link_name, placeholder: "Wikipedia" %>
+            <%= ff.text_field :link_name, id: "link-name", placeholder: "Wikipedia" %>
+          </div>
+
+          <div class="field">
             <%= ff.label :link_address, "Link Address:" %>
-            <%= ff.text_field :link_address, placeholder: "www.wikipedia.org" %>
-          <% end %>
+            <%= ff.text_field :link_address, id: "link-address", placeholder: "www.wikipedia.org" %>
+          </div>
+        <% end %>
+
+        <div class="button" id="add-link-button">
+          <p>Add link</p>
+        </div>
 
         <div class="checkboxes" id="new-adventure-checkbox">
           <%= f.check_box :is_achieved %>
