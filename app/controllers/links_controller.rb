@@ -4,4 +4,8 @@ class LinksController < ApplicationController
   def new
     @link = Link.new
   end
+
+  def create
+    @link = Link.new(link_params)
+  end
 end
