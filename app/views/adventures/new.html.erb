@@ -28,17 +28,19 @@
           <%= f.text_field :name, placeholder: "Build a reed boat.." %>
         </div>
 
-        <div class="field">
-          <%= f.label :link, "Link:" %>
-          <%= f.text_area :link, placeholder: "http://wikitravel.org/en/Lake_Titicaca..." %>
-        </div>
-
         <div class="field large-text-field">
           <%= f.label :notes, "Notes:" %>
           <%= f.text_area :notes, placeholder: "Highest commercially navigable" \
           " body of water in the world.  High elevation: stay hydrated and" \
           " drink the tea..." %>
         </div>
+
+          <%= f.fields_for :links do |ff| %>
+            <%= ff.label :link_name, "Link Name:" %>
+            <%= ff.text_field :link_name, placeholder: "Wikipedia" %>
+            <%= ff.label :link_address, "Link Address:" %>
+            <%= ff.text_field :link_address, placeholder: "www.wikipedia.org" %>
+          <% end %>
 
         <div class="checkboxes" id="new-adventure-checkbox">
           <%= f.check_box :is_achieved %>
