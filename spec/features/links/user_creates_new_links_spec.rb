@@ -21,9 +21,14 @@ feature "user creates a link", %(
     fill_in "Link name:", with: "Wikipedia"
     fill_in "Link address:", with "www.wikipedia.org"
     click_button "Save link"
+
+    expect(page).to have_content("Link successfully added")
+    expect(page).not_to have_content("Link address can't be blank")
+
     click_button "Save it!"
 
     expect(page).to have_content("Excellent! Another adventure awaits!")
+    expect(page).not_to have_content("Link address can't be blank")
     expect(page).not_to have_content("Address can't be blank")
   end
 end
