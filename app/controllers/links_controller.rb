@@ -7,6 +7,14 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
+
+    if @link.save
+      flash[:notice] = "Link successfully added!"
+      redirect_to new_adventures_path
+    else
+      flash[:errors] = @link.errors.full_messages.join(" | ")
+      render :new
+    end
   end
 
   private
