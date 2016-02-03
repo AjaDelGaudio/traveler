@@ -31,4 +31,19 @@ feature "user creates a link", %(
     expect(page).not_to have_content("Link address can't be blank")
     expect(page).not_to have_content("Address can't be blank")
   end
+
+  scenario "authenticated user fails to add a link to an adventure" do
+    user = FactoryGirl.create(:user)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
+
+    visit new_adventure_path
+    fill_in "Adventure address:", with: "Egypt"
+    click_button "Add link"
+
+    click_button "Save link"
+
+    expect(page).to have_content("Link address can't be blank")
+    expect(page).not_to have_content("Link successfully added")
+  end
 end
