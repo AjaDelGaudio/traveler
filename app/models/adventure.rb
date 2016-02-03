@@ -9,6 +9,7 @@ class Adventure < ActiveRecord::Base
 
   accepts_nested_attributes_for :bucket_list_adventures, allow_destroy: true
   accepts_nested_attributes_for :bucket_lists
+  accepts_nested_attributes_for :links
 
   validates :user_id, presence: true
   validates :user_id, numericality: { only_integer: true }
