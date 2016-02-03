@@ -4,13 +4,23 @@
     <%= form_for @link do |f| %>
       <div class="field">
         <%= f.label :link_name, "Link Name:" %>
-        <%= f.text_field :link_name, id: "link-name", placeholder: "Ex: Wikipedia" %>
+        <%= f.text_field :link_name, id: "link-name",
+            placeholder: "Ex: Wikipedia" %>
       </div>
 
       <div class="field">
         <%= f.label :link_address, "Link Address:" %>
-        <%= f.text_field :link_address, id: "link-address", placeholder: "Ex: www.wikipedia.org" %>
+        <%= f.text_field :link_address, id: "link-address",
+            placeholder: "Ex: www.wikipedia.org" %>
       </div>
+
+      <%= f.submit "Save it!", class: "button new-save-button" %>
+
     <% end %>
+
+    <div class="button small-button text-center cancel new-cancel-button">
+      <%= link_to (fa_icon "arrow-circle-left") + " Cancel", adventures_path %>
+    </div>
+
   </div>
 </div>
