@@ -34,10 +34,14 @@
         <%= f.text_field :name, placeholder: "Build a reed boat.." %>
       </div>
 
-      <div class="field">
-        <%= f.label :link, "Link:" %>
-        <%= f.text_area :link, placeholder: "http://wikitravel.org/en/Lake_Titicaca..."  %>
-      </div>
+      <ul>
+        <%= f.fields_for :links do |builder| %>
+          <%= render 'link_fields', f: builder %>
+        <% end %>
+      </ul>
+
+      <%= link_to_add_association (fa_icon "plus") + " More links", f,
+          :links, class: "button" %>
 
       <div class="field">
         <%= f.label :notes, "Notes:" %>
