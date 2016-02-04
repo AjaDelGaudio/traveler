@@ -1,7 +1,7 @@
-feature "user creates a link", %(
+feature "user edits a link", %(
   As a last minute traveler or traveler who's stay is unexpectedly extended,
-  I want to add a link
-  So I can add it while creating an adventure.
+  I want to edit a link
+  So I can make changes any time.
 ) do
   # Acceptance Criteria
   # [] I can edit existing links
