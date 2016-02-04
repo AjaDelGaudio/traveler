@@ -19,7 +19,7 @@ feature "user creates a link", %(
     click_button "Add link"
 
     fill_in "Link name:", with: "Wikipedia"
-    fill_in "Link address:", with "www.wikipedia.org"
+    fill_in "Link address:", with: "www.wikipedia.org"
     click_button "Save link"
 
     expect(page).to have_content("Link successfully added")
