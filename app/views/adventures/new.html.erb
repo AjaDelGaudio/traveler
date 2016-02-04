@@ -36,9 +36,17 @@
         </div>
 
         <div class="field">
-          <%= f.fields_for :links do |link| %>
-            <%= render 'link_fields', f: link %>
-          <% end %>
+          <fieldset id="add-new-link">
+            <ul>
+              <%= f.fields_for :links do |link| %>
+                <%= render 'link_fields', f: link %>
+              <% end %>
+            </ul>
+            <%= link_to_add_association (fa_icon "plus") + " More links", f, :links,
+                'data-association-insertion-node' => "#add-new-link ul",
+                'data-association-insertion-method' => "append",
+                :wrap_object => Proc.new {|link| link.build_link; link } %>
+          </fieldset>
         </div>
 
         <div class="button" id="add-link-button">
