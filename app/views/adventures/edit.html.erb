@@ -6,7 +6,7 @@
 
     <div class="text-right delete">
       <%= link_to (fa_icon "trash-o") + " Delete",
-      adventure_path(@adventure), method: :delete %>
+      adventure_path(@adventure), method: :delete, data: {confirm: "You Sure?"} %>
     </div>
 
     <%= form_for @adventure, url: edit_adventure_path(@adventure) do |f| %>
