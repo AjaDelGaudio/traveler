@@ -35,17 +35,11 @@
           " drink the tea..." %>
         </div>
 
-        <%= f.fields_for :links do |ff| %>
-          <div class="field">
-            <%= ff.label :link_name, "Link Name:" %>
-            <%= ff.text_field :link_name, id: "link-name", placeholder: "Ex: Wikipedia" %>
-          </div>
-
-          <div class="field">
-            <%= ff.label :link_address, "Link Address:" %>
-            <%= ff.text_field :link_address, id: "link-address", placeholder: "Ex: www.wikipedia.org" %>
-          </div>
-        <% end %>
+        <div class="field">
+          <%= f.fields_for :links do |link| %>
+            <%= render 'link_fields', f: link %>
+          <% end %>
+        </div>
 
         <div class="button" id="add-link-button">
           <%= link_to (fa_icon "plus") + " More links", new_link_path %>
