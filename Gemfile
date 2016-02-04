@@ -20,6 +20,7 @@ gem 'pg_search'
 gem 'gmaps4rails', '2.1.2'
 gem 'rack-timeout'
 gem 'puma'
+gem 'cocoon'
 
 group :development, :test do
   gem 'codeship'
