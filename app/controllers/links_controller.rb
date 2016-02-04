@@ -3,10 +3,13 @@ class LinksController < ApplicationController
 
   def new
     @link = Link.new
+    binding.pry
   end
 
   def create
+    binding.pry
     @link = Link.new(link_params)
+    binding.pry
 
     if @link.save
       flash[:notice] = "Link successfully added!"

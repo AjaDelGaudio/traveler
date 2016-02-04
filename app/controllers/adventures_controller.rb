@@ -70,6 +70,8 @@ class AdventuresController < ApplicationController
 
     @current_user = current_user
     @username = @adventure.user.username
+
+    @links = @adventure.links
   end
 
   def all_public
