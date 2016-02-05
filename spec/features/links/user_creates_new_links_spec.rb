@@ -7,7 +7,7 @@ feature "user creates a link", %(
   # [] I can add multiple links to an adventure
   # [x] If I add a link, I must submit a link address
   # [x] If I add a link, I may also add a link name
-  # [] I can click a button to add a new link
+  # [x] I can click a button to add a new link
 
   scenario "authenticated user successfully adds a link to an adventure" do
     user = FactoryGirl.create(:user)
@@ -20,7 +20,6 @@ feature "user creates a link", %(
 
     fill_in "Link name:", with: "Wikipedia"
     fill_in "Link address:", with: "www.wikipedia.org"
-    click_button "Save link"
 
     expect(page).to have_content("Link successfully added")
     expect(page).not_to have_content("Link address can't be blank")
@@ -41,9 +40,31 @@ feature "user creates a link", %(
     fill_in "Adventure address:", with: "Egypt"
     click_button "Add link"
 
-    click_button "Save link"
+    click_button "Save it!"
 
     expect(page).to have_content("Link address can't be blank")
     expect(page).not_to have_content("Link successfully added")
+  end
+
+  scenario "authenticated user successfully adds multiple links to an adventure" do
+    user = FactoryGirl.create(:user)
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
+    sign_in(user)
+
+    visit new_adventure_path
+    fill_in "Adventure address:", with: "Egypt"
+    click_button "Add link"
+
+    fill_in "Link name:", with: "Wikipedia"
+    fill_in "Link address:", with: "www.wikipedia.org"
+    click_button "Add link"
+
+    fill_in "Link name:", with: "Wikitravel"
+    fill_in "Link address:", with: "www.wikitravel.org"
+    click_button "Save it!"
+
+    expect(page).to have_content("Excellent! Another adventure awaits!")
+    expect(page).not_to have_content("Link address can't be blank")
+    expect(page).not_to have_content("Address can't be blank")
   end
 end
