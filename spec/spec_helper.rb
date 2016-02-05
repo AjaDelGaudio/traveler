@@ -99,5 +99,3 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
-
-Capybara.javascript_driver = :selenium
