@@ -10,7 +10,8 @@ feature "user edits a link", %(
   # [] If I add a link, I may also add a link name
   # [] I can click a button to add a new link
 
-  scenario "authenticated user successfully adds another link to an adventure" do
+  scenario "authenticated user successfully adds another link to adventure",
+  js: true do
     user = FactoryGirl.create(:user)
     sign_in(user)
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
@@ -38,7 +39,8 @@ feature "user edits a link", %(
     expect(page).not_to have_content("Link address can't be blank")
   end
 
-  scenario "authenticated user successfully edits a link name and address" do
+  scenario "authenticated user successfully edits a link name and address",
+  js: true do
     user = FactoryGirl.create(:user)
     sign_in(user)
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
