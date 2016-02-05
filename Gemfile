@@ -31,6 +31,8 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', '~> 2.8.0', require: false
   gem 'dotenv-rails'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -40,5 +42,4 @@ end
 
 group :test do
   gem 'coveralls', require: false
-  gem 'database_cleaner'
 end

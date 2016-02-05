@@ -9,14 +9,18 @@ feature "user creates a link", %(
   # [x] If I add a link, I may also add a link name
   # [x] I can click a button to add a new link
 
-  scenario "authenticated user successfully adds a link to an adventure" do
+  scenario "authenticated user successfully adds a link to an adventure",
+  js: true do
     user = FactoryGirl.create(:user)
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     sign_in(user)
 
     visit new_adventure_path
     fill_in "Adventure address:", with: "Egypt"
-    click_button "Add link"
+    click_link "Add link"
+
+    expect(page).to have_content("Link name:")
+    expect(page).to have_content("Link address:")
 
     fill_in "Link name:", with: "Wikipedia"
     fill_in "Link address:", with: "www.wikipedia.org"
@@ -31,14 +35,14 @@ feature "user creates a link", %(
     expect(page).not_to have_content("Address can't be blank")
   end
 
-  scenario "authenticated user fails to add a link to an adventure" do
+  scenario "authenticated user fails to add a link to an adventure", js: true do
     user = FactoryGirl.create(:user)
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     sign_in(user)
 
     visit new_adventure_path
     fill_in "Adventure address:", with: "Egypt"
-    click_button "Add link"
+    click_link "Add link"
 
     click_button "Save it!"
 
@@ -46,18 +50,19 @@ feature "user creates a link", %(
     expect(page).not_to have_content("Link successfully added")
   end
 
-  scenario "authenticated user successfully adds multiple links to an adventure" do
+  scenario "authenticated user successfully adds multiple links to adventure",
+  js: true do
     user = FactoryGirl.create(:user)
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     sign_in(user)
 
     visit new_adventure_path
     fill_in "Adventure address:", with: "Egypt"
-    click_button "Add link"
+    click_link "Add link"
 
     fill_in "Link name:", with: "Wikipedia"
     fill_in "Link address:", with: "www.wikipedia.org"
-    click_button "Add link"
+    click_link "Add link"
 
     fill_in "Link name:", with: "Wikitravel"
     fill_in "Link address:", with: "www.wikitravel.org"
