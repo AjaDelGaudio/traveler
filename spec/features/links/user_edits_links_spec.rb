@@ -13,17 +13,14 @@ feature "user edits a link", %(
   scenario "authenticated user successfully adds another link to an adventure" do
     user = FactoryGirl.create(:user)
     sign_in(user)
-    bucket_list = FactoryGirl.create(
-      :bucket_list,
-      user_id: user.id
-    )
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure = FactoryGirl.create(:adventure, user_id: user.id)
     bucket_list_adventure = FactoryGirl.create(
       :bucket_list_adventure,
       adventure_id: adventure.id,
       bucket_list_id: bucket_list.id
     )
-    link = FactoryGirl.create(:link, user_id: user.id, adventure_id: adventure.id)
+    link = FactoryGirl.create(:link, adventure_id: adventure.id)
 
     visit edit_adventure_path(adventure)
     click_button "Add link"
@@ -41,30 +38,25 @@ feature "user edits a link", %(
     expect(page).not_to have_content("Link address can't be blank")
   end
 
-  scenario "authenticated user successfully edits a link to an adventure" do
+  scenario "authenticated user successfully edits a link name and address" do
     user = FactoryGirl.create(:user)
     sign_in(user)
-    bucket_list = FactoryGirl.create(
-      :bucket_list,
-      user_id: user.id,
-      title: "Second Bucket List"
-    )
+    bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     adventure = FactoryGirl.create(:adventure, user_id: user.id)
     bucket_list_adventure = FactoryGirl.create(
       :bucket_list_adventure,
       adventure_id: adventure.id,
       bucket_list_id: bucket_list.id
     )
-    link = FactoryGirl.create(:link, user_id: user.id, adventure_id: adventure.id)
+    link = FactoryGirl.create(:link, adventure_id: adventure.id)
 
     visit edit_adventure_path(adventure)
-    click_button "Add link"
 
-    link_name_fields = page.all("Link name:")
-    fill_in link_name_fields[1], with: "Wikitravel - Jinja"
+    fill_in "Link name:", with: "Some details"
+    fill_in "Link address:", with: "www.wikipedia.org/wiki/earth"
 
-    link_address_fields = page.all("Link address:")
-    fill_in link_address_fields[1], with: "wikitravel.org/en/Jinja"
+    expect(page).to have_content("Some details")
+    expect(page).to have_content("www.wikipedia.org/wiki/earth")
 
     click_button "Save It!"
 
