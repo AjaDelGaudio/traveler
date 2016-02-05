@@ -30,8 +30,6 @@ feature "user edits adventure", %(
     fill_in "Adventure name:", with: "feed fish while snorkeling"
     fill_in "Adventure address:", with: "Fiji"
     fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
-    fill_in "Link name", with: "Wikitravel - Jinja"
-    fill_in "Link address", with: "http://wikitravel.org/en/Jinja"
     checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
     checkbox_shared = find_by_id("adventure_is_shared")

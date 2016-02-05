@@ -4,7 +4,7 @@ feature "user creates a link", %(
   So I can include it when creating an adventure.
 ) do
   # Acceptance Criteria
-  # [] I can add multiple links to an adventure
+  # [x] I can add multiple links to an adventure
   # [x] If I add a link, I must submit a link address
   # [x] If I add a link, I may also add a link name
   # [x] I can click a button to add a new link
