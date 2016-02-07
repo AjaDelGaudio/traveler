@@ -30,7 +30,6 @@ feature "user edits adventure", %(
     fill_in "Adventure name:", with: "feed fish while snorkeling"
     fill_in "Adventure address:", with: "Fiji"
     fill_in "Notes", with: "Avoid crocodiles, wear sunscreen"
-    fill_in "Link", with: "http://wikitravel.org/en/Jinja"
     checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
     checkbox_shared = find_by_id("adventure_is_shared")
@@ -61,29 +60,6 @@ feature "user edits adventure", %(
 
     visit edit_adventure_path(adventure)
     select "Second Bucket List", from: "Add to group:"
-    click_button "Save It!"
-
-    expect(page).to have_content("Changes saved!")
-    expect(page).not_to have_content("Address can't be blank")
-  end
-
-  scenario "authenticated user successfully adds a link to an adventure" do
-    user = FactoryGirl.create(:user)
-    sign_in(user)
-    bucket_list = FactoryGirl.create(
-      :bucket_list,
-      user_id: user.id,
-      title: "Second Bucket List"
-    )
-    adventure = FactoryGirl.create(:adventure, user_id: user.id)
-    bucket_list_adventure = FactoryGirl.create(
-      :bucket_list_adventure,
-      adventure_id: adventure.id,
-      bucket_list_id: bucket_list.id
-    )
-
-    visit edit_adventure_path(adventure)
-    fill_in "Link", with: "https://en.wikipedia.org/wiki/List_of_caves_in_Vietnam"
     click_button "Save It!"
 
     expect(page).to have_content("Changes saved!")

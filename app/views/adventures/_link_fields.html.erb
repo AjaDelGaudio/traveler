@@ -1,0 +1,12 @@
+<li>
+  <%= f.label :link_name, "Link name:" %>
+  <%= f.text_field :link_name, id: "link-name",
+      placeholder: "Ex: Wikipedia" %>
+
+  <%= f.label :link_address, "Link address:" %>
+  <p>http://</p>
+  <%= f.text_field :link_address, id: "link-address",
+      placeholder: "Ex: www.wikipedia.org" %>
+
+  <%= link_to_remove_association "remove", f %>
+</li>

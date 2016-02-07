@@ -15,7 +15,6 @@ feature "user creates an adventure", %(
   # [x] By defalut, the adventure is marked as not achieved
   # [x] I can select the bucket list I would like to add my adventure to from
   #    a dropdown list
-  # [] I may include a link by submitting the address
   # [x] I recieve a success message when I successfully add an adventure
 
   scenario "authenticated user successfully creates an adventure" do
@@ -40,7 +39,6 @@ feature "user creates an adventure", %(
     visit new_adventure_path
     fill_in "Adventure address:", with: "Swim the Nile"
     fill_in "Notes:", with: "Avoid crocodiles, wear sunscreen"
-    fill_in "Link:", with: "http://wikitravel.org/en/Jinja"
     checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
     checkbox_shared = find_by_id("adventure_is_shared")
@@ -70,14 +68,13 @@ feature "user creates an adventure", %(
   end
 
   scenario "authenticated user successfully creates an adventure w/ " \
-    "link attribute" do
+    "extra attributes" do
     user = FactoryGirl.create(:user)
     bucket_list = FactoryGirl.create(:bucket_list, user_id: user.id)
     sign_in(user)
 
     visit new_adventure_path
     fill_in "Adventure address:", with: "Underground River"
-    fill_in "Link:", with: "https://en.wikipedia.org/wiki/Puerto_Princesa_Subterranean_River_National_Park"
     checkbox_achieved = find_by_id("adventure_is_achieved")
     check "Seen it! Done it!"
     checkbox_shared = find_by_id("adventure_is_shared")
@@ -109,7 +106,6 @@ feature "user creates an adventure", %(
     expect(page).to have_content("Group title:")
     expect(page).to have_content("Description:")
     expect(page).not_to have_content("Adventure address:")
-    expect(page).not_to have_content("Link")
     expect(page).not_to have_content("Excellent! Another adventure awaits!")
   end
 end

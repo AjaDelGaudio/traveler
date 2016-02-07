@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   patch "/adventures/:id/edit", to: "adventures#update"
 
+  resources :links, only: [:new, :create]
+
 end

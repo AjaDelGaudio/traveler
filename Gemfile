@@ -20,6 +20,7 @@ gem 'pg_search'
 gem 'gmaps4rails', '2.1.2'
 gem 'rack-timeout'
 gem 'puma'
+gem 'cocoon'
 
 group :development, :test do
   gem 'codeship'
@@ -30,6 +31,8 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', '~> 2.8.0', require: false
   gem 'dotenv-rails'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -39,5 +42,4 @@ end
 
 group :test do
   gem 'coveralls', require: false
-  gem 'database_cleaner'
 end

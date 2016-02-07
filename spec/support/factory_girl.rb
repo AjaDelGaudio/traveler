@@ -25,8 +25,13 @@ FactoryGirl.define do
     address "Vietnam"
     is_achieved false
     is_shared false
-    link "www.google.com"
     notes "bring beer"
     user
+  end
+
+  factory :link do
+    link_address "www.wikipedia.com"
+    link_name "Wikipedia"
+    adventure
   end
 end

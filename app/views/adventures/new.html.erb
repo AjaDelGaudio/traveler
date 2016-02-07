@@ -28,17 +28,21 @@
           <%= f.text_field :name, placeholder: "Build a reed boat.." %>
         </div>
 
-        <div class="field">
-          <%= f.label :link, "Link:" %>
-          <%= f.text_area :link, placeholder: "http://wikitravel.org/en/Lake_Titicaca..." %>
-        </div>
-
         <div class="field large-text-field">
           <%= f.label :notes, "Notes:" %>
           <%= f.text_area :notes, placeholder: "Highest commercially navigable" \
           " body of water in the world.  High elevation: stay hydrated and" \
           " drink the tea..." %>
         </div>
+
+        <ul>
+          <%= f.fields_for :links do |builder| %>
+            <%= render 'link_fields', f: builder %>
+          <% end %>
+        </ul>
+
+        <%= link_to_add_association (fa_icon "plus") + " Add link", f,
+            :links, class: "button" %>
 
         <div class="checkboxes" id="new-adventure-checkbox">
           <%= f.check_box :is_achieved %>
@@ -54,7 +58,7 @@
 
     <div class="button small-button text-center cancel new-cancel-button">
       <%= link_to (fa_icon "arrow-circle-left") + " Cancel",
-      bucket_lists_path %>
+          bucket_lists_path %>
     </div>
   </div>
 </div>

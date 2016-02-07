@@ -6,7 +6,8 @@
 
     <div class="text-right delete">
       <%= link_to (fa_icon "trash-o") + " Delete",
-      bucket_list_path(@bucket_list), method: :delete %>
+      bucket_list_path(@bucket_list), method: :delete,
+      data: {confirm: "You Sure?"} %>
     </div>
 
     <%= form_for @bucket_list, url: edit_bucket_list_path(@bucket_list) do |f| %>
